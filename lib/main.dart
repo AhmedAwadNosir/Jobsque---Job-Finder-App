@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:jobsque_jobfinder/Core/Utils/app_colors.dart';
-import 'package:jobsque_jobfinder/Core/Utils/app_fonts_styles.dart';
+import 'package:jobsque_jobfinder/Features/Onboarding/Views/splash_view.dart';
 
 void main() {
   runApp(const JopFinderApp());
@@ -11,6 +10,12 @@ class JopFinderApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp();
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      routes: {
+        SplashView.id: (context) => const SplashView(),
+      },
+      initialRoute: SplashView.id,
+    );
   }
 }
