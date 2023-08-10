@@ -1,3 +1,3 @@
- const textFamilyRegular = "SFPRODISPLAYREGULAR";
- const textFamilySemibold = "SFPRODISPLAYMEDIUM";
- const textFamilyBold = "SFPRODISPLAYBOLD";
+const textFamilyRegular = "SFPRODISPLAYREGULAR";
+const textFamilyMedium = "SFPRODISPLAYMEDIUM";
+const textFamilyBold = "SFPRODISPLAYBOLD";

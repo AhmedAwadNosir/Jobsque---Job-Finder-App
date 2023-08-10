@@ -5,6 +5,7 @@ abstract class AppFontsStyles {
   static const textstyle32 = TextStyle(
     fontSize: 32,
     fontFamily: textFamilyRegular,
+    
   );
   static const textstyle28 = TextStyle(
     fontSize: 28,

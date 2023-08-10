@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:jobsque_jobfinder/Core/Utils/app_images.dart';
+import 'package:jobsque_jobfinder/Features/Onboarding/Views/onboarding_view.dart';
 
+import '../functions/splash_navigation_controler.dart';
 import 'Wedgits/circle_container.dart';
 
 class SplashView extends StatefulWidget {
@@ -12,6 +14,16 @@ class SplashView extends StatefulWidget {
 
 class _SplashViewState extends State<SplashView> {
   @override
+  void initState() {
+    spalshNavigationControlar(context: context,destination: OnboardingView.id);
+    // TODO: implement initState
+    super.initState();
+  }
+
+  
+
+
+
   Widget build(BuildContext context) {
     final double screenHeight = MediaQuery.of(context).size.height;
     final double screenWidth = MediaQuery.of(context).size.width;
