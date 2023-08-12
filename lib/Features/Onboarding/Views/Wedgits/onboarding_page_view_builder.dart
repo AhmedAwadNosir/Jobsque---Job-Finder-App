@@ -9,7 +9,7 @@ class OnbardingPageView extends StatelessWidget {
   static List<OnboardingModel> onbardingPagesdata = [
     OnboardingModel(
       image: AppImages.appbackground1,
-      titlePart1: "Find a job, and",
+      titlePart1: "Find a job, and ",
       titlePart2: "start building ",
       titlePart3: "your career from now on",
       subTitle:
