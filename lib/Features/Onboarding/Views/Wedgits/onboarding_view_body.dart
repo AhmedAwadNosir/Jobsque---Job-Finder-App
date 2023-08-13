@@ -16,16 +16,20 @@ class OnboardingViewBody extends StatefulWidget {
 
 class _OnboardingViewBodyState extends State<OnboardingViewBody> {
   late PageController _pageController;
+  int currentPage = 0;
+  bool isLastPage = false;
   @override
   void initState() {
     _pageController = PageController();
     // TODO: implement initState
     super.initState();
+    _pageController.addListener(_pagelistener);
   }
 
   @override
   void dispose() {
     _pageController.dispose();
+    _pageController.removeListener(_pagelistener);
     // TODO: implement dispose
     super.dispose();
   }
@@ -59,9 +63,20 @@ class _OnboardingViewBodyState extends State<OnboardingViewBody> {
             onPressed: () {
               goToNextPage(_pageController);
             },
+            buttonName: "Next",
+            islastPage: isLastPage,
+            
           )
         ],
       ),
     );
+  }
+
+  void _pagelistener() {
+    setState(() {
+      currentPage = _pageController.page!.round();
+      isLastPage =
+          currentPage == OnbardingPageView.onbardingPagesdata.length - 1;
+    });
   }
 }

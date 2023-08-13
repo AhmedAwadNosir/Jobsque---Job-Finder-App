@@ -26,7 +26,7 @@ class OnbardingPageView extends StatelessWidget {
     OnboardingModel(
       image: AppImages.appbackground3,
       titlePart1: "Get the best ",
-      titlePart2: "choice for the job",
+      titlePart2: "choice for the job ",
       titlePart3: "you've always dreamed of",
       subTitle:
           "The better the skills you have, the greater the good job opportunities for you.",

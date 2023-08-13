@@ -4,11 +4,15 @@ import 'package:jobsque_jobfinder/Core/Utils/app_fonts_styles.dart';
 import '../../../../Core/Utils/app_colors.dart';
 
 class CustomButton extends StatelessWidget {
-  const CustomButton({
+   CustomButton({
     super.key,
     required this.onPressed,
+    required this.buttonName,
+   this.islastPage ,
   });
   final void Function()? onPressed;
+  final String buttonName;
+  bool? islastPage = false ;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -23,8 +27,8 @@ class CustomButton extends StatelessWidget {
             minimumSize: const Size(327, 48),
             backgroundColor: const Color(AppColors.appPrimaryColors500),
           ),
-          child: const Text(
-            "Next",
+          child: Text(
+            islastPage!?"Get Started":buttonName,
             style: AppFontsStyles.textstyle16,
           ),
         ));
