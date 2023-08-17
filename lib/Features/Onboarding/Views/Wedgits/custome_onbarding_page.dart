@@ -29,7 +29,7 @@ class CustomObardindPage extends StatelessWidget {
                 text: onboardingModel.titlePart1,
                 style: AppFontsStyles.textstyle32.copyWith(
                   fontFamily: textFamilyMedium,
-                  color: const Color(AppColors.appNeutralColors900),
+                  color: AppColors.appNeutralColors900,
                   height: 1.5,
                 ),
                 children: <TextSpan>[
@@ -37,14 +37,14 @@ class CustomObardindPage extends StatelessWidget {
                     text: onboardingModel.titlePart2,
                     style: AppFontsStyles.textstyle32.copyWith(
                       fontFamily: textFamilyMedium,
-                      color: const Color(AppColors.appPrimaryColors500),
+                      color: AppColors.appPrimaryColors500,
                     ),
                   ),
                   TextSpan(
                     text: onboardingModel.titlePart3,
                     style: AppFontsStyles.textstyle32.copyWith(
                       fontFamily: textFamilyMedium,
-                      color: const Color(AppColors.appNeutralColors900),
+                      color: AppColors.appNeutralColors900,
                     ),
                   ),
                 ],
@@ -56,9 +56,9 @@ class CustomObardindPage extends StatelessWidget {
             child: Text(
               onboardingModel.subTitle,
               style: AppFontsStyles.textstyle16.copyWith(
-                  color: const Color(
+                  color: 
                 AppColors.appNeutralColors500,
-              )),
+              ),
             ),
           ),
         ],

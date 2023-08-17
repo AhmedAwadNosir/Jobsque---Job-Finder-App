@@ -18,7 +18,7 @@ class PageInitialinfo extends StatelessWidget {
         style: AppFontsStyles.textstyle28.copyWith(
           fontFamily: textFamilyMedium,
           height: 1.4,
-          color: const Color(AppColors.appNeutralColors900),
+          color: AppColors.appNeutralColors900,
         ),
       ),
       const SizedBox(
@@ -29,7 +29,7 @@ class PageInitialinfo extends StatelessWidget {
         textAlign: TextAlign.start,
         style: AppFontsStyles.textstyle16.copyWith(
           height: 1.3,
-          color: const Color(AppColors.appNeutralColors500),
+          color: AppColors.appNeutralColors500,
         ),
       ),
     ]);

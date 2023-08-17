@@ -27,8 +27,8 @@ class _LoginBasicOperationState extends State<LoginBasicOperation> {
                   borderRadius: BorderRadius.circular(5)),
               value: isChecked,
               fillColor: MaterialStatePropertyAll(isChecked
-                  ? const Color(AppColors.appPrimaryColors500)
-                  : const Color(AppColors.appNeutralColors400)),
+                  ? AppColors.appPrimaryColors500
+                  : AppColors.appNeutralColors400),
               onChanged: (newvalue) {
                 setState(() {
                   isChecked = newvalue!;
@@ -41,13 +41,13 @@ class _LoginBasicOperationState extends State<LoginBasicOperation> {
         Text(
           "Remember me",
           style: AppFontsStyles.textstyle14
-              .copyWith(color: const Color(AppColors.appNeutralColors800)),
+              .copyWith(color: AppColors.appNeutralColors800),
         ),
-        const Expanded(child: SizedBox()),
+        const Spacer(),
         Text(
           "Forgot Password?",
           style: AppFontsStyles.textstyle14
-              .copyWith(color: const Color(AppColors.appPrimaryColors500)),
+              .copyWith(color: AppColors.appPrimaryColors500),
         )
       ],
     );

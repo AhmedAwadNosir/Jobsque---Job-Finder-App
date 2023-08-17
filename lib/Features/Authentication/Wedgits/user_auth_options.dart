@@ -15,7 +15,7 @@ class UserAuthOptions extends StatelessWidget {
         Container(
           width: 70.5,
           height: 1,
-          color: const Color(AppColors.appNeutralColors300),
+          color: AppColors.appNeutralColors300,
         ),
         const SizedBox(
           width: 25,
@@ -23,7 +23,7 @@ class UserAuthOptions extends StatelessWidget {
         Text(
           OperationOption,
           style: AppFontsStyles.textstyle14
-              .copyWith(color: const Color(AppColors.appNeutralColors500)),
+              .copyWith(color:AppColors.appNeutralColors500)
         ),
         const SizedBox(
           width: 25,
@@ -31,7 +31,7 @@ class UserAuthOptions extends StatelessWidget {
         Container(
           width: 70.5,
           height: 1,
-          color: const Color(AppColors.appNeutralColors300),
+          color: AppColors.appNeutralColors300,
         ),
       ],
     );

@@ -1,72 +1,86 @@
 import 'package:flutter/material.dart';
+import 'package:iconsax/iconsax.dart';
 import '../../../Core/Utils/app_colors.dart';
 import '../../../Core/Utils/app_fonts_styles.dart';
 import '../../../Core/Utils/constans.dart';
 import '../functions/text_field_border_decoration.dart';
 
 class CustomTextField extends StatefulWidget {
-  CustomTextField(
-      {super.key,
-      required this.focusNode,
-      required this.isfocused,
-      required this.hintText,
-      required this.prefixicon,
-      this.suffixicon,
-      required this.obscureText});
-  final FocusNode focusNode;
-  final bool isfocused;
+  CustomTextField({
+    super.key,
+    required this.hintText,
+    this.prefixicon,
+    this.suffixicon,
+    required this.obscureText,
+    this.onSaved,
+    this.onChanged,
+    this.onFieldSubmited,
+    this.validator,
+    this.autovalidateMode,
+  });
   final String hintText;
-  final IconData prefixicon;
-  IconData? suffixicon;
+  final Widget? prefixicon;
+  Widget? suffixicon;
   bool obscureText;
+  final void Function(String?)? onSaved;
+  final void Function(String?)? onChanged;
+  final void Function(String?)? onFieldSubmited;
+  final String? Function(String?)? validator;
+  final AutovalidateMode? autovalidateMode;
 
   @override
   State<CustomTextField> createState() => _CustomTextFieldState();
 }
 
 class _CustomTextFieldState extends State<CustomTextField> {
+  FocusNode focusNode = FocusNode();
   @override
   Widget build(BuildContext context) {
-    return TextField(
+    return TextFormField(
       obscureText: widget.obscureText,
-      focusNode: widget.focusNode,
+      focusNode: focusNode,
+      onSaved: widget.onSaved,
+      onChanged: widget.onChanged,
+      onFieldSubmitted: widget.onFieldSubmited,
+      validator: widget.validator,
+      autovalidateMode: widget.autovalidateMode,
       style: AppFontsStyles.textstyle14.copyWith(
-          fontFamily: textFamilyMedium,
-          color: const Color(AppColors.appNeutralColors900)),
+        fontFamily: textFamilyMedium,
+        color: AppColors.appNeutralColors900,
+      ),
       decoration: InputDecoration(
-          prefixIcon: Icon(
-            widget.prefixicon,
-            color: widget.isfocused
-                ? const Color(AppColors.appNeutralColors900)
-                : const Color(AppColors.appNeutralColors300),
-          ),
-          suffixIcon: widget.suffixicon != null
-              ? IconButton(
-                  onPressed: () {
-                    setState(() {
-                      widget.obscureText = !widget.obscureText;
-                    });
-                  },
-                  icon: Icon(
-                    widget.obscureText
-                        ? widget.suffixicon
-                        : Icons.visibility_sharp,
-                    color: widget.isfocused
-                        ? const Color(AppColors.appNeutralColors900)
-                        : const Color(AppColors.appNeutralColors300),
-                  ))
-              : null,
-          hintText: widget.hintText,
-          hintStyle: AppFontsStyles.textstyle14.copyWith(
-            fontWeight: FontWeight.w400,
-            height: 1.4,
-            color: const Color(AppColors.appNeutralColors400),
-          ),
-          contentPadding: const EdgeInsets.all(25),
-          enabledBorder:
-              borderDecoration(borderColor: AppColors.appNeutralColors300),
-          focusedBorder:
-              borderDecoration(borderColor: AppColors.appPrimaryColors500)),
+        prefixIcon: widget.prefixicon,
+        suffixIcon: widget.suffixicon != null
+            ? GestureDetector(
+                onTap: () {
+                  setState(() {
+                    widget.obscureText = !widget.obscureText;
+                  });
+                },
+                child: widget.obscureText
+                    ? widget.suffixicon
+                    : const Icon(Iconsax.eye),
+              )
+            : null,
+        prefixIconColor: focusNode.hasFocus
+            ? AppColors.appNeutralColors900
+            : AppColors.appNeutralColors300,
+        suffixIconColor: focusNode.hasFocus
+            ? AppColors.appNeutralColors900
+            : AppColors.appNeutralColors300,
+        hintText: widget.hintText,
+        hintStyle: AppFontsStyles.textstyle14.copyWith(
+          fontWeight: FontWeight.w400,
+          color: AppColors.appNeutralColors400,
+        ),
+        contentPadding: const EdgeInsets.symmetric(vertical: 25),
+        border: buildOutlineInputBorder(),
+        disabledBorder: buildOutlineInputBorder(),
+        enabledBorder: buildOutlineInputBorder(),
+        focusedErrorBorder: buildErrorBorders(),
+        errorBorder: buildErrorBorders(),
+        focusedBorder: buildFocusedBorder(),
+      ),
     );
   }
 }

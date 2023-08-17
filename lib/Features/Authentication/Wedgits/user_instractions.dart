@@ -20,7 +20,7 @@ class User_Instractions extends StatelessWidget {
         Text(
           userQution,
           style: AppFontsStyles.textstyle14.copyWith(
-              color: const Color(AppColors.appNeutralColors400),
+              color:  AppColors.appNeutralColors400,
               fontFamily: textFamilyMedium),
         ),
         const SizedBox(
@@ -29,7 +29,7 @@ class User_Instractions extends StatelessWidget {
         Text(
           userDestenation,
           style: AppFontsStyles.textstyle14.copyWith(
-              color: const Color(AppColors.appPrimaryColors500),
+              color: AppColors.appPrimaryColors500,
               fontFamily: textFamilyMedium),
         ),
       ],

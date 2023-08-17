@@ -50,7 +50,7 @@ class _OnboardingViewBodyState extends State<OnboardingViewBody> {
                 child: Text(
                   "Skip",
                   style: AppFontsStyles.textstyle16.copyWith(
-                    color: const Color(AppColors.appNeutralColors500),
+                    color: AppColors.appNeutralColors500,
                   ),
                 ),
               ),
@@ -64,10 +64,10 @@ class _OnboardingViewBodyState extends State<OnboardingViewBody> {
             controller: _pageController,
             count: OnbardingPageView.onbardingPagesdata.length,
             effect: const WormEffect(
-              activeDotColor: Color(AppColors.appPrimaryColors500),
-              dotColor: Color(
+              activeDotColor: AppColors.appPrimaryColors500,
+              dotColor: 
                 AppColors.appPrimaryColors200,
-              ),
+             
               dotHeight: 6,
               dotWidth: 6,
             ),
