@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class CircleContainer extends StatelessWidget {
-  CircleContainer({
+ const CircleContainer({
     super.key,
     required this.height,
     required this.width,
@@ -12,7 +12,7 @@ class CircleContainer extends StatelessWidget {
   final double height;
   final double width;
   final int color;
-  String? image;
+  final String? image;
 
   @override
   Widget build(BuildContext context) {

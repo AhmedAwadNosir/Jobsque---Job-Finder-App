@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:jobsque_jobfinder/Features/Authentication/Views/sign_in_view.dart';
 
 import '../Views/Wedgits/onboarding_page_view_builder.dart';
 
-void goToNextPage(PageController) {
-    if (PageController.page! <
-        OnbardingPageView.onbardingPagesdata.length - 1) {
-      PageController.nextPage(
-          duration: const Duration(milliseconds: 300), curve: Curves.ease);
-    }
+void goToNextPage({required pageController, required context}) {
+  if (pageController.page! < OnbardingPageView.onbardingPagesdata.length - 1) {
+    pageController.nextPage(
+        duration: const Duration(milliseconds: 300), curve: Curves.ease);
+  } else if (pageController.page ==
+      OnbardingPageView.onbardingPagesdata.length - 1) {
+    Navigator.pushNamed(context, SignInView.id);
   }
+}

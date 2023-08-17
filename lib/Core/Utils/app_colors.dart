@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 
 abstract class AppColors {
 static const int appNeutralColors900 = 0XFF111827;
