@@ -148,8 +148,8 @@ class _RegisterViewBodyState extends State<RegisterViewBody> {
                     return null;
                   },
                 ),
-                const SizedBox(
-                  height: 105,
+               Container(
+                  constraints: const BoxConstraints(minHeight: 105),
                 ),
                 UserInstractions(
                   userDestenation: "Login",

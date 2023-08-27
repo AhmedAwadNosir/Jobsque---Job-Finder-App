@@ -104,8 +104,8 @@ class _SignInViewBodyState extends State<SignInViewBody> {
                   height: 20,
                 ),
                 const CustomAuthBasicOperation(),
-                const SizedBox(
-                  height: 173,
+                Container(
+                  constraints: const BoxConstraints(minHeight: 173),
                 ),
                 UserInstractions(
                   userDestenation: "Register",
@@ -146,7 +146,7 @@ class _SignInViewBodyState extends State<SignInViewBody> {
                   site1OnTap: () {},
                   site2OnTap: () {},
                 ),
-                  const SizedBox(
+                const SizedBox(
                   height: 9,
                 )
               ],

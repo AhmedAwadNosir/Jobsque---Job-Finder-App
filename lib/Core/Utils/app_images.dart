@@ -32,4 +32,8 @@ abstract class AppImages {
   static const String argantina = "lib/Core/Utils/assets/images/argentina.png";
   static const String successaccount =
       "lib/Core/Utils/assets/images/Successcreatin.png";
+  static const String checkEmail =
+      "lib/Core/Utils/assets/images/EmailIlustration.png";
+  static const String passowrdresetsuccessfullly =
+      "lib/Core/Utils/assets/images/PasswordSuccesfullyIlustration.png";
 }

@@ -1,4 +1,6 @@
+
 import 'package:flutter/material.dart';
+import 'package:jobsque_jobfinder/Features/forgot%20_password/views/forgot_password_view.dart';
 import '../../../Core/Utils/app_colors.dart';
 import '../../../Core/Utils/app_fonts_styles.dart';
 
@@ -45,7 +47,9 @@ class _CustomAuthBasicOperationState extends State<CustomAuthBasicOperation> {
         ),
         const Spacer(),
         GestureDetector(
-          onTap: () {},
+          onTap: () {
+            Navigator.pushNamed(context, ForgotPasswordView.id);
+          },
           child: Text(
             "Forgot Password?",
             style: AppFontsStyles.textstyle14

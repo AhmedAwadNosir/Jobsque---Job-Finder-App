@@ -7,6 +7,10 @@ import 'package:jobsque_jobfinder/Features/Authentication/Create_Account/Views/s
 import 'package:jobsque_jobfinder/Features/Authentication/Create_Account/Views/work_location_view.dart';
 import 'package:jobsque_jobfinder/Features/Onboarding/Views/onboarding_view.dart';
 import 'package:jobsque_jobfinder/Features/Onboarding/Views/splash_view.dart';
+import 'package:jobsque_jobfinder/Features/forgot%20_password/views/check_emial_view.dart';
+import 'package:jobsque_jobfinder/Features/forgot%20_password/views/forgot_password_view.dart';
+import 'package:jobsque_jobfinder/Features/forgot%20_password/views/password_reset_successfully_view.dart';
+import 'package:jobsque_jobfinder/Features/forgot%20_password/views/reset_password_view.dart';
 
 void main() {
   SystemChrome.setSystemUIOverlayStyle(
@@ -38,7 +42,11 @@ class JopFinderApp extends StatelessWidget {
         WorkLocationView.id: (context) => const WorkLocationView(),
         SuccessAcountIlstrationView.id: (context) =>
             const SuccessAcountIlstrationView(),
-        
+        ForgotPasswordView.id: (context) => const ForgotPasswordView(),
+        CheckEmialView.id: (context) => const CheckEmialView(),
+        ResetPasswordView.id: (context) => const ResetPasswordView(),
+        PasswordResetSuccessfullyView.id: (context) =>
+            const PasswordResetSuccessfullyView()
       },
       initialRoute: SplashView.id,
     );

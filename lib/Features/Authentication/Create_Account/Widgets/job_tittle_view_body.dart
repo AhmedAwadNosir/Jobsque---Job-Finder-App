@@ -24,6 +24,7 @@ class JobTittleViewBody extends StatelessWidget {
                 height: 20,
               ),
               PageInitialinfo(
+                spacebetween: 12,
                 pagegole: "What type of work are you interested in?",
                 pagegoledefination:
                     "Tell us what you’re interested in so we can customise the app for your needs.",
