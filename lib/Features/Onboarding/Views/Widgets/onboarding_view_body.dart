@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:jobsque_jobfinder/Core/Utils/app_colors.dart';
 import 'package:jobsque_jobfinder/Core/Wedgits/custom_app_logo.dart';
-import 'package:jobsque_jobfinder/Features/Authentication/Views/sign_in_view.dart';
-import 'package:jobsque_jobfinder/Features/Onboarding/Views/Wedgits/onboarding_page_view_builder.dart';
+import 'package:jobsque_jobfinder/Features/Authentication/Sign_Up/Views/sign_in_view.dart';
+import 'package:jobsque_jobfinder/Features/Onboarding/Views/Widgets/onboarding_page_view_builder.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import '../../../../Core/Utils/app_fonts_styles.dart';
 import '../../functions/next_page_view.dart';

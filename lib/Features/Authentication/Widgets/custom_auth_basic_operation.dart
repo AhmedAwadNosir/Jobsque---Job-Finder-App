@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
-
 import '../../../Core/Utils/app_colors.dart';
 import '../../../Core/Utils/app_fonts_styles.dart';
 
-class LoginBasicOperation extends StatefulWidget {
-  const LoginBasicOperation({
+class CustomAuthBasicOperation extends StatefulWidget {
+  const CustomAuthBasicOperation({
     super.key,
   });
 
   @override
-  State<LoginBasicOperation> createState() => _LoginBasicOperationState();
+  State<CustomAuthBasicOperation> createState() =>
+      _CustomAuthBasicOperationState();
 }
 
-class _LoginBasicOperationState extends State<LoginBasicOperation> {
+class _CustomAuthBasicOperationState extends State<CustomAuthBasicOperation> {
   bool isChecked = false;
 
   @override
@@ -44,10 +44,13 @@ class _LoginBasicOperationState extends State<LoginBasicOperation> {
               .copyWith(color: AppColors.appNeutralColors800),
         ),
         const Spacer(),
-        Text(
-          "Forgot Password?",
-          style: AppFontsStyles.textstyle14
-              .copyWith(color: AppColors.appPrimaryColors500),
+        GestureDetector(
+          onTap: () {},
+          child: Text(
+            "Forgot Password?",
+            style: AppFontsStyles.textstyle14
+                .copyWith(color: AppColors.appPrimaryColors500),
+          ),
         )
       ],
     );

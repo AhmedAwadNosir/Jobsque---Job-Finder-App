@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:jobsque_jobfinder/Core/Utils/app_colors.dart';
-import 'package:jobsque_jobfinder/Features/Authentication/Views/sign_in_view.dart';
+import 'package:jobsque_jobfinder/Features/Authentication/Create_Account/Views/job_title_view.dart';
+import 'package:jobsque_jobfinder/Features/Authentication/Create_Account/Views/register_view.dart';
+import 'package:jobsque_jobfinder/Features/Authentication/Sign_Up/Views/sign_in_view.dart';
+import 'package:jobsque_jobfinder/Features/Authentication/Create_Account/Views/sucess_account_ilstration.dart';
+import 'package:jobsque_jobfinder/Features/Authentication/Create_Account/Views/work_location_view.dart';
 import 'package:jobsque_jobfinder/Features/Onboarding/Views/onboarding_view.dart';
 import 'package:jobsque_jobfinder/Features/Onboarding/Views/splash_view.dart';
 
@@ -30,6 +33,12 @@ class JopFinderApp extends StatelessWidget {
         SplashView.id: (context) => const SplashView(),
         OnboardingView.id: (context) => const OnboardingView(),
         SignInView.id: (context) => const SignInView(),
+        RegisterView.id: (context) => const RegisterView(),
+        JobTitleView.id: (context) => const JobTitleView(),
+        WorkLocationView.id: (context) => const WorkLocationView(),
+        SuccessAcountIlstrationView.id: (context) =>
+            const SuccessAcountIlstrationView(),
+        
       },
       initialRoute: SplashView.id,
     );

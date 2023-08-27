@@ -3,7 +3,7 @@ import 'package:jobsque_jobfinder/Core/Utils/app_images.dart';
 import 'package:jobsque_jobfinder/Features/Onboarding/Views/onboarding_view.dart';
 
 import '../functions/splash_navigation_controler.dart';
-import 'Wedgits/circle_container.dart';
+import 'Widgets/circle_container.dart';
 
 class SplashView extends StatefulWidget {
   const SplashView({super.key});

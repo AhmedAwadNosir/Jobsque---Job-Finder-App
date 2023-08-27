@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+
 class CustomAppBarr extends StatelessWidget {
   const CustomAppBarr({
-    super.key, @required this.leftPart, @required this.rightPart,
+    super.key,
+    @required this.leftPart,
+    @required this.rightPart,
   });
   final Widget? leftPart;
   final Widget? rightPart;
@@ -12,9 +15,8 @@ class CustomAppBarr extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-         leftPart??Container(),
-          rightPart??Container(),
-          
+          leftPart ?? Container(),
+          rightPart ?? Container(),
         ],
       ),
     );

@@ -7,26 +7,33 @@ import '../../../Core/Utils/constans.dart';
 class PageInitialinfo extends StatelessWidget {
   const PageInitialinfo({
     super.key,
+    required this.pagegole,
+    required this.pagegoledefination,
+    this.pagegoleStyle, this.textAlign,
   });
-
+  final String pagegole;
+  final String pagegoledefination;
+  final TextStyle? pagegoleStyle;
+  final TextAlign? textAlign;
   @override
   Widget build(BuildContext context) {
     return Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
       Text(
-        "Login ",
-        textAlign: TextAlign.start,
-        style: AppFontsStyles.textstyle28.copyWith(
-          fontFamily: textFamilyMedium,
-          height: 1.4,
-          color: AppColors.appNeutralColors900,
-        ),
+        pagegole,
+        textAlign: textAlign??TextAlign.start,
+        style: pagegoleStyle ??
+            AppFontsStyles.textstyle28.copyWith(
+              fontFamily: textFamilyMedium,
+              height: 1.4,
+              color: AppColors.appNeutralColors900,
+            ),
       ),
       const SizedBox(
         height: 8,
       ),
       Text(
-        "Please login to find your dream job",
-        textAlign: TextAlign.start,
+        pagegoledefination,
+        textAlign:textAlign?? TextAlign.start,
         style: AppFontsStyles.textstyle16.copyWith(
           height: 1.3,
           color: AppColors.appNeutralColors500,

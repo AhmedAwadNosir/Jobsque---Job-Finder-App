@@ -17,6 +17,8 @@ class CustomTextField extends StatefulWidget {
     this.onFieldSubmited,
     this.validator,
     this.autovalidateMode,
+    this.helperText,
+    this.helperStyle,
   });
   final String hintText;
   final Widget? prefixicon;
@@ -27,6 +29,8 @@ class CustomTextField extends StatefulWidget {
   final void Function(String?)? onFieldSubmited;
   final String? Function(String?)? validator;
   final AutovalidateMode? autovalidateMode;
+  final String? helperText;
+  final TextStyle? helperStyle;
 
   @override
   State<CustomTextField> createState() => _CustomTextFieldState();
@@ -49,6 +53,8 @@ class _CustomTextFieldState extends State<CustomTextField> {
         color: AppColors.appNeutralColors900,
       ),
       decoration: InputDecoration(
+        helperText: widget.helperText,
+        helperStyle: widget.helperStyle,
         prefixIcon: widget.prefixicon,
         suffixIcon: widget.suffixicon != null
             ? GestureDetector(
@@ -68,6 +74,8 @@ class _CustomTextFieldState extends State<CustomTextField> {
         suffixIconColor: focusNode.hasFocus
             ? AppColors.appNeutralColors900
             : AppColors.appNeutralColors300,
+        errorStyle: AppFontsStyles.textstyle16
+            .copyWith(color: AppColors.appInDangerColors500),
         hintText: widget.hintText,
         hintStyle: AppFontsStyles.textstyle14.copyWith(
           fontWeight: FontWeight.w400,
