@@ -3,6 +3,7 @@ import 'package:jobsque_jobfinder/Core/Utils/app_colors.dart';
 import 'package:jobsque_jobfinder/Core/Wedgits/custom_app_logo.dart';
 import 'package:jobsque_jobfinder/Features/Authentication/Sign_Up/Views/sign_in_view.dart';
 import 'package:jobsque_jobfinder/Features/Onboarding/Views/Widgets/onboarding_page_view_builder.dart';
+import 'package:jobsque_jobfinder/Features/Onboarding/functions/store_onboardin_info.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import '../../../../Core/Utils/app_fonts_styles.dart';
 import '../../functions/next_page_view.dart';
@@ -44,7 +45,8 @@ class _OnboardingViewBodyState extends State<OnboardingViewBody> {
             child: CustomAppBarr(
               leftPart: const CustomAppLogo(),
               rightPart: GestureDetector(
-                onTap: () {
+                onTap: () async {
+                  await storeOnboardinInfo();
                   Navigator.pushNamed(context, SignInView.id);
                 },
                 child: Text(
@@ -65,9 +67,7 @@ class _OnboardingViewBodyState extends State<OnboardingViewBody> {
             count: OnbardingPageView.onbardingPagesdata.length,
             effect: const WormEffect(
               activeDotColor: AppColors.appPrimaryColors500,
-              dotColor: 
-                AppColors.appPrimaryColors200,
-             
+              dotColor: AppColors.appPrimaryColors200,
               dotHeight: 6,
               dotWidth: 6,
             ),

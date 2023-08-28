@@ -11,8 +11,10 @@ import 'package:jobsque_jobfinder/Features/forgot%20_password/views/check_emial_
 import 'package:jobsque_jobfinder/Features/forgot%20_password/views/forgot_password_view.dart';
 import 'package:jobsque_jobfinder/Features/forgot%20_password/views/password_reset_successfully_view.dart';
 import 'package:jobsque_jobfinder/Features/forgot%20_password/views/reset_password_view.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
-void main() {
+ bool? isViewed ;
+void main() async {
   SystemChrome.setSystemUIOverlayStyle(
     const SystemUiOverlayStyle(
         statusBarColor: Colors.white,
@@ -20,6 +22,9 @@ void main() {
             Colors.white // Set your desired status bar color here
         ),
   );
+  WidgetsFlutterBinding.ensureInitialized();
+  SharedPreferences prefs = await SharedPreferences.getInstance();
+  isViewed = prefs.getBool("isViewd");
   runApp(const JopFinderApp());
 }
 
