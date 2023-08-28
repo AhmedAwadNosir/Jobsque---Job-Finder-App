@@ -1,8 +1,9 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:jobsque_jobfinder/Features/Authentication/Create_Account/Views/job_title_view.dart';
 import 'package:jobsque_jobfinder/Features/Authentication/Create_Account/Views/register_view.dart';
-import 'package:jobsque_jobfinder/Features/Authentication/Sign_Up/Views/sign_in_view.dart';
+import 'package:jobsque_jobfinder/Features/Authentication/Sign_IN/Views/sign_in_view.dart';
 import 'package:jobsque_jobfinder/Features/Authentication/Create_Account/Views/sucess_account_ilstration.dart';
 import 'package:jobsque_jobfinder/Features/Authentication/Create_Account/Views/work_location_view.dart';
 import 'package:jobsque_jobfinder/Features/Onboarding/Views/onboarding_view.dart';
@@ -11,9 +12,11 @@ import 'package:jobsque_jobfinder/Features/forgot%20_password/views/check_emial_
 import 'package:jobsque_jobfinder/Features/forgot%20_password/views/forgot_password_view.dart';
 import 'package:jobsque_jobfinder/Features/forgot%20_password/views/password_reset_successfully_view.dart';
 import 'package:jobsque_jobfinder/Features/forgot%20_password/views/reset_password_view.dart';
+import 'package:jobsque_jobfinder/firebase_options.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+// Import the generated file
 
- bool? isViewed ;
+bool? isViewed;
 void main() async {
   SystemChrome.setSystemUIOverlayStyle(
     const SystemUiOverlayStyle(
@@ -25,6 +28,7 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   SharedPreferences prefs = await SharedPreferences.getInstance();
   isViewed = prefs.getBool("isViewd");
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   runApp(const JopFinderApp());
 }
 

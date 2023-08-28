@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:jobsque_jobfinder/Core/Utils/app_colors.dart';
 import 'package:jobsque_jobfinder/Core/Wedgits/custom_app_logo.dart';
 import 'package:jobsque_jobfinder/Core/Wedgits/custom_appbarr.dart';
 import 'package:jobsque_jobfinder/Features/Authentication/Create_Account/Views/register_view.dart';
+import 'package:jobsque_jobfinder/Features/Authentication/Cubits/SignIn/sign_in_cubit.dart';
 import 'package:jobsque_jobfinder/Features/Authentication/Widgets/custom_authentication_options.dart';
 import 'package:jobsque_jobfinder/Features/Authentication/Widgets/custom_text_field.dart';
 import 'package:jobsque_jobfinder/Features/Authentication/Widgets/page_initail_info.dart';
@@ -121,6 +123,8 @@ class _SignInViewBodyState extends State<SignInViewBody> {
                   onPressed: () {
                     if (formkey.currentState!.validate()) {
                       formkey.currentState!.save();
+                      BlocProvider.of<SignInCubit>(context)
+                          .singIn(emailAddress: userName, password: password);
                     } else {
                       setState(() {
                         autovalidateMode = AutovalidateMode.always;

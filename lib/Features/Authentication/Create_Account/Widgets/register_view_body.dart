@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:jobsque_jobfinder/Core/Utils/app_colors.dart';
 import 'package:jobsque_jobfinder/Core/Utils/app_fonts_styles.dart';
 import 'package:jobsque_jobfinder/Core/Wedgits/custom_app_logo.dart';
 import 'package:jobsque_jobfinder/Core/Wedgits/custom_appbarr.dart';
 import 'package:jobsque_jobfinder/Features/Authentication/Create_Account/Views/job_title_view.dart';
+import 'package:jobsque_jobfinder/Features/Authentication/Cubits/Register/register_cubit.dart';
 import 'package:jobsque_jobfinder/Features/Authentication/Widgets/custom_authentication_options.dart';
 import 'package:jobsque_jobfinder/Features/Authentication/Widgets/page_initail_info.dart';
 import 'package:jobsque_jobfinder/Features/Authentication/Widgets/user_auth_options.dart';
@@ -65,30 +67,30 @@ class _RegisterViewBodyState extends State<RegisterViewBody> {
                 const SizedBox(
                   height: 44,
                 ),
-                CustomTextField(
-                  hintText: 'Username',
-                  autovalidateMode: autovalidateMode,
-                  prefixicon: const Icon(
-                    Iconsax.user_square,
-                  ),
-                  obscureText: false,
-                  onChanged: (value) {
-                    setState(() {
-                      userNameData = value!;
-                    });
-                  },
-                  onSaved: (value) {
-                    setState(() {
-                      userName = value!;
-                    });
-                  },
-                  validator: (value) {
-                    if (value?.isEmpty ?? true) {
-                      return "Field is Required";
-                    }
-                    return null;
-                  },
-                ),
+                // CustomTextField(
+                //   hintText: 'Username',
+                //   autovalidateMode: autovalidateMode,
+                //   prefixicon: const Icon(
+                //     Iconsax.user_square,
+                //   ),
+                //   obscureText: false,
+                //   onChanged: (value) {
+                //     setState(() {
+                //       userNameData = value!;
+                //     });
+                //   },
+                //   onSaved: (value) {
+                //     setState(() {
+                //       userName = value!;
+                //     });
+                //   },
+                //   validator: (value) {
+                //     if (value?.isEmpty ?? true) {
+                //       return "Field is Required";
+                //     }
+                //     return null;
+                //   },
+                // ),
                 const SizedBox(
                   height: 16,
                 ),
@@ -148,7 +150,7 @@ class _RegisterViewBodyState extends State<RegisterViewBody> {
                     return null;
                   },
                 ),
-               Container(
+                Container(
                   constraints: const BoxConstraints(minHeight: 105),
                 ),
                 UserInstractions(
@@ -165,6 +167,8 @@ class _RegisterViewBodyState extends State<RegisterViewBody> {
                   onPressed: () {
                     if (formkey.currentState!.validate()) {
                       formkey.currentState!.save();
+                      BlocProvider.of<RegisterCubit>(context)
+                          .register(emailAddress: email, password: password);
                       Navigator.pushNamed(context, JobTitleView.id);
                     } else {
                       setState(() {
@@ -173,9 +177,7 @@ class _RegisterViewBodyState extends State<RegisterViewBody> {
                     }
                   },
                   buttonName: "Create account",
-                  buttonColor: (userNameData.isNotEmpty &&
-                          passwordData.isNotEmpty &&
-                          emialData.isNotEmpty)
+                  buttonColor: (passwordData.isNotEmpty && emialData.isNotEmpty)
                       ? AppColors.appPrimaryColors500
                       : AppColors.appNeutralColors300,
                 ),
@@ -183,7 +185,7 @@ class _RegisterViewBodyState extends State<RegisterViewBody> {
                   height: 20,
                 ),
                 const UserAuthOptions(
-                  operationOption: "Or Login With Account",
+                  operationOption: "Or Sign up With Account",
                 ),
                 const SizedBox(
                   height: 24,
