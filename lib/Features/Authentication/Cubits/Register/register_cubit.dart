@@ -4,11 +4,13 @@ import 'package:bloc/bloc.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:meta/meta.dart';
 
+import '../../functions/sign_in_with_google.dart';
+
 part 'register_state.dart';
 
 class RegisterCubit extends Cubit<RegisterState> {
   RegisterCubit() : super(RegisterInitial());
-  void register(
+  void registerWithEmailAndPassword(
       {required String emailAddress, required String password}) async {
     emit(RegisterLoading());
     try {
@@ -26,6 +28,16 @@ class RegisterCubit extends Cubit<RegisterState> {
       }
     } catch (e) {
       log(e.toString());
+    }
+  }
+
+   Future signUpWithGoogle() async {
+    emit(RegisterLoading());
+    try {
+      await signInWithGoogle();
+      emit(RegisterSuccess());
+    } catch (e) {
+      emit(RegisterFailure("Error happend with googl sign in try Again Later"));
     }
   }
 }

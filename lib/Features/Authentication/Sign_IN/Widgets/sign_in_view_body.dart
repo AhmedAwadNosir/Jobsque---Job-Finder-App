@@ -1,17 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:jobsque_jobfinder/Core/Utils/app_colors.dart';
 import 'package:jobsque_jobfinder/Core/Wedgits/custom_app_logo.dart';
 import 'package:jobsque_jobfinder/Core/Wedgits/custom_appbarr.dart';
 import 'package:jobsque_jobfinder/Features/Authentication/Create_Account/Views/register_view.dart';
-import 'package:jobsque_jobfinder/Features/Authentication/Cubits/SignIn/sign_in_cubit.dart';
 import 'package:jobsque_jobfinder/Features/Authentication/Widgets/custom_authentication_options.dart';
 import 'package:jobsque_jobfinder/Features/Authentication/Widgets/custom_text_field.dart';
 import 'package:jobsque_jobfinder/Features/Authentication/Widgets/page_initail_info.dart';
 import 'package:jobsque_jobfinder/Features/Authentication/Widgets/user_auth_options.dart';
 import 'package:jobsque_jobfinder/Features/Authentication/Widgets/user_instractions.dart';
+import 'package:jobsque_jobfinder/Features/Authentication/functions/sign_in_with_facebook.dart';
 import 'package:jobsque_jobfinder/Features/Onboarding/Views/Widgets/custom_button.dart';
+import '../../Cubits/SignIn/sign_in_cubit.dart';
 import '../../Widgets/custom_auth_basic_operation.dart';
 
 class SignInViewBody extends StatefulWidget {
@@ -124,7 +126,8 @@ class _SignInViewBodyState extends State<SignInViewBody> {
                     if (formkey.currentState!.validate()) {
                       formkey.currentState!.save();
                       BlocProvider.of<SignInCubit>(context)
-                          .singIn(emailAddress: userName, password: password);
+                          .singInWithEmailAndPassword(
+                              emailAddress: userName, password: password);
                     } else {
                       setState(() {
                         autovalidateMode = AutovalidateMode.always;
@@ -138,6 +141,15 @@ class _SignInViewBodyState extends State<SignInViewBody> {
                           : AppColors.appNeutralColors300,
                 ),
                 const SizedBox(
+                  height: 24,
+                ),
+                CustomButton(
+                    onPressed: () async {
+                      await GoogleSignIn().signOut();
+                    },
+                    buttonName: "google sign out",
+                    buttonColor: AppColors.appPrimaryColors500),
+                const SizedBox(
                   height: 20,
                 ),
                 const UserAuthOptions(
@@ -147,8 +159,12 @@ class _SignInViewBodyState extends State<SignInViewBody> {
                   height: 24,
                 ),
                 CustomAuthinticationOptions(
-                  site1OnTap: () {},
-                  site2OnTap: () {},
+                  site1OnTap: () async {
+                    await BlocProvider.of<SignInCubit>(context).signInGoogle();
+                  },
+                  site2OnTap: () async {
+                    await signInWithFacebook();
+                  },
                 ),
                 const SizedBox(
                   height: 9,
