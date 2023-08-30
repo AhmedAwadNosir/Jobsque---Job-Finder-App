@@ -182,6 +182,11 @@ class _RegisterViewBodyState extends State<RegisterViewBody> {
                           userNameData.isNotEmpty)
                       ? AppColors.appPrimaryColors500
                       : AppColors.appNeutralColors300,
+                  textButtonColor: (passwordData.isNotEmpty &&
+                          emialData.isNotEmpty &&
+                          userNameData.isNotEmpty)
+                      ? Colors.white
+                      : AppColors.appNeutralColors400,
                 ),
                 const SizedBox(
                   height: 20,

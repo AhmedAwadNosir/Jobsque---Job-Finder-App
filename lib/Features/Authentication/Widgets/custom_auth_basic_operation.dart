@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:jobsque_jobfinder/Features/forgot%20_password/views/forgot_password_view.dart';
 import '../../../Core/Utils/app_colors.dart';
@@ -26,11 +25,12 @@ class _CustomAuthBasicOperationState extends State<CustomAuthBasicOperation> {
           width: 18,
           child: Checkbox(
               shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(5)),
+                borderRadius: BorderRadius.circular(5),
+              ),
               value: isChecked,
-              fillColor: MaterialStatePropertyAll(isChecked
-                  ? AppColors.appPrimaryColors500
-                  : AppColors.appNeutralColors400),
+              checkColor: AppColors.appNeutralColors300,
+              fillColor: MaterialStatePropertyAll(
+                  isChecked ? AppColors.appPrimaryColors500 : Colors.white),
               onChanged: (newvalue) {
                 setState(() {
                   isChecked = newvalue!;

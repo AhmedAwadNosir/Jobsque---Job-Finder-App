@@ -143,6 +143,10 @@ class _SignInViewBodyState extends State<SignInViewBody> {
                       (userNameData!.isNotEmpty && passwordData!.isNotEmpty)
                           ? AppColors.appPrimaryColors500
                           : AppColors.appNeutralColors300,
+                  textButtonColor:
+                      (userNameData!.isNotEmpty && passwordData!.isNotEmpty)
+                          ? Colors.white
+                          : AppColors.appNeutralColors500,
                 ),
                 const SizedBox(
                   height: 24,
