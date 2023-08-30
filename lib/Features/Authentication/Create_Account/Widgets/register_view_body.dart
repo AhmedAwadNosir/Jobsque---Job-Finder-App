@@ -192,12 +192,13 @@ class _RegisterViewBodyState extends State<RegisterViewBody> {
                 const SizedBox(
                   height: 24,
                 ),
-                CustomAuthinticationOptions(
-                    site1OnTap: () async {
-                      await BlocProvider.of<RegisterCubit>(context)
-                          .signUpWithGoogle();
-                    },
-                    site2OnTap: () {}),
+                CustomAuthinticationOptions(site1OnTap: () async {
+                  await BlocProvider.of<RegisterCubit>(context)
+                      .signUpWithGoogle();
+                }, site2OnTap: () async {
+                  await BlocProvider.of<RegisterCubit>(context)
+                      .signUpWithFacebook();
+                }),
                 const SizedBox(
                   height: 9,
                 )

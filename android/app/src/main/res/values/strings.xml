@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+  <string name="app_name">jopfinder</string>
+  <string name="facebook_app_id">834256904971634</string>
+  <string name="fb_login_protocol_scheme">fb75dd26539a62ef9f37c7777351528ec8</string>
+  <string name="facebook_client_token">22c9ecb8e41d14498cb25cc8375cdcc6</string>
+</resources>

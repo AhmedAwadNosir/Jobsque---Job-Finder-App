@@ -2,6 +2,7 @@ import 'dart:developer';
 
 import 'package:bloc/bloc.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:jobsque_jobfinder/Features/Authentication/functions/sign_in_with_facebook.dart';
 import 'package:meta/meta.dart';
 
 import '../../functions/sign_in_with_google.dart';
@@ -38,6 +39,16 @@ class RegisterCubit extends Cubit<RegisterState> {
       emit(RegisterSuccess());
     } catch (e) {
       emit(RegisterFailure("Error happend with googl sign in try Again Later"));
+    }
+  }
+
+   Future signUpWithFacebook() async {
+    emit(RegisterLoading());
+    try {
+      await signInWithFacebook();
+      emit(RegisterSuccess());
+    } catch (e) {
+      emit(RegisterFailure("'ERROR_FACEBOOK_LOGIN_FAILED try Agian later'"));
     }
   }
 }
