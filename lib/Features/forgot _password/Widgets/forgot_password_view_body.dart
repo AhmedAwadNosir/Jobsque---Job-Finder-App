@@ -73,7 +73,7 @@ class _ForgotPasswordViewBodyState extends State<ForgotPasswordViewBody> {
                 });
               },
               validator: (value) {
-                if (value!.isEmpty ?? true) {
+                if (value?.isEmpty ?? true) {
                   return "faild is required";
                 }
                 return null;
