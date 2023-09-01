@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:jobsque_jobfinder/Core/Utils/app_colors.dart';
 import 'package:jobsque_jobfinder/Core/Utils/app_fonts_styles.dart';
+import 'package:jobsque_jobfinder/Core/Utils/constans.dart';
 import 'package:jobsque_jobfinder/Core/Wedgits/custom_app_logo.dart';
 import 'package:jobsque_jobfinder/Core/Wedgits/custom_appbarr.dart';
 import 'package:jobsque_jobfinder/Features/Authentication/Create_Account/Views/job_title_view.dart';
@@ -11,7 +11,6 @@ import 'package:jobsque_jobfinder/Features/Authentication/Widgets/page_initail_i
 import 'package:jobsque_jobfinder/Features/Authentication/Widgets/user_auth_options.dart';
 import 'package:jobsque_jobfinder/Features/Authentication/Widgets/user_instractions.dart';
 import 'package:jobsque_jobfinder/Features/Onboarding/Views/Widgets/custom_button.dart';
-import '../../Cubits/Register/register_cubit.dart';
 import '../../Widgets/custom_text_field.dart';
 
 class RegisterViewBody extends StatefulWidget {
@@ -166,10 +165,17 @@ class _RegisterViewBodyState extends State<RegisterViewBody> {
                   onPressed: () {
                     if (formkey.currentState!.validate()) {
                       formkey.currentState!.save();
-                      BlocProvider.of<RegisterCubit>(context)
-                          .registerWithEmailAndPassword(
-                              emailAddress: email, password: password);
-                      Navigator.pushNamed(context, JobTitleView.id);
+
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => JobTitleView(
+                              userName: userName,
+                              email: email,
+                              registerMethode: emailAndPasswordmethode,
+                              password: password,
+                            ),
+                          ));
                     } else {
                       setState(() {
                         autovalidateMode = AutovalidateMode.always;
@@ -197,13 +203,27 @@ class _RegisterViewBodyState extends State<RegisterViewBody> {
                 const SizedBox(
                   height: 24,
                 ),
-                CustomAuthinticationOptions(site1OnTap: () async {
-                  await BlocProvider.of<RegisterCubit>(context)
-                      .signUpWithGoogle();
-                }, site2OnTap: () async {
-                  await BlocProvider.of<RegisterCubit>(context)
-                      .signUpWithFacebook();
-                }),
+                CustomAuthinticationOptions(
+                    site1OnTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => JobTitleView(
+                            registerMethode: googleMethode,
+                          ),
+                        ),
+                      );
+                    },
+                    site2OnTap: ()  {
+                        Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => JobTitleView(
+                            registerMethode:facebookMethode,
+                          ),
+                        ),
+                      );
+                    }),
                 const SizedBox(
                   height: 9,
                 )

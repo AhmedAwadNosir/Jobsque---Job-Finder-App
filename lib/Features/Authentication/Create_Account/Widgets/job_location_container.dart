@@ -10,7 +10,7 @@ class JopLocatinContainer extends StatefulWidget {
   });
   final String stateFlag;
   final String countryName;
-
+  static String workloction = "";
   @override
   State<JopLocatinContainer> createState() => _JopLocatinContainerState();
 }
@@ -26,6 +26,9 @@ class _JopLocatinContainerState extends State<JopLocatinContainer> {
         onTap: () {
           setState(() {
             isSelected = !isSelected;
+            if (isSelected == true) {
+              JopLocatinContainer.workloction = widget.countryName;
+            }
           });
         },
         child: Container(

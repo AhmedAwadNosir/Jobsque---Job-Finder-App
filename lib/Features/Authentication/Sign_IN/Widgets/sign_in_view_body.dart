@@ -1,10 +1,5 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
-import 'package:google_sign_in/google_sign_in.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:jobsque_jobfinder/Core/Utils/app_colors.dart';
 import 'package:jobsque_jobfinder/Core/Wedgits/custom_app_logo.dart';
@@ -15,7 +10,6 @@ import 'package:jobsque_jobfinder/Features/Authentication/Widgets/custom_text_fi
 import 'package:jobsque_jobfinder/Features/Authentication/Widgets/page_initail_info.dart';
 import 'package:jobsque_jobfinder/Features/Authentication/Widgets/user_auth_options.dart';
 import 'package:jobsque_jobfinder/Features/Authentication/Widgets/user_instractions.dart';
-import 'package:jobsque_jobfinder/Features/Authentication/functions/sign_in_with_facebook.dart';
 import 'package:jobsque_jobfinder/Features/Onboarding/Views/Widgets/custom_button.dart';
 import '../../Cubits/SignIn/sign_in_cubit.dart';
 import '../../Widgets/custom_auth_basic_operation.dart';
@@ -126,12 +120,12 @@ class _SignInViewBodyState extends State<SignInViewBody> {
                   height: 24,
                 ),
                 CustomButton(
-                  onPressed: () {
-                    if (formkey.currentState!.validate()) {
+                  onPressed: () async{
+                    if (formkey.currentState!.validate()){
                       formkey.currentState!.save();
-                      BlocProvider.of<SignInCubit>(context)
+                     await BlocProvider.of<SignInCubit>(context)
                           .singInWithEmailAndPassword(
-                              emailAddress: userName, password: password);
+                              username: userName, password: password);
                     } else {
                       setState(() {
                         autovalidateMode = AutovalidateMode.always;

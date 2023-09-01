@@ -1,11 +1,9 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:jobsque_jobfinder/Features/Authentication/Create_Account/Views/job_title_view.dart';
 import 'package:jobsque_jobfinder/Features/Authentication/Create_Account/Views/register_view.dart';
 import 'package:jobsque_jobfinder/Features/Authentication/Sign_IN/Views/sign_in_view.dart';
 import 'package:jobsque_jobfinder/Features/Authentication/Create_Account/Views/sucess_account_ilstration.dart';
-import 'package:jobsque_jobfinder/Features/Authentication/Create_Account/Views/work_location_view.dart';
 import 'package:jobsque_jobfinder/Features/Onboarding/Views/onboarding_view.dart';
 import 'package:jobsque_jobfinder/Features/Onboarding/Views/splash_view.dart';
 import 'package:jobsque_jobfinder/Features/forgot%20_password/views/check_emial_view.dart';
@@ -47,8 +45,6 @@ class JopFinderApp extends StatelessWidget {
         OnboardingView.id: (context) => const OnboardingView(),
         SignInView.id: (context) => const SignInView(),
         RegisterView.id: (context) => const RegisterView(),
-        JobTitleView.id: (context) => const JobTitleView(),
-        WorkLocationView.id: (context) => const WorkLocationView(),
         SuccessAcountIlstrationView.id: (context) =>
             const SuccessAcountIlstrationView(),
         ForgotPasswordView.id: (context) => const ForgotPasswordView(),

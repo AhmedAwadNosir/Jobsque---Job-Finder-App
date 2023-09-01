@@ -9,8 +9,17 @@ import 'package:jobsque_jobfinder/Features/Authentication/Widgets/page_initail_i
 import 'package:jobsque_jobfinder/Features/Onboarding/Views/Widgets/custom_button.dart';
 
 class JobTittleViewBody extends StatelessWidget {
-  const JobTittleViewBody({super.key});
-
+  JobTittleViewBody({
+    super.key,
+    this.userName,
+    this.email,
+    this.registerMethode,
+    this.password,
+  });
+  String? userName;
+  String? email;
+  String? registerMethode;
+  String? password;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -89,7 +98,19 @@ class JobTittleViewBody extends StatelessWidget {
               const Spacer(),
               CustomButton(
                   onPressed: () {
-                    Navigator.pushNamed(context, WorkLocationView.id);
+                    if (JobTitleBox.joptitlepase.isNotEmpty) {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => WorkLocationView(
+                              userName: userName,
+                              email: email,
+                              registerMethode: registerMethode,
+                              jopTitle: JobTitleBox.joptitlepase,
+                              password: password,
+                            ),
+                          ));
+                    }
                   },
                   buttonName: "Next"),
               const SizedBox(

@@ -1,5 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:jobsque_jobfinder/Features/Authentication/functions/fetch_user_data.dart';
+import 'package:jobsque_jobfinder/Features/Authentication/functions/get_email.dart';
 import 'package:jobsque_jobfinder/Features/Authentication/functions/sign_in_with_facebook.dart';
 import 'package:jobsque_jobfinder/Features/Authentication/functions/sign_in_with_google.dart';
 import 'package:meta/meta.dart';
@@ -9,12 +11,14 @@ part 'sign_in_state.dart';
 class SignInCubit extends Cubit<SignInState> {
   SignInCubit() : super(SignInInitial());
 
-  void singInWithEmailAndPassword(
-      {required String emailAddress, required String password}) async {
+  Future singInWithEmailAndPassword(
+      {required String username, required String password}) async {
     emit(SignInLoading());
     try {
+    String emailAddress =  await getEmail(username: username);
       final credential = await FirebaseAuth.instance.signInWithEmailAndPassword(
           email: emailAddress.trim(), password: password.trim());
+      await fetchUserData(credential);
       emit(SignInSuccess());
     } on FirebaseAuthException catch (e) {
       if (e.code == 'user-not-found') {
@@ -28,7 +32,8 @@ class SignInCubit extends Cubit<SignInState> {
   Future signInGoogle() async {
     emit(SignInLoading());
     try {
-      await signInWithGoogle();
+      UserCredential credential = await signInWithGoogle();
+      await fetchUserData(credential);
       emit(SignInSuccess());
     } catch (e) {
       emit(SignInFailure("Error happend with googl sign in try Again Later"));
@@ -38,7 +43,8 @@ class SignInCubit extends Cubit<SignInState> {
   Future signInFacebook() async {
     emit(SignInLoading());
     try {
-      await signInWithFacebook();
+      UserCredential credential = await signInWithFacebook();
+      await fetchUserData(credential);
       emit(SignInSuccess());
     } catch (e) {
       emit(SignInFailure("'ERROR_FACEBOOK_LOGIN_FAILED try Agian later'"));

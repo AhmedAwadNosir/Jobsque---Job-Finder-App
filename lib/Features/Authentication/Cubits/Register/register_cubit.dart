@@ -2,7 +2,9 @@ import 'dart:developer';
 
 import 'package:bloc/bloc.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:jobsque_jobfinder/Features/Authentication/Models/user_data_model.dart';
 import 'package:jobsque_jobfinder/Features/Authentication/functions/sign_in_with_facebook.dart';
+import 'package:jobsque_jobfinder/Features/Authentication/functions/store_user_data.dart';
 import 'package:meta/meta.dart';
 
 import '../../functions/sign_in_with_google.dart';
@@ -12,14 +14,15 @@ part 'register_state.dart';
 class RegisterCubit extends Cubit<RegisterState> {
   RegisterCubit() : super(RegisterInitial());
   void registerWithEmailAndPassword(
-      {required String emailAddress, required String password}) async {
+      {required UserModel userModel, required String password}) async {
     emit(RegisterLoading());
     try {
       final credential =
           await FirebaseAuth.instance.createUserWithEmailAndPassword(
-        email: emailAddress.trim(),
+        email: userModel.email!.trim(),
         password: password.trim(),
       );
+      await storeUserData(credential, userModel);
       emit(RegisterSuccess());
     } on FirebaseAuthException catch (e) {
       if (e.code == 'weak-password') {
@@ -32,23 +35,30 @@ class RegisterCubit extends Cubit<RegisterState> {
     }
   }
 
-   Future signUpWithGoogle() async {
+  void signUpWithGoogle({required UserModel userModel}) async {
     emit(RegisterLoading());
     try {
-      await signInWithGoogle();
+      UserCredential userCredential = await signInWithGoogle();
+      userModel.userCredential = userCredential;
+      storeUserData(userCredential, userModel);
+
       emit(RegisterSuccess());
     } catch (e) {
       emit(RegisterFailure("Error happend with googl sign in try Again Later"));
     }
+    return null;
   }
 
-   Future signUpWithFacebook() async {
+  void signUpWithFacebook({required UserModel userModel}) async {
     emit(RegisterLoading());
     try {
-      await signInWithFacebook();
+      UserCredential userCredential = await signInWithFacebook();
+      userModel.userCredential = userCredential;
+      storeUserData(userCredential, userModel);
       emit(RegisterSuccess());
     } catch (e) {
       emit(RegisterFailure("'ERROR_FACEBOOK_LOGIN_FAILED try Agian later'"));
     }
+    return null;
   }
 }

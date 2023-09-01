@@ -4,7 +4,7 @@ import 'custom_toggle_button.dart';
 
 class WorkLocationToggleButton extends StatefulWidget {
   const WorkLocationToggleButton({super.key});
-
+  static String worknature = "Work From Office";
   @override
   State<WorkLocationToggleButton> createState() =>
       _WorkLocationToggleButtonState();
@@ -29,6 +29,9 @@ class _WorkLocationToggleButtonState extends State<WorkLocationToggleButton> {
               isSelected[i] = true;
             } else {
               isSelected[i] = false;
+            }
+            if (isSelected[1] == true) {
+              WorkLocationToggleButton.worknature = "Remote Work";
             }
           }
         });

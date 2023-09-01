@@ -9,7 +9,8 @@ Future<UserCredential> signInWithGoogle() async {
 
     if (googleUser != null) {
       // Obtain the auth details from the request
-      final GoogleSignInAuthentication? googleAuth = await googleUser.authentication;
+      final GoogleSignInAuthentication? googleAuth =
+          await googleUser.authentication;
 
       // Create a new credential
       final credential = GoogleAuthProvider.credential(
@@ -18,7 +19,10 @@ Future<UserCredential> signInWithGoogle() async {
       );
 
       // Once signed in, return the UserCredential
-      return await FirebaseAuth.instance.signInWithCredential(credential);
+      UserCredential userCredential =
+          await FirebaseAuth.instance.signInWithCredential(credential);
+
+      return userCredential;
     } else {
       // User canceled the sign-in process
       // Handle the cancellation or display an error message to the user
@@ -38,12 +42,14 @@ Future<UserCredential> signInWithGoogle() async {
       } else {
         // Other platform-specific error occurred
         // Handle the error or display an error message to the user
-        throw Exception('An error occurred during Google sign-in: try Again Later');
+        throw Exception(
+            'An error occurred during Google sign-in: try Again Later');
       }
     } else {
       // Non-platform-specific error occurred
       // Handle the error or display an error message to the user
-      throw Exception('An error occurred during Google sign-in: try Again Later');
+      throw Exception(
+          'An error occurred during Google sign-in: try Again Later');
     }
   }
 }

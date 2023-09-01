@@ -1,17 +1,33 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:jobsque_jobfinder/Core/Utils/app_colors.dart';
 import 'package:jobsque_jobfinder/Core/Utils/app_fonts_styles.dart';
 import 'package:jobsque_jobfinder/Core/Utils/app_images.dart';
 import 'package:jobsque_jobfinder/Core/Utils/constans.dart';
 import 'package:jobsque_jobfinder/Features/Authentication/Create_Account/Views/sucess_account_ilstration.dart';
+import 'package:jobsque_jobfinder/Features/Authentication/Cubits/Register/register_cubit.dart';
+import 'package:jobsque_jobfinder/Features/Authentication/Models/user_data_model.dart';
 import 'package:jobsque_jobfinder/Features/Authentication/Widgets/page_initail_info.dart';
 import 'package:jobsque_jobfinder/Features/Onboarding/Views/Widgets/custom_button.dart';
 import 'job_location_container.dart';
 import 'work_location_toggle_button.dart';
 
 class WorkLocatinViewBody extends StatefulWidget {
-  const WorkLocatinViewBody({super.key});
-
+  WorkLocatinViewBody({
+    super.key,
+    this.userName,
+    this.email,
+    this.jopTitle,
+    this.registerMethode,
+    this.password,
+  });
+  String? userName;
+  String? email;
+  String? jopTitle;
+  String? registerMethode;
+  String? password;
   @override
   State<WorkLocatinViewBody> createState() => _WorkLocatinViewBodyState();
 }
@@ -93,8 +109,35 @@ class _WorkLocatinViewBodyState extends State<WorkLocatinViewBody> {
               Center(
                 child: CustomButton(
                     onPressed: () {
-                      Navigator.pushNamed(
-                          context, SuccessAcountIlstrationView.id);
+                      if (widget.registerMethode == emailAndPasswordmethode &&
+                          JopLocatinContainer.workloction.isNotEmpty) {
+                        BlocProvider.of<RegisterCubit>(context)
+                            .registerWithEmailAndPassword(
+                          userModel: UserModel(
+                              userName: widget.userName!,
+                              email: widget.email!,
+                              wantedJop: widget.jopTitle!,
+                              workLocation: JopLocatinContainer.workloction,
+                              workNature: WorkLocationToggleButton.worknature),
+                          password: widget.password!,
+                        );
+                      } else if (widget.registerMethode == googleMethode) {
+                        BlocProvider.of<RegisterCubit>(context)
+                            .signUpWithGoogle(
+                          userModel: UserModel(
+                              wantedJop: widget.jopTitle!,
+                              workLocation: JopLocatinContainer.workloction,
+                              workNature: WorkLocationToggleButton.worknature),
+                        );
+                      } else if (widget.registerMethode == facebookMethode) {
+                         BlocProvider.of<RegisterCubit>(context)
+                            .signUpWithFacebook(
+                          userModel: UserModel(
+                              wantedJop: widget.jopTitle!,
+                              workLocation: JopLocatinContainer.workloction,
+                              workNature: WorkLocationToggleButton.worknature),
+                        );
+                      }
                     },
                     buttonName: "Next"),
               ),
