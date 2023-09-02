@@ -31,7 +31,7 @@ class RegisterCubit extends Cubit<RegisterState> {
         emit(RegisterFailure('The account already exists for that email.'));
       }
     } catch (e) {
-      log(e.toString());
+      emit(RegisterFailure(e.toString()));
     }
   }
 
@@ -40,7 +40,7 @@ class RegisterCubit extends Cubit<RegisterState> {
     try {
       UserCredential userCredential = await signInWithGoogle();
       userModel.userCredential = userCredential;
-      storeUserData(userCredential, userModel);
+      await storeUserData(userCredential, userModel);
 
       emit(RegisterSuccess());
     } catch (e) {
@@ -54,7 +54,7 @@ class RegisterCubit extends Cubit<RegisterState> {
     try {
       UserCredential userCredential = await signInWithFacebook();
       userModel.userCredential = userCredential;
-      storeUserData(userCredential, userModel);
+      await storeUserData(userCredential, userModel);
       emit(RegisterSuccess());
     } catch (e) {
       emit(RegisterFailure("'ERROR_FACEBOOK_LOGIN_FAILED try Agian later'"));

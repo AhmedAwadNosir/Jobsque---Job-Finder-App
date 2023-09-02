@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:jobsque_jobfinder/Core/Utils/app_images.dart';
 import 'package:jobsque_jobfinder/Features/Authentication/Widgets/page_initail_info.dart';
 import 'package:jobsque_jobfinder/Features/Onboarding/Views/Widgets/custom_button.dart';
+import 'package:jobsque_jobfinder/Features/forgot%20_password/functions/open_gmail_app.dart';
 import 'package:jobsque_jobfinder/Features/forgot%20_password/views/reset_password_view.dart';
 
 import '../../../Core/Utils/app_fonts_styles.dart';
@@ -32,7 +33,8 @@ class CheckEmialViewBody extends StatelessWidget {
           ),
           const Spacer(),
           CustomButton(
-              onPressed: () {
+              onPressed: () async {
+                await openGmail();
                 Navigator.pushNamed(context, ResetPasswordView.id);
               },
               buttonName: "Open email app"),

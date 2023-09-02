@@ -10,7 +10,7 @@ class JobTitleBox extends StatefulWidget {
   });
   final IconData jobIcon;
   final String jobtitle;
-  static String joptitlepase = "";
+  static List<String> joptitlepase = [];
   @override
   State<JobTitleBox> createState() => _JobTitleBoxState();
 }
@@ -25,7 +25,7 @@ class _JobTitleBoxState extends State<JobTitleBox> {
         setState(() {
           isSelected = !isSelected;
           if (isSelected == true) {
-            JobTitleBox.joptitlepase = widget.jobtitle;
+            JobTitleBox.joptitlepase.add(widget.jobtitle) ;
           }
         });
       },

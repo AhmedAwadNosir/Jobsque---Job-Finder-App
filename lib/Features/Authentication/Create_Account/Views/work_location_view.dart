@@ -14,7 +14,7 @@ class WorkLocationView extends StatelessWidget {
   static const id = "Worklocationview";
   String? userName;
   String? email;
-  String? jopTitle;
+ List<String>? jopTitle;
   String? registerMethode;
   String? password;
   @override

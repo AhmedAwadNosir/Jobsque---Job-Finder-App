@@ -10,6 +10,7 @@ import 'package:jobsque_jobfinder/Features/Authentication/Widgets/custom_authent
 import 'package:jobsque_jobfinder/Features/Authentication/Widgets/page_initail_info.dart';
 import 'package:jobsque_jobfinder/Features/Authentication/Widgets/user_auth_options.dart';
 import 'package:jobsque_jobfinder/Features/Authentication/Widgets/user_instractions.dart';
+import 'package:jobsque_jobfinder/Features/Authentication/functions/show_snack_bar.dart';
 import 'package:jobsque_jobfinder/Features/Onboarding/Views/Widgets/custom_button.dart';
 import '../../Widgets/custom_text_field.dart';
 
@@ -203,27 +204,30 @@ class _RegisterViewBodyState extends State<RegisterViewBody> {
                 const SizedBox(
                   height: 24,
                 ),
-                CustomAuthinticationOptions(
-                    site1OnTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => JobTitleView(
-                            registerMethode: googleMethode,
-                          ),
+                CustomAuthinticationOptions(site1OnTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => JobTitleView(
+                        registerMethode: googleMethode,
+                      ),
+                    ),
+                  );
+                }, site2OnTap: () {
+                  if (emialData.isNotEmpty) {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => JobTitleView(
+                          registerMethode: facebookMethode,
+                          email: emialData,
                         ),
-                      );
-                    },
-                    site2OnTap: ()  {
-                        Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => JobTitleView(
-                            registerMethode:facebookMethode,
-                          ),
-                        ),
-                      );
-                    }),
+                      ),
+                    );
+                  } else {
+                    showSnackBar("email is required", context);
+                  }
+                }),
                 const SizedBox(
                   height: 9,
                 )

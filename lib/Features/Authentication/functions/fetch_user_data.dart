@@ -13,8 +13,7 @@ Future<UserModel> fetchUserData(UserCredential userCredential) async {
   log(userModel.userName!);
   log(userModel.email!);
   log(userModel.userPhoto!);
-  log(userModel.wantedJop!);
-  log(userModel.workLocation!);
+  
   log(userModel.workNature!);
   return userModel;
 }

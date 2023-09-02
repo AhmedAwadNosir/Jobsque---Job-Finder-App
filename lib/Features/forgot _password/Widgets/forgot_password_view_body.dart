@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:jobsque_jobfinder/Features/Authentication/Widgets/page_initail_info.dart';
 import 'package:jobsque_jobfinder/Features/Authentication/Widgets/user_instractions.dart';
+import 'package:jobsque_jobfinder/Features/forgot%20_password/functions/send_reset_password_email.dart';
 import 'package:jobsque_jobfinder/Features/forgot%20_password/views/check_emial_view.dart';
 
 import '../../../Core/Utils/app_colors.dart';
@@ -91,9 +92,10 @@ class _ForgotPasswordViewBodyState extends State<ForgotPasswordViewBody> {
               height: 20,
             ),
             CustomButton(
-                onPressed: () {
+                onPressed: () async {
                   if (formkey.currentState!.validate()) {
                     formkey.currentState!.save();
+                    await sendResetPasswordEmail(email: email);
                     Navigator.pushNamed(context, CheckEmialView.id);
                   } else {
                     setState(() {

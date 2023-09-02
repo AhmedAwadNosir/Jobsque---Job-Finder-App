@@ -15,7 +15,7 @@ class SignInCubit extends Cubit<SignInState> {
       {required String username, required String password}) async {
     emit(SignInLoading());
     try {
-    String emailAddress =  await getEmail(username: username);
+      String emailAddress = await getEmail(username: username);
       final credential = await FirebaseAuth.instance.signInWithEmailAndPassword(
           email: emailAddress.trim(), password: password.trim());
       await fetchUserData(credential);
@@ -26,6 +26,8 @@ class SignInCubit extends Cubit<SignInState> {
       } else if (e.code == 'wrong-password') {
         emit(SignInFailure('Wrong password provided for that user.'));
       }
+    } catch (e) {
+      emit(SignInFailure("No user found please try agian later with valid user "));
     }
   }
 
