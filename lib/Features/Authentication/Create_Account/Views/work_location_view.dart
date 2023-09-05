@@ -14,7 +14,7 @@ class WorkLocationView extends StatelessWidget {
   static const id = "Worklocationview";
   String? userName;
   String? email;
- List<String>? jopTitle;
+  List<String>? jopTitle;
   String? registerMethode;
   String? password;
   @override
@@ -23,7 +23,7 @@ class WorkLocationView extends StatelessWidget {
       body: SafeArea(
           child: BlocProvider(
         create: (context) => RegisterCubit(),
-        child: workLocationViewBodyBlocConsumer(
+        child: WorkLocationViewBodyBlocConsumer(
           userName: userName,
           email: email,
           password: password,
@@ -34,4 +34,3 @@ class WorkLocationView extends StatelessWidget {
     );
   }
 }
-

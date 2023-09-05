@@ -6,8 +6,8 @@ import 'package:jobsque_jobfinder/Features/Authentication/Cubits/Register/regist
 import 'package:jobsque_jobfinder/Features/Authentication/functions/show_snack_bar.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 
-class workLocationViewBodyBlocConsumer extends StatelessWidget {
-  workLocationViewBodyBlocConsumer({
+class WorkLocationViewBodyBlocConsumer extends StatelessWidget {
+  WorkLocationViewBodyBlocConsumer({
     super.key,
     this.userName,
     this.email,

@@ -36,4 +36,12 @@ abstract class AppImages {
       "lib/Core/Utils/assets/images/EmailIlustration.png";
   static const String passowrdresetsuccessfullly =
       "lib/Core/Utils/assets/images/PasswordSuccesfullyIlustration.png";
+  static const String searchIcon =
+      "lib/Core/Utils/assets/images/searchnormal.png";
+  static const String zoomIcon = "lib/Core/Utils/assets/images/zoom.png";
+  static const String twitterIcon = "lib/Core/Utils/assets/images/twitter.png";
+  static const String discordIcon =
+      "lib/Core/Utils/assets/images/DiscordLogo.png";
+  static const String vector = "lib/Core/Utils/assets/images/Vector.png";
+  static const String searchfaild = "lib/Core/Utils/assets/images/Search.png";
 }

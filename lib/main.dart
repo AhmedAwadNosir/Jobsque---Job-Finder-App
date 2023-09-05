@@ -4,6 +4,8 @@ import 'package:flutter/services.dart';
 import 'package:jobsque_jobfinder/Features/Authentication/Create_Account/Views/register_view.dart';
 import 'package:jobsque_jobfinder/Features/Authentication/Sign_IN/Views/sign_in_view.dart';
 import 'package:jobsque_jobfinder/Features/Authentication/Create_Account/Views/sucess_account_ilstration.dart';
+import 'package:jobsque_jobfinder/Features/Home/views/home_view.dart';
+import 'package:jobsque_jobfinder/Features/Home/views/search_view.dart';
 import 'package:jobsque_jobfinder/Features/Onboarding/Views/onboarding_view.dart';
 import 'package:jobsque_jobfinder/Features/Onboarding/Views/splash_view.dart';
 import 'package:jobsque_jobfinder/Features/forgot%20_password/views/check_emial_view.dart';
@@ -51,7 +53,9 @@ class JopFinderApp extends StatelessWidget {
         CheckEmialView.id: (context) => const CheckEmialView(),
         ResetPasswordView.id: (context) => const ResetPasswordView(),
         PasswordResetSuccessfullyView.id: (context) =>
-            const PasswordResetSuccessfullyView()
+            const PasswordResetSuccessfullyView(),
+        HomeView.id: (context) =>  HomeView(),
+        SearchView.id: (context) => const SearchView()
       },
       initialRoute: SplashView.id,
     );

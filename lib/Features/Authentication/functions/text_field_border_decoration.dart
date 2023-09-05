@@ -23,13 +23,13 @@ OutlineInputBorder buildErrorBorders() {
   );
 }
 
-OutlineInputBorder buildOutlineInputBorder() {
-  return const OutlineInputBorder(
-    borderSide: BorderSide(
+OutlineInputBorder buildOutlineInputBorder({double? borderRadius}) {
+  return OutlineInputBorder(
+    borderSide: const BorderSide(
       color: AppColors.appNeutralColors300,
     ),
     borderRadius: BorderRadius.all(
-      Radius.circular(8),
+      Radius.circular(borderRadius ?? 8),
     ),
   );
 }
