@@ -20,7 +20,7 @@ class RecentSearchListVeiwBuilder extends StatelessWidget {
       child: ListView.builder(
         itemCount: recentSearch.length,
         itemBuilder: (context, index) {
-          return searchHistoryUnit(
+          return SearchHistoryUnit(
               searchName: recentSearch[index],
               prefixIcon: Iconsax.clock,
               suffixICon: Iconsax.close_circle,

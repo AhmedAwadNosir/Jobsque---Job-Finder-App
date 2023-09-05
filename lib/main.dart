@@ -54,7 +54,7 @@ class JopFinderApp extends StatelessWidget {
         ResetPasswordView.id: (context) => const ResetPasswordView(),
         PasswordResetSuccessfullyView.id: (context) =>
             const PasswordResetSuccessfullyView(),
-        HomeView.id: (context) =>  HomeView(),
+        HomeView.id: (context) => const HomeView(),
         SearchView.id: (context) => const SearchView()
       },
       initialRoute: SplashView.id,

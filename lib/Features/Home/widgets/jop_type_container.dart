@@ -2,16 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:jobsque_jobfinder/Core/Utils/app_colors.dart';
 import 'package:jobsque_jobfinder/Core/Utils/app_fonts_styles.dart';
 
-class jopContainer extends StatefulWidget {
-  const jopContainer({super.key, required this.title, this.padding});
+class JopContainer extends StatefulWidget {
+  const JopContainer({super.key, required this.title, this.padding});
   final String title;
   static List<String> joptyps = [];
   final EdgeInsetsGeometry? padding;
   @override
-  State<jopContainer> createState() => _jopContainerState();
+  State<JopContainer> createState() => _JopContainerState();
 }
 
-class _jopContainerState extends State<jopContainer> {
+class _JopContainerState extends State<JopContainer> {
   bool isSelected = false;
 
   @override
@@ -23,7 +23,7 @@ class _jopContainerState extends State<jopContainer> {
           setState(() {
             isSelected = !isSelected;
             if (isSelected == true) {
-              jopContainer.joptyps.add(widget.title);
+              JopContainer.joptyps.add(widget.title);
             }
           });
         },

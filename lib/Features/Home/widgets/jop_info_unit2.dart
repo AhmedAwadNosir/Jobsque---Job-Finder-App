@@ -4,7 +4,8 @@ import 'package:jobsque_jobfinder/Core/Utils/app_colors.dart';
 import 'package:jobsque_jobfinder/Core/Utils/app_fonts_styles.dart';
 import 'package:jobsque_jobfinder/Core/Utils/constans.dart';
 import 'package:jobsque_jobfinder/Features/Home/models/suggested_jop_model.dart';
-import 'package:jobsque_jobfinder/Features/Home/widgets/jop_nature_options.dart';
+import 'package:jobsque_jobfinder/Features/Home/widgets/jop_details.dart';
+import 'package:jobsque_jobfinder/Features/Home/widgets/jop_features.dart';
 
 class JopInfoUnite2 extends StatefulWidget {
   const JopInfoUnite2({
@@ -43,27 +44,9 @@ class _JopInfoUnite2State extends State<JopInfoUnite2> {
               const SizedBox(
                 width: 16,
               ),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    widget.jopModel.jopTitle,
-                    style: AppFontsStyles.textstyle18.copyWith(
-                        fontFamily: textFamilyMedium,
-                        color: AppColors.appNeutralColors900),
-                  ),
-                  const SizedBox(
-                    height: 4,
-                  ),
-                  Text(
-                    widget.jopModel.comunicationtoolname,
-                    style: AppFontsStyles.textstyle12.copyWith(
-                      fontFamily: textFamilyMedium,
-                      color: AppColors.appNeutralColors700,
-                    ),
-                  ),
-                ],
-              ),
+              JopDetails(
+                  title: widget.jopModel.jopTitle,
+                  subtitel: widget.jopModel.comunicationtoolname),
               const Spacer(),
               IconButton(
                 onPressed: () {
@@ -81,58 +64,31 @@ class _JopInfoUnite2State extends State<JopInfoUnite2> {
           const SizedBox(
             height: 20,
           ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+         Row( mainAxisAlignment: MainAxisAlignment.spaceBetween,children: [
+          JopFeatures(workType: widget.jopModel.workType, workNature: widget.jopModel.workNature,jopSkill: widget.jopModel.jopSkill,),
+          Text.rich(
+          TextSpan(
             children: [
-              JopNatureOptions(
-                jopnature: widget.jopModel.workType,
-                color: AppColors.appPrimaryColors100,
-                textColor: AppColors.appPrimaryColors500,
-                height: 26,
-                width: 72,
+              TextSpan(
+                text: widget.jopModel.salary,
+                style: AppFontsStyles.textstyle16.copyWith(
+                    fontFamily: textFamilyMedium,
+                    color: AppColors.appSuccessColors700),
               ),
-              JopNatureOptions(
-                jopnature: widget.jopModel.workNature,
-                color: AppColors.appPrimaryColors100,
-                textColor: AppColors.appPrimaryColors500,
-                height: 26,
-                width: 72,
-              ),
-              widget.jopModel.jopSkill != null
-                  ? JopNatureOptions(
-                      jopnature: widget.jopModel.jopSkill!,
-                      color: AppColors.appPrimaryColors100,
-                      textColor: AppColors.appPrimaryColors500,
-                      height: 26,
-                      width: 72,
-                    )
-                  : Container(),
-              const SizedBox(
-                width: 24,
-              ),
-              Text.rich(
-                TextSpan(
-                  children: [
-                    TextSpan(
-                      text: widget.jopModel.salary,
-                      style: AppFontsStyles.textstyle16.copyWith(
-                          fontFamily: textFamilyMedium,
-                          color: AppColors.appSuccessColors700),
-                    ),
-                    TextSpan(
-                      text: widget.jopModel.salaryTime,
-                      style: AppFontsStyles.textstyle12.copyWith(
-                        fontFamily: textFamilyMedium,
-                        color: AppColors.appNeutralColors500,
-                      ),
-                    ),
-                  ],
+              TextSpan(
+                text: widget.jopModel.salaryTime,
+                style: AppFontsStyles.textstyle12.copyWith(
+                  fontFamily: textFamilyMedium,
+                  color: AppColors.appNeutralColors500,
                 ),
               ),
             ],
           ),
+        ),
+         ],)
         ],
       ),
     );
   }
 }
+

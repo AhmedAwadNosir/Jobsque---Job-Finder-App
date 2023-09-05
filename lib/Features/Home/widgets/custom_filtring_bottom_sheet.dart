@@ -3,7 +3,6 @@ import 'package:jobsque_jobfinder/Core/Utils/app_colors.dart';
 import 'package:jobsque_jobfinder/Core/Utils/app_fonts_styles.dart';
 import 'package:jobsque_jobfinder/Core/Utils/app_images.dart';
 import 'package:jobsque_jobfinder/Core/Utils/constans.dart';
-import 'package:jobsque_jobfinder/Features/Home/widgets/custom_Text.dart';
 import 'package:jobsque_jobfinder/Features/Home/widgets/jop_type_container.dart';
 import 'package:jobsque_jobfinder/Features/Onboarding/Views/Widgets/custom_button.dart';
 
@@ -37,19 +36,19 @@ class CustomFiltringBottomShee extends StatelessWidget {
           ),
           const Wrap(
             children: [
-              jopContainer(
+              JopContainer(
                 title: "Remote",
                 padding: EdgeInsets.only(right: 8, bottom: 16),
               ),
-              jopContainer(
+              JopContainer(
                 title: "Onsite",
                 padding: EdgeInsets.only(right: 8, bottom: 16),
               ),
-              jopContainer(
+              JopContainer(
                 title: "Hyprid",
                 padding: EdgeInsets.only(right: 8, bottom: 16),
               ),
-              jopContainer(
+              JopContainer(
                 title: "Any",
                 padding: EdgeInsets.only(right: 0, bottom: 16),
               ),

@@ -4,7 +4,8 @@ import 'package:jobsque_jobfinder/Core/Utils/app_colors.dart';
 import 'package:jobsque_jobfinder/Core/Utils/app_fonts_styles.dart';
 import 'package:jobsque_jobfinder/Core/Utils/constans.dart';
 import 'package:jobsque_jobfinder/Features/Home/models/suggested_jop_model.dart';
-import 'package:jobsque_jobfinder/Features/Home/widgets/jop_nature_options.dart';
+import 'package:jobsque_jobfinder/Features/Home/widgets/jop_details.dart';
+import 'package:jobsque_jobfinder/Features/Home/widgets/jop_features.dart';
 
 class JopInfoUnite1 extends StatefulWidget {
   const JopInfoUnite1({
@@ -46,31 +47,15 @@ class _JopInfoUnite1State extends State<JopInfoUnite1> {
                 const SizedBox(
                   width: 16,
                 ),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      widget.jopModel.jopTitle,
-                      style: AppFontsStyles.textstyle18.copyWith(
-                        fontFamily: textFamilyMedium,
-                        color: widget.jopModel.containerColor != null
-                            ? AppColors.appNeutralColors900
-                            : Colors.white,
-                      ),
-                    ),
-                    const SizedBox(
-                      height: 4,
-                    ),
-                    Text(
-                      widget.jopModel.comunicationtoolname,
-                      style: AppFontsStyles.textstyle12.copyWith(
-                        fontFamily: textFamilyMedium,
-                        color: widget.jopModel.containerColor != null
-                            ? AppColors.appNeutralColors500
-                            : AppColors.appNeutralColors400,
-                      ),
-                    ),
-                  ],
+                JopDetails(
+                  title: widget.jopModel.jopTitle,
+                  subtitel: widget.jopModel.comunicationtoolname,
+                  titleColor: widget.jopModel.containerColor != null
+                      ? AppColors.appNeutralColors900
+                      : Colors.white,
+                  subtitleColor: widget.jopModel.containerColor != null
+                      ? AppColors.appNeutralColors600
+                      : AppColors.appNeutralColors400,
                 ),
                 const Spacer(),
                 IconButton(
@@ -92,37 +77,16 @@ class _JopInfoUnite1State extends State<JopInfoUnite1> {
             const SizedBox(
               height: 20,
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                JopNatureOptions(
-                  jopnature: widget.jopModel.workType,
-                  color: widget.jopModel.containerColor != null
-                      ? AppColors.appPrimaryColors100
-                      : AppColors.appNeutralColors300.withOpacity(0.3),
-                  textColor: widget.jopModel.containerColor != null
-                      ? AppColors.appNeutralColors900
-                      : Colors.white,
-                ),
-                JopNatureOptions(
-                  jopnature: widget.jopModel.workNature,
-                  color: widget.jopModel.containerColor != null
-                      ? AppColors.appPrimaryColors100
-                      : AppColors.appNeutralColors300.withOpacity(0.3),
-                  textColor: widget.jopModel.containerColor != null
-                      ? AppColors.appNeutralColors900
-                      : Colors.white,
-                ),
-                JopNatureOptions(
-                  jopnature: widget.jopModel.jopSkill??"",
-                  color: widget.jopModel.containerColor != null
-                      ? AppColors.appPrimaryColors100
-                      : AppColors.appNeutralColors300.withOpacity(0.3),
-                  textColor: widget.jopModel.containerColor != null
-                      ? AppColors.appNeutralColors900
-                      : Colors.white,
-                ),
-              ],
+            JopFeatures(
+              workType: widget.jopModel.workType,
+              workNature: widget.jopModel.workNature,
+              jopSkill: widget.jopModel.jopSkill,
+              color: widget.jopModel.containerColor != null
+                  ? AppColors.appPrimaryColors100
+                  : AppColors.appNeutralColors300.withOpacity(0.3),
+              textColor: widget.jopModel.containerColor != null
+                  ? AppColors.appNeutralColors900
+                  : Colors.white,
             ),
             const SizedBox(
               height: 20,

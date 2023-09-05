@@ -3,7 +3,7 @@ import 'package:iconsax/iconsax.dart';
 import 'package:jobsque_jobfinder/Core/Utils/app_colors.dart';
 import 'package:jobsque_jobfinder/Core/Utils/app_fonts_styles.dart';
 import 'package:jobsque_jobfinder/Core/Utils/constans.dart';
-import 'package:jobsque_jobfinder/Features/Home/widgets/custom_Text.dart';
+import 'package:jobsque_jobfinder/Features/Home/widgets/custom_text.dart';
 import 'package:jobsque_jobfinder/Features/Home/widgets/custom_filter_text_field.dart';
 import 'package:jobsque_jobfinder/Features/Home/widgets/jop_type_container.dart';
 import 'package:jobsque_jobfinder/Features/Onboarding/Views/Widgets/custom_button.dart';
@@ -92,12 +92,12 @@ class AddFilterBottomSheet extends StatelessWidget {
             ),
             const Wrap(
               children: [
-                jopContainer(title: "Full Time"),
-                jopContainer(title: "Remote"),
-                jopContainer(title: "Contract"),
-                jopContainer(title: "Part Time"),
-                jopContainer(title: "Onsite"),
-                jopContainer(title: "Internship"),
+                JopContainer(title: "Full Time"),
+                JopContainer(title: "Remote"),
+                JopContainer(title: "Contract"),
+                JopContainer(title: "Part Time"),
+                JopContainer(title: "Onsite"),
+                JopContainer(title: "Internship"),
               ],
             ),
             const Spacer(),

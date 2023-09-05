@@ -3,7 +3,7 @@ import 'package:jobsque_jobfinder/Core/Utils/app_colors.dart';
 import 'package:jobsque_jobfinder/Core/Utils/app_fonts_styles.dart';
 import 'package:jobsque_jobfinder/Core/Utils/constans.dart';
 import 'package:jobsque_jobfinder/Features/Authentication/functions/text_field_border_decoration.dart';
-import 'package:jobsque_jobfinder/Features/Home/widgets/custom_Text.dart';
+import 'package:jobsque_jobfinder/Features/Home/widgets/custom_text.dart';
 
 class CustomFilterTextField extends StatelessWidget {
   const CustomFilterTextField({

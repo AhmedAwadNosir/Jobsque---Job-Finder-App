@@ -19,7 +19,7 @@ class PopularSearchListViewBuilder extends StatelessWidget {
       child: ListView.builder(
         itemCount: recentSearch.length,
         itemBuilder: (context, index) {
-          return searchHistoryUnit(
+          return SearchHistoryUnit(
               searchName: recentSearch[index],
               prefixIcon: Iconsax.search_status,
               suffixICon: Iconsax.arrow_circle_right,

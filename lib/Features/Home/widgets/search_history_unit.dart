@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:jobsque_jobfinder/Core/Utils/app_colors.dart';
 import 'package:jobsque_jobfinder/Core/Utils/app_fonts_styles.dart';
 
-class searchHistoryUnit extends StatelessWidget {
-  const searchHistoryUnit({
+class SearchHistoryUnit extends StatelessWidget {
+  const SearchHistoryUnit({
     super.key,
     required this.searchName,
     required this.prefixIcon,
