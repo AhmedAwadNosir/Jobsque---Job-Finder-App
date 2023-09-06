@@ -7,7 +7,9 @@ class JopFeatures extends StatelessWidget {
     super.key,
     required this.workType,
     required this.workNature,
-    this.jopSkill, this.color, this.textColor,
+    this.jopSkill,
+    this.color,
+    this.textColor, this.rightdestenation,
   });
 
   final String workType;
@@ -15,6 +17,7 @@ class JopFeatures extends StatelessWidget {
   final String? jopSkill;
   final Color? color;
   final Color? textColor;
+  final double? rightdestenation;
 
   @override
   Widget build(BuildContext context) {
@@ -23,29 +26,29 @@ class JopFeatures extends StatelessWidget {
       children: [
         JopNatureOptions(
           jopnature: workType,
-          color: color??AppColors.appPrimaryColors100,
-          textColor: textColor??AppColors.appPrimaryColors500,
+          color: color ?? AppColors.appPrimaryColors100,
+          textColor: textColor ?? AppColors.appPrimaryColors500,
           height: 26,
           width: 72,
         ),
         JopNatureOptions(
           jopnature: workNature,
-          color: color??AppColors.appPrimaryColors100,
-          textColor:  textColor??AppColors.appPrimaryColors500,
+          color: color ?? AppColors.appPrimaryColors100,
+          textColor: textColor ?? AppColors.appPrimaryColors500,
           height: 26,
           width: 72,
         ),
         jopSkill != null
             ? JopNatureOptions(
                 jopnature: jopSkill!,
-                color: color??AppColors.appPrimaryColors100,
-                textColor:  textColor??AppColors.appPrimaryColors500,
+                color: color ?? AppColors.appPrimaryColors100,
+                textColor: textColor ?? AppColors.appPrimaryColors500,
                 height: 26,
                 width: 72,
               )
             : Container(),
-        const SizedBox(
-          width: 24,
+         SizedBox(
+          width: rightdestenation??0,
         ),
       ],
     );

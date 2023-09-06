@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:jobsque_jobfinder/Core/Utils/app_colors.dart';
 import 'package:jobsque_jobfinder/Core/Utils/app_fonts_styles.dart';
+import 'package:jobsque_jobfinder/Core/Utils/app_images.dart';
 import 'package:jobsque_jobfinder/Core/Utils/constans.dart';
 import 'package:jobsque_jobfinder/Features/Home/models/suggested_jop_model.dart';
 import 'package:jobsque_jobfinder/Features/Home/widgets/jop_details.dart';
@@ -32,15 +33,8 @@ class _JopInfoUnite2State extends State<JopInfoUnite2> {
         children: [
           Row(
             children: [
-              Container(
-                width: 40,
-                height: 40,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(8),
-                  color: AppColors.appPrimaryColors400,
-                ),
-                child: Image.asset(widget.jopModel.comunicationToolImage),
-              ),
+              Image.asset(widget.jopModel.comunicationToolIcon ??
+                  AppImages.twitterIcon),
               const SizedBox(
                 width: 16,
               ),
@@ -64,31 +58,40 @@ class _JopInfoUnite2State extends State<JopInfoUnite2> {
           const SizedBox(
             height: 20,
           ),
-         Row( mainAxisAlignment: MainAxisAlignment.spaceBetween,children: [
-          JopFeatures(workType: widget.jopModel.workType, workNature: widget.jopModel.workNature,jopSkill: widget.jopModel.jopSkill,),
-          Text.rich(
-          TextSpan(
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              TextSpan(
-                text: widget.jopModel.salary,
-                style: AppFontsStyles.textstyle16.copyWith(
-                    fontFamily: textFamilyMedium,
-                    color: AppColors.appSuccessColors700),
+              SizedBox(
+                width: MediaQuery.of(context).size.width * 0.6,
+                child: JopFeatures(
+                  workType: widget.jopModel.workType,
+                  workNature: widget.jopModel.workNature,
+                  jopSkill: widget.jopModel.jopSkill,
+                ),
               ),
-              TextSpan(
-                text: widget.jopModel.salaryTime,
-                style: AppFontsStyles.textstyle12.copyWith(
-                  fontFamily: textFamilyMedium,
-                  color: AppColors.appNeutralColors500,
+              Text.rich(
+                TextSpan(
+                  children: [
+                    TextSpan(
+                      text: widget.jopModel.salary,
+                      style: AppFontsStyles.textstyle16.copyWith(
+                          fontFamily: textFamilyMedium,
+                          color: AppColors.appSuccessColors700),
+                    ),
+                    TextSpan(
+                      text: widget.jopModel.salaryTime,
+                      style: AppFontsStyles.textstyle12.copyWith(
+                        fontFamily: textFamilyMedium,
+                        color: AppColors.appNeutralColors500,
+                      ),
+                    ),
+                  ],
                 ),
               ),
             ],
-          ),
-        ),
-         ],)
+          )
         ],
       ),
     );
   }
 }
-

@@ -7,24 +7,29 @@ class JopDetails extends StatelessWidget {
   const JopDetails({
     super.key,
     required this.title,
-    required this.subtitel, this.titleColor,this.subtitleColor
+    required this.subtitel,
+    this.titleColor,
+    this.subtitleColor,
+    this.crossAxisAlignment, this.titleStyle,
   });
 
   final String title;
   final String subtitel;
   final Color? titleColor;
   final Color? subtitleColor;
+  final CrossAxisAlignment? crossAxisAlignment;
+  final TextStyle? titleStyle;
 
   @override
   Widget build(BuildContext context) {
     return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
+      crossAxisAlignment: crossAxisAlignment ?? CrossAxisAlignment.start,
       children: [
         Text(
           title,
-          style: AppFontsStyles.textstyle18.copyWith(
+          style:titleStyle?? AppFontsStyles.textstyle18.copyWith(
               fontFamily: textFamilyMedium,
-              color:titleColor?? AppColors.appNeutralColors900),
+              color: titleColor ?? AppColors.appNeutralColors900),
         ),
         const SizedBox(
           height: 4,
@@ -33,7 +38,7 @@ class JopDetails extends StatelessWidget {
           subtitel,
           style: AppFontsStyles.textstyle12.copyWith(
             fontFamily: textFamilyMedium,
-            color:subtitleColor?? AppColors.appNeutralColors700,
+            color: subtitleColor ?? AppColors.appNeutralColors700,
           ),
         ),
       ],

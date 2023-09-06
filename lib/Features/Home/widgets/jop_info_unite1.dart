@@ -11,8 +11,10 @@ class JopInfoUnite1 extends StatefulWidget {
   const JopInfoUnite1({
     super.key,
     required this.jopModel,
+    this.onPressed,
   });
   final SuggestedJopModel jopModel;
+  final void Function()? onPressed;
 
   @override
   State<JopInfoUnite1> createState() => _JopInfoUnite1State();
@@ -35,15 +37,7 @@ class _JopInfoUnite1State extends State<JopInfoUnite1> {
           children: [
             Row(
               children: [
-                Container(
-                  width: 40,
-                  height: 40,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(8),
-                    color: Colors.white,
-                  ),
-                  child: Image.asset(widget.jopModel.comunicationToolImage),
-                ),
+                Image.asset(widget.jopModel.comunicationToolIcon),
                 const SizedBox(
                   width: 16,
                 ),
@@ -87,6 +81,7 @@ class _JopInfoUnite1State extends State<JopInfoUnite1> {
               textColor: widget.jopModel.containerColor != null
                   ? AppColors.appNeutralColors900
                   : Colors.white,
+              rightdestenation: 24,
             ),
             const SizedBox(
               height: 20,
@@ -122,7 +117,7 @@ class _JopInfoUnite1State extends State<JopInfoUnite1> {
                   height: 36,
                   width: 104,
                   child: ElevatedButton(
-                      onPressed: () {},
+                      onPressed: widget.onPressed,
                       style: ElevatedButton.styleFrom(
                         backgroundColor: AppColors.appPrimaryColors500,
                       ),

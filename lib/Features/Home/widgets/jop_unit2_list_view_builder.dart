@@ -2,14 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:jobsque_jobfinder/Core/Utils/app_images.dart';
 import 'package:jobsque_jobfinder/Features/Home/models/suggested_jop_model.dart';
 import 'package:jobsque_jobfinder/Features/Home/widgets/jop_info_unit2.dart';
+import 'package:jobsque_jobfinder/Features/Jop_Details/views/jop_details_view.dart';
 
 class JopUnite2ListViewbuilder extends StatelessWidget {
   JopUnite2ListViewbuilder({super.key});
   List<SuggestedJopModel> jopesInfo = [
     SuggestedJopModel(
-      comunicationToolImage: AppImages.zoomIcon,
-      jopTitle: "Product Designer",
-      comunicationtoolname: "Zoom • United States",
+      comunicationToolIcon: AppImages.twitterIcon,
+      jopTitle: "Senior UI Designer",
+      comunicationtoolname: "Twitter • Jakarta, Indonesia",
       workType: "Fulltime",
       workNature: "Remote",
       jopSkill: "Design",
@@ -17,7 +18,6 @@ class JopUnite2ListViewbuilder extends StatelessWidget {
       salaryTime: "/Month",
     ),
     SuggestedJopModel(
-      comunicationToolImage: AppImages.zoomIcon,
       jopTitle: "Product Designer",
       comunicationtoolname: "Zoom • United States",
       workType: "Fulltime",
@@ -25,9 +25,9 @@ class JopUnite2ListViewbuilder extends StatelessWidget {
       jopSkill: "Design",
       salary: r"$15K",
       salaryTime: "/Month",
+      comunicationToolIcon: AppImages.discordIcon,
     ),
     SuggestedJopModel(
-      comunicationToolImage: AppImages.zoomIcon,
       jopTitle: "Product Designer",
       comunicationtoolname: "Zoom • United States",
       workType: "Fulltime",
@@ -35,9 +35,9 @@ class JopUnite2ListViewbuilder extends StatelessWidget {
       jopSkill: "Design",
       salary: r"$15K",
       salaryTime: "/Month",
+      comunicationToolIcon: AppImages.spectrumIcon,
     ),
     SuggestedJopModel(
-      comunicationToolImage: AppImages.zoomIcon,
       jopTitle: "Product Designer",
       comunicationtoolname: "Zoom • United States",
       workType: "Fulltime",
@@ -45,9 +45,9 @@ class JopUnite2ListViewbuilder extends StatelessWidget {
       jopSkill: "Design",
       salary: r"$15K",
       salaryTime: "/Month",
+      comunicationToolIcon: AppImages.vKLogo,
     ),
     SuggestedJopModel(
-      comunicationToolImage: AppImages.zoomIcon,
       jopTitle: "Product Designer",
       comunicationtoolname: "Zoom • United States",
       workType: "Fulltime",
@@ -55,6 +55,7 @@ class JopUnite2ListViewbuilder extends StatelessWidget {
       jopSkill: "Design",
       salary: r"$15K",
       salaryTime: "/Month",
+      comunicationToolIcon: AppImages.invisionIcon,
     ),
   ];
   @override
@@ -66,7 +67,19 @@ class JopUnite2ListViewbuilder extends StatelessWidget {
       itemBuilder: (context, index) {
         return Padding(
           padding: const EdgeInsets.only(bottom: 20),
-          child: JopInfoUnite2(jopModel: jopesInfo[index]),
+          child: GestureDetector(
+            onTap: () {
+              var currentJop = jopesInfo[index];
+              Navigator.push(context, MaterialPageRoute(
+                builder: (context) {
+                  return JopDetailsView(jopModel: currentJop);
+                },
+              ));
+            },
+            child: JopInfoUnite2(
+              jopModel: jopesInfo[index],
+            ),
+          ),
         );
       },
     );

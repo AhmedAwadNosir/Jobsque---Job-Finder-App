@@ -3,6 +3,7 @@ import 'package:iconsax/iconsax.dart';
 import 'package:jobsque_jobfinder/Core/Utils/app_colors.dart';
 import 'package:jobsque_jobfinder/Core/Utils/app_fonts_styles.dart';
 import 'package:jobsque_jobfinder/Core/Utils/constans.dart';
+import 'package:jobsque_jobfinder/Core/Wedgits/custom_barr.dart';
 import 'package:jobsque_jobfinder/Features/Home/widgets/custom_text.dart';
 import 'package:jobsque_jobfinder/Features/Home/widgets/custom_filter_text_field.dart';
 import 'package:jobsque_jobfinder/Features/Home/widgets/jop_type_container.dart';
@@ -23,36 +24,18 @@ class AddFilterBottomSheet extends StatelessWidget {
             const SizedBox(
               height: 40,
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                GestureDetector(
-                  onTap: () {
-                    Navigator.pop(context);
-                  },
-                  child: const Icon(
-                    Iconsax.arrow_left,
-                  ),
-                ),
-                Center(
-                  child: Text(
-                    "Set Filter",
-                    style: AppFontsStyles.textstyle20.copyWith(
+            CustomBar(
+              leftPart: Iconsax.arrow_left,
+              centerPart: "Job Detail",
+              rightPart: TextButton(
+                onPressed: () {},
+                child: Text(
+                  "Reset",
+                  style: AppFontsStyles.textstyle16.copyWith(
                       fontFamily: textFamilyMedium,
-                      color: AppColors.appNeutralColors900,
-                    ),
-                  ),
+                      color: AppColors.appPrimaryColors500),
                 ),
-                TextButton(
-                  onPressed: () {},
-                  child: Text(
-                    "Reset",
-                    style: AppFontsStyles.textstyle16.copyWith(
-                        fontFamily: textFamilyMedium,
-                        color: AppColors.appPrimaryColors500),
-                  ),
-                ),
-              ],
+              ),
             ),
             const SizedBox(
               height: 28,
