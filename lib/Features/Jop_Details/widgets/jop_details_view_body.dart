@@ -4,7 +4,7 @@ import 'package:jobsque_jobfinder/Core/Utils/app_colors.dart';
 import 'package:jobsque_jobfinder/Core/Utils/app_fonts_styles.dart';
 import 'package:jobsque_jobfinder/Core/Utils/constans.dart';
 import 'package:jobsque_jobfinder/Core/Wedgits/custom_barr.dart';
-import 'package:jobsque_jobfinder/Features/Home/models/suggested_jop_model.dart';
+import 'package:jobsque_jobfinder/Features/Home/models/jop_model.dart';
 import 'package:jobsque_jobfinder/Features/Home/widgets/jop_details.dart';
 import 'package:jobsque_jobfinder/Features/Home/widgets/jop_features.dart';
 import 'package:jobsque_jobfinder/Features/Jop_Details/views/apply_jop_view.dart';
@@ -15,7 +15,7 @@ import 'package:jobsque_jobfinder/Features/Onboarding/Views/Widgets/custom_butto
 
 class JopDetailsViewBody extends StatelessWidget {
   const JopDetailsViewBody({super.key, required this.jopModel});
-  final SuggestedJopModel jopModel;
+  final JopModel jopModel;
   @override
   Widget build(BuildContext context) {
     return Padding(

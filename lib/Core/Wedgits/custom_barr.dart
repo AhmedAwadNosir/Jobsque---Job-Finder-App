@@ -8,18 +8,19 @@ class CustomBar extends StatelessWidget {
     super.key,
     required this.leftPart,
     required this.centerPart,
-    this.rightPart,
+    this.rightPart, this.onTap,
   });
   final IconData leftPart;
   final String centerPart;
   final Widget? rightPart;
+  final void Function()? onTap;
   @override
   Widget build(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         GestureDetector(
-          onTap: () {
+          onTap:onTap?? () {
             Navigator.pop(context);
           },
           child: Icon(

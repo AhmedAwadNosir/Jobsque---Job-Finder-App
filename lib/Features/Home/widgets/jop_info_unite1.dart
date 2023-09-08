@@ -3,8 +3,8 @@ import 'package:iconsax/iconsax.dart';
 import 'package:jobsque_jobfinder/Core/Utils/app_colors.dart';
 import 'package:jobsque_jobfinder/Core/Utils/app_fonts_styles.dart';
 import 'package:jobsque_jobfinder/Core/Utils/constans.dart';
-import 'package:jobsque_jobfinder/Features/Home/models/suggested_jop_model.dart';
-import 'package:jobsque_jobfinder/Features/Home/widgets/jop_details.dart';
+import 'package:jobsque_jobfinder/Core/Wedgits/jop_data_unite.dart';
+import 'package:jobsque_jobfinder/Features/Home/models/jop_model.dart';
 import 'package:jobsque_jobfinder/Features/Home/widgets/jop_features.dart';
 
 class JopInfoUnite1 extends StatefulWidget {
@@ -13,7 +13,7 @@ class JopInfoUnite1 extends StatefulWidget {
     required this.jopModel,
     this.onPressed,
   });
-  final SuggestedJopModel jopModel;
+  final JopModel jopModel;
   final void Function()? onPressed;
 
   @override
@@ -35,38 +35,27 @@ class _JopInfoUnite1State extends State<JopInfoUnite1> {
         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 18),
         child: Column(
           children: [
-            Row(
-              children: [
-                Image.asset(widget.jopModel.comunicationToolIcon),
-                const SizedBox(
-                  width: 16,
-                ),
-                JopDetails(
-                  title: widget.jopModel.jopTitle,
-                  subtitel: widget.jopModel.comunicationtoolname,
-                  titleColor: widget.jopModel.containerColor != null
+            JopDataUnite(
+              jopComunicationImage: widget.jopModel.comunicationToolIcon,
+              jopTitle: widget.jopModel.jopTitle,
+              optionICon: Iconsax.archive_minus,
+              jopComunicationName: widget.jopModel.comunicationtoolname,
+              titleColor: widget.jopModel.containerColor != null
+                  ? AppColors.appNeutralColors900
+                  : Colors.white,
+              subTitleColor: widget.jopModel.containerColor != null
+                  ? AppColors.appNeutralColors600
+                  : AppColors.appNeutralColors400,
+              iconColor: isArchived == true
+                  ? AppColors.appPrimaryColors500
+                  : (widget.jopModel.containerColor != null
                       ? AppColors.appNeutralColors900
-                      : Colors.white,
-                  subtitleColor: widget.jopModel.containerColor != null
-                      ? AppColors.appNeutralColors600
-                      : AppColors.appNeutralColors400,
-                ),
-                const Spacer(),
-                IconButton(
-                    onPressed: () {
-                      setState(() {
-                        isArchived = !isArchived;
-                      });
-                    },
-                    icon: Icon(
-                      Iconsax.archive_minus,
-                      color: isArchived == true
-                          ? AppColors.appPrimaryColors500
-                          : (widget.jopModel.containerColor != null
-                              ? AppColors.appNeutralColors900
-                              : Colors.white),
-                    )),
-              ],
+                      : Colors.white),
+              onTap: () {
+                setState(() {
+                  isArchived = !isArchived;
+                });
+              },
             ),
             const SizedBox(
               height: 20,
@@ -87,7 +76,6 @@ class _JopInfoUnite1State extends State<JopInfoUnite1> {
               height: 20,
             ),
             Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text.rich(
                   TextSpan(
@@ -113,6 +101,7 @@ class _JopInfoUnite1State extends State<JopInfoUnite1> {
                     ],
                   ),
                 ),
+                const Spacer(),
                 SizedBox(
                   height: 36,
                   width: 104,

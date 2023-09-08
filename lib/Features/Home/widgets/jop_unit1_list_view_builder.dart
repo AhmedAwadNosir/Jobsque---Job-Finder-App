@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:jobsque_jobfinder/Core/Utils/app_colors.dart';
 import 'package:jobsque_jobfinder/Core/Utils/app_images.dart';
-import 'package:jobsque_jobfinder/Features/Home/models/suggested_jop_model.dart';
+import 'package:jobsque_jobfinder/Features/Home/models/jop_model.dart';
 import 'package:jobsque_jobfinder/Features/Home/widgets/jop_info_unite1.dart';
 import 'package:jobsque_jobfinder/Features/Jop_Details/views/jop_details_view.dart';
 
 class JopUnite1ListViewbuilder extends StatelessWidget {
   JopUnite1ListViewbuilder({super.key});
-  List<SuggestedJopModel> jopesInfo = [
-    SuggestedJopModel(
+  List<JopModel> jopesInfo = [
+    JopModel(
       comunicationToolIcon: AppImages.zoomIcon,
       jopTitle: "Product Designer",
       comunicationtoolname: "Zoom • United States",
@@ -18,28 +18,7 @@ class JopUnite1ListViewbuilder extends StatelessWidget {
       salary: r"$12K-15K",
       salaryTime: "/Month",
     ),
-    SuggestedJopModel(
-      comunicationToolIcon: AppImages.zoomIcon,
-      jopTitle: "Product Designer",
-      comunicationtoolname: "Zoom • United States",
-      workType: "Fulltime",
-      workNature: "Remote",
-      jopSkill: "Design",
-      salary: r"$12K-15K",
-      salaryTime: "/Month",
-      containerColor: AppColors.appNeutralColors100,
-    ),
-    SuggestedJopModel(
-      comunicationToolIcon: AppImages.zoomIcon,
-      jopTitle: "Product Designer",
-      comunicationtoolname: "Zoom • United States",
-      workType: "Fulltime",
-      workNature: "Remote",
-      jopSkill: "Design",
-      salary: r"$12K-15K",
-      salaryTime: "/Month",
-    ),
-    SuggestedJopModel(
+    JopModel(
       comunicationToolIcon: AppImages.zoomIcon,
       jopTitle: "Product Designer",
       comunicationtoolname: "Zoom • United States",
@@ -50,7 +29,28 @@ class JopUnite1ListViewbuilder extends StatelessWidget {
       salaryTime: "/Month",
       containerColor: AppColors.appNeutralColors100,
     ),
-    SuggestedJopModel(
+    JopModel(
+      comunicationToolIcon: AppImages.zoomIcon,
+      jopTitle: "Product Designer",
+      comunicationtoolname: "Zoom • United States",
+      workType: "Fulltime",
+      workNature: "Remote",
+      jopSkill: "Design",
+      salary: r"$12K-15K",
+      salaryTime: "/Month",
+    ),
+    JopModel(
+      comunicationToolIcon: AppImages.zoomIcon,
+      jopTitle: "Product Designer",
+      comunicationtoolname: "Zoom • United States",
+      workType: "Fulltime",
+      workNature: "Remote",
+      jopSkill: "Design",
+      salary: r"$12K-15K",
+      salaryTime: "/Month",
+      containerColor: AppColors.appNeutralColors100,
+    ),
+    JopModel(
       comunicationToolIcon: AppImages.zoomIcon,
       jopTitle: "Product Designer",
       comunicationtoolname: "Zoom • United States",

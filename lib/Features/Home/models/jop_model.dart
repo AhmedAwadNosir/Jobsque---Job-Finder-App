@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class SuggestedJopModel {
+class JopModel {
   final String jopTitle;
   final String comunicationtoolname;
   final String workType;
@@ -10,7 +10,7 @@ class SuggestedJopModel {
   final String salaryTime;
   final Color? containerColor;
   final String comunicationToolIcon;
-  SuggestedJopModel({
+  JopModel({
     required this.jopTitle,
     required this.comunicationtoolname,
     required this.workType,

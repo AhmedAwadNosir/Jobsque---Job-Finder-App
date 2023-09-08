@@ -56,4 +56,5 @@ abstract class AppImages {
   static const String iconChecked = "lib/Core/Utils/assets/images/IconChecked.png";
   static const String pdfIcon = "lib/Core/Utils/assets/images/pdfIcon.png";
   static const String jopApliedSeccesfultyicon = "lib/Core/Utils/assets/images/jopApliedSeccesfultyicon.png";
+  static const String savedICon = "lib/Core/Utils/assets/images/savedICon.png";
 }

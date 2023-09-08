@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:jobsque_jobfinder/Core/Utils/app_images.dart';
-import 'package:jobsque_jobfinder/Features/Home/models/suggested_jop_model.dart';
+import 'package:jobsque_jobfinder/Features/Home/models/jop_model.dart';
 import 'package:jobsque_jobfinder/Features/Home/widgets/jop_info_unit2.dart';
 
 class SearchResultListViewBuilder extends StatelessWidget {
   SearchResultListViewBuilder({super.key});
-  List<SuggestedJopModel> jopesInfo = [
-    SuggestedJopModel(
+  List<JopModel> jopesInfo = [
+    JopModel(
       comunicationToolIcon: AppImages.twitterIcon,
       jopTitle: "Product Designer",
       comunicationtoolname: "Zoom • United States",
@@ -16,7 +16,7 @@ class SearchResultListViewBuilder extends StatelessWidget {
       salary: r"$15K",
       salaryTime: "/Month",
     ),
-    SuggestedJopModel(
+    JopModel(
       jopTitle: "Product Designer",
       comunicationtoolname: "Zoom • United States",
       workType: "Fulltime",
@@ -26,7 +26,7 @@ class SearchResultListViewBuilder extends StatelessWidget {
       salaryTime: "/Month",
       comunicationToolIcon: AppImages.discordIcon,
     ),
-    SuggestedJopModel(
+    JopModel(
       jopTitle: "Product Designer",
       comunicationtoolname: "Zoom • United States",
       workType: "Fulltime",
@@ -36,7 +36,7 @@ class SearchResultListViewBuilder extends StatelessWidget {
       salaryTime: "/Month",
       comunicationToolIcon: AppImages.spectrumIcon,
     ),
-    SuggestedJopModel(
+    JopModel(
       jopTitle: "Product Designer",
       comunicationtoolname: "Zoom • United States",
       workType: "Fulltime",
@@ -46,7 +46,7 @@ class SearchResultListViewBuilder extends StatelessWidget {
       salaryTime: "/Month",
       comunicationToolIcon: AppImages.vKLogo,
     ),
-    SuggestedJopModel(
+    JopModel(
       jopTitle: "Product Designer",
       comunicationtoolname: "Zoom • United States",
       workType: "Fulltime",

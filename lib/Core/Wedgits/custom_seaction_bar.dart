@@ -3,11 +3,14 @@ import 'package:jobsque_jobfinder/Core/Utils/app_colors.dart';
 import 'package:jobsque_jobfinder/Core/Utils/app_fonts_styles.dart';
 import 'package:jobsque_jobfinder/Core/Utils/constans.dart';
 
-class SearchSectionBar extends StatelessWidget {
-  const SearchSectionBar({
-    super.key, required this.text,
+class CustomSectionBar extends StatelessWidget {
+  const CustomSectionBar({
+    super.key,
+    required this.text,
+    this.textAlign,
   });
   final String text;
+  final TextAlign? textAlign;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -16,7 +19,8 @@ class SearchSectionBar extends StatelessWidget {
       width: double.infinity,
       padding: const EdgeInsets.only(top: 8, bottom: 8, left: 24),
       child: Text(
-       text,
+        text,
+        textAlign: textAlign ?? TextAlign.start,
         style: AppFontsStyles.textstyle14.copyWith(
             fontFamily: textFamilyMedium, color: AppColors.appNeutralColors500),
       ),

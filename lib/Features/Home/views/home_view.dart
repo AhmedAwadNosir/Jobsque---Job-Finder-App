@@ -3,6 +3,7 @@ import 'package:iconsax/iconsax.dart';
 import 'package:jobsque_jobfinder/Core/Utils/app_colors.dart';
 import 'package:jobsque_jobfinder/Core/Utils/app_fonts_styles.dart';
 import 'package:jobsque_jobfinder/Features/Home/widgets/home_view_body.dart';
+import 'package:jobsque_jobfinder/Features/Saved_Jop/views/saved_view.dart';
 
 class HomeView extends StatefulWidget {
   const HomeView({super.key});
@@ -53,7 +54,15 @@ class _HomeViewState extends State<HomeView> {
               label: "Profile",
             )
           ]),
-      body: const SafeArea(child: HomeViewBody()),
+      body: SafeArea(child: views[currentIndex]),
     );
   }
+
+  List<Widget> views = [
+    const HomeViewBody(),
+    Container(),
+    Container(),
+     SavedView(),
+    Container()
+  ];
 }

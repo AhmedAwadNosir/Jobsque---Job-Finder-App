@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:jobsque_jobfinder/Core/Utils/app_images.dart';
-import 'package:jobsque_jobfinder/Features/Home/models/suggested_jop_model.dart';
+import 'package:jobsque_jobfinder/Features/Home/models/jop_model.dart';
 import 'package:jobsque_jobfinder/Features/Home/widgets/jop_info_unit2.dart';
 import 'package:jobsque_jobfinder/Features/Jop_Details/views/jop_details_view.dart';
 
 class JopUnite2ListViewbuilder extends StatelessWidget {
   JopUnite2ListViewbuilder({super.key});
-  List<SuggestedJopModel> jopesInfo = [
-    SuggestedJopModel(
+  List<JopModel> jopesInfo = [
+    JopModel(
       comunicationToolIcon: AppImages.twitterIcon,
       jopTitle: "Senior UI Designer",
       comunicationtoolname: "Twitter • Jakarta, Indonesia",
@@ -17,7 +17,7 @@ class JopUnite2ListViewbuilder extends StatelessWidget {
       salary: r"$15K",
       salaryTime: "/Month",
     ),
-    SuggestedJopModel(
+    JopModel(
       jopTitle: "Product Designer",
       comunicationtoolname: "Zoom • United States",
       workType: "Fulltime",
@@ -27,7 +27,7 @@ class JopUnite2ListViewbuilder extends StatelessWidget {
       salaryTime: "/Month",
       comunicationToolIcon: AppImages.discordIcon,
     ),
-    SuggestedJopModel(
+    JopModel(
       jopTitle: "Product Designer",
       comunicationtoolname: "Zoom • United States",
       workType: "Fulltime",
@@ -37,7 +37,7 @@ class JopUnite2ListViewbuilder extends StatelessWidget {
       salaryTime: "/Month",
       comunicationToolIcon: AppImages.spectrumIcon,
     ),
-    SuggestedJopModel(
+    JopModel(
       jopTitle: "Product Designer",
       comunicationtoolname: "Zoom • United States",
       workType: "Fulltime",
@@ -47,7 +47,7 @@ class JopUnite2ListViewbuilder extends StatelessWidget {
       salaryTime: "/Month",
       comunicationToolIcon: AppImages.vKLogo,
     ),
-    SuggestedJopModel(
+    JopModel(
       jopTitle: "Product Designer",
       comunicationtoolname: "Zoom • United States",
       workType: "Fulltime",
