@@ -3,6 +3,7 @@ import 'package:iconsax/iconsax.dart';
 import 'package:jobsque_jobfinder/Core/Utils/app_colors.dart';
 import 'package:jobsque_jobfinder/Core/Utils/app_fonts_styles.dart';
 import 'package:jobsque_jobfinder/Core/Wedgits/custom_barr.dart';
+import 'package:jobsque_jobfinder/Features/Jop_Details/widgets/custom_steper_widgets/apply_custom_step_label.dart';
 import 'package:jobsque_jobfinder/Features/Jop_Details/widgets/step_1_content.dart';
 import 'package:jobsque_jobfinder/Features/Jop_Details/widgets/step_2_content.dart';
 import 'package:jobsque_jobfinder/Features/Jop_Details/widgets/custom_steper_widgets/custom_step.dart';
@@ -23,7 +24,7 @@ class _ApplyJopViewBodyState extends State<ApplyJopViewBody> {
   late PageController controler;
   @override
   void initState() {
-    controler = PageController();
+    controler = PageController(initialPage: 0);
     super.initState();
   }
 
@@ -77,10 +78,9 @@ class _ApplyJopViewBodyState extends State<ApplyJopViewBody> {
 
   List<CustomStep> getsteps() => [
         CustomStep(
-          label: Text(
-            "Biodata",
-            style: AppFontsStyles.textstyle12
-                .copyWith(color: AppColors.appNeutralColors900),
+          label: ApplyCustomStepsLabel(
+            label: "Biodata",
+            isActive: currentIndex >= 0,
           ),
           isActive: currentIndex >= 0,
           state: currentIndex > 0
@@ -93,14 +93,21 @@ class _ApplyJopViewBodyState extends State<ApplyJopViewBody> {
                 ? CustomStepState.complete
                 : CustomStepState.indexed,
             isActive: currentIndex >= 1,
-            label: const Text("Type of work"),
+            label: ApplyCustomStepsLabel(
+              label: "Type of work",
+              isActive: currentIndex >= 1,
+            ),
             content: const Step2Content()),
         CustomStep(
             state: currentIndex > 2
                 ? CustomStepState.complete
                 : CustomStepState.indexed,
             isActive: currentIndex >= 2,
-            label: const Text("Uplode portfolio"),
+            label: ApplyCustomStepsLabel(
+              label: "Uplode portfolio",
+              isActive: currentIndex == 2,
+            ),
             content: const Step3Content()),
       ];
 }
+
