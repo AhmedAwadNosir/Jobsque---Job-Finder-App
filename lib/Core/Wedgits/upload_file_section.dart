@@ -3,7 +3,7 @@ import 'package:iconsax/iconsax.dart';
 import 'package:jobsque_jobfinder/Core/Utils/app_colors.dart';
 import 'package:jobsque_jobfinder/Core/Utils/app_fonts_styles.dart';
 import 'package:jobsque_jobfinder/Core/Utils/constans.dart';
-import 'package:jobsque_jobfinder/Core/Wedgits/circle_icon_style.dart';
+import 'package:jobsque_jobfinder/Core/Wedgits/circle_icon_container.dart';
 import 'package:jobsque_jobfinder/Core/Wedgits/custom_text14.dart';
 import 'package:jobsque_jobfinder/Core/Wedgits/custom_text_16_style.dart';
 
@@ -24,12 +24,9 @@ class UploadeFileSection extends StatelessWidget {
             const EdgeInsets.only(left: 16, right: 16, top: 16, bottom: 20),
         child: Column(
           children: [
-            const CircleIconStyle(
-              icon: Icon(
-                Iconsax.document_upload5,
-                size: 32,
-                color: AppColors.appPrimaryColors500,
-              ),
+            const CircleIconContainer(
+              icon: Iconsax.document_upload5,
+              iconSize: 32,
             ),
             const SizedBox(height: 16),
             Text(

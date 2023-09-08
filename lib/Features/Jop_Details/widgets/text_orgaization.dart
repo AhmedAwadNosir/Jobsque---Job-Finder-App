@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:jobsque_jobfinder/Core/Wedgits/custom_text12.dart';
-import 'package:jobsque_jobfinder/Features/Jop_Details/widgets/custom_point.dart';
+import 'package:jobsque_jobfinder/Core/Wedgits/custom_point.dart';
 
 class TextOraganization extends StatelessWidget {
   const TextOraganization({

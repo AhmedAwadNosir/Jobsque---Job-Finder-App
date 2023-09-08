@@ -4,7 +4,7 @@ import 'package:jobsque_jobfinder/Core/Utils/app_images.dart';
 import 'package:jobsque_jobfinder/Core/Wedgits/custom_text14.dart';
 import 'package:jobsque_jobfinder/Core/Wedgits/custom_text_16_style.dart';
 import 'package:jobsque_jobfinder/Features/Jop_Details/models/jop_file_model.dart';
-import 'package:jobsque_jobfinder/Features/Jop_Details/widgets/custom_point.dart';
+import 'package:jobsque_jobfinder/Core/Wedgits/custom_point.dart';
 
 class ChooseFileSection extends StatefulWidget {
   const ChooseFileSection({

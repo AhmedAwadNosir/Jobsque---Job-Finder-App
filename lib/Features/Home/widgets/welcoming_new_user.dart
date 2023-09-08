@@ -3,6 +3,7 @@ import 'package:iconsax/iconsax.dart';
 import 'package:jobsque_jobfinder/Core/Utils/app_colors.dart';
 import 'package:jobsque_jobfinder/Core/Utils/app_fonts_styles.dart';
 import 'package:jobsque_jobfinder/Core/Utils/constans.dart';
+import 'package:jobsque_jobfinder/Features/Notefication/views/notefication_view.dart';
 
 class WelcomingNewUser extends StatelessWidget {
   const WelcomingNewUser({
@@ -39,9 +40,14 @@ class WelcomingNewUser extends StatelessWidget {
             border: Border.all(width: 1, color: AppColors.appNeutralColors300),
             borderRadius: BorderRadius.circular(100),
           ),
-          child: const Icon(
-            Iconsax.notification,
-            color: Color(0xff292D32),
+          child: GestureDetector(
+            onTap: () {
+              Navigator.pushNamed(context, NoteficationView.id);
+            },
+            child: const Icon(
+              Iconsax.notification,
+              color: Color(0xff292D32),
+            ),
           ),
         )
       ],

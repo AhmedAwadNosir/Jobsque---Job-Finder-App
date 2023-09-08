@@ -57,4 +57,9 @@ abstract class AppImages {
   static const String pdfIcon = "lib/Core/Utils/assets/images/pdfIcon.png";
   static const String jopApliedSeccesfultyicon = "lib/Core/Utils/assets/images/jopApliedSeccesfultyicon.png";
   static const String savedICon = "lib/Core/Utils/assets/images/savedICon.png";
+  static const String danaLogo = "lib/Core/Utils/assets/images/danaLogo.png";
+  static const String shoopeLogo = "lib/Core/Utils/assets/images/shoopeLogo.png";
+  static const String slackLogo1 = "lib/Core/Utils/assets/images/slackLogo1.png";
+  static const String facebookLogo = "lib/Core/Utils/assets/images/facebookLogo.png";
+  static const String notificationIcon = "lib/Core/Utils/assets/images/notificationIcon.png";
 }

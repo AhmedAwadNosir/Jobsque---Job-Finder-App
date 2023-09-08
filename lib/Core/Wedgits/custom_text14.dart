@@ -14,6 +14,7 @@ class CustomText14 extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
       title,
+      softWrap: true,
       style: AppFontsStyles.textstyle14.copyWith(
         fontFamily: textFamilyMedium,
         color:titleColor?? AppColors.appNeutralColors900,
