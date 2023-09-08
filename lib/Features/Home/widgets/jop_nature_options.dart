@@ -6,18 +6,21 @@ class JopNatureOptions extends StatelessWidget {
     super.key,
     required this.jopnature,
     required this.color,
-    required this.textColor, this.height, this.width,
+    required this.textColor,
+    this.height,
+    this.width,
   });
   final String jopnature;
   final Color color;
   final Color textColor;
   final double? height;
   final double? width;
+
   @override
   Widget build(BuildContext context) {
     return Container(
-      height:height?? 30,
-      width:width?? 87,
+      height: height ?? 30,
+      width: width ?? 87,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(100),
         color: color,

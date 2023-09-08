@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:jobsque_jobfinder/Core/Utils/app_images.dart';
-import 'package:jobsque_jobfinder/Features/Authentication/Widgets/page_initail_info.dart';
+import 'package:jobsque_jobfinder/Core/Wedgits/custom_state_page.dart';
 import 'package:jobsque_jobfinder/Features/Onboarding/Views/Widgets/custom_button.dart';
 import 'package:jobsque_jobfinder/Features/forgot%20_password/functions/open_gmail_app.dart';
 import 'package:jobsque_jobfinder/Features/forgot%20_password/views/reset_password_view.dart';
-
-import '../../../Core/Utils/app_fonts_styles.dart';
 
 class CheckEmialViewBody extends StatelessWidget {
   const CheckEmialViewBody({super.key});
@@ -19,17 +17,12 @@ class CheckEmialViewBody extends StatelessWidget {
           const SizedBox(
             height: 160,
           ),
-          Image.asset(AppImages.checkEmail),
-          const SizedBox(
-            height: 24,
-          ),
-          const PageInitialinfo(
-            spacebetween: 12,
-            pagegoleStyle: AppFontsStyles.textstyle24,
-            pagegole: "Check your Email",
-            pagegoledefination:
+          const CustomStatepage(
+            stateImage: AppImages.checkEmail,
+            statetitle: "Check your Email",
+            stateSubtitle:
                 "We have sent a reset password to your email address",
-            textAlign: TextAlign.center,
+            spacebetweent: 12,
           ),
           const Spacer(),
           CustomButton(

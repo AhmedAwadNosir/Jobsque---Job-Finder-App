@@ -10,13 +10,15 @@ class PageInitialinfo extends StatelessWidget {
     required this.pagegole,
     required this.pagegoledefination,
     this.pagegoleStyle,
-    this.textAlign,  this.spacebetween,
+    this.textAlign,
+    this.spacebetween,  this.sutptitleStyle,
   });
   final String pagegole;
   final String pagegoledefination;
   final TextStyle? pagegoleStyle;
   final TextAlign? textAlign;
   final double? spacebetween;
+  final TextStyle? sutptitleStyle;
   @override
   Widget build(BuildContext context) {
     return Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
@@ -30,13 +32,13 @@ class PageInitialinfo extends StatelessWidget {
               color: AppColors.appNeutralColors900,
             ),
       ),
-       SizedBox(
-        height: spacebetween??8,
+      SizedBox(
+        height: spacebetween ?? 8,
       ),
       Text(
         pagegoledefination,
         textAlign: textAlign ?? TextAlign.start,
-        style: AppFontsStyles.textstyle16.copyWith(
+        style:sutptitleStyle?? AppFontsStyles.textstyle16.copyWith(
           height: 1.3,
           color: AppColors.appNeutralColors500,
         ),

@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:jobsque_jobfinder/Features/Home/views/search_view.dart';
-import 'package:jobsque_jobfinder/Features/Home/widgets/custom_search_bar.dart';
+import 'package:jobsque_jobfinder/Core/Wedgits/custom_search_bar.dart';
 import 'package:jobsque_jobfinder/Features/Home/widgets/jop_section_bar.dart';
 import 'package:jobsque_jobfinder/Features/Home/widgets/jop_unit1_list_view_builder.dart';
 import 'package:jobsque_jobfinder/Features/Home/widgets/jop_unit2_list_view_builder.dart';
+import 'package:jobsque_jobfinder/Features/Home/widgets/twitter_submitted.dart';
 import 'package:jobsque_jobfinder/Features/Home/widgets/welcoming_new_user.dart';
+
 
 class HomeViewBody extends StatelessWidget {
   const HomeViewBody({super.key});
@@ -37,9 +39,13 @@ class HomeViewBody extends StatelessWidget {
               },
             ),
           ),
+          const SliverToBoxAdapter(child: SizedBox(height: 16)),
+          const SliverToBoxAdapter(
+            child: TwitterSubmited(),
+          ),
           const SliverToBoxAdapter(
             child: SizedBox(
-              height: 20,
+              height: 24,
             ),
           ),
           const SliverToBoxAdapter(
@@ -78,3 +84,4 @@ class HomeViewBody extends StatelessWidget {
     );
   }
 }
+

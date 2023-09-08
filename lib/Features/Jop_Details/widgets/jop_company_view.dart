@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:jobsque_jobfinder/Core/Utils/app_colors.dart';
-import 'package:jobsque_jobfinder/Features/Jop_Details/widgets/custom_text12.dart';
-import 'package:jobsque_jobfinder/Features/Jop_Details/widgets/custom_text14.dart';
+import 'package:jobsque_jobfinder/Core/Wedgits/custom_text12.dart';
+import 'package:jobsque_jobfinder/Core/Wedgits/custom_text14.dart';
 import 'package:jobsque_jobfinder/Features/Jop_Details/widgets/details_container.dart';
 
 class JopCompanyView extends StatelessWidget {

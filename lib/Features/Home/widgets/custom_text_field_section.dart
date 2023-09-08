@@ -3,29 +3,31 @@ import 'package:jobsque_jobfinder/Core/Utils/app_colors.dart';
 import 'package:jobsque_jobfinder/Core/Utils/app_fonts_styles.dart';
 import 'package:jobsque_jobfinder/Core/Utils/constans.dart';
 import 'package:jobsque_jobfinder/Features/Authentication/functions/text_field_border_decoration.dart';
-import 'package:jobsque_jobfinder/Features/Home/widgets/custom_text.dart';
+import 'package:jobsque_jobfinder/Features/Jop_Details/widgets/custom_text_field_title.dart';
 
-class CustomFilterTextField extends StatelessWidget {
-  const CustomFilterTextField({
+class CustomTextFieldSection extends StatelessWidget {
+  const CustomTextFieldSection({
     super.key,
     required this.title,
     required this.prefixICon,
     this.suffixIcon,
     this.onChanged,
-    this.onSubmited, this.suffixIconOnTap,
+    this.onSubmited,
+    this.suffixIconOnTap, this.sympol,
   });
   final String title;
-  final IconData prefixICon;
+  final Widget prefixICon;
   final IconData? suffixIcon;
   final void Function(String)? onChanged;
   final void Function(String)? onSubmited;
   final void Function()? suffixIconOnTap;
+  final String? sympol;
   @override
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        CustomText(title: title),
+        CustomTextFieldTitle(title: title,symbol: sympol,),
         const SizedBox(
           height: 8,
         ),
@@ -38,18 +40,15 @@ class CustomFilterTextField extends StatelessWidget {
           decoration: InputDecoration(
               enabledBorder: buildOutlineInputBorder(),
               focusedBorder: buildOutlineInputBorder(),
-              prefixIcon: Icon(
-                prefixICon,
-                color: AppColors.appNeutralColors800,
-              ),
+              prefixIcon: prefixICon,
               suffixIcon: suffixIcon != null
                   ? GestureDetector(
-                    onTap:suffixIconOnTap ,
-                    child: Icon(
+                      onTap: suffixIconOnTap,
+                      child: Icon(
                         suffixIcon,
                         color: AppColors.appNeutralColors800,
                       ),
-                  )
+                    )
                   : null),
         )
       ],

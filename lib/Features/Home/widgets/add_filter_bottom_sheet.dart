@@ -4,8 +4,8 @@ import 'package:jobsque_jobfinder/Core/Utils/app_colors.dart';
 import 'package:jobsque_jobfinder/Core/Utils/app_fonts_styles.dart';
 import 'package:jobsque_jobfinder/Core/Utils/constans.dart';
 import 'package:jobsque_jobfinder/Core/Wedgits/custom_barr.dart';
-import 'package:jobsque_jobfinder/Features/Home/widgets/custom_text.dart';
-import 'package:jobsque_jobfinder/Features/Home/widgets/custom_filter_text_field.dart';
+import 'package:jobsque_jobfinder/Core/Wedgits/custom_text_16_style.dart';
+import 'package:jobsque_jobfinder/Features/Home/widgets/custom_text_field_section.dart';
 import 'package:jobsque_jobfinder/Features/Home/widgets/jop_type_container.dart';
 import 'package:jobsque_jobfinder/Features/Onboarding/Views/Widgets/custom_button.dart';
 
@@ -40,27 +40,36 @@ class AddFilterBottomSheet extends StatelessWidget {
             const SizedBox(
               height: 28,
             ),
-            CustomFilterTextField(
+            CustomTextFieldSection(
               title: "Jop Title",
-              prefixICon: Iconsax.briefcase,
+              prefixICon: const Icon(
+                Iconsax.briefcase,
+                color: AppColors.appNeutralColors800,
+              ),
               onSubmited: (value) {},
               onChanged: (value) {},
             ),
             const SizedBox(
               height: 16,
             ),
-            CustomFilterTextField(
+            CustomTextFieldSection(
               title: "Location",
-              prefixICon: Iconsax.location,
+              prefixICon: const Icon(
+                Iconsax.location,
+                color: AppColors.appNeutralColors800,
+              ),
               onSubmited: (value) {},
               onChanged: (value) {},
             ),
             const SizedBox(
               height: 16,
             ),
-            CustomFilterTextField(
+            CustomTextFieldSection(
               title: "Salary",
-              prefixICon: Iconsax.dollar_circle,
+              prefixICon: const Icon(
+                Iconsax.dollar_circle,
+                color: AppColors.appNeutralColors800,
+              ),
               suffixIcon: Iconsax.arrow_down_1,
               onSubmited: (value) {},
               onChanged: (value) {},
@@ -69,7 +78,7 @@ class AddFilterBottomSheet extends StatelessWidget {
             const SizedBox(
               height: 16,
             ),
-            const CustomText(title: "Jop Type"),
+            const CustomText16Style(title: "Jop Type"),
             const SizedBox(
               height: 12,
             ),

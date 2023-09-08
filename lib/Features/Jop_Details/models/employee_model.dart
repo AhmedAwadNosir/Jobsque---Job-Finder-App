@@ -1,5 +1,3 @@
-import 'package:flutter/foundation.dart';
-
 class EmployeeModal {
   final String userImage;
   final String userName;

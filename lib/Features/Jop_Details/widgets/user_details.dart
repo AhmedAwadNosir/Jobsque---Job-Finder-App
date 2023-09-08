@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:jobsque_jobfinder/Core/Utils/app_colors.dart';
-import 'package:jobsque_jobfinder/Core/Utils/app_images.dart';
-import 'package:jobsque_jobfinder/Features/Authentication/Models/user_data_model.dart';
+import 'package:jobsque_jobfinder/Core/Wedgits/custom_text12.dart';
+import 'package:jobsque_jobfinder/Core/Wedgits/custom_text14.dart';
 import 'package:jobsque_jobfinder/Features/Jop_Details/models/employee_model.dart';
-import 'package:jobsque_jobfinder/Features/Jop_Details/widgets/custom_text12.dart';
-import 'package:jobsque_jobfinder/Features/Jop_Details/widgets/custom_text14.dart';
 
 class UserDetails extends StatelessWidget {
   const UserDetails({

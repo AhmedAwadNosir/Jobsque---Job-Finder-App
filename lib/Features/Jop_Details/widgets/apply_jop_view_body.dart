@@ -1,10 +1,15 @@
-import 'package:another_stepper/widgets/common/stepper_dot_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:jobsque_jobfinder/Core/Utils/app_colors.dart';
 import 'package:jobsque_jobfinder/Core/Utils/app_fonts_styles.dart';
 import 'package:jobsque_jobfinder/Core/Wedgits/custom_barr.dart';
-import 'package:jobsque_jobfinder/Features/Jop_Details/widgets/apply_section_title.dart';
+import 'package:jobsque_jobfinder/Features/Jop_Details/widgets/step_1_content.dart';
+import 'package:jobsque_jobfinder/Features/Jop_Details/widgets/step_2_content.dart';
+import 'package:jobsque_jobfinder/Features/Jop_Details/widgets/custom_steper_widgets/custom_step.dart';
+import 'package:jobsque_jobfinder/Features/Jop_Details/widgets/custom_steper_widgets/custom_step_progress_icon.dart';
+import 'package:jobsque_jobfinder/Features/Jop_Details/widgets/custom_steper_widgets/custom_stepper.dart';
+
+import 'package:jobsque_jobfinder/Features/Jop_Details/widgets/step_3_content.dart';
 
 class ApplyJopViewBody extends StatefulWidget {
   const ApplyJopViewBody({super.key});
@@ -14,7 +19,20 @@ class ApplyJopViewBody extends StatefulWidget {
 }
 
 class _ApplyJopViewBodyState extends State<ApplyJopViewBody> {
-  int currentStep = 0;
+  int currentIndex = 0;
+  late PageController controler;
+  @override
+  void initState() {
+    controler = PageController();
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    controler.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -31,59 +49,58 @@ class _ApplyJopViewBodyState extends State<ApplyJopViewBody> {
           const SizedBox(
             height: 34,
           ),
-          Stepper(
-            steps: getsteps(),
-            
-          )
+          Expanded(
+              child: CustomStepper(
+                  currentStep: currentIndex,
+                  customSteps: getsteps(),
+                  onStepTapped: (step) {
+                    setState(() {
+                      currentIndex = step;
+                      if (controler.hasClients) {
+                        controler.jumpToPage(currentIndex);
+                      }
+                    });
+                  },
+                  onStepContinue: () {
+                    setState(() {
+                      currentIndex++;
+                      if (controler.hasClients) {
+                        controler.jumpToPage(currentIndex);
+                      }
+                    });
+                  },
+                  pageController: controler))
         ],
       ),
     );
   }
 
-  List<Step> getsteps() => [
-        Step(
-            title: const Text("Biodata"),
-            content: SizedBox(
-              height: MediaQuery.of(context).size.height * 0.5,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  const SizedBox(
-                    height: 32,
-                  ),
-                  const ApplySectionTitle(
-                    title: "Biodata",
-                    subTitle: "Fill in your bio data correctly",
-                  ),
-                  const SizedBox(
-                    height: 28,
-                  ),
-                  Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        "Full Name",
-                        style: AppFontsStyles.textstyle16
-                            .copyWith(color: AppColors.appNeutralColors900),
-                      ),
-                      Text(
-                        "*",
-                        style: AppFontsStyles.textstyle16
-                            .copyWith(color: AppColors.appInDangerColors500),
-                      )
-                    ],
-                  )
-                ],
-              ),
-            ),
-            isActive: currentStep >= 0),
-        Step(
-            title: const Text("Type of work"),
-            content: Container(),
-            isActive: currentStep >= 1),
-        Step(
-            title: const Text("Upload portfolio"),
-            content: Container(),
-            isActive: currentStep >= 2),
+  List<CustomStep> getsteps() => [
+        CustomStep(
+          label: Text(
+            "Biodata",
+            style: AppFontsStyles.textstyle12
+                .copyWith(color: AppColors.appNeutralColors900),
+          ),
+          isActive: currentIndex >= 0,
+          state: currentIndex > 0
+              ? CustomStepState.complete
+              : CustomStepState.indexed,
+          content: const Step1Content(),
+        ),
+        CustomStep(
+            state: currentIndex > 1
+                ? CustomStepState.complete
+                : CustomStepState.indexed,
+            isActive: currentIndex >= 1,
+            label: const Text("Type of work"),
+            content: const Step2Content()),
+        CustomStep(
+            state: currentIndex > 2
+                ? CustomStepState.complete
+                : CustomStepState.indexed,
+            isActive: currentIndex >= 2,
+            label: const Text("Uplode portfolio"),
+            content: const Step3Content()),
       ];
 }

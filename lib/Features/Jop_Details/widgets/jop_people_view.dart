@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:jobsque_jobfinder/Core/Utils/app_colors.dart';
-import 'package:jobsque_jobfinder/Core/Utils/app_images.dart';
-import 'package:jobsque_jobfinder/Features/Jop_Details/widgets/custom_text12.dart';
-import 'package:jobsque_jobfinder/Features/Jop_Details/widgets/custom_text14.dart';
+import 'package:jobsque_jobfinder/Core/Wedgits/custom_text12.dart';
+import 'package:jobsque_jobfinder/Core/Wedgits/custom_text14.dart';
 import 'package:jobsque_jobfinder/Features/Jop_Details/widgets/users_list_view_builder.dart';
-import 'package:jobsque_jobfinder/Features/Onboarding/Views/Widgets/circle_container.dart';
 
 class JopPeopleView extends StatelessWidget {
   const JopPeopleView({super.key});

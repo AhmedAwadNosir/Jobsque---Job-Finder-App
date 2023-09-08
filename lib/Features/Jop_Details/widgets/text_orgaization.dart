@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:jobsque_jobfinder/Core/Utils/app_colors.dart';
-import 'package:jobsque_jobfinder/Core/Utils/app_fonts_styles.dart';
-import 'package:jobsque_jobfinder/Features/Jop_Details/widgets/custom_text12.dart';
+import 'package:jobsque_jobfinder/Core/Wedgits/custom_text12.dart';
+import 'package:jobsque_jobfinder/Features/Jop_Details/widgets/custom_point.dart';
 
 class TextOraganization extends StatelessWidget {
   const TextOraganization({
@@ -14,14 +13,9 @@ class TextOraganization extends StatelessWidget {
     return Row(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Padding(
-          padding: const EdgeInsets.only(top: 7),
-          child: Container(
-            height: 4,
-            width: 4,
-            decoration: const BoxDecoration(
-                shape: BoxShape.circle, color: AppColors.appNeutralColors600),
-          ),
+        const Padding(
+          padding: EdgeInsets.only(top: 7),
+          child: CustomPoint(),
         ),
         const SizedBox(
           width: 4,

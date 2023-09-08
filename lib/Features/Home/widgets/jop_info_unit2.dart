@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:jobsque_jobfinder/Core/Utils/app_colors.dart';
 import 'package:jobsque_jobfinder/Core/Utils/app_fonts_styles.dart';
-import 'package:jobsque_jobfinder/Core/Utils/app_images.dart';
 import 'package:jobsque_jobfinder/Core/Utils/constans.dart';
 import 'package:jobsque_jobfinder/Features/Home/models/suggested_jop_model.dart';
 import 'package:jobsque_jobfinder/Features/Home/widgets/jop_details.dart';
@@ -33,8 +32,7 @@ class _JopInfoUnite2State extends State<JopInfoUnite2> {
         children: [
           Row(
             children: [
-              Image.asset(widget.jopModel.comunicationToolIcon ??
-                  AppImages.twitterIcon),
+              Image.asset(widget.jopModel.comunicationToolIcon),
               const SizedBox(
                 width: 16,
               ),

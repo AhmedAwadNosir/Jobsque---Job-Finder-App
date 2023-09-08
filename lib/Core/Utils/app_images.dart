@@ -51,4 +51,9 @@ abstract class AppImages {
       "lib/Core/Utils/assets/images/InvisionLogo.png";
   static const String vKLogo = "lib/Core/Utils/assets/images/VKLogo.png";
   static const String userImage = "lib/Core/Utils/assets/images/userImage.jpg";
+  static const String tickCircle = "lib/Core/Utils/assets/images/tick-circle.png";
+  static const String iconCheck = "lib/Core/Utils/assets/images/IconCheck.png";
+  static const String iconChecked = "lib/Core/Utils/assets/images/IconChecked.png";
+  static const String pdfIcon = "lib/Core/Utils/assets/images/pdfIcon.png";
+  static const String jopApliedSeccesfultyicon = "lib/Core/Utils/assets/images/jopApliedSeccesfultyicon.png";
 }

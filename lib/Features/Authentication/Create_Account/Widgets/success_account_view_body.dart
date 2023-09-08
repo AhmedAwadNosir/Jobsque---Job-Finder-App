@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:jobsque_jobfinder/Core/Utils/app_colors.dart';
 import 'package:jobsque_jobfinder/Core/Utils/app_fonts_styles.dart';
 import 'package:jobsque_jobfinder/Core/Utils/app_images.dart';
+import 'package:jobsque_jobfinder/Core/Wedgits/custom_state_page.dart';
 import 'package:jobsque_jobfinder/Features/Authentication/Sign_IN/Views/sign_in_view.dart';
-import 'package:jobsque_jobfinder/Features/Authentication/Widgets/page_initail_info.dart';
 import 'package:jobsque_jobfinder/Features/Onboarding/Views/Widgets/custom_button.dart';
 
 class SuccessAccountIlsrationViewBody extends StatelessWidget {
@@ -17,16 +18,13 @@ class SuccessAccountIlsrationViewBody extends StatelessWidget {
           const SizedBox(
             height: 97,
           ),
-          Image.asset(AppImages.successaccount),
-          const SizedBox(
-            height: 24,
-          ),
-          const PageInitialinfo(
-            pagegoleStyle: AppFontsStyles.textstyle24,
-            pagegole: "Your account has been set up!",
-            pagegoledefination:
+          CustomStatepage(
+            stateImage: AppImages.successaccount,
+            statetitle: "Your account has been set up!",
+            stateSubtitle:
                 "We have customized feeds according to your preferences",
-            textAlign: TextAlign.center,
+            subTitleStyle: AppFontsStyles.textstyle14
+                .copyWith(color: AppColors.appNeutralColors500),
           ),
           const Spacer(),
           CustomButton(
