@@ -7,13 +7,15 @@ class NoteficationModel {
   final String noteficationSubTitle;
   final String notificationTime;
   final bool? righPart;
+  final Color? timeColor;
 
-  NoteficationModel( {
+  NoteficationModel({
     this.notefictionImage,
     this.notefictionIcon,
     required this.noteficationTitle,
     required this.noteficationSubTitle,
     required this.notificationTime,
     this.righPart,
+    this.timeColor
   });
 }

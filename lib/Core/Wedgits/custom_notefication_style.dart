@@ -10,11 +10,12 @@ class CustomNoteficationStyle extends StatelessWidget {
   CustomNoteficationStyle({
     super.key,
     required this.notefication,
-    this.noteficationTimeColor,
+    this.imageHieght, this.imageWidth,
   });
   final NoteficationModel notefication;
   bool? rightPartPoint = false;
-  final Color? noteficationTimeColor;
+  final double? imageHieght;
+  final double? imageWidth;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -25,7 +26,10 @@ class CustomNoteficationStyle extends StatelessWidget {
             notefication.notefictionIcon != null
                 ? CircleIconContainer(
                     icon: notefication.notefictionIcon!, iconSize: 24)
-                : Image.asset(notefication.notefictionImage!),
+                : SizedBox(
+                    width:imageHieght?? 40,
+                    height:imageWidth?? 40,
+                    child: Image.asset(notefication.notefictionImage!)),
             const SizedBox(width: 11),
             IntrinsicWidth(
               child: Column(
@@ -49,7 +53,7 @@ class CustomNoteficationStyle extends StatelessWidget {
                               : Container(),
                           CustomText12(
                             text: notefication.notificationTime,
-                            color: AppColors.appNeutralColors500,
+                            color:notefication.timeColor?? AppColors.appNeutralColors500,
                           )
                         ],
                       )

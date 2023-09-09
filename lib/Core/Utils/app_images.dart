@@ -59,7 +59,11 @@ abstract class AppImages {
   static const String savedICon = "lib/Core/Utils/assets/images/savedICon.png";
   static const String danaLogo = "lib/Core/Utils/assets/images/danaLogo.png";
   static const String shoopeLogo = "lib/Core/Utils/assets/images/shoopeLogo.png";
-  static const String slackLogo1 = "lib/Core/Utils/assets/images/slackLogo1.png";
+  static const String slackLogo1 = "lib/Core/Utils/assets/images/slackLogo.png";
   static const String facebookLogo = "lib/Core/Utils/assets/images/facebookLogo.png";
+  static const String danaLogo1 = "lib/Core/Utils/assets/images/danaLogo1.png";
+  static const String gojekLogo = "lib/Core/Utils/assets/images/gojekLogo.png";
+  static const String twitterLogo1 = "lib/Core/Utils/assets/images/twitterLogo1.png";
+  static const String messagesData  = "lib/Core/Utils/assets/images/messagesData.png";
   static const String notificationIcon = "lib/Core/Utils/assets/images/notificationIcon.png";
 }
