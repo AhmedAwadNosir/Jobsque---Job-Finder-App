@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:jobsque_jobfinder/Core/Utils/app_colors.dart';
 import 'package:jobsque_jobfinder/Core/Wedgits/custom_text12.dart';
 import 'package:jobsque_jobfinder/Core/Wedgits/custom_text14.dart';
-
 
 class FileUploadedStyle extends StatelessWidget {
   const FileUploadedStyle({
@@ -29,7 +29,7 @@ class FileUploadedStyle extends StatelessWidget {
         padding: const EdgeInsets.all(16),
         child: Row(
           children: [
-            Image.asset(fileTypeICon),
+            SvgPicture.asset(fileTypeICon),
             const SizedBox(
               width: 15,
             ),

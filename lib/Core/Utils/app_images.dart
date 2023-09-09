@@ -51,19 +51,29 @@ abstract class AppImages {
       "lib/Core/Utils/assets/images/InvisionLogo.png";
   static const String vKLogo = "lib/Core/Utils/assets/images/VKLogo.png";
   static const String userImage = "lib/Core/Utils/assets/images/userImage.jpg";
-  static const String tickCircle = "lib/Core/Utils/assets/images/tick-circle.png";
+  static const String tickCircle =
+      "lib/Core/Utils/assets/images/tick-circle.png";
   static const String iconCheck = "lib/Core/Utils/assets/images/IconCheck.png";
-  static const String iconChecked = "lib/Core/Utils/assets/images/IconChecked.png";
-  static const String pdfIcon = "lib/Core/Utils/assets/images/pdfIcon.png";
-  static const String jopApliedSeccesfultyicon = "lib/Core/Utils/assets/images/jopApliedSeccesfultyicon.png";
+  static const String iconChecked =
+      "lib/Core/Utils/assets/images/IconChecked.png";
+  static const String pdfIcon = "lib/Core/Utils/assets/images/pdfIcon.svg";
+  static const String jopApliedSeccesfultyicon =
+      "lib/Core/Utils/assets/images/jopApliedSeccesfultyicon.png";
   static const String savedICon = "lib/Core/Utils/assets/images/savedICon.png";
   static const String danaLogo = "lib/Core/Utils/assets/images/danaLogo.png";
-  static const String shoopeLogo = "lib/Core/Utils/assets/images/shoopeLogo.png";
+  static const String shoopeLogo =
+      "lib/Core/Utils/assets/images/shoopeLogo.png";
   static const String slackLogo1 = "lib/Core/Utils/assets/images/slackLogo.png";
-  static const String facebookLogo = "lib/Core/Utils/assets/images/facebookLogo.png";
+  static const String facebookLogo =
+      "lib/Core/Utils/assets/images/facebookLogo.png";
   static const String danaLogo1 = "lib/Core/Utils/assets/images/danaLogo1.png";
   static const String gojekLogo = "lib/Core/Utils/assets/images/gojekLogo.png";
-  static const String twitterLogo1 = "lib/Core/Utils/assets/images/twitterLogo1.png";
-  static const String messagesData  = "lib/Core/Utils/assets/images/messagesData.png";
-  static const String notificationIcon = "lib/Core/Utils/assets/images/notificationIcon.png";
+  static const String twitterLogo1 =
+      "lib/Core/Utils/assets/images/twitterLogo1.png";
+  static const String messagesData =
+      "lib/Core/Utils/assets/images/messagesData.png";
+  static const String circleTwiterIcon =
+      "lib/Core/Utils/assets/images/circleTwiterIcon.png";
+  static const String notificationIcon =
+      "lib/Core/Utils/assets/images/notificationIcon.png";
 }

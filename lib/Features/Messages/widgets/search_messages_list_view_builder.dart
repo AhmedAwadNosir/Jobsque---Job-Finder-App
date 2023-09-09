@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:jobsque_jobfinder/Core/Utils/app_colors.dart';
 import 'package:jobsque_jobfinder/Core/Utils/app_images.dart';
+import 'package:jobsque_jobfinder/Features/Chat/views/chat_view.dart';
 import 'package:jobsque_jobfinder/Features/Notefication/models/notefication_model.dart';
 import 'package:jobsque_jobfinder/Core/Wedgits/custom_notefication_style.dart';
 
@@ -53,10 +54,15 @@ class CustomSearchMessageListViewBuilder extends StatelessWidget {
         itemBuilder: (context, index) {
           return Padding(
             padding: const EdgeInsets.only(bottom: 20),
-            child: CustomNoteficationStyle(
-              notefication: noteficationData[index],
-              imageHieght: 44,
-              imageWidth: 44,
+            child: GestureDetector(
+              onTap: () {
+                Navigator.pushNamed(context, ChatView.id);
+              },
+              child: CustomNoteficationStyle(
+                notefication: noteficationData[index],
+                imageHieght: 44,
+                imageWidth: 44,
+              ),
             ),
           );
         },

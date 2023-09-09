@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:jobsque_jobfinder/Core/Utils/app_images.dart';
 import 'package:jobsque_jobfinder/Core/Wedgits/custom_state_page.dart';
-import 'package:jobsque_jobfinder/Features/Authentication/Messages/widgets/custom_search_messages_par.dart';
-import 'package:jobsque_jobfinder/Features/Authentication/Messages/widgets/search_messages_list_view_builder.dart';
+import 'package:jobsque_jobfinder/Features/Messages/widgets/custom_search_messages_par.dart';
+import 'package:jobsque_jobfinder/Features/Messages/widgets/search_messages_list_view_builder.dart';
 
 class MessagesListEmptyPage extends StatelessWidget {
   const MessagesListEmptyPage({

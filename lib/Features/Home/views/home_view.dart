@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:jobsque_jobfinder/Core/Utils/app_colors.dart';
 import 'package:jobsque_jobfinder/Core/Utils/app_fonts_styles.dart';
-import 'package:jobsque_jobfinder/Features/Authentication/Messages/views/messages_view.dart';
+import 'package:jobsque_jobfinder/Features/Messages/views/messages_view.dart';
 import 'package:jobsque_jobfinder/Features/Home/widgets/home_view_body.dart';
 import 'package:jobsque_jobfinder/Features/Saved_Jop/views/saved_view.dart';
 

@@ -6,18 +6,21 @@ class CircleIconContainer extends StatelessWidget {
   const CircleIconContainer({
     super.key,
     required this.icon,
-    required this.iconSize,
+     this.iconSize, this.iconColor, this.containerColor,
   });
   final IconData icon;
-  final double iconSize;
+  final double? iconSize;
+  final Color? iconColor;
+  final Color? containerColor;
 
   @override
   Widget build(BuildContext context) {
     return CircleIconStyle(
+      containerColor: containerColor,
       icon: Icon(
         icon,
         size: iconSize,
-        color: AppColors.appPrimaryColors500,
+        color:iconColor?? AppColors.appPrimaryColors500,
       ),
     );
   }
