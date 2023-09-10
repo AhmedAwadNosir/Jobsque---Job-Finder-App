@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
-import 'package:jobsque_jobfinder/Core/Utils/app_images.dart';
-import 'package:jobsque_jobfinder/Core/Wedgits/circle_icon_container.dart';
 import 'package:jobsque_jobfinder/Features/Notefication/models/notefication_model.dart';
 import 'package:jobsque_jobfinder/Core/Wedgits/custom_notefication_style.dart';
 

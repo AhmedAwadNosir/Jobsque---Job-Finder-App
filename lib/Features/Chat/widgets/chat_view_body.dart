@@ -1,13 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:jobsque_jobfinder/Core/Utils/app_colors.dart';
-import 'package:jobsque_jobfinder/Core/Utils/app_fonts_styles.dart';
 import 'package:jobsque_jobfinder/Core/Wedgits/circle_Icon_containers.dart';
-import 'package:jobsque_jobfinder/Core/Wedgits/circle_icon_container.dart';
-import 'package:jobsque_jobfinder/Core/Wedgits/custom_search_bar.dart';
 import 'package:jobsque_jobfinder/Core/Wedgits/custom_text12.dart';
-import 'package:jobsque_jobfinder/Core/Wedgits/custom_text14.dart';
-import 'package:jobsque_jobfinder/Features/Authentication/functions/text_field_border_decoration.dart';
 import 'package:jobsque_jobfinder/Features/Chat/widgets/chat_view_par.dart';
 import 'package:jobsque_jobfinder/Features/Chat/widgets/custom_chat_text_field.dart';
 import 'package:jobsque_jobfinder/Features/Chat/widgets/messages_list_view_builder.dart';
