@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:jobsque_jobfinder/Core/Utils/app_colors.dart';
 import 'package:jobsque_jobfinder/Core/Utils/app_fonts_styles.dart';
+import 'package:jobsque_jobfinder/Core/Utils/app_images.dart';
+import 'package:jobsque_jobfinder/Core/Utils/my_flutter_app_icons.dart';
 import 'package:jobsque_jobfinder/Features/Messages/views/messages_view.dart';
 import 'package:jobsque_jobfinder/Features/Home/widgets/home_view_body.dart';
 import 'package:jobsque_jobfinder/Features/Saved_Jop/views/saved_view.dart';
@@ -33,27 +36,28 @@ class _HomeViewState extends State<HomeView> {
           unselectedLabelStyle: AppFontsStyles.textstyle14,
           showUnselectedLabels: true,
           unselectedItemColor: AppColors.appNeutralColors400,
-          items: const [
-            BottomNavigationBarItem(
+          items: [
+            const BottomNavigationBarItem(
                 icon: Icon(Iconsax.home),
                 label: "Home",
                 activeIcon: Icon(Iconsax.home_15)),
-            BottomNavigationBarItem(
+            const BottomNavigationBarItem(
                 icon: Icon(Iconsax.message),
                 label: "message",
                 activeIcon: Icon(Iconsax.message5)),
             BottomNavigationBarItem(
-              icon: Icon(Iconsax.briefcase),
-              label: "Applied",
-            ),
-            BottomNavigationBarItem(
+                icon: const Icon(Iconsax.briefcase),
+                label: "Applied",
+                activeIcon: SvgPicture.asset(AppImages.briefaceSelectedIcon)),
+            const BottomNavigationBarItem(
               icon: Icon(Iconsax.archive_minus),
               label: "Saved",
+              activeIcon: Icon(CustomFlutterIcons.archive_minus),
             ),
             BottomNavigationBarItem(
-              icon: Icon(Iconsax.user_square),
-              label: "Profile",
-            )
+                icon: const Icon(Iconsax.user_square),
+                label: "Profile",
+                activeIcon: SvgPicture.asset(AppImages.profileSelectedIocn))
           ]),
       body: SafeArea(child: views[currentIndex]),
     );
@@ -61,7 +65,7 @@ class _HomeViewState extends State<HomeView> {
 
   List<Widget> views = [
     const HomeViewBody(),
-     MessagesView(),
+    MessagesView(),
     Container(),
     const SavedView(),
     Container()

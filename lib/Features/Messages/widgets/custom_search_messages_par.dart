@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:jobsque_jobfinder/Core/Wedgits/circle_Icon_containers.dart';
 import 'package:jobsque_jobfinder/Core/Wedgits/custom_search_bar.dart';
+import 'package:jobsque_jobfinder/Features/Messages/widgets/show_modal_bottom_sheet.dart';
 
 class CustomSearchMessagePar extends StatelessWidget {
   const CustomSearchMessagePar({
@@ -10,15 +11,25 @@ class CustomSearchMessagePar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Row(
+    return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        SizedBox(
+        const SizedBox(
           width: 267,
           child: CustomeSearchBar(hintText: "Search messages"),
         ),
-        CircleIcons(
-          icon: Iconsax.setting_4,
+        GestureDetector(
+          onTap: () {
+            showModalBottomSheet(
+              isScrollControlled: true,
+              context: context,
+              builder: (context) =>
+                  const SingleChildScrollView(child: ShowModalBottomSheet()),
+            );
+          },
+          child: const CircleIcons(
+            icon: Iconsax.setting_4,
+          ),
         )
       ],
     );

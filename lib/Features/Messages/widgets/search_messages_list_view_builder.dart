@@ -51,6 +51,7 @@ class CustomSearchMessageListViewBuilder extends StatelessWidget {
       height: MediaQuery.of(context).size.height * 0.70,
       child: ListView.builder(
         itemCount: noteficationData.length,
+        shrinkWrap: true,
         itemBuilder: (context, index) {
           return Padding(
             padding: const EdgeInsets.only(bottom: 20),

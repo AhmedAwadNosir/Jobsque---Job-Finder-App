@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:jobsque_jobfinder/Core/Utils/app_colors.dart';
 import 'package:jobsque_jobfinder/Core/Utils/app_fonts_styles.dart';
 import 'package:jobsque_jobfinder/Core/Utils/constans.dart';
@@ -11,7 +12,8 @@ class CustomStatepage extends StatelessWidget {
     required this.statetitle,
     required this.stateSubtitle,
     this.tilteStyle,
-    this.subTitleStyle, this.spacebetweent,
+    this.subTitleStyle,
+    this.spacebetweent,
   });
   final String stateImage;
   final String statetitle;
@@ -23,7 +25,7 @@ class CustomStatepage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Image.asset(stateImage),
+        SvgPicture.asset(stateImage),
         const SizedBox(
           height: 24,
         ),
@@ -34,7 +36,6 @@ class CustomStatepage extends StatelessWidget {
           pagegoleStyle: AppFontsStyles.textstyle24.copyWith(
             fontFamily: textFamilyMedium,
             color: AppColors.appNeutralColors900,
-            
           ),
           sutptitleStyle: subTitleStyle,
           spacebetween: spacebetweent,

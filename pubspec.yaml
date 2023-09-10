@@ -86,5 +86,9 @@ flutter:
     - family: SFPRODISPLAYBOLD
       fonts:
         - asset: lib\Core\Utils\assets\fonts\SFPRODISPLAYBOLD.OTF
+
+    - family: MyFlutterApp
+      fonts:
+        - asset: lib\Core\Utils\assets\fonts\MyFlutterApp.ttf
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages

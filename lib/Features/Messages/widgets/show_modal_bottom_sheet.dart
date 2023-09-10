@@ -12,44 +12,47 @@ class ShowModalBottomSheet extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisSize: MainAxisSize.min,
-      children: [
-        const SizedBox(height: 12),
-        Image.asset(AppImages.vector),
-        const SizedBox(height: 24),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-            Text(
-              "Message filters",
-              style: AppFontsStyles.textstyle18.copyWith(
-                  fontFamily: textFamilyMedium,
-                  color: AppColors.appNeutralColors900),
-            ),
-          ],
-        ),
-        const SizedBox(
-          height: 16,
-        ),
-        CustomBottomSheetButton(
-          buttonName: "Unread",
-          onTap: () {},
-        ),
-        const SizedBox(height: 12),
-        CustomBottomSheetButton(
-          buttonName: "Spam",
-          onTap: () {},
-        ),
-        const SizedBox(height: 12),
-        CustomBottomSheetButton(
-          buttonName: "Unread",
-          onTap: () {},
-        ),
-        const SizedBox(
-          height: 32,
-        )
-      ],
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 24),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          const SizedBox(height: 12),
+          Image.asset(AppImages.vector),
+          const SizedBox(height: 24),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              Text(
+                "Message filters",
+                style: AppFontsStyles.textstyle18.copyWith(
+                    fontFamily: textFamilyMedium,
+                    color: AppColors.appNeutralColors900),
+              ),
+            ],
+          ),
+          const SizedBox(
+            height: 16,
+          ),
+          CustomBottomSheetButton(
+            buttonName: "Unread",
+            onTap: () {},
+          ),
+          const SizedBox(height: 12),
+          CustomBottomSheetButton(
+            buttonName: "Spam",
+            onTap: () {},
+          ),
+          const SizedBox(height: 12),
+          CustomBottomSheetButton(
+            buttonName: "Unread",
+            onTap: () {},
+          ),
+          const SizedBox(
+            height: 32,
+          )
+        ],
+      ),
     );
   }
 }

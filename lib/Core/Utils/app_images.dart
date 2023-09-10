@@ -12,8 +12,9 @@ abstract class AppImages {
   static const String applockImage = "lib/Core/Utils/assets/images/lock.png";
   static const String appvisablypassword =
       "lib/Core/Utils/assets/images/eye-slash.png";
-  static const String appFacebook = "lib/Core/Utils/assets/images/Facebook.jpg";
-  static const String appGoogle = "lib/Core/Utils/assets/images/google.jpg";
+  static const String appFacebook =
+      "lib/Core/Utils/assets/images/facebookicon.svg";
+  static const String appGoogle = "lib/Core/Utils/assets/images/googleicon.svg";
   static const String unitedstases =
       "lib/Core/Utils/assets/images/Ellipse804.png";
   static const String malaysia = "lib/Core/Utils/assets/images/malaysia804.png";
@@ -31,11 +32,11 @@ abstract class AppImages {
   static const String brazil = "lib/Core/Utils/assets/images/Brazil.png";
   static const String argantina = "lib/Core/Utils/assets/images/argentina.png";
   static const String successaccount =
-      "lib/Core/Utils/assets/images/Successcreatin.png";
+      "lib/Core/Utils/assets/images/SuccessAccountIlustration.svg";
   static const String checkEmail =
-      "lib/Core/Utils/assets/images/EmailIlustration.png";
+      "lib/Core/Utils/assets/images/EmailIlustration.svg";
   static const String passowrdresetsuccessfullly =
-      "lib/Core/Utils/assets/images/PasswordSuccesfullyIlustration.png";
+      "lib/Core/Utils/assets/images/PasswordSuccesfullyIlustration.svg";
   static const String searchIcon =
       "lib/Core/Utils/assets/images/searchnormal.png";
   static const String zoomIcon = "lib/Core/Utils/assets/images/ZoomLogo.png";
@@ -44,7 +45,8 @@ abstract class AppImages {
   static const String discordIcon =
       "lib/Core/Utils/assets/images/DiscordLogo.png";
   static const String vector = "lib/Core/Utils/assets/images/Vector.png";
-  static const String searchfaild = "lib/Core/Utils/assets/images/Search.png";
+  static const String searchfaild =
+      "lib/Core/Utils/assets/images/SearchIlustration.svg";
   static const String spectrumIcon =
       "lib/Core/Utils/assets/images/SpectrumLogo.png";
   static const String invisionIcon =
@@ -58,8 +60,9 @@ abstract class AppImages {
       "lib/Core/Utils/assets/images/IconChecked.png";
   static const String pdfIcon = "lib/Core/Utils/assets/images/pdfIcon.svg";
   static const String jopApliedSeccesfultyicon =
-      "lib/Core/Utils/assets/images/jopApliedSeccesfultyicon.png";
-  static const String savedICon = "lib/Core/Utils/assets/images/savedICon.png";
+      "lib/Core/Utils/assets/images/DataIlustration.svg";
+  static const String savedICon =
+      "lib/Core/Utils/assets/images/SavedIlustration.svg";
   static const String danaLogo = "lib/Core/Utils/assets/images/danaLogo.png";
   static const String shoopeLogo =
       "lib/Core/Utils/assets/images/shoopeLogo.png";
@@ -71,9 +74,13 @@ abstract class AppImages {
   static const String twitterLogo1 =
       "lib/Core/Utils/assets/images/twitterLogo1.png";
   static const String messagesData =
-      "lib/Core/Utils/assets/images/messagesData.png";
+      "lib/Core/Utils/assets/images/messageIlustration.svg";
   static const String circleTwiterIcon =
       "lib/Core/Utils/assets/images/circleTwiterIcon.png";
   static const String notificationIcon =
-      "lib/Core/Utils/assets/images/notificationIcon.png";
+      "lib/Core/Utils/assets/images/NotificationIlustration.svg";
+  static const String profileSelectedIocn =
+      "lib/Core/Utils/assets/images/profile.svg";
+  static const String briefaceSelectedIcon =
+      "lib/Core/Utils/assets/images/briefcase.svg";
 }

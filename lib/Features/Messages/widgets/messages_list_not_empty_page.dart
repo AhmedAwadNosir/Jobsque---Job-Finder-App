@@ -10,19 +10,21 @@ class MessagesListNotEmpty extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 24),
+      padding: const EdgeInsets.symmetric(horizontal: 24),
+      child: SingleChildScrollView(
         child: Column(
-    children: [
-      const SizedBox(
-        height: 24,
-      ),
-      const CustomSearchMessagePar(),
-      const SizedBox(
-        height: 28,
-      ),
-      CustomSearchMessageListViewBuilder()
-    ],
+          children: [
+            const SizedBox(
+              height: 24,
+            ),
+            const CustomSearchMessagePar(),
+            const SizedBox(
+              height: 28,
+            ),
+            CustomSearchMessageListViewBuilder()
+          ],
         ),
-      );
+      ),
+    );
   }
 }

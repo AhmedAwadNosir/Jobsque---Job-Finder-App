@@ -14,7 +14,7 @@ class JopDataUnite extends StatelessWidget {
     this.titleColor,
     this.subTitleColor,
     this.iconColor,
-    this.onTap,
+    this.onTap, this.iconSize,
   });
   final String jopComunicationImage;
   final String jopTitle;
@@ -24,6 +24,7 @@ class JopDataUnite extends StatelessWidget {
   final Color? subTitleColor;
   final Color? iconColor;
   final void Function()? onTap;
+  final double? iconSize;
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -51,6 +52,7 @@ class JopDataUnite extends StatelessWidget {
         GestureDetector(
             onTap: onTap,
             child: Icon(
+              size: iconSize,
               optionICon,
               color: iconColor,
             ))

@@ -3,6 +3,7 @@ import 'package:iconsax/iconsax.dart';
 import 'package:jobsque_jobfinder/Core/Utils/app_colors.dart';
 import 'package:jobsque_jobfinder/Core/Utils/app_fonts_styles.dart';
 import 'package:jobsque_jobfinder/Core/Utils/constans.dart';
+import 'package:jobsque_jobfinder/Core/Utils/my_flutter_app_icons.dart';
 import 'package:jobsque_jobfinder/Core/Wedgits/jop_data_unite.dart';
 import 'package:jobsque_jobfinder/Features/Home/models/jop_model.dart';
 import 'package:jobsque_jobfinder/Features/Home/widgets/jop_features.dart';
@@ -33,7 +34,10 @@ class _JopInfoUnite2State extends State<JopInfoUnite2> {
           JopDataUnite(
             jopComunicationImage: widget.jopModel.comunicationToolIcon,
             jopTitle: widget.jopModel.jopTitle,
-            optionICon: Iconsax.archive_minus,
+            optionICon: isarrchived == true
+                ? CustomFlutterIcons.archive_minus
+                : Iconsax.archive_minus,
+            iconSize: isarrchived == true ? 28 : 24,
             jopComunicationName: widget.jopModel.comunicationtoolname,
             iconColor: isarrchived == true
                 ? AppColors.appPrimaryColors500
