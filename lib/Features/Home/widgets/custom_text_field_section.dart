@@ -13,7 +13,9 @@ class CustomTextFieldSection extends StatelessWidget {
     this.suffixIcon,
     this.onChanged,
     this.onSubmited,
-    this.suffixIconOnTap, this.sympol,
+    this.suffixIconOnTap,
+    this.sympol,
+    this.textInputType, this.controller,
   });
   final String title;
   final Widget prefixICon;
@@ -22,21 +24,28 @@ class CustomTextFieldSection extends StatelessWidget {
   final void Function(String)? onSubmited;
   final void Function()? suffixIconOnTap;
   final String? sympol;
+  final TextInputType? textInputType;
+  final TextEditingController? controller;
   @override
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        CustomTextFieldTitle(title: title,symbol: sympol,),
+        CustomTextFieldTitle(
+          title: title,
+          symbol: sympol,
+        ),
         const SizedBox(
           height: 8,
         ),
         TextField(
+          controller: controller,
           onChanged: onChanged,
           onSubmitted: onSubmited,
           style: AppFontsStyles.textstyle14.copyWith(
               fontFamily: textFamilyMedium,
               color: AppColors.appNeutralColors900),
+          keyboardType: textInputType,
           decoration: InputDecoration(
               enabledBorder: buildOutlineInputBorder(),
               focusedBorder: buildOutlineInputBorder(),

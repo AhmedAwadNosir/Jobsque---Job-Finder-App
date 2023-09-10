@@ -34,6 +34,7 @@ dependencies:
   dotted_border: ^2.0.0+3
   firebase_auth: ^4.8.0
   firebase_core: ^2.15.1
+  fl_country_code_picker: ^0.1.5
   flutter:
     sdk: flutter
   flutter_bloc: ^8.1.3

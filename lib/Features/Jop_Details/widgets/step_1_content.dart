@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:jobsque_jobfinder/Core/Utils/app_colors.dart';
+import 'package:jobsque_jobfinder/Core/Wedgits/custom_text_field_phone_number.dart';
 import 'package:jobsque_jobfinder/Features/Home/widgets/custom_text_field_section.dart';
 import 'package:jobsque_jobfinder/Features/Jop_Details/widgets/apply_section_title.dart';
 
@@ -43,21 +44,11 @@ class Step1Content extends StatelessWidget {
             sympol: "*",
           ),
           SizedBox(height: 20),
-          CustomTextFieldSection(
-            title: "No.Handphone",
-            prefixICon: Padding(
-              padding: EdgeInsets.only(right: 16),
-              child: DropdownMenu(
-                dropdownMenuEntries: [],
-                trailingIcon: Icon(Iconsax.arrow_down_1),
-                menuStyle: MenuStyle(),
-              ),
-            ),
-            sympol: "*",
-          ),
+          CustomPhoneNumberTextField(),
           SizedBox(height: 20),
         ],
       ),
     );
   }
 }
+
