@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
+import 'package:jobsque_jobfinder/Core/Wedgits/Custom_app_Barr.dart';
 import 'package:jobsque_jobfinder/Core/Wedgits/custom_search_bar.dart';
 import 'package:jobsque_jobfinder/Features/Home/widgets/faild_search_view.dart';
 import 'package:jobsque_jobfinder/Features/Home/widgets/search_view_empty.dart';
@@ -30,9 +31,11 @@ class _SearchViewState extends State<SearchView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        actions: [
-          SizedBox(
+      appBar: PreferredSize(
+        preferredSize: const Size.fromHeight(74),
+        child: CustomAppBar(
+          paddingTop: 14,
+          rightpart: SizedBox(
             height: 48,
             width: 291,
             child: CustomeSearchBar(
@@ -53,10 +56,7 @@ class _SearchViewState extends State<SearchView> {
               },
             ),
           ),
-          const SizedBox(
-            width: 24,
-          ),
-        ],
+        ),
       ),
       body: searchValue.isEmpty
           ? const SearchViewEmpty()

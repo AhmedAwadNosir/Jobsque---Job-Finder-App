@@ -21,7 +21,7 @@ class CustomFlutterIcons {
   static const _kFontFam = 'MyFlutterApp';
   static const String? _kFontPkg = null;
 
-  static const IconData archive_minus =
+  static const IconData archiveMinus =
       IconData(0xe800, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData briefcase =
       IconData(0xe801, fontFamily: _kFontFam, fontPackage: _kFontPkg);

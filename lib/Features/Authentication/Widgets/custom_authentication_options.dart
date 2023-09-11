@@ -14,15 +14,12 @@ class CustomAuthinticationOptions extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         CustomAuthenticationOptionStyle(
           siteIcon: AppImages.appGoogle,
           siteName: "google",
           onTap: site1OnTap,
-        ),
-        const SizedBox(
-          width: 19,
         ),
         CustomAuthenticationOptionStyle(
           siteIcon: AppImages.appFacebook,

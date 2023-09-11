@@ -22,13 +22,12 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 bool? isViewed;
 void main() async {
-  SystemChrome.setSystemUIOverlayStyle(
-    const SystemUiOverlayStyle(
-        statusBarColor: Colors.white,
-        systemNavigationBarColor:
-            Colors.white // Set your desired status bar color here
-        ),
-  );
+  SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.light.copyWith(
+      statusBarColor: Colors.white, // Set the status bar color to white
+      systemNavigationBarColor: Colors.white
+      // Set the status bar icons to dark
+      ));
+
   WidgetsFlutterBinding.ensureInitialized();
   SharedPreferences prefs = await SharedPreferences.getInstance();
   isViewed = prefs.getBool("isViewd");

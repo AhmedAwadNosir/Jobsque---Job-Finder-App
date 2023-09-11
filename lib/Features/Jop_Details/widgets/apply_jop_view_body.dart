@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:iconsax/iconsax.dart';
-import 'package:jobsque_jobfinder/Core/Wedgits/custom_barr.dart';
 import 'package:jobsque_jobfinder/Features/Jop_Details/widgets/custom_steper_widgets/apply_custom_step_label.dart';
 import 'package:jobsque_jobfinder/Features/Jop_Details/widgets/step_1_content.dart';
 import 'package:jobsque_jobfinder/Features/Jop_Details/widgets/step_2_content.dart';
@@ -38,13 +36,7 @@ class _ApplyJopViewBodyState extends State<ApplyJopViewBody> {
       padding: const EdgeInsets.symmetric(horizontal: 24),
       child: Column(
         children: [
-          const SizedBox(
-            height: 16,
-          ),
-          const CustomBar(
-            leftPart: Iconsax.arrow_left,
-            centerPart: "Apply Job",
-          ),
+          
           const SizedBox(
             height: 34,
           ),

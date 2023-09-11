@@ -6,9 +6,7 @@ import 'package:jobsque_jobfinder/Features/forgot%20_password/functions/send_res
 import 'package:jobsque_jobfinder/Features/forgot%20_password/views/check_emial_view.dart';
 
 import '../../../Core/Utils/app_colors.dart';
-import '../../../Core/Wedgits/custom_app_logo.dart';
-import '../../../Core/Wedgits/custom_appbarr.dart';
-import '../../Onboarding/Views/Widgets/custom_button.dart';
+import '../../Onboarding/Widgets/custom_button.dart';
 import '../../Authentication/Widgets/custom_text_field.dart';
 
 class ForgotPasswordViewBody extends StatefulWidget {
@@ -30,20 +28,7 @@ class _ForgotPasswordViewBodyState extends State<ForgotPasswordViewBody> {
         padding: const EdgeInsets.symmetric(horizontal: 24),
         child: Column(
           children: [
-            CustomAppBarr(
-              leftPart: IconButton(
-                onPressed: () {
-                  Navigator.pop(context);
-                },
-                padding: EdgeInsets.zero,
-                alignment: Alignment.centerLeft,
-                icon: const Icon(
-                  Iconsax.arrow_left,
-                  color: Color(0xff292D32),
-                ),
-              ),
-              rightPart: const CustomAppLogo(),
-            ),
+           
             const SizedBox(
               height: 44,
             ),

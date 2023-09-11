@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:jobsque_jobfinder/Core/Wedgits/Custom_app_Barr.dart';
 
 import '../Widgets/success_account_view_body.dart';
 
@@ -7,13 +8,11 @@ class SuccessAcountIlstrationView extends StatelessWidget {
   static const id = "Success Account";
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.white,
-        elevation: 0,
-        iconTheme: const IconThemeData(color: Color(0xff292D32)),
+    return const Scaffold(
+      appBar: CustomAppBar(
+        paddingTop: 16,
       ),
-      body: const SafeArea(child: SuccessAccountIlsrationViewBody()),
+      body: SafeArea(child: SuccessAccountIlsrationViewBody()),
     );
   }
 }

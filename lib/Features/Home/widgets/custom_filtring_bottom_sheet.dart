@@ -4,7 +4,7 @@ import 'package:jobsque_jobfinder/Core/Utils/app_fonts_styles.dart';
 import 'package:jobsque_jobfinder/Core/Utils/app_images.dart';
 import 'package:jobsque_jobfinder/Core/Utils/constans.dart';
 import 'package:jobsque_jobfinder/Features/Home/widgets/jop_type_container.dart';
-import 'package:jobsque_jobfinder/Features/Onboarding/Views/Widgets/custom_button.dart';
+import 'package:jobsque_jobfinder/Features/Onboarding/Widgets/custom_button.dart';
 
 class CustomFiltringBottomShee extends StatelessWidget {
   const CustomFiltringBottomShee({super.key});

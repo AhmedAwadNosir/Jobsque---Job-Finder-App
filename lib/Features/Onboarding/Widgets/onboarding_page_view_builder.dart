@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:jobsque_jobfinder/Core/Utils/app_images.dart';
-import 'package:jobsque_jobfinder/Features/Onboarding/Views/Widgets/custome_onbarding_page.dart';
+import 'package:jobsque_jobfinder/Features/Onboarding/Widgets/custome_onbarding_page.dart';
 import 'package:jobsque_jobfinder/Features/Onboarding/models/onboarding_model.dart';
 
 class OnbardingPageView extends StatelessWidget {

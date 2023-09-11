@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:jobsque_jobfinder/Core/Utils/app_fonts_styles.dart';
 import 'package:jobsque_jobfinder/Features/Onboarding/models/onboarding_model.dart';
 
-import '../../../../Core/Utils/app_colors.dart';
-import '../../../../Core/Utils/constans.dart';
+import '../../../Core/Utils/app_colors.dart';
+import '../../../Core/Utils/constans.dart';
 
 class CustomObardindPage extends StatelessWidget {
   const CustomObardindPage({super.key, required this.onboardingModel});

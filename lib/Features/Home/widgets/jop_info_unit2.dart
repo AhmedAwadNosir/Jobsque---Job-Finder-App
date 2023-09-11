@@ -35,7 +35,7 @@ class _JopInfoUnite2State extends State<JopInfoUnite2> {
             jopComunicationImage: widget.jopModel.comunicationToolIcon,
             jopTitle: widget.jopModel.jopTitle,
             optionICon: isarrchived == true
-                ? CustomFlutterIcons.archive_minus
+                ? CustomFlutterIcons.archiveMinus
                 : Iconsax.archive_minus,
             iconSize: isarrchived == true ? 28 : 24,
             jopComunicationName: widget.jopModel.comunicationtoolname,

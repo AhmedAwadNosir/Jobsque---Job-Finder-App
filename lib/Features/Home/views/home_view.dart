@@ -7,6 +7,7 @@ import 'package:jobsque_jobfinder/Core/Utils/app_images.dart';
 import 'package:jobsque_jobfinder/Core/Utils/my_flutter_app_icons.dart';
 import 'package:jobsque_jobfinder/Features/Messages/views/messages_view.dart';
 import 'package:jobsque_jobfinder/Features/Home/widgets/home_view_body.dart';
+import 'package:jobsque_jobfinder/Features/Profile/views/profile_view.dart';
 import 'package:jobsque_jobfinder/Features/Saved_Jop/views/saved_view.dart';
 
 class HomeView extends StatefulWidget {
@@ -22,6 +23,13 @@ class _HomeViewState extends State<HomeView> {
 
   @override
   Widget build(BuildContext context) {
+    List<Widget> views = [
+      const HomeViewBody(),
+      MessagesView(),
+      Container(),
+      const SavedView(),
+      const ProfileView()
+    ];
     return Scaffold(
       bottomNavigationBar: BottomNavigationBar(
           elevation: 0,
@@ -52,7 +60,7 @@ class _HomeViewState extends State<HomeView> {
             const BottomNavigationBarItem(
               icon: Icon(Iconsax.archive_minus),
               label: "Saved",
-              activeIcon: Icon(CustomFlutterIcons.archive_minus),
+              activeIcon: Icon(CustomFlutterIcons.archiveMinus),
             ),
             BottomNavigationBarItem(
                 icon: const Icon(Iconsax.user_square),
@@ -62,12 +70,4 @@ class _HomeViewState extends State<HomeView> {
       body: SafeArea(child: views[currentIndex]),
     );
   }
-
-  List<Widget> views = [
-    const HomeViewBody(),
-    MessagesView(),
-    Container(),
-    const SavedView(),
-    Container()
-  ];
 }

@@ -1,13 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:jobsque_jobfinder/Core/Utils/app_colors.dart';
-import 'package:jobsque_jobfinder/Core/Wedgits/custom_app_logo.dart';
-import 'package:jobsque_jobfinder/Features/Authentication/Sign_IN/Views/sign_in_view.dart';
-import 'package:jobsque_jobfinder/Features/Onboarding/Views/Widgets/onboarding_page_view_builder.dart';
-import 'package:jobsque_jobfinder/Features/Onboarding/functions/store_onboardin_info.dart';
+import 'package:jobsque_jobfinder/Features/Onboarding/Widgets/onboarding_page_view_builder.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
-import '../../../../Core/Utils/app_fonts_styles.dart';
-import '../../functions/next_page_view.dart';
-import '../../../../Core/Wedgits/custom_appbarr.dart';
+import '../functions/next_page_view.dart';
 import 'custom_button.dart';
 
 class OnboardingViewBody extends StatefulWidget {
@@ -40,24 +35,7 @@ class _OnboardingViewBodyState extends State<OnboardingViewBody> {
     return SafeArea(
       child: Column(
         children: [
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 24),
-            child: CustomAppBarr(
-              leftPart: const CustomAppLogo(),
-              rightPart: GestureDetector(
-                onTap: () async {
-                  await storeOnboardinInfo();
-                  Navigator.pushNamed(context, SignInView.id);
-                },
-                child: Text(
-                  "Skip",
-                  style: AppFontsStyles.textstyle16.copyWith(
-                    color: AppColors.appNeutralColors500,
-                  ),
-                ),
-              ),
-            ),
-          ),
+          
           Expanded(
               child: OnbardingPageView(
             pageController: _pageController,

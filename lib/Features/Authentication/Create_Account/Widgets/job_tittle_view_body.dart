@@ -6,7 +6,7 @@ import 'package:jobsque_jobfinder/Core/Utils/constans.dart';
 import 'package:jobsque_jobfinder/Features/Authentication/Create_Account/Views/work_location_view.dart';
 import 'package:jobsque_jobfinder/Features/Authentication/Create_Account/Widgets/job_tittle_box.dart';
 import 'package:jobsque_jobfinder/Features/Authentication/Widgets/page_initail_info.dart';
-import 'package:jobsque_jobfinder/Features/Onboarding/Views/Widgets/custom_button.dart';
+import 'package:jobsque_jobfinder/Features/Onboarding/Widgets/custom_button.dart';
 
 class JobTittleViewBody extends StatelessWidget {
   JobTittleViewBody({

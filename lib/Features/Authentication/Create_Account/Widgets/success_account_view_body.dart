@@ -4,7 +4,7 @@ import 'package:jobsque_jobfinder/Core/Utils/app_fonts_styles.dart';
 import 'package:jobsque_jobfinder/Core/Utils/app_images.dart';
 import 'package:jobsque_jobfinder/Core/Wedgits/custom_state_page.dart';
 import 'package:jobsque_jobfinder/Features/Authentication/Sign_IN/Views/sign_in_view.dart';
-import 'package:jobsque_jobfinder/Features/Onboarding/Views/Widgets/custom_button.dart';
+import 'package:jobsque_jobfinder/Features/Onboarding/Widgets/custom_button.dart';
 
 class SuccessAccountIlsrationViewBody extends StatelessWidget {
   const SuccessAccountIlsrationViewBody({super.key});

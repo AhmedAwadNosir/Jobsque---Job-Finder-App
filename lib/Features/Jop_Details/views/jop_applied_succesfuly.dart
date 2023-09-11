@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:iconsax/iconsax.dart';
 import 'package:jobsque_jobfinder/Core/Utils/app_images.dart';
-import 'package:jobsque_jobfinder/Core/Wedgits/custom_barr.dart';
+import 'package:jobsque_jobfinder/Core/Wedgits/Custom_app_Barr.dart';
 import 'package:jobsque_jobfinder/Core/Wedgits/custom_state_page.dart';
 import 'package:jobsque_jobfinder/Features/Home/views/home_view.dart';
-import 'package:jobsque_jobfinder/Features/Onboarding/Views/Widgets/custom_button.dart';
+import 'package:jobsque_jobfinder/Features/Onboarding/Widgets/custom_button.dart';
 
 class JopAppliedSuccesfuly extends StatelessWidget {
   const JopAppliedSuccesfuly({super.key});
@@ -12,16 +11,15 @@ class JopAppliedSuccesfuly extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: const CustomAppBar(
+        title: "Apply Job",
+        paddingTop: 10,
+      ),
       body: SafeArea(
           child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 24),
         child: Column(
           children: [
-            const SizedBox(
-              height: 16,
-            ),
-            const CustomBar(
-                leftPart: Iconsax.arrow_left, centerPart: "Apply Jop"),
             const SizedBox(
               height: 121,
             ),

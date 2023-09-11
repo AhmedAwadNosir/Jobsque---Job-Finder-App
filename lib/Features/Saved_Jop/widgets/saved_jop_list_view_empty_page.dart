@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:iconsax/iconsax.dart';
 import 'package:jobsque_jobfinder/Core/Utils/app_images.dart';
-import 'package:jobsque_jobfinder/Core/Wedgits/custom_barr.dart';
 import 'package:jobsque_jobfinder/Core/Wedgits/custom_state_page.dart';
 
 class SavedJopListEmptyPge extends StatelessWidget {
@@ -13,8 +11,6 @@ class SavedJopListEmptyPge extends StatelessWidget {
       padding: EdgeInsets.symmetric(horizontal: 24),
       child: Column(
         children: [
-          SizedBox(height: 16),
-          CustomBar(leftPart: Iconsax.arrow_left, centerPart: "Saved"),
           SizedBox(height: 165),
           CustomStatepage(
               stateImage: AppImages.savedICon,

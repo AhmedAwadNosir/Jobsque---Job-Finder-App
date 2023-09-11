@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:jobsque_jobfinder/Core/Utils/app_images.dart';
 import 'package:jobsque_jobfinder/Core/Wedgits/custom_state_page.dart';
-import 'package:jobsque_jobfinder/Features/Onboarding/Views/Widgets/custom_button.dart';
+import 'package:jobsque_jobfinder/Features/Onboarding/Widgets/custom_button.dart';
 import 'package:jobsque_jobfinder/Features/forgot%20_password/functions/open_gmail_app.dart';
 import 'package:jobsque_jobfinder/Features/forgot%20_password/views/reset_password_view.dart';
 

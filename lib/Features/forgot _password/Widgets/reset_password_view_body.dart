@@ -2,11 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:jobsque_jobfinder/Core/Utils/app_colors.dart';
 import 'package:jobsque_jobfinder/Core/Utils/app_fonts_styles.dart';
-import 'package:jobsque_jobfinder/Core/Wedgits/custom_app_logo.dart';
-import 'package:jobsque_jobfinder/Core/Wedgits/custom_appbarr.dart';
 import 'package:jobsque_jobfinder/Features/Authentication/Widgets/custom_text_field.dart';
 import 'package:jobsque_jobfinder/Features/Authentication/Widgets/page_initail_info.dart';
-import 'package:jobsque_jobfinder/Features/Onboarding/Views/Widgets/custom_button.dart';
+import 'package:jobsque_jobfinder/Features/Onboarding/Widgets/custom_button.dart';
 import 'package:jobsque_jobfinder/Features/forgot%20_password/views/password_reset_successfully_view.dart';
 
 class ResetPasswordViewBody extends StatefulWidget {
@@ -30,25 +28,11 @@ class _ResetPasswordViewBodyState extends State<ResetPasswordViewBody> {
       child: SafeArea(
         child: SingleChildScrollView(
           child: SizedBox(
-            height: MediaQuery.of(context).size.height * 0.95,
+            height: MediaQuery.of(context).size.height * 0.89,
             child: Form(
               key: formkey,
               child: Column(
                 children: [
-                  CustomAppBarr(
-                    leftPart: IconButton(
-                      onPressed: () {
-                        Navigator.pop(context);
-                      },
-                      padding: EdgeInsets.zero,
-                      alignment: Alignment.centerLeft,
-                      icon: const Icon(
-                        Iconsax.arrow_left,
-                        color: Color(0xff292D32),
-                      ),
-                    ),
-                    rightPart: const CustomAppLogo(),
-                  ),
                   const SizedBox(
                     height: 44,
                   ),
