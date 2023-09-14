@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:jobsque_jobfinder/Core/Utils/app_colors.dart';
 import 'package:jobsque_jobfinder/Core/Wedgits/custom_text_field_phone_number.dart';
-import 'package:jobsque_jobfinder/Features/Home/widgets/custom_text_field_section.dart';
+import 'package:jobsque_jobfinder/Core/Wedgits/custom_text_field_section.dart';
 import 'package:jobsque_jobfinder/Features/Jop_Details/widgets/apply_section_title.dart';
 
 class Step1Content extends StatelessWidget {

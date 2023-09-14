@@ -7,10 +7,11 @@ class CustomSectionBar extends StatelessWidget {
   const CustomSectionBar({
     super.key,
     required this.text,
-    this.textAlign,
+    this.textAlign, this.textStyle,
   });
   final String text;
   final TextAlign? textAlign;
+  final TextStyle? textStyle;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -21,7 +22,7 @@ class CustomSectionBar extends StatelessWidget {
       child: Text(
         text,
         textAlign: textAlign ?? TextAlign.start,
-        style: AppFontsStyles.textstyle14.copyWith(
+        style:textStyle?? AppFontsStyles.textstyle14.copyWith(
             fontFamily: textFamilyMedium, color: AppColors.appNeutralColors500),
       ),
     );

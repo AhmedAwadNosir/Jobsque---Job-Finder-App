@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:iconsax/iconsax.dart';
 import 'package:jobsque_jobfinder/Core/Utils/app_colors.dart';
 import 'package:jobsque_jobfinder/Core/Utils/app_fonts_styles.dart';
 import 'package:jobsque_jobfinder/Core/Utils/constans.dart';
@@ -6,11 +7,12 @@ import 'package:jobsque_jobfinder/Core/Utils/constans.dart';
 class CustomBar extends StatelessWidget {
   const CustomBar({
     super.key,
-    required this.leftPart,
+    this.leftPart,
     required this.centerPart,
-    this.rightPart, this.onTap,
+    this.rightPart,
+    this.onTap,
   });
-  final IconData leftPart;
+  final IconData? leftPart;
   final String centerPart;
   final Widget? rightPart;
   final void Function()? onTap;
@@ -20,11 +22,12 @@ class CustomBar extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         GestureDetector(
-          onTap:onTap?? () {
-            Navigator.pop(context);
-          },
+          onTap: onTap ??
+              () {
+                Navigator.pop(context);
+              },
           child: Icon(
-            leftPart,
+            leftPart ?? Iconsax.arrow_left,
           ),
         ),
         Text(

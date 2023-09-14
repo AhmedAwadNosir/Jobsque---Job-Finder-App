@@ -9,16 +9,20 @@ class CustomTextFieldSection extends StatelessWidget {
   const CustomTextFieldSection({
     super.key,
     required this.title,
-    required this.prefixICon,
+    this.prefixICon,
     this.suffixIcon,
     this.onChanged,
     this.onSubmited,
     this.suffixIconOnTap,
     this.sympol,
-    this.textInputType, this.controller,
+    this.textInputType,
+    this.controller,
+    this.titleColor,
+    this.content,
+    this.contentStyle, this.titleSpace,
   });
   final String title;
-  final Widget prefixICon;
+  final Widget? prefixICon;
   final IconData? suffixIcon;
   final void Function(String)? onChanged;
   final void Function(String)? onSubmited;
@@ -26,6 +30,10 @@ class CustomTextFieldSection extends StatelessWidget {
   final String? sympol;
   final TextInputType? textInputType;
   final TextEditingController? controller;
+  final Color? titleColor;
+  final String? content;
+  final TextStyle? contentStyle;
+  final double? titleSpace;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -34,17 +42,20 @@ class CustomTextFieldSection extends StatelessWidget {
         CustomTextFieldTitle(
           title: title,
           symbol: sympol,
+          titleColor: titleColor,
         ),
-        const SizedBox(
-          height: 8,
+         SizedBox(
+          height:titleSpace?? 8,
         ),
-        TextField(
+        TextFormField(
+          initialValue: content,
           controller: controller,
           onChanged: onChanged,
-          onSubmitted: onSubmited,
-          style: AppFontsStyles.textstyle14.copyWith(
-              fontFamily: textFamilyMedium,
-              color: AppColors.appNeutralColors900),
+          onFieldSubmitted: onSubmited,
+          style: contentStyle ??
+              AppFontsStyles.textstyle14.copyWith(
+                  fontFamily: textFamilyMedium,
+                  color: AppColors.appNeutralColors900),
           keyboardType: textInputType,
           decoration: InputDecoration(
               enabledBorder: buildOutlineInputBorder(),

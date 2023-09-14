@@ -3,13 +3,16 @@ import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:jobsque_jobfinder/Core/Utils/app_colors.dart';
 import 'package:jobsque_jobfinder/Features/Authentication/functions/show_snack_bar.dart';
-import 'package:jobsque_jobfinder/Features/Home/widgets/custom_text_field_section.dart';
+import 'package:jobsque_jobfinder/Core/Wedgits/custom_text_field_section.dart';
 
 class CustomPhoneNumberTextField extends StatefulWidget {
   const CustomPhoneNumberTextField({
     super.key,
+    this.tilteColor,
+    this.sympol,
   });
-
+  final Color? tilteColor;
+  final String? sympol;
   @override
   State<CustomPhoneNumberTextField> createState() =>
       _CustomPhoneNumberTextFieldState();
@@ -26,7 +29,8 @@ class _CustomPhoneNumberTextFieldState
   Widget build(BuildContext context) {
     return CustomTextFieldSection(
       title: "No.Handphone",
-      sympol: "*",
+      sympol: widget.sympol ?? "*",
+      titleColor: widget.tilteColor,
       textInputType: TextInputType.number,
       controller: textEditingController,
       prefixICon: Row(

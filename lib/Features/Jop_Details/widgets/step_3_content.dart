@@ -4,6 +4,8 @@ import 'package:jobsque_jobfinder/Core/Wedgits/file_uploaded_style.dart';
 import 'package:jobsque_jobfinder/Core/Wedgits/upload_file_section.dart';
 import 'package:jobsque_jobfinder/Features/Jop_Details/widgets/apply_section_title.dart';
 import 'package:jobsque_jobfinder/Features/Jop_Details/widgets/custom_text_field_title.dart';
+import 'package:jobsque_jobfinder/Features/Jop_Details/widgets/uploaded_cv_list_view_builder.dart';
+import 'package:jobsque_jobfinder/Features/Profile/widgets/uploaded_files_list_view_builder.dart';
 
 class Step3Content extends StatelessWidget {
   const Step3Content({
@@ -12,36 +14,35 @@ class Step3Content extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const SingleChildScrollView(
+    return SingleChildScrollView(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          SizedBox(
+          const SizedBox(
             height: 32,
           ),
-          ApplySectionTitle(
+          const ApplySectionTitle(
             title: "Upload portfolio",
             subTitle: "Fill in your bio data correctly",
           ),
-          SizedBox(
+          const SizedBox(
             height: 28,
           ),
-          CustomTextFieldTitle(
+          const CustomTextFieldTitle(
             title: "Upload CV",
             symbol: "*",
           ),
-          SizedBox(height: 12),
-          FileUploadedStyle(
-            fileTypeICon: AppImages.pdfIcon,
-            fileName: "Rafif Dian.CV",
-            filetype: "CV.pdf 300KB",
-          ),
-          SizedBox(height: 20),
-          CustomTextFieldTitle(title: "Other File"),
-          SizedBox(
+          const SizedBox(height: 12),
+          UploadedCvListViewBuilder(),
+          const SizedBox(height: 20),
+          const CustomTextFieldTitle(title: "Other File"),
+          const SizedBox(
             height: 12,
           ),
-          UploadeFileSection(),
+          const UploadeFileSection(),
+          const SizedBox(
+            height: 47,
+          )
         ],
       ),
     );

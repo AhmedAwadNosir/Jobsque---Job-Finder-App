@@ -5,7 +5,7 @@ import 'package:jobsque_jobfinder/Core/Utils/app_fonts_styles.dart';
 import 'package:jobsque_jobfinder/Core/Utils/constans.dart';
 import 'package:jobsque_jobfinder/Core/Wedgits/custom_barr.dart';
 import 'package:jobsque_jobfinder/Core/Wedgits/custom_text_16_style.dart';
-import 'package:jobsque_jobfinder/Features/Home/widgets/custom_text_field_section.dart';
+import 'package:jobsque_jobfinder/Core/Wedgits/custom_text_field_section.dart';
 import 'package:jobsque_jobfinder/Features/Home/widgets/dorp_down_button_form_field.dart';
 import 'package:jobsque_jobfinder/Features/Home/widgets/jop_type_container.dart';
 import 'package:jobsque_jobfinder/Features/Onboarding/Widgets/custom_button.dart';

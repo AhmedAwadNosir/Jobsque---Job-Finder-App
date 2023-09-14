@@ -4,17 +4,14 @@ import 'package:iconsax/iconsax.dart';
 import 'package:jobsque_jobfinder/Core/Utils/app_colors.dart';
 import 'package:jobsque_jobfinder/Core/Wedgits/custom_text12.dart';
 import 'package:jobsque_jobfinder/Core/Wedgits/custom_text14.dart';
+import 'package:jobsque_jobfinder/Features/Profile/models/uploaded_file_model.dart';
 
 class FileUploadedStyle extends StatelessWidget {
   const FileUploadedStyle({
     super.key,
-    required this.fileTypeICon,
-    required this.fileName,
-    required this.filetype,
+    required this.fileModel
   });
-  final String fileTypeICon;
-  final String fileName;
-  final String filetype;
+  final UploadedFileModel fileModel;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -29,29 +26,35 @@ class FileUploadedStyle extends StatelessWidget {
         padding: const EdgeInsets.all(16),
         child: Row(
           children: [
-            SvgPicture.asset(fileTypeICon),
+            SvgPicture.asset(fileModel.fileTypeIocn),
             const SizedBox(
               width: 15,
             ),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                CustomText14(title: fileName),
+                CustomText14(title: fileModel.fileName),
                 CustomText12(
-                  text: filetype,
+                  text: fileModel.fileExtintion,
                   color: AppColors.appNeutralColors500,
                 ),
               ],
             ),
             const Spacer(),
-            const Icon(
-              Iconsax.edit_2,
-              color: AppColors.appPrimaryColors500,
+            GestureDetector(
+              onTap: () {},
+              child: const Icon(
+                Iconsax.edit_2,
+                color: AppColors.appPrimaryColors500,
+              ),
             ),
             const SizedBox(width: 8),
-            const Icon(
-              Iconsax.close_circle,
-              color: AppColors.appInDangerColors500,
+            GestureDetector(
+              onTap: () {},
+              child: const Icon(
+                Iconsax.close_circle,
+                color: AppColors.appInDangerColors500,
+              ),
             ),
           ],
         ),

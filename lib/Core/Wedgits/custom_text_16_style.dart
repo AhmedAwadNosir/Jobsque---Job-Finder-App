@@ -7,19 +7,21 @@ class CustomText16Style extends StatelessWidget {
   const CustomText16Style({
     super.key,
     required this.title,
-    this.style, this.color,
+    this.style,
+    this.color, this.fontfamily,
   });
   final String title;
   final TextStyle? style;
   final Color? color;
+  final String? fontfamily;
   @override
   Widget build(BuildContext context) {
     return Text(
       title,
       style: style ??
           AppFontsStyles.textstyle16.copyWith(
-              fontFamily: textFamilyMedium,
-              color:color?? AppColors.appNeutralColors900),
+              fontFamily:fontfamily?? textFamilyMedium,
+              color: color ?? AppColors.appNeutralColors900),
     );
   }
 }

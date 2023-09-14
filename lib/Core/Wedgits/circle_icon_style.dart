@@ -5,12 +5,12 @@ class CircleIconStyle extends StatelessWidget {
   const CircleIconStyle({
     super.key,
     this.containerColor,
-    required this.icon,
+    required this.icon, this.pading,
   });
   final Color? containerColor;
   final Icon icon;
 
-
+  final double? pading;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -19,7 +19,7 @@ class CircleIconStyle extends StatelessWidget {
         color: containerColor ?? AppColors.appPrimaryColors100,
       ),
       child: Padding(
-        padding: const EdgeInsets.all(12),
+        padding:  EdgeInsets.all(pading??12),
         child: Center(
           child: icon,
         ),

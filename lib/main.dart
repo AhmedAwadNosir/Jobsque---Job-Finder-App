@@ -12,6 +12,11 @@ import 'package:jobsque_jobfinder/Features/Jop_Details/views/jop_applied_succesf
 import 'package:jobsque_jobfinder/Features/Notefication/views/notefication_view.dart';
 import 'package:jobsque_jobfinder/Features/Onboarding/Views/onboarding_view.dart';
 import 'package:jobsque_jobfinder/Features/Onboarding/Views/splash_view.dart';
+import 'package:jobsque_jobfinder/Features/Profile/views/edit_profile_view.dart';
+import 'package:jobsque_jobfinder/Features/Profile/views/languages_view.dart';
+import 'package:jobsque_jobfinder/Features/Profile/views/login_and_security_view.dart';
+import 'package:jobsque_jobfinder/Features/Profile/views/notefication_seting_view.dart';
+import 'package:jobsque_jobfinder/Features/Profile/views/portfolio_view.dart';
 import 'package:jobsque_jobfinder/Features/forgot%20_password/views/check_emial_view.dart';
 import 'package:jobsque_jobfinder/Features/forgot%20_password/views/forgot_password_view.dart';
 import 'package:jobsque_jobfinder/Features/forgot%20_password/views/password_reset_successfully_view.dart';
@@ -63,6 +68,11 @@ class JopFinderApp extends StatelessWidget {
         JopAppliedSuccesfuly.id: (context) => const JopAppliedSuccesfuly(),
         NoteficationView.id: (context) => NoteficationView(),
         ChatView.id: (context) => const ChatView(),
+        EditProfileView.id: (context) => const EditProfileView(),
+        PortFolioView.id: (context) => const PortFolioView(),
+        LanguagesView.id: (context) => const LanguagesView(),
+        NoteficationSetingView.id: (context) => const NoteficationSetingView(),
+        LoginAndSecurityView.id: (context) => const LoginAndSecurityView(),
       },
       initialRoute: SplashView.id,
     );

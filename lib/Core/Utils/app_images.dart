@@ -83,4 +83,14 @@ abstract class AppImages {
       "lib/Core/Utils/assets/images/profile.svg";
   static const String briefaceSelectedIcon =
       "lib/Core/Utils/assets/images/briefcase.svg";
+  static const String englandsvg = "lib/Core/Utils/assets/images/england.svg";
+  static const String englandpng = "lib/Core/Utils/assets/images/england.png";
+  static const String netherlandspng =
+      "lib/Core/Utils/assets/images/netherlands.png";
+  static const String francepng = "lib/Core/Utils/assets/images/france.png";
+  static const String germanypng = "lib/Core/Utils/assets/images/germany.png";
+  static const String japanpng = "lib/Core/Utils/assets/images/japan.png";
+  static const String southKoreapng =
+      "lib/Core/Utils/assets/images/southKorea.png";
+  static const String portugalpng = "lib/Core/Utils/assets/images/portugal.png";
 }

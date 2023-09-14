@@ -3,24 +3,21 @@ import 'package:jobsque_jobfinder/Core/Utils/app_colors.dart';
 import 'package:jobsque_jobfinder/Core/Utils/app_fonts_styles.dart';
 import 'package:jobsque_jobfinder/Core/Utils/constans.dart';
 
-class CustomText14 extends StatelessWidget {
-  const CustomText14({
+class CustomText20Style extends StatelessWidget {
+  const CustomText20Style({
     super.key,
-    required this.title,
-    this.titleColor, this.fontFamily,
+    required this.title, this.color, this.fontFamily,
   });
+
   final String title;
-  final Color? titleColor;
+  final Color? color;
   final String? fontFamily;
   @override
   Widget build(BuildContext context) {
     return Text(
       title,
-      softWrap: true,
-      style: AppFontsStyles.textstyle14.copyWith(
-        fontFamily:fontFamily?? textFamilyMedium,
-        color: titleColor ?? AppColors.appNeutralColors900,
-      ),
+      style: AppFontsStyles.textstyle20.copyWith(
+          fontFamily:fontFamily?? textFamilyMedium, color:color?? AppColors.appNeutralColors900),
     );
   }
 }
