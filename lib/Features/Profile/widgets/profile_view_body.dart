@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:jobsque_jobfinder/Core/Wedgits/custom_seaction_bar.dart';
-import 'package:jobsque_jobfinder/Features/Notefication/views/notefication_view.dart';
 import 'package:jobsque_jobfinder/Features/Profile/views/edit_profile_view.dart';
 import 'package:jobsque_jobfinder/Features/Profile/views/languages_view.dart';
 import 'package:jobsque_jobfinder/Features/Profile/views/login_and_security_view.dart';
@@ -45,7 +44,7 @@ class ProfileViewBody extends StatelessWidget {
           ),
           const SizedBox(height: 36),
           const CustomSectionBar(text: "General"),
-          const SizedBox(height: 30),
+          const SizedBox(height: 16),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 24),
             child: CustomProfileOptionSection(

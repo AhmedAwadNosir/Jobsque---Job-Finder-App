@@ -51,4 +51,3 @@ class Step1Content extends StatelessWidget {
     );
   }
 }
-

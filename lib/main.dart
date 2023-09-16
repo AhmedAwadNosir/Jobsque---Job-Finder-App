@@ -9,6 +9,13 @@ import 'package:jobsque_jobfinder/Features/Home/views/home_view.dart';
 import 'package:jobsque_jobfinder/Features/Home/views/search_view.dart';
 import 'package:jobsque_jobfinder/Features/Jop_Details/views/apply_jop_view.dart';
 import 'package:jobsque_jobfinder/Features/Jop_Details/views/jop_applied_succesfuly.dart';
+import 'package:jobsque_jobfinder/Features/LoginAndSecurity/views/change_password_view.dart';
+import 'package:jobsque_jobfinder/Features/LoginAndSecurity/views/email_adress_view.dart';
+import 'package:jobsque_jobfinder/Features/LoginAndSecurity/views/phone_number_view.dart';
+import 'package:jobsque_jobfinder/Features/LoginAndSecurity/views/two_step_verification_methode_view.dart';
+import 'package:jobsque_jobfinder/Features/LoginAndSecurity/views/two_step_verification_send_code_view.dart';
+import 'package:jobsque_jobfinder/Features/LoginAndSecurity/views/two_step_verification_view.dart';
+import 'package:jobsque_jobfinder/Features/LoginAndSecurity/views/verify_code_view.dart';
 import 'package:jobsque_jobfinder/Features/Notefication/views/notefication_view.dart';
 import 'package:jobsque_jobfinder/Features/Onboarding/Views/onboarding_view.dart';
 import 'package:jobsque_jobfinder/Features/Onboarding/Views/splash_view.dart';
@@ -73,6 +80,16 @@ class JopFinderApp extends StatelessWidget {
         LanguagesView.id: (context) => const LanguagesView(),
         NoteficationSetingView.id: (context) => const NoteficationSetingView(),
         LoginAndSecurityView.id: (context) => const LoginAndSecurityView(),
+        EmailAdressView.id: (context) => const EmailAdressView(),
+        PhoneNumberView.id: (context) => const PhoneNumberView(),
+        ChangePasswordView.id: (context) => const ChangePasswordView(),
+        TwoStepVerificationView.id: (context) =>
+            const TwoStepVerificationView(),
+        TwoStepVerificationMethodeView.id: (context) =>
+            const TwoStepVerificationMethodeView(),
+        TwoStepVerificationSendCodeView.id: (context) =>
+            const TwoStepVerificationSendCodeView(),
+        VerifyCodeView.id: (context) => const VerifyCodeView(),
       },
       initialRoute: SplashView.id,
     );

@@ -5,39 +5,35 @@ import 'package:jobsque_jobfinder/Core/Wedgits/custom_text14.dart';
 import 'package:jobsque_jobfinder/Core/Wedgits/custom_text_16_style.dart';
 import 'package:jobsque_jobfinder/Features/Authentication/functions/text_field_border_decoration.dart';
 
-class SalaryDorpDownButtonFormField extends StatefulWidget {
-  const SalaryDorpDownButtonFormField({
+class CustomDorpDownButtonFormField extends StatefulWidget {
+  const CustomDorpDownButtonFormField({
     super.key,
+    required this.title,
+    required this.itemsList,
+    required this.initialValue,
+    this.prefixIcon,
   });
-
+  final String title;
+  final List<String> itemsList;
+  final String initialValue;
+  final IconData? prefixIcon;
   @override
-  State<SalaryDorpDownButtonFormField> createState() => _SalaryDorpDownButtonFormFieldState();
+  State<CustomDorpDownButtonFormField> createState() =>
+      _CustomDorpDownButtonFormFieldState();
 }
 
-class _SalaryDorpDownButtonFormFieldState extends State<SalaryDorpDownButtonFormField> {
-  String salary = r"$5K - $10K";
-
-  final salaryList = [
-    r"$5K - $10K",
-    r"$10K - $15K",
-    r"$15K - $20K",
-    r"$20K - $25K",
-    r"$25K - $30K",
-    r"$30K - $35K",
-    r"$35K - $40K",
-    r"$40K - $45K",
-    r"$45K - $50K",
-  ];
-
+class _CustomDorpDownButtonFormFieldState
+    extends State<CustomDorpDownButtonFormField> {
   @override
   Widget build(BuildContext context) {
+    String content = widget.initialValue;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const CustomText16Style(title: "Salary"),
+        CustomText16Style(title: widget.title),
         const SizedBox(height: 8),
         DropdownButtonFormField(
-          items: salaryList
+          items: widget.itemsList
               .map(
                 (value) => DropdownMenuItem(
                   value: value,
@@ -47,20 +43,22 @@ class _SalaryDorpDownButtonFormFieldState extends State<SalaryDorpDownButtonForm
               .toList(),
           onChanged: (value) {
             setState(() {
-              salary = value!;
+              content = value.toString();
             });
           },
-          value: salary,
+          value: content,
           icon: const Icon(
             Iconsax.arrow_down_1,
             size: 20,
             color: AppColors.appNeutralColors900,
           ),
           decoration: InputDecoration(
-            prefixIcon: const Icon(
-              Iconsax.dollar_circle,
-              size: 20,
-            ),
+            prefixIcon: widget.prefixIcon != null
+                ? Icon(
+                    widget.prefixIcon,
+                    size: 20,
+                  )
+                : null,
             border: buildOutlineInputBorder(),
             enabledBorder: buildOutlineInputBorder(),
             focusedBorder: buildOutlineInputBorder(),

@@ -7,7 +7,8 @@ class CustomProfileOptionSection extends StatelessWidget {
     super.key,
     required this.title,
     this.icon,
-    this.onTap, this.hieght,
+    this.onTap,
+    this.hieght,
   });
   final String title;
   final IconData? icon;
@@ -17,12 +18,13 @@ class CustomProfileOptionSection extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
+        const SizedBox(height: 14),
         ProfileOptionStyle(
           title: title,
           icon: icon,
           onTap: onTap,
         ),
-         SizedBox(height:hieght?? 18),
+        SizedBox(height: hieght ?? 14),
         const Divider(
           thickness: 1,
           color: AppColors.appNeutralColors200,

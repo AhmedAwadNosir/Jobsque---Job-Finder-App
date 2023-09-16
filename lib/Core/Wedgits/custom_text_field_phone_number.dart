@@ -10,9 +10,11 @@ class CustomPhoneNumberTextField extends StatefulWidget {
     super.key,
     this.tilteColor,
     this.sympol,
+    this.title,
   });
   final Color? tilteColor;
   final String? sympol;
+  final String? title;
   @override
   State<CustomPhoneNumberTextField> createState() =>
       _CustomPhoneNumberTextFieldState();
@@ -22,13 +24,16 @@ class _CustomPhoneNumberTextFieldState
     extends State<CustomPhoneNumberTextField> {
   final countryPicker = const FlCountryCodePicker();
 
-  CountryCode? phoneCode =
+  CountryCode? egPhoneCode =
       const CountryCode(name: "Egypt", code: "Eg", dialCode: "+20");
-  final TextEditingController textEditingController = TextEditingController();
+  CountryCode? usPhoneCode =
+      const CountryCode(name: "United States", code: "US", dialCode: "+1");
+  final TextEditingController textEditingController = TextEditingController(text: "0100-666-7234");
+ 
   @override
   Widget build(BuildContext context) {
     return CustomTextFieldSection(
-      title: "No.Handphone",
+      title: widget.title ?? "No.Handphone",
       sympol: widget.sympol ?? "*",
       titleColor: widget.tilteColor,
       textInputType: TextInputType.number,
@@ -38,8 +43,8 @@ class _CustomPhoneNumberTextFieldState
         children: [
           const SizedBox(width: 16),
           SizedBox(
-              child: phoneCode != null
-                  ? phoneCode!.flagImage()
+              child: usPhoneCode != null
+                  ? usPhoneCode!.flagImage()
                   : const SizedBox()),
           IconButton(
               onPressed: () async {
@@ -47,9 +52,9 @@ class _CustomPhoneNumberTextFieldState
                   final pcode =
                       await countryPicker.showPicker(context: context);
                   setState(() {
-                    phoneCode = pcode;
+                    usPhoneCode = pcode;
                     showSnackBar(
-                        "${phoneCode!.dialCode} ${textEditingController.value.text.trim()}",
+                        "${usPhoneCode!.dialCode} ${textEditingController.value.text.trim()}",
                         context);
                   });
                 } catch (e) {

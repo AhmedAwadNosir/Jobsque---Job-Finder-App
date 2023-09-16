@@ -1,43 +1,42 @@
 import 'package:flutter/material.dart';
+import 'package:iconsax/iconsax.dart';
 import 'package:jobsque_jobfinder/Core/Utils/app_colors.dart';
 import 'package:jobsque_jobfinder/Core/Utils/app_fonts_styles.dart';
 import 'package:jobsque_jobfinder/Core/Utils/constans.dart';
 import 'package:jobsque_jobfinder/Features/Authentication/functions/text_field_border_decoration.dart';
 import 'package:jobsque_jobfinder/Features/Jop_Details/widgets/custom_text_field_title.dart';
 
-class CustomTextFieldSection extends StatelessWidget {
-  const CustomTextFieldSection({
+class CustomPasswordTextFieldSection extends StatefulWidget {
+  const CustomPasswordTextFieldSection({
     super.key,
     required this.title,
     this.prefixICon,
     this.suffixIcon,
     this.onChanged,
     this.onSubmited,
-    this.suffixIconOnTap,
     this.sympol,
-    this.textInputType,
-    this.controller,
     this.titleColor,
-    this.content,
-    this.contentStyle,
     this.titleSpace,
-    this.suffixIconColor, this.suffixIconSize,
+    this.controller,
   });
   final String title;
   final Widget? prefixICon;
   final IconData? suffixIcon;
   final void Function(String)? onChanged;
   final void Function(String)? onSubmited;
-  final void Function()? suffixIconOnTap;
   final String? sympol;
-  final TextInputType? textInputType;
   final TextEditingController? controller;
   final Color? titleColor;
-  final String? content;
-  final TextStyle? contentStyle;
   final double? titleSpace;
-  final Color? suffixIconColor;
-  final double? suffixIconSize;
+
+  @override
+  State<CustomPasswordTextFieldSection> createState() =>
+      _CustomPasswordTextFieldSectionState();
+}
+
+class _CustomPasswordTextFieldSectionState
+    extends State<CustomPasswordTextFieldSection> {
+  bool obsecureText = true;
 
   @override
   Widget build(BuildContext context) {
@@ -45,34 +44,36 @@ class CustomTextFieldSection extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         CustomTextFieldTitle(
-          title: title,
-          symbol: sympol,
-          titleColor: titleColor,
+          title: widget.title,
+          symbol: widget.sympol,
+          titleColor: widget.titleColor,
         ),
         SizedBox(
-          height: titleSpace ?? 8,
+          height: widget.titleSpace ?? 8,
         ),
         TextFormField(
-          initialValue: content,
-          controller: controller,
-          onChanged: onChanged,
-          onFieldSubmitted: onSubmited,
-          style: contentStyle ??
-              AppFontsStyles.textstyle14.copyWith(
-                  fontFamily: textFamilyMedium,
-                  color: AppColors.appNeutralColors900),
-          keyboardType: textInputType,
+          obscureText: obsecureText,
+          controller: widget.controller,
+          onChanged: widget.onChanged,
+          onFieldSubmitted: widget.onSubmited,
+          style: AppFontsStyles.textstyle14.copyWith(
+              fontFamily: textFamilyMedium,
+              color: AppColors.appNeutralColors900),
           decoration: InputDecoration(
               enabledBorder: buildOutlineInputBorder(),
               focusedBorder: buildOutlineInputBorder(),
-              prefixIcon: prefixICon,
-              suffixIcon: suffixIcon != null
+              prefixIcon: widget.prefixICon,
+              suffixIcon: widget.suffixIcon != null
                   ? GestureDetector(
-                      onTap: suffixIconOnTap,
+                      onTap: () {
+                        setState(() {
+                          obsecureText = !obsecureText;
+                        });
+                      },
                       child: Icon(
-                        suffixIcon,
-                        size:suffixIconSize ,
-                        color: suffixIconColor ?? AppColors.appNeutralColors800,
+                        obsecureText ? widget.suffixIcon : Iconsax.eye,
+                        size: 20,
+                        color: AppColors.appNeutralColors400,
                       ),
                     )
                   : null),

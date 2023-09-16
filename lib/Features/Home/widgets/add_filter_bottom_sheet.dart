@@ -6,7 +6,7 @@ import 'package:jobsque_jobfinder/Core/Utils/constans.dart';
 import 'package:jobsque_jobfinder/Core/Wedgits/custom_barr.dart';
 import 'package:jobsque_jobfinder/Core/Wedgits/custom_text_16_style.dart';
 import 'package:jobsque_jobfinder/Core/Wedgits/custom_text_field_section.dart';
-import 'package:jobsque_jobfinder/Features/Home/widgets/dorp_down_button_form_field.dart';
+import 'package:jobsque_jobfinder/Core/Wedgits/custom_dorp_down_button_form_field.dart';
 import 'package:jobsque_jobfinder/Features/Home/widgets/jop_type_container.dart';
 import 'package:jobsque_jobfinder/Features/Onboarding/Widgets/custom_button.dart';
 
@@ -65,7 +65,22 @@ class AddFilterBottomSheet extends StatelessWidget {
             const SizedBox(
               height: 16,
             ),
-            const SalaryDorpDownButtonFormField(),
+            const CustomDorpDownButtonFormField(
+              title: 'Salary',
+              initialValue: r"$5K - $10K",
+              itemsList: [
+                r"$5K - $10K",
+                r"$10K - $15K",
+                r"$15K - $20K",
+                r"$20K - $25K",
+                r"$25K - $30K",
+                r"$30K - $35K",
+                r"$35K - $40K",
+                r"$40K - $45K",
+                r"$45K - $50K",
+              ],
+              prefixIcon: Iconsax.dollar_circle,
+            ),
             const SizedBox(
               height: 16,
             ),

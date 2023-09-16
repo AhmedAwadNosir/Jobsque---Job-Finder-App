@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:jobsque_jobfinder/Core/Utils/app_colors.dart';
 import 'package:jobsque_jobfinder/Core/Utils/constans.dart';
 import 'package:jobsque_jobfinder/Core/Wedgits/custom_text_16_style.dart';
+import 'package:jobsque_jobfinder/Features/Profile/widgets/custom_switch_button.dart';
 
 class NoteficationSection extends StatefulWidget {
   const NoteficationSection({super.key, required this.noteficaionName});
@@ -12,7 +13,6 @@ class NoteficationSection extends StatefulWidget {
 }
 
 class _NoteficationSectionState extends State<NoteficationSection> {
-  bool isActive = false;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -24,21 +24,7 @@ class _NoteficationSectionState extends State<NoteficationSection> {
               title: widget.noteficaionName,
               fontfamily: textFamilyRegular,
             ),
-            Switch(
-              value: isActive,
-              activeColor: AppColors.appPrimaryColors100,
-              inactiveThumbColor: AppColors.appNeutralColors100,
-              activeTrackColor: AppColors.appPrimaryColors500,
-              inactiveTrackColor: AppColors.appNeutralColors300,
-              trackOutlineWidth: const MaterialStatePropertyAll(0),
-              trackOutlineColor:
-                  const MaterialStatePropertyAll(AppColors.appNeutralColors300),
-              onChanged: (value) {
-                setState(() {
-                  isActive = value;
-                });
-              },
-            )
+            const CustomSwitchButton()
           ],
         ),
         const SizedBox(height: 10.5),
@@ -50,3 +36,4 @@ class _NoteficationSectionState extends State<NoteficationSection> {
     );
   }
 }
+
