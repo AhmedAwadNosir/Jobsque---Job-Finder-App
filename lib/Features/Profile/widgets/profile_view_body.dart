@@ -2,10 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:jobsque_jobfinder/Core/Wedgits/custom_seaction_bar.dart';
 import 'package:jobsque_jobfinder/Features/Profile/views/edit_profile_view.dart';
+import 'package:jobsque_jobfinder/Features/Profile/views/help_center_view.dart';
 import 'package:jobsque_jobfinder/Features/Profile/views/languages_view.dart';
 import 'package:jobsque_jobfinder/Features/Profile/views/login_and_security_view.dart';
 import 'package:jobsque_jobfinder/Features/Profile/views/notefication_seting_view.dart';
 import 'package:jobsque_jobfinder/Features/Profile/views/portfolio_view.dart';
+import 'package:jobsque_jobfinder/Features/Profile/views/privacy_policy_view.dart';
+import 'package:jobsque_jobfinder/Features/Profile/views/terms%20_conditions_view.dart';
 import 'package:jobsque_jobfinder/Features/Profile/widgets/custom_user_profile_section.dart';
 import 'package:jobsque_jobfinder/Features/Profile/widgets/user_about_section.dart';
 import 'package:jobsque_jobfinder/Features/Profile/widgets/user_informaion.dart';
@@ -111,7 +114,9 @@ class ProfileViewBody extends StatelessWidget {
             child: CustomProfileOptionSection(
               title: "Help Center",
               hieght: 14,
-              onTap: () {},
+              onTap: () {
+                Navigator.pushNamed(context, HelpCenterView.id);
+              },
             ),
           ),
           Padding(
@@ -119,7 +124,9 @@ class ProfileViewBody extends StatelessWidget {
             child: CustomProfileOptionSection(
               title: "Terms & Conditions",
               hieght: 14,
-              onTap: () {},
+              onTap: () {
+                Navigator.pushNamed(context, TermsConditionsView.id);
+              },
             ),
           ),
           Padding(
@@ -127,7 +134,9 @@ class ProfileViewBody extends StatelessWidget {
             child: CustomProfileOptionSection(
               title: "Privacy Policy",
               hieght: 14,
-              onTap: () {},
+              onTap: () {
+                Navigator.pushNamed(context, PrivacyPolicyView.id);
+              },
             ),
           ),
           const SizedBox(height: 30),

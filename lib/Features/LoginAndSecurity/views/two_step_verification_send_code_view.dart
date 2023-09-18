@@ -7,7 +7,7 @@ class TwoStepVerificationSendCodeView extends StatelessWidget {
   static const id = "TwoStepVerificationSendCodeView";
   @override
   Widget build(BuildContext context) {
-    return  Scaffold(
+    return const Scaffold(
       appBar: CustomAppBar(
         title: "Two-step verification",
         paddingTop: 16,

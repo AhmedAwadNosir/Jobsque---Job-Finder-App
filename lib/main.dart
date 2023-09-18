@@ -20,10 +20,13 @@ import 'package:jobsque_jobfinder/Features/Notefication/views/notefication_view.
 import 'package:jobsque_jobfinder/Features/Onboarding/Views/onboarding_view.dart';
 import 'package:jobsque_jobfinder/Features/Onboarding/Views/splash_view.dart';
 import 'package:jobsque_jobfinder/Features/Profile/views/edit_profile_view.dart';
+import 'package:jobsque_jobfinder/Features/Profile/views/help_center_view.dart';
 import 'package:jobsque_jobfinder/Features/Profile/views/languages_view.dart';
 import 'package:jobsque_jobfinder/Features/Profile/views/login_and_security_view.dart';
 import 'package:jobsque_jobfinder/Features/Profile/views/notefication_seting_view.dart';
 import 'package:jobsque_jobfinder/Features/Profile/views/portfolio_view.dart';
+import 'package:jobsque_jobfinder/Features/Profile/views/privacy_policy_view.dart';
+import 'package:jobsque_jobfinder/Features/Profile/views/terms%20_conditions_view.dart';
 import 'package:jobsque_jobfinder/Features/forgot%20_password/views/check_emial_view.dart';
 import 'package:jobsque_jobfinder/Features/forgot%20_password/views/forgot_password_view.dart';
 import 'package:jobsque_jobfinder/Features/forgot%20_password/views/password_reset_successfully_view.dart';
@@ -90,6 +93,9 @@ class JopFinderApp extends StatelessWidget {
         TwoStepVerificationSendCodeView.id: (context) =>
             const TwoStepVerificationSendCodeView(),
         VerifyCodeView.id: (context) => const VerifyCodeView(),
+        HelpCenterView.id: (context) => const HelpCenterView(),
+        TermsConditionsView.id: (context) => const TermsConditionsView(),
+        PrivacyPolicyView.id: (context) => const PrivacyPolicyView(),
       },
       initialRoute: SplashView.id,
     );
