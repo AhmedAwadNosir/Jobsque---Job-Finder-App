@@ -5,6 +5,7 @@ import 'package:jobsque_jobfinder/Core/Utils/app_colors.dart';
 import 'package:jobsque_jobfinder/Core/Utils/app_fonts_styles.dart';
 import 'package:jobsque_jobfinder/Core/Utils/app_images.dart';
 import 'package:jobsque_jobfinder/Core/Utils/my_flutter_app_icons.dart';
+import 'package:jobsque_jobfinder/Features/AplliedJop/views/applied_jop_view.dart';
 import 'package:jobsque_jobfinder/Features/Messages/views/messages_view.dart';
 import 'package:jobsque_jobfinder/Features/Home/widgets/home_view_body.dart';
 import 'package:jobsque_jobfinder/Features/Profile/views/profile_view.dart';
@@ -26,7 +27,7 @@ class _HomeViewState extends State<HomeView> {
     List<Widget> views = [
       const HomeViewBody(),
       MessagesView(),
-      Container(),
+      const AppliedJopView(),
       const SavedView(),
       const ProfileView()
     ];

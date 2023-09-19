@@ -93,4 +93,5 @@ abstract class AppImages {
   static const String southKoreapng =
       "lib/Core/Utils/assets/images/southKorea.png";
   static const String portugalpng = "lib/Core/Utils/assets/images/portugal.png";
+  static const String noAppliedJopIcon = "lib/Core/Utils/assets/images/noAppliedJopIcon.svg";
 }
