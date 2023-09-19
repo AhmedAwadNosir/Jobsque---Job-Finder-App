@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:jobsque_jobfinder/Core/Utils/app_colors.dart';
+import 'package:jobsque_jobfinder/Core/Utils/app_fonts_styles.dart';
+import 'package:jobsque_jobfinder/Core/Utils/constans.dart';
 import 'package:jobsque_jobfinder/Core/Wedgits/custom_text14.dart';
 import 'package:jobsque_jobfinder/Core/Wedgits/custom_text_16_style.dart';
 import 'package:jobsque_jobfinder/Features/Authentication/functions/text_field_border_decoration.dart';
@@ -12,11 +14,15 @@ class CustomDorpDownButtonFormField extends StatefulWidget {
     required this.itemsList,
     required this.initialValue,
     this.prefixIcon,
+    this.titleColor,
+    this.style,
   });
   final String title;
   final List<String> itemsList;
   final String initialValue;
   final IconData? prefixIcon;
+  final Color? titleColor;
+  final TextStyle? style;
   @override
   State<CustomDorpDownButtonFormField> createState() =>
       _CustomDorpDownButtonFormFieldState();
@@ -30,9 +36,16 @@ class _CustomDorpDownButtonFormFieldState
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        CustomText16Style(title: widget.title),
+        CustomText16Style(
+          title: widget.title,
+          color: widget.titleColor,
+        ),
         const SizedBox(height: 8),
         DropdownButtonFormField(
+          style: widget.style ??
+              AppFontsStyles.textstyle14.copyWith(
+                  color: AppColors.appNeutralColors900,
+                  fontFamily: textFamilyMedium),
           items: widget.itemsList
               .map(
                 (value) => DropdownMenuItem(

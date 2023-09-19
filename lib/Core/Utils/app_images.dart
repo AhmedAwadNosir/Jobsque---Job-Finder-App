@@ -93,5 +93,13 @@ abstract class AppImages {
   static const String southKoreapng =
       "lib/Core/Utils/assets/images/southKorea.png";
   static const String portugalpng = "lib/Core/Utils/assets/images/portugal.png";
-  static const String noAppliedJopIcon = "lib/Core/Utils/assets/images/noAppliedJopIcon.svg";
+  static const String noAppliedJopIcon =
+      "lib/Core/Utils/assets/images/noAppliedJopIcon.svg";
+  static const String completed = "lib/Core/Utils/assets/images/completed.svg";
+  static const String notCompleted =
+      "lib/Core/Utils/assets/images/notCompleted.svg";
+  static const String universityLogo =
+      "lib/Core/Utils/assets/images/universityLogo.png";
+  static const String companyLogo =
+      "lib/Core/Utils/assets/images/companyLogo.png";
 }

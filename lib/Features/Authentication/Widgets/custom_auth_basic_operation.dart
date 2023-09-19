@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:jobsque_jobfinder/Core/Wedgits/custom_check_box.dart';
 import 'package:jobsque_jobfinder/Features/forgot%20_password/views/forgot_password_view.dart';
 import '../../../Core/Utils/app_colors.dart';
 import '../../../Core/Utils/app_fonts_styles.dart';
@@ -20,23 +21,7 @@ class _CustomAuthBasicOperationState extends State<CustomAuthBasicOperation> {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        SizedBox(
-          height: 18,
-          width: 18,
-          child: Checkbox(
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(5),
-              ),
-              value: isChecked,
-              checkColor: AppColors.appNeutralColors300,
-              fillColor: MaterialStatePropertyAll(
-                  isChecked ? AppColors.appPrimaryColors500 : Colors.white),
-              onChanged: (newvalue) {
-                setState(() {
-                  isChecked = newvalue!;
-                });
-              }),
-        ),
+        CustomCheckBox(isChecked: isChecked),
         const SizedBox(
           width: 6,
         ),

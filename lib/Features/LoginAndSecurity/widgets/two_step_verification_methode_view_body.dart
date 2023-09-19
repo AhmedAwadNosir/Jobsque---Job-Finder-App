@@ -36,9 +36,10 @@ class TwoStepVerificationMethodeViewBody extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 32),
-          const CustomDorpDownButtonFormField(
+          CustomDorpDownButtonFormField(
               title: "Select a verification method",
-              itemsList: [
+              
+              itemsList: const [
                 "Telephone number (SMS)",
                 "Google account",
                 "Facebook account"

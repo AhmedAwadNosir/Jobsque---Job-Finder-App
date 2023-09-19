@@ -6,6 +6,10 @@ import 'package:jobsque_jobfinder/Features/Authentication/Create_Account/Views/r
 import 'package:jobsque_jobfinder/Features/Authentication/Sign_IN/Views/sign_in_view.dart';
 import 'package:jobsque_jobfinder/Features/Authentication/Create_Account/Views/sucess_account_ilstration.dart';
 import 'package:jobsque_jobfinder/Features/Chat/views/chat_view.dart';
+import 'package:jobsque_jobfinder/Features/Complete_Profile.dart/views/complete_profile_view.dart';
+import 'package:jobsque_jobfinder/Features/Complete_Profile.dart/views/education_view.dart';
+import 'package:jobsque_jobfinder/Features/Complete_Profile.dart/views/experience_view.dart';
+import 'package:jobsque_jobfinder/Features/Complete_Profile.dart/views/personal_details_view.dart';
 import 'package:jobsque_jobfinder/Features/Home/views/home_view.dart';
 import 'package:jobsque_jobfinder/Features/Home/views/search_view.dart';
 import 'package:jobsque_jobfinder/Features/Jop_Details/views/apply_jop_view.dart';
@@ -98,6 +102,10 @@ class JopFinderApp extends StatelessWidget {
         TermsConditionsView.id: (context) => const TermsConditionsView(),
         PrivacyPolicyView.id: (context) => const PrivacyPolicyView(),
         AppliedJopView.id: (context) => const AppliedJopView(),
+        CompleteProfileView.id: (context) => const CompleteProfileView(),
+        PersonalDetailsView.id: (context) => const PersonalDetailsView(),
+        EducationView.id: (context) => const EducationView(),
+        ExperienceView.id: (context) => const ExperienceView(),
       },
       initialRoute: SplashView.id,
     );

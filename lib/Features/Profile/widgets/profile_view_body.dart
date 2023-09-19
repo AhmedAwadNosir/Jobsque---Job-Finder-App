@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:jobsque_jobfinder/Core/Wedgits/custom_seaction_bar.dart';
+import 'package:jobsque_jobfinder/Features/Complete_Profile.dart/views/complete_profile_view.dart';
 import 'package:jobsque_jobfinder/Features/Profile/views/edit_profile_view.dart';
 import 'package:jobsque_jobfinder/Features/Profile/views/help_center_view.dart';
 import 'package:jobsque_jobfinder/Features/Profile/views/languages_view.dart';
@@ -106,7 +107,9 @@ class ProfileViewBody extends StatelessWidget {
             child: CustomProfileOptionSection(
               title: "Accesibility",
               hieght: 14,
-              onTap: () {},
+              onTap: () {
+                Navigator.pushNamed(context, CompleteProfileView.id);
+              },
             ),
           ),
           Padding(

@@ -10,7 +10,6 @@ import 'package:jobsque_jobfinder/Features/Home/widgets/jop_features.dart';
 import 'package:jobsque_jobfinder/Features/Jop_Details/widgets/custom_steper_widgets/apply_custom_step_label.dart';
 import 'package:jobsque_jobfinder/Features/Jop_Details/widgets/custom_steper_widgets/custom_step.dart';
 import 'package:jobsque_jobfinder/Features/Jop_Details/widgets/custom_steper_widgets/custom_step_progress_icon.dart';
-import 'package:jobsque_jobfinder/Features/Jop_Details/widgets/custom_steper_widgets/custom_stepper.dart';
 import 'package:jobsque_jobfinder/Features/Jop_Details/widgets/step_1_content.dart';
 import 'package:jobsque_jobfinder/Features/Jop_Details/widgets/step_2_content.dart';
 import 'package:jobsque_jobfinder/Features/Jop_Details/widgets/step_3_content.dart';
