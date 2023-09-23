@@ -129,6 +129,7 @@ class _WorkLocatinViewBodyState extends State<WorkLocatinViewBody> {
                         BlocProvider.of<RegisterCubit>(context)
                             .signUpWithGoogle(
                           userModel: UserModel(
+                              email: widget.email,
                               wantedJop: widget.jopTitle!,
                               workLocation: JopLocatinContainer.workloction,
                               workNature: WorkLocationToggleButton.worknature),

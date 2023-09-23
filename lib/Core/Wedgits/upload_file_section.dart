@@ -1,3 +1,4 @@
+import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:jobsque_jobfinder/Core/Utils/app_colors.dart';
@@ -14,62 +15,69 @@ class UploadeFileSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
+    return DottedBorder(
+      dashPattern: const [6, 0, 2, 3],
+      color: AppColors.appPrimaryColors500,
+      borderType: BorderType.RRect,
+      borderPadding: const EdgeInsets.all(1),
+      radius: const Radius.circular(8),
+      child: ClipRRect(
         borderRadius: BorderRadius.circular(8),
-        color: const Color(0xffECF2FF),
-      ),
-      child: Padding(
-        padding:
-            const EdgeInsets.only(left: 16, right: 16, top: 16, bottom: 20),
-        child: Column(
-          children: [
-            const CircleIconContainer(
-              icon: Iconsax.document_upload5,
-              iconSize: 32,
-            ),
-            const SizedBox(height: 16),
-            Text(
-              "Upload your other file",
-              style: AppFontsStyles.textstyle18.copyWith(
-                fontFamily: textFamilyMedium,
-                color: AppColors.appNeutralColors900,
-              ),
-            ),
-            const SizedBox(height: 8),
-            const CustomText14(
-              title: "Max. file size 10 MB",
-              titleColor: AppColors.appNeutralColors500,
-            ),
-            const SizedBox(height: 24),
-            Container(
-              height: 40,
-              decoration: BoxDecoration(
-                  border: Border.all(
-                      width: 1, color: AppColors.appPrimaryColors500),
-                  borderRadius: BorderRadius.circular(100)),
-              child: ElevatedButton(
-                  onPressed: () {},
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: AppColors.appPrimaryColors100,
+        child: Container(
+          color: const Color(0xffECF2FF),
+          child: Padding(
+            padding:
+                const EdgeInsets.only(left: 16, right: 16, top: 16, bottom: 20),
+            child: Column(
+              children: [
+                const CircleIconContainer(
+                  icon: Iconsax.document_upload5,
+                  iconSize: 32,
+                ),
+                const SizedBox(height: 16),
+                Text(
+                  "Upload your other file",
+                  style: AppFontsStyles.textstyle18.copyWith(
+                    fontFamily: textFamilyMedium,
+                    color: AppColors.appNeutralColors900,
                   ),
-                  child: const Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Icon(
-                        Iconsax.export_1,
-                        size: 20,
-                        color: AppColors.appPrimaryColors500,
+                ),
+                const SizedBox(height: 8),
+                const CustomText14(
+                  title: "Max. file size 10 MB",
+                  titleColor: AppColors.appNeutralColors500,
+                ),
+                const SizedBox(height: 24),
+                Container(
+                  height: 40,
+                  decoration: BoxDecoration(
+                      border: Border.all(
+                          width: 1, color: AppColors.appPrimaryColors500),
+                      borderRadius: BorderRadius.circular(100)),
+                  child: ElevatedButton(
+                      onPressed: () {},
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: AppColors.appPrimaryColors100,
                       ),
-                      SizedBox(width: 10),
-                      CustomText16Style(
-                        title: "Add file",
-                        color: AppColors.appPrimaryColors500,
-                      )
-                    ],
-                  )),
-            )
-          ],
+                      child: const Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Icon(
+                            Iconsax.export_1,
+                            size: 20,
+                            color: AppColors.appPrimaryColors500,
+                          ),
+                          SizedBox(width: 10),
+                          CustomText16Style(
+                            title: "Add file",
+                            color: AppColors.appPrimaryColors500,
+                          )
+                        ],
+                      )),
+                )
+              ],
+            ),
+          ),
         ),
       ),
     );

@@ -25,7 +25,7 @@ class UploadedFilesListViewBuilder extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: MediaQuery.of(context).size.height * 0.49,
+      height: MediaQuery.of(context).size.height * 0.48,
       child: ListView.builder(
         itemCount: filesData.length,
         itemBuilder: (context, index) {

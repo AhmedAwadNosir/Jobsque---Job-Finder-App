@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:jobsque_jobfinder/Core/Utils/app_colors.dart';
 import 'package:jobsque_jobfinder/Core/Utils/app_fonts_styles.dart';
 import 'package:jobsque_jobfinder/Core/Utils/constans.dart';
+import 'package:jobsque_jobfinder/Core/cubits/registerApi/register_api_cubit.dart';
 import 'package:jobsque_jobfinder/Features/Authentication/Create_Account/Views/job_title_view.dart';
 import 'package:jobsque_jobfinder/Features/Authentication/Widgets/custom_authentication_options.dart';
 import 'package:jobsque_jobfinder/Features/Authentication/Widgets/page_initail_info.dart';
@@ -146,20 +148,24 @@ class _RegisterViewBodyState extends State<RegisterViewBody> {
                 height: 24,
               ),
               CustomButton(
-                onPressed: () {
+                onPressed: () async {
                   if (formkey.currentState!.validate()) {
                     formkey.currentState!.save();
-
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => JobTitleView(
-                            userName: userName,
-                            email: email,
-                            registerMethode: emailAndPasswordmethode,
-                            password: password,
-                          ),
-                        ));
+                    await BlocProvider.of<RegisterApiCubit>(context)
+                        .registerApi(
+                            userName: userNameData,
+                            email: emialData,
+                            password: passwordData);
+                    // Navigator.push(
+                    //     context,
+                    //     MaterialPageRoute(
+                    //       builder: (context) => JobTitleView(
+                    //         userName: userName,
+                    //         email: email,
+                    //         registerMethode: emailAndPasswordmethode,
+                    //         password: password,
+                    //       ),
+                    //     ));
                   } else {
                     setState(() {
                       autovalidateMode = AutovalidateMode.always;
@@ -188,14 +194,19 @@ class _RegisterViewBodyState extends State<RegisterViewBody> {
                 height: 24,
               ),
               CustomAuthinticationOptions(site1OnTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => JobTitleView(
-                      registerMethode: googleMethode,
+                if (emialData.isNotEmpty) {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => JobTitleView(
+                        registerMethode: googleMethode,
+                        email: emialData,
+                      ),
                     ),
-                  ),
-                );
+                  );
+                } else {
+                  showSnackBar("email is required", context);
+                }
               }, site2OnTap: () {
                 if (emialData.isNotEmpty) {
                   Navigator.push(

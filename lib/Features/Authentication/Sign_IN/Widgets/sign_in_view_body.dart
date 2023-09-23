@@ -117,10 +117,10 @@ class _SignInViewBodyState extends State<SignInViewBody> {
                   onPressed: () async {
                     if (formkey.currentState!.validate()) {
                       formkey.currentState!.save();
-                      Navigator.pushNamed(context, HomeView.id);
-                      //  await BlocProvider.of<SignInCubit>(context)
-                      //       .singInWithEmailAndPassword(
-                      //           username: userName, password: password);
+                     
+                       await BlocProvider.of<SignInCubit>(context)
+                            .singInWithEmailAndPassword(
+                                username: userName, password: password);
                     } else {
                       setState(() {
                         autovalidateMode = AutovalidateMode.always;
