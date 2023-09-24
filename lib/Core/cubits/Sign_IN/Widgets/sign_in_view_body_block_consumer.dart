@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:jobsque_jobfinder/Core/cubits/SignIn/sign_in_cubit.dart';
 import 'package:jobsque_jobfinder/Core/cubits/Sign_IN/Widgets/sign_in_view_body.dart';
-import 'package:jobsque_jobfinder/Features/Home/views/home_view.dart';
+import 'package:jobsque_jobfinder/Features/Home/presentation/views/home_view.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 
 import '../../../../Features/Authentication/functions/show_snack_bar.dart';

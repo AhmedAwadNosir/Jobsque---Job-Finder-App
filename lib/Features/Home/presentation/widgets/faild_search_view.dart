@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:jobsque_jobfinder/Core/Utils/app_images.dart';
 import 'package:jobsque_jobfinder/Core/Wedgits/custom_state_page.dart';
-import 'package:jobsque_jobfinder/Features/Home/widgets/filter_option_list_view.dart';
+import 'package:jobsque_jobfinder/Features/Home/presentation/widgets/filter_option_list_view.dart';
 
 class FaildSearchView extends StatelessWidget {
   const FaildSearchView({super.key});

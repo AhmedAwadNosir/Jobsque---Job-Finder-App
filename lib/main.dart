@@ -11,8 +11,8 @@ import 'package:jobsque_jobfinder/Features/Complete_Profile.dart/views/complete_
 import 'package:jobsque_jobfinder/Features/Complete_Profile.dart/views/education_view.dart';
 import 'package:jobsque_jobfinder/Features/Complete_Profile.dart/views/experience_view.dart';
 import 'package:jobsque_jobfinder/Features/Complete_Profile.dart/views/personal_details_view.dart';
-import 'package:jobsque_jobfinder/Features/Home/views/home_view.dart';
-import 'package:jobsque_jobfinder/Features/Home/views/search_view.dart';
+import 'package:jobsque_jobfinder/Features/Home/presentation/views/home_view.dart';
+import 'package:jobsque_jobfinder/Features/Home/presentation/views/search_view.dart';
 import 'package:jobsque_jobfinder/Features/Jop_Details/views/apply_jop_view.dart';
 import 'package:jobsque_jobfinder/Features/Jop_Details/views/jop_applied_succesfuly.dart';
 import 'package:jobsque_jobfinder/Features/LoginAndSecurity/views/change_password_view.dart';

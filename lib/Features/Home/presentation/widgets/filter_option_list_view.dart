@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:jobsque_jobfinder/Core/Utils/app_colors.dart';
-import 'package:jobsque_jobfinder/Features/Home/widgets/add_filter_bottom_sheet.dart';
-import 'package:jobsque_jobfinder/Features/Home/widgets/custom_filtring_bottom_sheet.dart';
-import 'package:jobsque_jobfinder/Features/Home/widgets/filter_option_button.dart';
+import 'package:jobsque_jobfinder/Features/Home/presentation/widgets/add_filter_bottom_sheet.dart';
+import 'package:jobsque_jobfinder/Features/Home/presentation/widgets/custom_filtring_bottom_sheet.dart';
+import 'package:jobsque_jobfinder/Features/Home/presentation/widgets/filter_option_button.dart';
 
 class FilterOptionListView extends StatefulWidget {
   const FilterOptionListView({super.key});

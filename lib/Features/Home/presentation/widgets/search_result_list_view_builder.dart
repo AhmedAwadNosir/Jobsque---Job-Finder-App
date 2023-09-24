@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:jobsque_jobfinder/Core/Utils/app_images.dart';
 import 'package:jobsque_jobfinder/Features/Home/data/models/jop_model.dart';
-import 'package:jobsque_jobfinder/Features/Home/widgets/recent_jop_unit.dart';
+import 'package:jobsque_jobfinder/Features/Home/presentation/widgets/recent_jop_unit.dart';
 
 class SearchResultListViewBuilder extends StatelessWidget {
   SearchResultListViewBuilder({super.key});

@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:jobsque_jobfinder/Core/Wedgits/Custom_app_Barr.dart';
 import 'package:jobsque_jobfinder/Core/Wedgits/custom_search_bar.dart';
-import 'package:jobsque_jobfinder/Features/Home/widgets/faild_search_view.dart';
-import 'package:jobsque_jobfinder/Features/Home/widgets/search_view_empty.dart';
+import 'package:jobsque_jobfinder/Features/Home/presentation/widgets/faild_search_view.dart';
+import 'package:jobsque_jobfinder/Features/Home/presentation/widgets/search_view_empty.dart';
+
 
 class SearchView extends StatefulWidget {
   const SearchView({super.key});

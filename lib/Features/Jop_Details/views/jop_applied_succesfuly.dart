@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:jobsque_jobfinder/Core/Utils/app_images.dart';
 import 'package:jobsque_jobfinder/Core/Wedgits/Custom_app_Barr.dart';
 import 'package:jobsque_jobfinder/Core/Wedgits/custom_state_page.dart';
-import 'package:jobsque_jobfinder/Features/Home/views/home_view.dart';
+import 'package:jobsque_jobfinder/Features/Home/presentation/views/home_view.dart';
 import 'package:jobsque_jobfinder/Features/Onboarding/Widgets/custom_button.dart';
 
 class JopAppliedSuccesfuly extends StatelessWidget {

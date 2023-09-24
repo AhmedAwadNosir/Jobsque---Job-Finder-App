@@ -3,7 +3,7 @@ import 'package:jobsque_jobfinder/Core/Utils/app_colors.dart';
 import 'package:jobsque_jobfinder/Core/Utils/app_images.dart';
 import 'package:jobsque_jobfinder/Core/Wedgits/custom_text12.dart';
 import 'package:jobsque_jobfinder/Core/Wedgits/custom_text_16_style.dart';
-import 'package:jobsque_jobfinder/Features/Home/widgets/jop_nature_options.dart';
+import 'package:jobsque_jobfinder/Features/Home/presentation/widgets/jop_nature_options.dart';
 
 class TwitterSubmited extends StatefulWidget {
   const TwitterSubmited({

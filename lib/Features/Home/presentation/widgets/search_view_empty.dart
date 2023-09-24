@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:jobsque_jobfinder/Features/Home/widgets/popular_search_list_view_builder.dart';
-import 'package:jobsque_jobfinder/Features/Home/widgets/recent_search_list_view_builder.dart';
 import 'package:jobsque_jobfinder/Core/Wedgits/custom_seaction_bar.dart';
+import 'package:jobsque_jobfinder/Features/Home/presentation/widgets/popular_search_list_view_builder.dart';
+import 'package:jobsque_jobfinder/Features/Home/presentation/widgets/recent_search_list_view_builder.dart';
 
 class SearchViewEmpty extends StatelessWidget {
   const SearchViewEmpty({super.key});

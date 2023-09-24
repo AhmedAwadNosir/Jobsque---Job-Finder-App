@@ -6,7 +6,7 @@ import 'package:jobsque_jobfinder/Core/Utils/constans.dart';
 import 'package:jobsque_jobfinder/Core/Utils/my_flutter_app_icons.dart';
 import 'package:jobsque_jobfinder/Core/Wedgits/jop_data_unite.dart';
 import 'package:jobsque_jobfinder/Features/Home/data/models/jop_model.dart';
-import 'package:jobsque_jobfinder/Features/Home/widgets/jop_features.dart';
+import 'package:jobsque_jobfinder/Features/Home/presentation/widgets/jop_features.dart';
 
 class RecentJopUnit extends StatefulWidget {
   const RecentJopUnit({

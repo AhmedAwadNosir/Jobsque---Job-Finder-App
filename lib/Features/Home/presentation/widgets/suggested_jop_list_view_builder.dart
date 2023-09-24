@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:jobsque_jobfinder/Core/Utils/app_images.dart';
 import 'package:jobsque_jobfinder/Features/Home/data/models/jop_model.dart';
-import 'package:jobsque_jobfinder/Features/Home/widgets/suggested_jop_unite.dart';
+import 'package:jobsque_jobfinder/Features/Home/presentation/widgets/suggested_Jop_unite.dart';
 import 'package:jobsque_jobfinder/Features/Jop_Details/views/jop_details_view.dart';
 
 class SuggestedJopListViewBuilder extends StatelessWidget {

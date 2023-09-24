@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:jobsque_jobfinder/Features/Home/views/search_view.dart';
+import 'package:jobsque_jobfinder/Features/Home/presentation/views/search_view.dart';
 import 'package:jobsque_jobfinder/Core/Wedgits/custom_search_bar.dart';
-import 'package:jobsque_jobfinder/Features/Home/widgets/jop_section_bar.dart';
-import 'package:jobsque_jobfinder/Features/Home/widgets/suggested_jop_list_view_builder.dart';
-import 'package:jobsque_jobfinder/Features/Home/widgets/recent_jop_list_view_builder.dart';
-import 'package:jobsque_jobfinder/Features/Home/widgets/twitter_submitted.dart';
-import 'package:jobsque_jobfinder/Features/Home/widgets/welcoming_new_user.dart';
+import 'package:jobsque_jobfinder/Features/Home/presentation/widgets/jop_section_bar.dart';
+import 'package:jobsque_jobfinder/Features/Home/presentation/widgets/recent_jop_list_view_builder.dart';
+import 'package:jobsque_jobfinder/Features/Home/presentation/widgets/suggested_jop_list_view_builder.dart';
+import 'package:jobsque_jobfinder/Features/Home/presentation/widgets/twitter_submitted.dart';
+import 'package:jobsque_jobfinder/Features/Home/presentation/widgets/welcoming_new_user.dart';
 
 class HomeViewBody extends StatelessWidget {
   const HomeViewBody({super.key});

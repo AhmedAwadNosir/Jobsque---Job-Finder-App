@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:jobsque_jobfinder/Core/Utils/app_colors.dart';
-import 'package:jobsque_jobfinder/Features/Home/widgets/jop_nature_options.dart';
+import 'package:jobsque_jobfinder/Features/Home/presentation/widgets/jop_nature_options.dart';
+
 
 class JopFeatures extends StatelessWidget {
   const JopFeatures({

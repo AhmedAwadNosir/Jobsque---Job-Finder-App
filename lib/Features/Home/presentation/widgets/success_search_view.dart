@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:jobsque_jobfinder/Features/Home/widgets/filter_option_list_view.dart';
-import 'package:jobsque_jobfinder/Features/Home/widgets/search_result_list_view_builder.dart';
 import 'package:jobsque_jobfinder/Core/Wedgits/custom_seaction_bar.dart';
+import 'package:jobsque_jobfinder/Features/Home/presentation/widgets/filter_option_list_view.dart';
+import 'package:jobsque_jobfinder/Features/Home/presentation/widgets/search_result_list_view_builder.dart';
 
 class SuccessSearchView extends StatelessWidget {
   const SuccessSearchView({super.key});
