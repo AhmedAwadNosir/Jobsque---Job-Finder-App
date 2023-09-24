@@ -1,6 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:jobsque_jobfinder/Core/Utils/constans.dart';
 import 'package:jobsque_jobfinder/Features/AplliedJop/views/applied_jop_view.dart';
 import 'package:jobsque_jobfinder/Features/Authentication/Create_Account/Views/register_view.dart';
 import 'package:jobsque_jobfinder/Features/Authentication/Sign_IN/Views/sign_in_view.dart';
@@ -41,6 +42,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 // Import the generated file
 
 bool? isViewed;
+bool? isLoginIn;
 void main() async {
   SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.light.copyWith(
       statusBarColor: Colors.white, // Set the status bar color to white
@@ -51,6 +53,7 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   SharedPreferences prefs = await SharedPreferences.getInstance();
   isViewed = prefs.getBool("isViewd");
+  isLoginIn = prefs.containsKey(isLogin);
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   runApp(const JopFinderApp());
 }

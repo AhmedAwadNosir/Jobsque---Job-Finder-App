@@ -30,7 +30,7 @@ class RegisterApiCubit extends Cubit<RegisterApiState> {
       print(prefs.getString(registerTokenkey));
       emit(RegisterApiSuccess());
     } catch (e) {
-      if (e.toString() == interNetException) {
+      if (e.toString() == registerInterNetException) {
         emit(RegisterApiFailure(
             "Please Chek Internet Conection You Are Offline"));
       } else {

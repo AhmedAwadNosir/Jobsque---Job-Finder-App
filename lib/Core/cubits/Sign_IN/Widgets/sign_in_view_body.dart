@@ -10,7 +10,7 @@ import 'package:jobsque_jobfinder/Features/Authentication/Widgets/page_initail_i
 import 'package:jobsque_jobfinder/Features/Authentication/Widgets/user_auth_options.dart';
 import 'package:jobsque_jobfinder/Features/Authentication/Widgets/user_instractions.dart';
 import 'package:jobsque_jobfinder/Features/Onboarding/Widgets/custom_button.dart';
-import '../../Widgets/custom_auth_basic_operation.dart';
+import '../../../../Features/Authentication/Widgets/custom_auth_basic_operation.dart';
 
 class SignInViewBody extends StatefulWidget {
   const SignInViewBody({super.key});
@@ -22,9 +22,9 @@ class SignInViewBody extends StatefulWidget {
 class _SignInViewBodyState extends State<SignInViewBody> {
   GlobalKey<FormState> formkey = GlobalKey();
   AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
-  late String email;
+  late String userName;
   late String password;
-  String? emailData = '';
+  String? userNameData = '';
   String? passwordData = '';
 
   @override
@@ -37,6 +37,7 @@ class _SignInViewBodyState extends State<SignInViewBody> {
             key: formkey,
             child: Column(
               children: [
+              
                 const Padding(
                   padding: EdgeInsets.symmetric(vertical: 44),
                   child: PageInitialinfo(
@@ -45,7 +46,7 @@ class _SignInViewBodyState extends State<SignInViewBody> {
                   ),
                 ),
                 CustomTextField(
-                  hintText: 'emailAdrress',
+                  hintText: 'Username',
                   prefixicon: const Icon(
                     Iconsax.user_square,
                   ),
@@ -53,12 +54,12 @@ class _SignInViewBodyState extends State<SignInViewBody> {
                   autovalidateMode: autovalidateMode,
                   onChanged: (value) {
                     setState(() {
-                      emailData = value;
+                      userNameData = value;
                     });
                   },
                   onSaved: (value) {
                     setState(() {
-                      email = value!;
+                      userName = value!;
                     });
                   },
                   validator: (value) {
@@ -115,11 +116,10 @@ class _SignInViewBodyState extends State<SignInViewBody> {
                   onPressed: () async {
                     if (formkey.currentState!.validate()) {
                       formkey.currentState!.save();
-                      await BlocProvider.of<SignInCubit>(context)
-                          .signInApi(email: email, password: password);
-                      //  await BlocProvider.of<SignInCubit>(context)
-                      //       .singInWithEmailAndPassword(
-                      //           username: userName, password: password);
+                     
+                       await BlocProvider.of<SignInCubit>(context)
+                            .singInWithEmailAndPassword(
+                                username: userName, password: password);
                     } else {
                       setState(() {
                         autovalidateMode = AutovalidateMode.always;
@@ -128,11 +128,11 @@ class _SignInViewBodyState extends State<SignInViewBody> {
                   },
                   buttonName: "Login",
                   buttonColor:
-                      (emailData!.isNotEmpty && passwordData!.isNotEmpty)
+                      (userNameData!.isNotEmpty && passwordData!.isNotEmpty)
                           ? AppColors.appPrimaryColors500
                           : AppColors.appNeutralColors300,
                   textButtonColor:
-                      (emailData!.isNotEmpty && passwordData!.isNotEmpty)
+                      (userNameData!.isNotEmpty && passwordData!.isNotEmpty)
                           ? Colors.white
                           : AppColors.appNeutralColors500,
                 ),

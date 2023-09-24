@@ -5,11 +5,11 @@ import 'package:jobsque_jobfinder/Core/Utils/app_fonts_styles.dart';
 import 'package:jobsque_jobfinder/Core/Utils/constans.dart';
 import 'package:jobsque_jobfinder/Core/Utils/my_flutter_app_icons.dart';
 import 'package:jobsque_jobfinder/Core/Wedgits/jop_data_unite.dart';
-import 'package:jobsque_jobfinder/Features/Home/models/jop_model.dart';
+import 'package:jobsque_jobfinder/Features/Home/data/models/jop_model.dart';
 import 'package:jobsque_jobfinder/Features/Home/widgets/jop_features.dart';
 
-class JopInfoUnite1 extends StatefulWidget {
-  const JopInfoUnite1({
+class SuggestedJopUnit extends StatefulWidget {
+  const SuggestedJopUnit({
     super.key,
     required this.jopModel,
     this.onPressed,
@@ -18,10 +18,10 @@ class JopInfoUnite1 extends StatefulWidget {
   final void Function()? onPressed;
 
   @override
-  State<JopInfoUnite1> createState() => _JopInfoUnite1State();
+  State<SuggestedJopUnit> createState() => _SuggestedJopUnitState();
 }
 
-class _JopInfoUnite1State extends State<JopInfoUnite1> {
+class _SuggestedJopUnitState extends State<SuggestedJopUnit> {
   bool isArchived = false;
   @override
   Widget build(BuildContext context) {
@@ -29,7 +29,9 @@ class _JopInfoUnite1State extends State<JopInfoUnite1> {
       width: 300,
       height: 190,
       decoration: BoxDecoration(
-        color: widget.jopModel.containerColor ?? AppColors.appPrimaryColors900,
+        color: int.parse(widget.jopModel.jopLevel) <= 2
+            ? AppColors.appNeutralColors100
+            : AppColors.appPrimaryColors900,
         borderRadius: BorderRadius.circular(12),
       ),
       child: Padding(
@@ -37,22 +39,22 @@ class _JopInfoUnite1State extends State<JopInfoUnite1> {
         child: Column(
           children: [
             JopDataUnite(
-              jopComunicationImage: widget.jopModel.comunicationToolIcon,
-              jopTitle: widget.jopModel.jopTitle,
+              jopComunicationImage: widget.jopModel.jopImage,
+              jopTitle: widget.jopModel.jopName,
               optionICon: isArchived == true
                   ? CustomFlutterIcons.archiveMinus
                   : Iconsax.archive_minus,
               iconSize: isArchived == true ? 28 : 24,
-              jopComunicationName: widget.jopModel.comunicationtoolname,
-              titleColor: widget.jopModel.containerColor != null
+              jopComunicationName: "Zoom • United States",
+              titleColor: int.parse(widget.jopModel.jopLevel) <= 2
                   ? AppColors.appNeutralColors900
                   : Colors.white,
-              subTitleColor: widget.jopModel.containerColor != null
+              subTitleColor: int.parse(widget.jopModel.jopLevel) <= 2
                   ? AppColors.appNeutralColors600
                   : AppColors.appNeutralColors400,
               iconColor: isArchived == true
                   ? AppColors.appPrimaryColors500
-                  : (widget.jopModel.containerColor != null
+                  : (int.parse(widget.jopModel.jopLevel) <= 2
                       ? AppColors.appNeutralColors900
                       : Colors.white),
               onTap: () {
@@ -65,13 +67,13 @@ class _JopInfoUnite1State extends State<JopInfoUnite1> {
               height: 20,
             ),
             JopFeatures(
-              workType: widget.jopModel.workType,
-              workNature: widget.jopModel.workNature,
-              jopSkill: widget.jopModel.jopSkill,
-              color: widget.jopModel.containerColor != null
+              workType: widget.jopModel.jopTimeType,
+              workNature: widget.jopModel.jopType,
+              jopSkill: widget.jopModel.jopLevel,
+              color: int.parse(widget.jopModel.jopLevel) <= 2
                   ? AppColors.appPrimaryColors100
                   : AppColors.appNeutralColors300.withOpacity(0.3),
-              textColor: widget.jopModel.containerColor != null
+              textColor: int.parse(widget.jopModel.jopLevel) <= 2
                   ? AppColors.appNeutralColors900
                   : Colors.white,
               rightdestenation: 24,
@@ -88,16 +90,16 @@ class _JopInfoUnite1State extends State<JopInfoUnite1> {
                         text: widget.jopModel.salary,
                         style: AppFontsStyles.textstyle18.copyWith(
                           fontFamily: textFamilyMedium,
-                          color: widget.jopModel.containerColor != null
+                          color: int.parse(widget.jopModel.jopLevel) <= 2
                               ? AppColors.appNeutralColors900
                               : Colors.white,
                         ),
                       ),
                       TextSpan(
-                        text: widget.jopModel.salaryTime,
+                        text: "/Month",
                         style: AppFontsStyles.textstyle12.copyWith(
                           fontFamily: textFamilyMedium,
-                          color: widget.jopModel.containerColor != null
+                          color: int.parse(widget.jopModel.jopLevel) <= 2
                               ? AppColors.appNeutralColors500
                               : Colors.white.withOpacity(0.5),
                         ),

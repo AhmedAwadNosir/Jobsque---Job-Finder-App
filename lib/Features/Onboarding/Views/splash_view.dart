@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:jobsque_jobfinder/Core/Utils/app_images.dart';
 import 'package:jobsque_jobfinder/Features/Authentication/Sign_IN/Views/sign_in_view.dart';
+import 'package:jobsque_jobfinder/Features/Home/views/home_view.dart';
 import 'package:jobsque_jobfinder/Features/Onboarding/Views/onboarding_view.dart';
 import 'package:jobsque_jobfinder/main.dart';
 
@@ -17,13 +18,13 @@ class SplashView extends StatefulWidget {
 class _SplashViewState extends State<SplashView> {
   @override
   void initState() {
-    spalshNavigationControlar(context: context,destination:isViewed==null? OnboardingView.id:SignInView.id);
+    spalshNavigationControlar(
+        context: context,
+        destination: isViewed == null
+            ? OnboardingView.id
+            : (isLoginIn == true ? HomeView.id : SignInView.id));
     super.initState();
   }
-
-  
-
-
 
   @override
   Widget build(BuildContext context) {
