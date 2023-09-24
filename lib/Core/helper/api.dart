@@ -1,18 +1,19 @@
 import 'dart:convert';
 
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:jobsque_jobfinder/Core/Utils/constans.dart';
 
 class Api {
-  Future<dynamic> get({required String url}) async {
-    http.Response response = await http.get(Uri.parse(url));
+  final String _baseUrl = 'https://project2.amit-learning.com/api';
+  final Dio? dio;
 
-    if (response.statusCode == 200) {
-      return jsonDecode(response.body);
-    } else {
-      throw Exception(
-          "there is a problem with status code ${response.statusCode} and problem is : ${jsonDecode(response.body)}");
-    }
+  Api({this.dio});
+
+  Future<Map<String, dynamic>> get({required String endPoint}) async {
+    var response = await dio!.get("$_baseUrl$endPoint");
+    return response.data;
   }
 
   Future<dynamic> post(
@@ -40,7 +41,6 @@ class Api {
           "there is a problem with status code :${response.statusCode} the problem is : ${jsonDecode(response.body)}");
     }
   }
-
 
   Future<dynamic> put(
       {required String url,
