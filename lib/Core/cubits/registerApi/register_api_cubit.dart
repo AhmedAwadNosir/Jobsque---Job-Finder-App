@@ -1,7 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:jobsque_jobfinder/Core/Utils/constans.dart';
-import 'package:jobsque_jobfinder/Core/helper/api.dart';
+import 'package:jobsque_jobfinder/Core/helper/api_services.dart';
 import 'package:meta/meta.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -17,7 +17,7 @@ class RegisterApiCubit extends Cubit<RegisterApiState> {
   }) async {
     emit(RegisterApiLoading());
     try {
-      Map<String, dynamic> data = await Api().post(
+      Map<String, dynamic> data = await ApiServices().post(
         url: "$baseUrl/auth/register",
         body: {
           "name": userName,

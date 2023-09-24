@@ -3,13 +3,12 @@ import 'dart:convert';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
-import 'package:jobsque_jobfinder/Core/Utils/constans.dart';
 
-class Api {
+class ApiServices {
   final String _baseUrl = 'https://project2.amit-learning.com/api';
   final Dio? dio;
 
-  Api({this.dio});
+  ApiServices({this.dio});
 
   Future<Map<String, dynamic>> get({required String endPoint}) async {
     var response = await dio!.get("$_baseUrl$endPoint");

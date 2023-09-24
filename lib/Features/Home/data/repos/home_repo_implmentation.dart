@@ -1,19 +1,39 @@
 import 'package:dartz/dartz.dart';
 import 'package:jobsque_jobfinder/Core/Utils/Errors/failure.dart';
+import 'package:jobsque_jobfinder/Core/helper/api_services.dart';
 import 'package:jobsque_jobfinder/Features/Home/data/models/jop_model.dart';
 import 'package:jobsque_jobfinder/Features/Home/data/repos/home_repo.dart';
 
-class HomeRepoImplmentaion implements HomeRepo{
+class HomeRepoImplmentaion implements HomeRepo {
+  final ApiServices apiServices;
+
+  HomeRepoImplmentaion(this.apiServices);
+
   @override
-  Future<Either<Failure, List<JopModel>>> fetchRecentJop() {
-    // TODO: implement fetchRecentJop
-    throw UnimplementedError();
+  Future<Either<Failure, List<JopModel>>> fetchRecentJop() async {
+    try {
+      var data = await apiServices.get(endPoint: "/jobs");
+      List<JopModel> recetnJops = [];
+      for (var jop in data["data"]) {
+        recetnJops.add(JopModel.fromJson(jop));
+      }
+      return right(recetnJops);
+    } catch (e) {
+      return left(ServerFailure());
+    }
   }
 
   @override
-  Future<Either<Failure, List<JopModel>>> fetchSuggestedJop() {
-    // TODO: implement fetchSuggestedJop
-    throw UnimplementedError();
+  Future<Either<Failure, List<JopModel>>> fetchSuggestedJop() async{
+   try {
+      var data = await apiServices.get(endPoint: "/jobs/sugest/2");
+      List<JopModel> suggestedJops = [];
+      for (var jop in data["data"]) {
+        suggestedJops.add(JopModel.fromJson(jop));
+      }
+      return right(suggestedJops);
+    } catch (e) {
+      return left(ServerFailure());
+    }
   }
-
 }
