@@ -6,7 +6,7 @@ import 'package:jobsque_jobfinder/Core/Utils/my_flutter_app_icons.dart';
 import 'package:jobsque_jobfinder/Core/Wedgits/jop_data_unite.dart';
 import 'package:jobsque_jobfinder/Features/AplliedJop/models/applied_jop_model.dart';
 import 'package:jobsque_jobfinder/Features/AplliedJop/views/widgets/custom_steper_ui.dart';
-import 'package:jobsque_jobfinder/Features/Home/widgets/jop_features.dart';
+import 'package:jobsque_jobfinder/Features/Home/presentation/widgets/jop_features.dart';
 import 'package:jobsque_jobfinder/Features/Jop_Details/widgets/custom_steper_widgets/apply_custom_step_label.dart';
 import 'package:jobsque_jobfinder/Features/Jop_Details/widgets/custom_steper_widgets/custom_step.dart';
 import 'package:jobsque_jobfinder/Features/Jop_Details/widgets/custom_steper_widgets/custom_step_progress_icon.dart';

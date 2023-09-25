@@ -6,7 +6,7 @@ import 'package:jobsque_jobfinder/Core/Utils/app_fonts_styles.dart';
 import 'package:jobsque_jobfinder/Core/Utils/app_images.dart';
 import 'package:jobsque_jobfinder/Core/Utils/my_flutter_app_icons.dart';
 import 'package:jobsque_jobfinder/Features/AplliedJop/views/applied_jop_view.dart';
-import 'package:jobsque_jobfinder/Features/Home/presentation/widgets/home_view_body.dart';
+import 'package:jobsque_jobfinder/Features/Home/presentation/widgets/home_view_with_providers.dart';
 import 'package:jobsque_jobfinder/Features/Messages/views/messages_view.dart';
 import 'package:jobsque_jobfinder/Features/Profile/views/profile_view.dart';
 import 'package:jobsque_jobfinder/Features/Saved_Jop/views/saved_view.dart';
@@ -25,7 +25,7 @@ class _HomeViewState extends State<HomeView> {
   @override
   Widget build(BuildContext context) {
     List<Widget> views = [
-      const HomeViewBody(),
+      const HomeViewWithProviders(),
       MessagesView(),
       const AppliedJopView(),
       const SavedView(),
@@ -72,3 +72,5 @@ class _HomeViewState extends State<HomeView> {
     );
   }
 }
+
+
