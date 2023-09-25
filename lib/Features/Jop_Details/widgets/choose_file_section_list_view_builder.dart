@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:jobsque_jobfinder/Features/Jop_Details/models/jop_file_model.dart';
 import 'package:jobsque_jobfinder/Features/Jop_Details/widgets/choose_file_section.dart';
 
+// ignore: must_be_immutable
 class ChooseFileSectionListViewBuilder extends StatelessWidget {
   ChooseFileSectionListViewBuilder({super.key});
   List<JopFileModel> jopfiles = [

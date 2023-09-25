@@ -2,6 +2,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:jobsque_jobfinder/Core/Utils/constans.dart';
+import 'package:jobsque_jobfinder/Core/Utils/service_locator.dart';
 import 'package:jobsque_jobfinder/Features/AplliedJop/views/applied_jop_view.dart';
 import 'package:jobsque_jobfinder/Features/Authentication/Create_Account/Views/register_view.dart';
 import 'package:jobsque_jobfinder/Features/Authentication/Sign_IN/Views/sign_in_view.dart';
@@ -55,6 +56,7 @@ void main() async {
   isViewed = prefs.getBool("isViewd");
   isLoginIn = prefs.containsKey(isLogin);
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+  setupServicLocator();
   runApp(const JopFinderApp());
 }
 

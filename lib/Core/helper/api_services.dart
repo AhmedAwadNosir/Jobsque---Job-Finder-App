@@ -10,8 +10,16 @@ class ApiServices {
 
   ApiServices({this.dio});
 
-  Future<Map<String, dynamic>> get({required String endPoint}) async {
-    var response = await dio!.get("$_baseUrl$endPoint");
+  Future<Map<String, dynamic>> get(
+      {required String endPoint, String? token}) async {
+    Map<String, String> headers = {};
+    if (token != null) {
+      headers.addAll({
+        "Authorization": "Bearer $token",
+      });
+    }
+    var response = await dio!
+        .get("$_baseUrl$endPoint", options: Options(headers: headers));
     return response.data;
   }
 

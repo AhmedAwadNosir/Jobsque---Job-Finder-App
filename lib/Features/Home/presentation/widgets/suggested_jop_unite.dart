@@ -6,6 +6,7 @@ import 'package:jobsque_jobfinder/Core/Utils/constans.dart';
 import 'package:jobsque_jobfinder/Core/Utils/my_flutter_app_icons.dart';
 import 'package:jobsque_jobfinder/Core/Wedgits/jop_data_unite.dart';
 import 'package:jobsque_jobfinder/Features/Home/data/models/jop_model.dart';
+import 'package:jobsque_jobfinder/Features/Home/functions/get_expirence_level.dart';
 import 'package:jobsque_jobfinder/Features/Home/presentation/widgets/jop_features.dart';
 
 class SuggestedJopUnit extends StatefulWidget {
@@ -23,11 +24,15 @@ class SuggestedJopUnit extends StatefulWidget {
 
 class _SuggestedJopUnitState extends State<SuggestedJopUnit> {
   bool isArchived = false;
+
   @override
   Widget build(BuildContext context) {
+    int joplength = widget.jopModel.jopLocation.length - 1;
+    int joplength1 = widget.jopModel.jopLocation.length;
+    String jopLocation = widget.jopModel.jopLocation;
     return Container(
       width: 300,
-      height: 190,
+      height: 215,
       decoration: BoxDecoration(
         color: int.parse(widget.jopModel.jopLevel) <= 2
             ? AppColors.appNeutralColors100
@@ -39,13 +44,15 @@ class _SuggestedJopUnitState extends State<SuggestedJopUnit> {
         child: Column(
           children: [
             JopDataUnite(
-              jopComunicationImage: widget.jopModel.jopImage,
+              jopTitleWidth: MediaQuery.of(context).size.width * 0.47,
+              companyImage: widget.jopModel.jopImage,
               jopTitle: widget.jopModel.jopName,
               optionICon: isArchived == true
                   ? CustomFlutterIcons.archiveMinus
                   : Iconsax.archive_minus,
               iconSize: isArchived == true ? 28 : 24,
-              jopComunicationName: "Zoom • United States",
+              jopComunicationName:
+                  "${widget.jopModel.companyName} • ${widget.jopModel.jopLocation.substring(joplength - 5, jopLocation[joplength] == "." ? joplength : joplength1)}",
               titleColor: int.parse(widget.jopModel.jopLevel) <= 2
                   ? AppColors.appNeutralColors900
                   : Colors.white,
@@ -63,13 +70,11 @@ class _SuggestedJopUnitState extends State<SuggestedJopUnit> {
                 });
               },
             ),
-            const SizedBox(
-              height: 20,
-            ),
+            const Spacer(),
             JopFeatures(
               workType: widget.jopModel.jopTimeType,
               workNature: widget.jopModel.jopType,
-              jopSkill: widget.jopModel.jopLevel,
+              jopSkill: getExperinceLevel(widget.jopModel.jopLevel),
               color: int.parse(widget.jopModel.jopLevel) <= 2
                   ? AppColors.appPrimaryColors100
                   : AppColors.appNeutralColors300.withOpacity(0.3),
@@ -78,16 +83,14 @@ class _SuggestedJopUnitState extends State<SuggestedJopUnit> {
                   : Colors.white,
               rightdestenation: 24,
             ),
-            const SizedBox(
-              height: 20,
-            ),
+            const Spacer(),
             Row(
               children: [
                 Text.rich(
                   TextSpan(
                     children: [
                       TextSpan(
-                        text: widget.jopModel.salary,
+                        text: "\$${int.parse(widget.jopModel.salary) ~/ 1000}K",
                         style: AppFontsStyles.textstyle18.copyWith(
                           fontFamily: textFamilyMedium,
                           color: int.parse(widget.jopModel.jopLevel) <= 2

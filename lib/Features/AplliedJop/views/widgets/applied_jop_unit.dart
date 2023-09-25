@@ -42,7 +42,7 @@ class _AppliedJopUnitState extends State<AppliedJopUnit> {
     return Column(
       children: [
         JopDataUnite(
-          jopComunicationImage: widget.jopModel.comunicationToolIcon,
+          companyImage: widget.jopModel.comunicationToolIcon,
           jopTitle: widget.jopModel.jopTitle,
           optionICon: widget.jopModel.isArchived == true
               ? CustomFlutterIcons.archiveMinus

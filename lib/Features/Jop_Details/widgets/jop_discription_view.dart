@@ -2,11 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:jobsque_jobfinder/Core/Utils/app_colors.dart';
 import 'package:jobsque_jobfinder/Core/Utils/app_fonts_styles.dart';
 import 'package:jobsque_jobfinder/Core/Wedgits/custom_text14.dart';
+import 'package:jobsque_jobfinder/Features/Home/data/models/jop_model.dart';
 import 'package:jobsque_jobfinder/Features/Jop_Details/widgets/text_orgaization.dart';
 
 class JopDescriptionView extends StatelessWidget {
-  const JopDescriptionView({super.key});
-
+  const JopDescriptionView({super.key, required this.jopModel});
+  final JopModel jopModel;
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -16,7 +17,7 @@ class JopDescriptionView extends StatelessWidget {
           const CustomText14(title: "Job Description"),
           const SizedBox(height: 8),
           Text(
-            "Your role as the UI Designer is to use interactive components on various platforms (web, desktop and mobile). This will include producing high-fidelity mock-ups, iconography, UI illustrations/graphics, and other graphic elements. As the UI Designer, you will be supporting the wider design team with the internal Design System, tying together the visual language. You will with other UI and UX Designers, Product Managers, and Engineering teams in a highly customer-focused agile environment to help define the vision of the products.",
+            "${jopModel.jopDescription}Y This will include producing high-fidelity mock-ups, iconography, UI illustrations/graphics, and other graphic elements. As the UI Designer, you will be supporting the wider design team with the internal Design System, tying together the visual language. You will with other UI and UX Designers, Product Managers, and Engineering teams in a highly customer-focused agile environment to help define the vision of the products.",
             softWrap: true,
             style: AppFontsStyles.textstyle12.copyWith(
               color: AppColors.appNeutralColors600,

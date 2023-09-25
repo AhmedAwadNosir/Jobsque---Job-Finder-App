@@ -2,21 +2,24 @@ import 'package:flutter/material.dart';
 import 'package:jobsque_jobfinder/Core/Utils/app_colors.dart';
 import 'package:jobsque_jobfinder/Core/Utils/app_fonts_styles.dart';
 import 'package:jobsque_jobfinder/Core/Utils/constans.dart';
+import 'package:jobsque_jobfinder/Core/Wedgits/custom_network_company_image.dart';
 import 'package:jobsque_jobfinder/Core/Wedgits/custom_text12.dart';
 
 class JopDataUnite extends StatelessWidget {
   const JopDataUnite({
     super.key,
-    required this.jopComunicationImage,
+    required this.companyImage,
     required this.jopTitle,
     required this.optionICon,
     required this.jopComunicationName,
     this.titleColor,
     this.subTitleColor,
     this.iconColor,
-    this.onTap, this.iconSize,
+    this.onTap,
+    this.iconSize,
+    this.jopTitleWidth,
   });
-  final String jopComunicationImage;
+  final String companyImage;
   final String jopTitle;
   final String jopComunicationName;
   final IconData optionICon;
@@ -25,20 +28,31 @@ class JopDataUnite extends StatelessWidget {
   final Color? iconColor;
   final void Function()? onTap;
   final double? iconSize;
+  final double? jopTitleWidth;
   @override
   Widget build(BuildContext context) {
     return Row(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Image.asset(jopComunicationImage),
+        Padding(
+          padding: const EdgeInsets.only(top: 5.5),
+          child: CustomNetworkCompanyImage(
+            companyImage: companyImage,
+          ),
+        ),
         const SizedBox(width: 16),
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
-              jopTitle,
-              style: AppFontsStyles.textstyle18.copyWith(
-                fontFamily: textFamilyMedium,
-                color: titleColor ?? AppColors.appNeutralColors900,
+            SizedBox(
+              width: jopTitleWidth ?? MediaQuery.of(context).size.width * 0.65,
+              child: Text(
+                overflow: TextOverflow.visible,
+                jopTitle,
+                style: AppFontsStyles.textstyle18.copyWith(
+                  fontFamily: textFamilyMedium,
+                  color: titleColor ?? AppColors.appNeutralColors900,
+                ),
               ),
             ),
             const SizedBox(height: 4),

@@ -8,7 +8,6 @@ abstract class Failure {
 
 class ServerFailure extends Failure {
   ServerFailure(super.errorMessage);
-
   factory ServerFailure.fromDioError(DioException dioError) {
     switch (dioError.type) {
        case DioExceptionType.connectionTimeout:
@@ -32,7 +31,7 @@ class ServerFailure extends Failure {
         return ServerFailure("Unexpected Error please try later!");
         
       default:
-        return ServerFailure("Opps! There is an Error. please try later!");
+        return ServerFailure("Opps! There is an Error. please try later!defult");
     }
   }
 
@@ -45,7 +44,7 @@ class ServerFailure extends Failure {
     } else if (statusCode == 500) {
       return ServerFailure("Internal server error. please try later!");
     } else {
-      return ServerFailure("Opps there is an error please try later!");
+      return ServerFailure("Opps there is an error please try later!frombadrespons");
     }
   }
 }

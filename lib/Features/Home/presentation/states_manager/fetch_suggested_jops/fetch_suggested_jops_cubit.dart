@@ -10,7 +10,7 @@ class FetchSuggestedJopsCubit extends Cubit<FetchSuggestedJopsState> {
 
   final HomeRepo homeRepo;
 
-  Future<void> fetchRecentJopsCubit() async {
+  Future<void> fetchSuggestedJopsCubit() async {
     emit(FetchSuggestedJopsLoadin());
     var result = await homeRepo.fetchRecentJop();
 

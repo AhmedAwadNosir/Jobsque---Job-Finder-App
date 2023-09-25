@@ -15,14 +15,13 @@ class HomeViewWithProviders extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(providers: [
       BlocProvider(
-        create: (context) => FetchSuggestedJopsCubit(
-          getIt.get<HomeRepoImplmentaion>(),
-        ),
-      ),
+          create: (context) => FetchSuggestedJopsCubit(
+                getIt.get<HomeRepoImplmentaion>(),
+              )..fetchSuggestedJopsCubit()),
       BlocProvider(
         create: (context) => FetchRecentJopsCubit(
           getIt.get<HomeRepoImplmentaion>(),
-        ),
+        )..fetchRecentJopsCubit(),
       ),
     ], child: const HomeViewBody());
   }

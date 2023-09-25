@@ -18,7 +18,7 @@ class SavedJopUnit extends StatelessWidget {
     return Column(
       children: [
         JopDataUnite(
-          jopComunicationImage: jopModel.comunicationToolIcon,
+          companyImage: jopModel.comunicationToolIcon,
           jopTitle: jopModel.jopTitle,
           optionICon: Iconsax.more,
           jopComunicationName: jopModel.comunicationtoolname,
