@@ -7,7 +7,7 @@ import 'package:jobsque_jobfinder/Features/Complete_Profile.dart/views/education
 import 'package:jobsque_jobfinder/Features/Complete_Profile.dart/views/experience_view.dart';
 import 'package:jobsque_jobfinder/Features/Complete_Profile.dart/views/personal_details_view.dart';
 import 'package:jobsque_jobfinder/Features/Complete_Profile.dart/widgets/cusotm_mision.dart';
-import 'package:jobsque_jobfinder/Features/Profile/views/portfolio_view.dart';
+import 'package:jobsque_jobfinder/Features/Profile/presentation/views/portfolio_view.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
 
 class CompleteProfileViewBody extends StatelessWidget {

@@ -3,8 +3,8 @@ import 'package:jobsque_jobfinder/Core/Utils/app_colors.dart';
 import 'package:jobsque_jobfinder/Core/Utils/app_fonts_styles.dart';
 import 'package:jobsque_jobfinder/Core/Wedgits/custom_text_field_phone_number.dart';
 import 'package:jobsque_jobfinder/Core/Wedgits/custom_text_field_section.dart';
-import 'package:jobsque_jobfinder/Features/Onboarding/Widgets/custom_button.dart';
-import 'package:jobsque_jobfinder/Features/Profile/widgets/change_circle_user_photo.dart';
+import 'package:jobsque_jobfinder/Features/Onboarding/presentation/Widgets/custom_button.dart';
+import 'package:jobsque_jobfinder/Features/Profile/presentation/widgets/change_circle_user_photo.dart';
 
 class PersonalDetailsViewBody extends StatelessWidget {
   const PersonalDetailsViewBody({super.key});

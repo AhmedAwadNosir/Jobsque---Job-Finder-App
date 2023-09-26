@@ -7,10 +7,9 @@ import 'package:jobsque_jobfinder/Core/Utils/constans.dart';
 import 'package:jobsque_jobfinder/Core/Wedgits/custom_check_box.dart';
 import 'package:jobsque_jobfinder/Core/Wedgits/custom_dorp_down_button_form_field.dart';
 import 'package:jobsque_jobfinder/Core/Wedgits/custom_text14.dart';
-import 'package:jobsque_jobfinder/Core/Wedgits/custom_text_16_style.dart';
 import 'package:jobsque_jobfinder/Core/Wedgits/custom_text_field_section.dart';
 import 'package:jobsque_jobfinder/Features/Complete_Profile.dart/widgets/custom_data_section.dart';
-import 'package:jobsque_jobfinder/Features/Onboarding/Widgets/custom_button.dart';
+import 'package:jobsque_jobfinder/Features/Onboarding/presentation/Widgets/custom_button.dart';
 
 class ExperienceViewBody extends StatelessWidget {
   const ExperienceViewBody({super.key});

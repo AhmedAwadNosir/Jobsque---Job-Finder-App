@@ -5,11 +5,11 @@ import 'package:jobsque_jobfinder/Core/Utils/app_colors.dart';
 import 'package:jobsque_jobfinder/Core/Utils/app_fonts_styles.dart';
 import 'package:jobsque_jobfinder/Core/Utils/app_images.dart';
 import 'package:jobsque_jobfinder/Core/Utils/my_flutter_app_icons.dart';
-import 'package:jobsque_jobfinder/Features/AplliedJop/views/applied_jop_view.dart';
+import 'package:jobsque_jobfinder/Features/AplliedJop/presentation/views/applied_jop_view.dart';
 import 'package:jobsque_jobfinder/Features/Home/presentation/widgets/home_view_with_providers.dart';
 import 'package:jobsque_jobfinder/Features/Messages/views/messages_view.dart';
-import 'package:jobsque_jobfinder/Features/Profile/views/profile_view.dart';
-import 'package:jobsque_jobfinder/Features/Saved_Jop/views/saved_view.dart';
+import 'package:jobsque_jobfinder/Features/Profile/presentation/views/profile_view.dart';
+import 'package:jobsque_jobfinder/Features/Saved_Jop/presentation/views/saved_view.dart';
 
 class HomeView extends StatefulWidget {
   const HomeView({super.key});

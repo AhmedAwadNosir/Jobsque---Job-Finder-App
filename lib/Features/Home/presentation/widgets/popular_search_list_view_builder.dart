@@ -4,6 +4,7 @@ import 'package:jobsque_jobfinder/Core/Utils/app_colors.dart';
 import 'package:jobsque_jobfinder/Features/Home/presentation/widgets/search_history_unit.dart';
 
 
+// ignore: must_be_immutable
 class PopularSearchListViewBuilder extends StatelessWidget {
   PopularSearchListViewBuilder({super.key});
   List<String> recentSearch = [

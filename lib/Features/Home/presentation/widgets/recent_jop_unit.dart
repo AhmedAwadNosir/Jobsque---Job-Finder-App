@@ -4,11 +4,9 @@ import 'package:jobsque_jobfinder/Core/Utils/app_colors.dart';
 import 'package:jobsque_jobfinder/Core/Utils/app_fonts_styles.dart';
 import 'package:jobsque_jobfinder/Core/Utils/constans.dart';
 import 'package:jobsque_jobfinder/Core/Utils/my_flutter_app_icons.dart';
-import 'package:jobsque_jobfinder/Core/Wedgits/custom_network_company_image.dart';
 import 'package:jobsque_jobfinder/Core/Wedgits/jop_data_unite.dart';
 import 'package:jobsque_jobfinder/Features/Home/data/models/jop_model.dart';
 import 'package:jobsque_jobfinder/Features/Home/functions/get_expirence_level.dart';
-import 'package:jobsque_jobfinder/Features/Home/functions/get_jop_country.dart';
 import 'package:jobsque_jobfinder/Features/Home/presentation/widgets/jop_features.dart';
 
 class RecentJopUnit extends StatefulWidget {

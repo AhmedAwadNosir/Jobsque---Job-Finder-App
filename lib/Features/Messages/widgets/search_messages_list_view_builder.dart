@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:jobsque_jobfinder/Core/Utils/app_colors.dart';
 import 'package:jobsque_jobfinder/Core/Utils/app_images.dart';
-import 'package:jobsque_jobfinder/Features/Chat/views/chat_view.dart';
-import 'package:jobsque_jobfinder/Features/Notefication/models/notefication_model.dart';
+import 'package:jobsque_jobfinder/Features/Chat/presentation/views/chat_view.dart';
+import 'package:jobsque_jobfinder/Features/Notefication/data/models/notefication_model.dart';
 import 'package:jobsque_jobfinder/Core/Wedgits/custom_notefication_style.dart';
 
+// ignore: must_be_immutable
 class CustomSearchMessageListViewBuilder extends StatelessWidget {
   CustomSearchMessageListViewBuilder({super.key});
   List<NoteficationModel> noteficationData = [

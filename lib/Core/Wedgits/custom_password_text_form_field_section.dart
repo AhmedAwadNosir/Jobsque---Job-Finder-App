@@ -4,7 +4,7 @@ import 'package:jobsque_jobfinder/Core/Utils/app_colors.dart';
 import 'package:jobsque_jobfinder/Core/Utils/app_fonts_styles.dart';
 import 'package:jobsque_jobfinder/Core/Utils/constans.dart';
 import 'package:jobsque_jobfinder/Features/Authentication/functions/text_field_border_decoration.dart';
-import 'package:jobsque_jobfinder/Features/Jop_Details/widgets/custom_text_field_title.dart';
+import 'package:jobsque_jobfinder/Features/Jop_Details/presentation/widgets/custom_text_field_title.dart';
 
 class CustomPasswordTextFieldSection extends StatefulWidget {
   const CustomPasswordTextFieldSection({

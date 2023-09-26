@@ -3,6 +3,7 @@ import 'package:iconsax/iconsax.dart';
 import 'package:jobsque_jobfinder/Core/Utils/app_colors.dart';
 import 'package:jobsque_jobfinder/Core/Utils/app_fonts_styles.dart';
 
+// ignore: must_be_immutable
 class FilterOption extends StatefulWidget {
   FilterOption({
     super.key,

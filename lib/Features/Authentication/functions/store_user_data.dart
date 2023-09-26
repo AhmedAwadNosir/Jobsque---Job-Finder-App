@@ -1,7 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:jobsque_jobfinder/Core/Utils/constans.dart';
-import 'package:jobsque_jobfinder/Features/Authentication/Models/user_data_model.dart';
+import 'package:jobsque_jobfinder/Features/Authentication/data/Models/user_data_model.dart';
 
 Future<void>storeUserData(
     UserCredential userCredential, UserModel userModel) async {

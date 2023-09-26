@@ -7,7 +7,7 @@ class EducationView extends StatelessWidget {
   static const id = "EducationView";
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       appBar: CustomAppBar(
         title: "Education",
         paddingTop: 16,

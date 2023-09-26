@@ -6,7 +6,7 @@ import 'package:jobsque_jobfinder/Core/Utils/app_images.dart';
 import 'package:jobsque_jobfinder/Core/Utils/constans.dart';
 import 'package:jobsque_jobfinder/Core/Wedgits/custom_text_field_section.dart';
 import 'package:jobsque_jobfinder/Features/Complete_Profile.dart/widgets/custom_data_section.dart';
-import 'package:jobsque_jobfinder/Features/Onboarding/Widgets/custom_button.dart';
+import 'package:jobsque_jobfinder/Features/Onboarding/presentation/Widgets/custom_button.dart';
 
 class EducationViewBody extends StatelessWidget {
   const EducationViewBody({super.key});

@@ -7,7 +7,7 @@ class PersonalDetailsView extends StatelessWidget {
   static const id = "PersonalDetailsView";
   @override
   Widget build(BuildContext context) {
-    return  Scaffold (
+    return const Scaffold(
       appBar: CustomAppBar(
         title: "Personal Details",
         paddingTop: 16,

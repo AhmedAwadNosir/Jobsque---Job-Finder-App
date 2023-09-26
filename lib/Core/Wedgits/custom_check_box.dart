@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:jobsque_jobfinder/Core/Utils/app_colors.dart';
 
+// ignore: must_be_immutable
 class CustomCheckBox extends StatefulWidget {
   CustomCheckBox({super.key, required this.isChecked});
   bool isChecked;

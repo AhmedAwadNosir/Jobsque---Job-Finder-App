@@ -4,8 +4,9 @@ import 'package:jobsque_jobfinder/Core/Wedgits/circle_icon_container.dart';
 import 'package:jobsque_jobfinder/Core/Wedgits/custom_point.dart';
 import 'package:jobsque_jobfinder/Core/Wedgits/custom_text12.dart';
 import 'package:jobsque_jobfinder/Core/Wedgits/custom_text14.dart';
-import 'package:jobsque_jobfinder/Features/Notefication/models/notefication_model.dart';
+import 'package:jobsque_jobfinder/Features/Notefication/data/models/notefication_model.dart';
 
+// ignore: must_be_immutable
 class CustomNoteficationStyle extends StatelessWidget {
   CustomNoteficationStyle({
     super.key,

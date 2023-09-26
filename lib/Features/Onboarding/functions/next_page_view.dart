@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:jobsque_jobfinder/Features/Authentication/Sign_IN/Views/sign_in_view.dart';
+import 'package:jobsque_jobfinder/Features/Authentication/presentation/Sign_IN/Views/sign_in_view.dart';
 import 'package:jobsque_jobfinder/Features/Onboarding/functions/store_onboardin_info.dart';
 
-import '../Widgets/onboarding_page_view_builder.dart';
+import '../presentation/Widgets/onboarding_page_view_builder.dart';
 
 void goToNextPage({required pageController, required context}) async {
   if (pageController.page! < OnbardingPageView.onbardingPagesdata.length - 1) {

@@ -3,7 +3,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:jobsque_jobfinder/Core/Utils/app_colors.dart';
 import 'package:jobsque_jobfinder/Core/Utils/app_fonts_styles.dart';
 import 'package:jobsque_jobfinder/Core/Utils/constans.dart';
-import 'package:jobsque_jobfinder/Features/Authentication/Widgets/page_initail_info.dart';
+import 'package:jobsque_jobfinder/Features/Authentication/presentation/Widgets/page_initail_info.dart';
 
 class CustomStatepage extends StatelessWidget {
   const CustomStatepage({

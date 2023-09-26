@@ -7,7 +7,7 @@ import 'package:jobsque_jobfinder/Core/Wedgits/custom_text14.dart';
 import 'package:jobsque_jobfinder/Core/Wedgits/custom_text_16_style.dart';
 import 'package:jobsque_jobfinder/Core/Wedgits/custom_text_field_phone_number.dart';
 import 'package:jobsque_jobfinder/Features/LoginAndSecurity/views/verify_code_view.dart';
-import 'package:jobsque_jobfinder/Features/Onboarding/Widgets/custom_button.dart';
+import 'package:jobsque_jobfinder/Features/Onboarding/presentation/Widgets/custom_button.dart';
 
 class TwoStepVerificationSendCodeViewBody extends StatelessWidget {
   const TwoStepVerificationSendCodeViewBody({super.key});

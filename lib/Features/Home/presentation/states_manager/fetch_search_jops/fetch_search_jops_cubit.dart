@@ -1,6 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:jobsque_jobfinder/Features/Home/data/models/jop_model.dart';
 import 'package:jobsque_jobfinder/Features/Home/data/repos/home_repo.dart';
+// ignore: depend_on_referenced_packages
 import 'package:meta/meta.dart';
 
 part 'fetch_search_jops_state.dart';

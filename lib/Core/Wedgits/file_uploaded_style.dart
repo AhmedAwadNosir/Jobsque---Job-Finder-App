@@ -4,7 +4,7 @@ import 'package:iconsax/iconsax.dart';
 import 'package:jobsque_jobfinder/Core/Utils/app_colors.dart';
 import 'package:jobsque_jobfinder/Core/Wedgits/custom_text12.dart';
 import 'package:jobsque_jobfinder/Core/Wedgits/custom_text14.dart';
-import 'package:jobsque_jobfinder/Features/Profile/models/uploaded_file_model.dart';
+import 'package:jobsque_jobfinder/Features/Profile/data/models/uploaded_file_model.dart';
 
 class FileUploadedStyle extends StatelessWidget {
   const FileUploadedStyle({

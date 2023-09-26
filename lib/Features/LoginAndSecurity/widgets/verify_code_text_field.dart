@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:jobsque_jobfinder/Core/Utils/app_colors.dart';
 import 'package:jobsque_jobfinder/Core/Utils/app_fonts_styles.dart';
 
+// ignore: must_be_immutable
 class VerifyCodeTextField extends StatelessWidget {
   VerifyCodeTextField({
     super.key,

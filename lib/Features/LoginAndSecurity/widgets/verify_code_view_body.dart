@@ -3,7 +3,7 @@ import 'package:jobsque_jobfinder/Core/Utils/app_colors.dart';
 import 'package:jobsque_jobfinder/Core/Utils/app_fonts_styles.dart';
 import 'package:jobsque_jobfinder/Core/Wedgits/custom_text_16_style.dart';
 import 'package:jobsque_jobfinder/Features/LoginAndSecurity/widgets/verify_code_text_field.dart';
-import 'package:jobsque_jobfinder/Features/Onboarding/Widgets/custom_button.dart';
+import 'package:jobsque_jobfinder/Features/Onboarding/presentation/Widgets/custom_button.dart';
 
 class VerifyCodeViewBody extends StatelessWidget {
   const VerifyCodeViewBody({super.key});

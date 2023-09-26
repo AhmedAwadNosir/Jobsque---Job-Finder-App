@@ -6,6 +6,7 @@ import 'package:jobsque_jobfinder/Core/Utils/app_images.dart';
 import 'package:jobsque_jobfinder/Core/Wedgits/custom_text12.dart';
 import 'package:jobsque_jobfinder/Core/Wedgits/custom_text_16_style.dart';
 
+// ignore: must_be_immutable
 class CusotmMision extends StatelessWidget {
   CusotmMision({
     super.key,

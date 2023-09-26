@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:jobsque_jobfinder/Core/Utils/app_colors.dart';
 import 'package:jobsque_jobfinder/Core/Utils/app_fonts_styles.dart';
-import 'package:jobsque_jobfinder/Features/Profile/widgets/custom_switch_button.dart';
+import 'package:jobsque_jobfinder/Features/Profile/presentation/widgets/custom_switch_button.dart';
 
 class CustomSecurityOption extends StatelessWidget {
   const CustomSecurityOption({

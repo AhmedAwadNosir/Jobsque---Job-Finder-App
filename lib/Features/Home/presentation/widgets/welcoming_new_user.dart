@@ -4,7 +4,7 @@ import 'package:jobsque_jobfinder/Core/Utils/app_colors.dart';
 import 'package:jobsque_jobfinder/Core/Utils/app_fonts_styles.dart';
 import 'package:jobsque_jobfinder/Core/Utils/constans.dart';
 import 'package:jobsque_jobfinder/Core/Utils/sharedpreferancs_util.dart';
-import 'package:jobsque_jobfinder/Features/Notefication/views/notefication_view.dart';
+import 'package:jobsque_jobfinder/Features/Notefication/presentation/views/notefication_view.dart';
 
 class WelcomingNewUser extends StatelessWidget {
   const WelcomingNewUser({
@@ -24,11 +24,24 @@ class WelcomingNewUser extends StatelessWidget {
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
-                    "Hi, ${snapshot.data}👋",
-                    style: AppFontsStyles.textstyle24.copyWith(
-                        fontFamily: textFamilyMedium,
-                        color: AppColors.appNeutralColors900),
+                  SizedBox(
+                    width: MediaQuery.of(context).size.width * 0.70,
+                    child: Row(
+                      children: [
+                        Expanded(
+                          child: Text(
+                            "Hi, ${snapshot.data}",
+                            overflow: TextOverflow.ellipsis,
+                            style: AppFontsStyles.textstyle24.copyWith(
+                                fontFamily: textFamilyMedium,
+                                color: AppColors.appNeutralColors900),
+                          ),
+                        ),
+                        Text("👋",
+                            style: AppFontsStyles.textstyle24
+                                .copyWith(fontFamily: textFamilyMedium)),
+                      ],
+                    ),
                   ),
                   Text(
                     "Create a better future for yourself here",

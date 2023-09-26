@@ -3,7 +3,7 @@ import 'package:iconsax/iconsax.dart';
 import 'package:jobsque_jobfinder/Core/Utils/app_colors.dart';
 import 'package:jobsque_jobfinder/Core/Wedgits/custom_app_barr.dart';
 import 'package:jobsque_jobfinder/Core/Wedgits/custom_password_text_form_field_section.dart';
-import 'package:jobsque_jobfinder/Features/Onboarding/Widgets/custom_button.dart';
+import 'package:jobsque_jobfinder/Features/Onboarding/presentation/Widgets/custom_button.dart';
 
 class ChangePasswordView extends StatelessWidget {
   const ChangePasswordView({super.key});

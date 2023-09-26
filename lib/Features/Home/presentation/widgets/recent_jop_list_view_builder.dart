@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:jobsque_jobfinder/Core/Utils/app_images.dart';
 import 'package:jobsque_jobfinder/Core/Utils/custom_error_widget.dart';
-import 'package:jobsque_jobfinder/Features/Home/data/models/jop_model.dart';
 import 'package:jobsque_jobfinder/Features/Home/presentation/states_manager/fetch_recent_jops/fetch_recent_jops_cubit.dart';
 import 'package:jobsque_jobfinder/Features/Home/presentation/widgets/recent_jop_unit.dart';
-import 'package:jobsque_jobfinder/Features/Jop_Details/views/jop_details_view.dart';
+import 'package:jobsque_jobfinder/Features/Jop_Details/presentation/views/jop_details_view.dart';
 
 class RecentJopListViewBuilder extends StatelessWidget {
   const RecentJopListViewBuilder({super.key});

@@ -3,6 +3,7 @@ import 'package:iconsax/iconsax.dart';
 import 'package:jobsque_jobfinder/Core/Utils/app_colors.dart';
 import 'package:jobsque_jobfinder/Features/Home/presentation/widgets/search_history_unit.dart';
 
+// ignore: must_be_immutable
 class RecentSearchListVeiwBuilder extends StatelessWidget {
   RecentSearchListVeiwBuilder({super.key});
   List<String> recentSearch = [
