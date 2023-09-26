@@ -23,6 +23,25 @@ class ApiServices {
     return response.data;
   }
 
+  Future<Map<String, dynamic>> dPost({
+    required String endPoint,
+    String? token,
+    @required dynamic body,
+  }) async {
+    Map<String, String> headers = {};
+    if (token != null) {
+      headers.addAll({
+        "Authorization": "Bearer $token",
+      });
+    }
+    var response = await dio!.post("$_baseUrl$endPoint",
+        options: Options(
+          headers: headers,
+        ),
+        data: body);
+    return response.data;
+  }
+
   Future<dynamic> post(
       {required String url,
       @required dynamic body,
