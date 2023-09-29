@@ -6,7 +6,7 @@ class Step2Content extends StatelessWidget {
   const Step2Content({
     super.key,
   });
-
+  
   @override
   Widget build(BuildContext context) {
     return const Column(

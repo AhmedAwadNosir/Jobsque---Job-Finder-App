@@ -13,6 +13,11 @@ class SharedPreferencesUtil {
     SharedPreferences prefs = await getSharedPreferencesInstance();
     return prefs.getString(key) ?? "key deosn,t exist";
   }
+  static Future<int> getInt( String key,
+  ) async {
+    SharedPreferences prefs = await getSharedPreferencesInstance();
+    return prefs.getInt(key) ?? 0;
+  }
 
   // You can add similar methods for other data types (int, double, etc.)
 }

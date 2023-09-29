@@ -1,8 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 import 'package:jobsque_jobfinder/Core/Utils/app_colors.dart';
 import 'package:jobsque_jobfinder/Core/Utils/app_fonts_styles.dart';
+import 'package:jobsque_jobfinder/Core/Utils/constans.dart';
+import 'package:jobsque_jobfinder/Core/Utils/sharedpreferancs_util.dart';
 import 'package:jobsque_jobfinder/Core/Wedgits/custom_text_20_style.dart';
 import 'package:jobsque_jobfinder/Features/AplliedJop/data/models/applied_jop_model.dart';
+import 'package:jobsque_jobfinder/Features/Jop_Details/data/models/apply_jop_model.dart';
+import 'package:jobsque_jobfinder/Features/Jop_Details/presentation/widgets/choose_file_section.dart';
 import 'package:jobsque_jobfinder/Features/Jop_Details/presentation/widgets/custom_steper_widgets/apply_custom_step_label.dart';
 import 'package:jobsque_jobfinder/Features/Jop_Details/presentation/widgets/custom_steper_widgets/custom_step.dart';
 import 'package:jobsque_jobfinder/Features/Jop_Details/presentation/widgets/custom_steper_widgets/custom_step_progress_icon.dart';
@@ -10,6 +16,8 @@ import 'package:jobsque_jobfinder/Features/Jop_Details/presentation/widgets/cust
 import 'package:jobsque_jobfinder/Features/Jop_Details/presentation/widgets/step_1_content.dart';
 import 'package:jobsque_jobfinder/Features/Jop_Details/presentation/widgets/step_2_content.dart';
 import 'package:jobsque_jobfinder/Features/Jop_Details/presentation/widgets/step_3_content.dart';
+import 'package:jobsque_jobfinder/Features/Jop_Details/states_manager/appLy_jop/apply_jop_cubit.dart';
+import 'package:jobsque_jobfinder/Features/Profile/data/models/cv_file_model.dart';
 
 class CompleteAppliedJopsBody extends StatefulWidget {
   const CompleteAppliedJopsBody({
@@ -25,7 +33,9 @@ class CompleteAppliedJopsBody extends StatefulWidget {
 
 class _CompleteAppliedJopsBodyState extends State<CompleteAppliedJopsBody> {
   late PageController _controller;
-
+  late String userName;
+  late String email;
+  late String mobile;
   @override
   void initState() {
     _controller = PageController();
@@ -61,6 +71,21 @@ class _CompleteAppliedJopsBodyState extends State<CompleteAppliedJopsBody> {
           ),
           Expanded(
               child: CustomStepper(
+                  lastStepControl: () async {
+                    var box = Hive.box<CvFileModel>(otherCvsFilebox);
+                    List<CvFileModel> cvfiles = box.values.toList();
+                    BlocProvider.of<ApplyJopCubit>(context).applyJop(
+                        applyModal: ApplyJopModel(
+                            cvFilePath: ChooseFileSection.choosenFilePath,
+                            userName: userName,
+                            email: email,
+                            mobile: mobile,
+                            workType: "full",
+                            otherFilePath: cvfiles[0].cvFilePath,
+                            jopId: "4",
+                            userId:
+                                await SharedPreferencesUtil.getString(userId)));
+                  },
                   currentStep: currentIndex,
                   customSteps: getsteps(),
                   onStepTapped: (step) {
@@ -95,7 +120,23 @@ class _CompleteAppliedJopsBodyState extends State<CompleteAppliedJopsBody> {
           state: currentIndex > 0
               ? CustomStepState.complete
               : CustomStepState.indexed,
-          content: const Step1Content(),
+          content: Step1Content(
+            passUserName: (value) {
+              setState(() {
+                userName = value;
+              });
+            },
+            passemail: (value) {
+              setState(() {
+                email = value;
+              });
+            },
+            passmobile: (value) {
+              setState(() {
+                mobile = value;
+              });
+            },
+          ),
         ),
         CustomStep(
             state: currentIndex > 1

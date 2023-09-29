@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:jobsque_jobfinder/Core/Utils/app_colors.dart';
 import 'package:jobsque_jobfinder/Core/Utils/app_images.dart';
@@ -13,20 +15,22 @@ class ChooseFileSection extends StatefulWidget {
     required this.cvFileModel,
   });
   final CvFileModel cvFileModel;
-
+   static String choosenFilePath = '';
   @override
   State<ChooseFileSection> createState() => _ChooseFileSectionState();
 }
 
 class _ChooseFileSectionState extends State<ChooseFileSection> {
   bool isActive = false;
-
+  
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
         setState(() {
           isActive = !isActive;
+          ChooseFileSection.choosenFilePath = widget.cvFileModel.cvFilePath;
+          log(ChooseFileSection.choosenFilePath);
         });
       },
       child: Container(

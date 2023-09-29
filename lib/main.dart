@@ -18,7 +18,6 @@ import 'package:jobsque_jobfinder/Features/Home/presentation/states_manager/fetc
 import 'package:jobsque_jobfinder/Features/Home/presentation/views/home_view.dart';
 import 'package:jobsque_jobfinder/Features/Home/presentation/views/search_view.dart';
 import 'package:jobsque_jobfinder/Features/Profile/data/models/cv_file_model.dart';
-import 'package:jobsque_jobfinder/Features/Jop_Details/presentation/views/apply_jop_view.dart';
 import 'package:jobsque_jobfinder/Features/Jop_Details/presentation/views/jop_applied_succesfuly.dart';
 import 'package:jobsque_jobfinder/Features/LoginAndSecurity/views/change_password_view.dart';
 import 'package:jobsque_jobfinder/Features/LoginAndSecurity/views/email_adress_view.dart';
@@ -97,7 +96,6 @@ class JopFinderApp extends StatelessWidget {
               const PasswordResetSuccessfullyView(),
           HomeView.id: (context) => const HomeView(),
           SearchView.id: (context) => const SearchView(),
-          ApplyJopView.id: (context) => const ApplyJopView(),
           JopAppliedSuccesfuly.id: (context) => const JopAppliedSuccesfuly(),
           NoteficationView.id: (context) => NoteficationView(),
           ChatView.id: (context) => const ChatView(),

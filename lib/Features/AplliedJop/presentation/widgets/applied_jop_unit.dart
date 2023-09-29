@@ -25,6 +25,9 @@ class AppliedJopUnit extends StatefulWidget {
 class _AppliedJopUnitState extends State<AppliedJopUnit> {
   get currentIndex => null;
   late PageController controller;
+   late String userName;
+  late String email;
+  late String mobile;
   @override
   void initState() {
     controller = PageController();
@@ -121,7 +124,23 @@ class _AppliedJopUnitState extends State<AppliedJopUnit> {
           state: widget.jopModel.currentIndex > 0
               ? CustomStepState.complete
               : CustomStepState.indexed,
-          content: const Step1Content(),
+          content:  Step1Content(
+             passUserName: (value) {
+              setState(() {
+                userName = value;
+              });
+            },
+            passemail: (value) {
+              setState(() {
+                email = value;
+              });
+            },
+            passmobile: (value) {
+              setState(() {
+                mobile = value;
+              });
+            },
+          ),
         ),
         CustomStep(
             state: widget.jopModel.currentIndex > 1

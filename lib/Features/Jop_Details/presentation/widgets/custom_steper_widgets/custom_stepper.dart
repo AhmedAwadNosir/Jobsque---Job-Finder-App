@@ -9,6 +9,7 @@ class CustomStepper extends StatelessWidget {
   final int currentStep;
   final void Function(int) onStepTapped;
   final void Function() onStepContinue;
+  final void Function() lastStepControl;
 
   final PageController pageController;
   const CustomStepper({
@@ -18,6 +19,7 @@ class CustomStepper extends StatelessWidget {
     this.currentStep = 0,
     required this.onStepContinue,
     required this.pageController,
+    required this.lastStepControl,
   }) : assert(0 <= currentStep && currentStep < customSteps.length);
 
   bool _isLastStep() {
@@ -44,6 +46,7 @@ class CustomStepper extends StatelessWidget {
         // const VerticalSpace(space: 20),
         CustomStepperControlButton(
           onStepControl: onStepContinue,
+          lastStepControl: lastStepControl,
           isLastStep: _isLastStep(),
         ),
         const SizedBox(height: 9),

@@ -10,11 +10,13 @@ class CustomPhoneNumberTextField extends StatefulWidget {
     super.key,
     this.tilteColor,
     this.sympol,
-    this.title,
+    this.title, this.onSubmited, this.onChanged,
   });
   final Color? tilteColor;
   final String? sympol;
   final String? title;
+  final Function(String)? onSubmited;
+  final Function(String)? onChanged;
   @override
   State<CustomPhoneNumberTextField> createState() =>
       _CustomPhoneNumberTextFieldState();
@@ -23,7 +25,7 @@ class CustomPhoneNumberTextField extends StatefulWidget {
 class _CustomPhoneNumberTextFieldState
     extends State<CustomPhoneNumberTextField> {
   final countryPicker = const FlCountryCodePicker();
-
+  
   CountryCode? egPhoneCode =
       const CountryCode(name: "Egypt", code: "Eg", dialCode: "+20");
   CountryCode? usPhoneCode =
@@ -33,6 +35,8 @@ class _CustomPhoneNumberTextFieldState
   @override
   Widget build(BuildContext context) {
     return CustomTextFieldSection(
+      onSubmited:widget.onSubmited ,
+      onChanged: widget.onChanged,
       title: widget.title ?? "No.Handphone",
       sympol: widget.sympol ?? "*",
       titleColor: widget.tilteColor,

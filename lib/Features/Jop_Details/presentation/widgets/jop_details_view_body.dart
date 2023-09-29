@@ -69,14 +69,18 @@ class JopDetailsViewBody extends StatelessWidget {
                 JopDescriptionView(
                   jopModel: jopModel,
                 ),
-                 JopCompanyView(jopModel: jopModel),
+                JopCompanyView(jopModel: jopModel),
                 const JopPeopleView(),
               ],
             ),
           ),
           CustomButton(
               onPressed: () {
-                Navigator.pushNamed(context, ApplyJopView.id);
+                Navigator.push(context, MaterialPageRoute(
+                  builder: (context) {
+                    return ApplyJopView(jopid: jopModel.jopId.toString());
+                  },
+                ));
               },
               buttonName: "Apply now"),
           const SizedBox(
