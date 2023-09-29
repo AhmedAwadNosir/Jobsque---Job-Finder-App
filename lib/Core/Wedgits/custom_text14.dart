@@ -7,7 +7,8 @@ class CustomText14 extends StatelessWidget {
   const CustomText14({
     super.key,
     required this.title,
-    this.titleColor, this.fontFamily,
+    this.titleColor,
+    this.fontFamily,
   });
   final String title;
   final Color? titleColor;
@@ -16,9 +17,9 @@ class CustomText14 extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
       title,
-      softWrap: true,
+      overflow: TextOverflow.ellipsis,
       style: AppFontsStyles.textstyle14.copyWith(
-        fontFamily:fontFamily?? textFamilyMedium,
+        fontFamily: fontFamily ?? textFamilyMedium,
         color: titleColor ?? AppColors.appNeutralColors900,
       ),
     );

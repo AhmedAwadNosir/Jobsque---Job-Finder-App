@@ -13,6 +13,8 @@ const userName = "userName";
 const emailAdress = "emailAdress";
 const userId = "userId";
 const isLogin = "isLogin";
+const cvFilebox = "CvFileBox";
+const otherCvsFilebox = "OtherCvFileBox";
 const registerInterNetException =
     "ClientException with SocketException: Failed host lookup: 'project2.amit-learning.com' (OS Error: No address associated with hostname, errno = 7), uri=https://project2.amit-learning.com/api/auth/register";
 const loginInterNetException =

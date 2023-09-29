@@ -17,6 +17,7 @@ import 'package:jobsque_jobfinder/Features/Home/data/repos/home_repo_implmentati
 import 'package:jobsque_jobfinder/Features/Home/presentation/states_manager/fetch_search_jops/fetch_search_jops_cubit.dart';
 import 'package:jobsque_jobfinder/Features/Home/presentation/views/home_view.dart';
 import 'package:jobsque_jobfinder/Features/Home/presentation/views/search_view.dart';
+import 'package:jobsque_jobfinder/Features/Profile/data/models/cv_file_model.dart';
 import 'package:jobsque_jobfinder/Features/Jop_Details/presentation/views/apply_jop_view.dart';
 import 'package:jobsque_jobfinder/Features/Jop_Details/presentation/views/jop_applied_succesfuly.dart';
 import 'package:jobsque_jobfinder/Features/LoginAndSecurity/views/change_password_view.dart';
@@ -43,6 +44,7 @@ import 'package:jobsque_jobfinder/Features/Authentication/presentation/forgot%20
 import 'package:jobsque_jobfinder/Features/Authentication/presentation/forgot%20_password/views/reset_password_view.dart';
 import 'package:jobsque_jobfinder/firebase_options.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 // Import the generated file
 
 bool? isViewed;
@@ -60,6 +62,10 @@ void main() async {
   isLoginIn = prefs.containsKey(isLogin);
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   setupServicLocator();
+  await Hive.initFlutter();
+  Hive.registerAdapter(CvFileModelAdapter());
+  await Hive.openBox<CvFileModel>(cvFilebox);
+  await Hive.openBox<CvFileModel>(otherCvsFilebox);
   runApp(const JopFinderApp());
 }
 

@@ -3,15 +3,16 @@ import 'package:jobsque_jobfinder/Core/Utils/app_colors.dart';
 import 'package:jobsque_jobfinder/Core/Utils/app_images.dart';
 import 'package:jobsque_jobfinder/Core/Wedgits/custom_text14.dart';
 import 'package:jobsque_jobfinder/Core/Wedgits/custom_text_16_style.dart';
-import 'package:jobsque_jobfinder/Features/Jop_Details/data/models/jop_file_model.dart';
 import 'package:jobsque_jobfinder/Core/Wedgits/custom_point.dart';
+import 'package:jobsque_jobfinder/Core/functions/get_cv_file_name.dart';
+import 'package:jobsque_jobfinder/Features/Profile/data/models/cv_file_model.dart';
 
 class ChooseFileSection extends StatefulWidget {
   const ChooseFileSection({
     super.key,
-    required this.jopFileModel,
+    required this.cvFileModel,
   });
-  final JopFileModel jopFileModel;
+  final CvFileModel cvFileModel;
 
   @override
   State<ChooseFileSection> createState() => _ChooseFileSectionState();
@@ -45,8 +46,10 @@ class _ChooseFileSectionState extends State<ChooseFileSection> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  CustomText16Style(title: widget.jopFileModel.jopFileName),
+                  CustomText16Style(
+                      title: getFileName(widget.cvFileModel.cvFileName)),
                   const SizedBox(
                     height: 8,
                   ),
@@ -54,7 +57,7 @@ class _ChooseFileSectionState extends State<ChooseFileSection> {
                     mainAxisSize: MainAxisSize.min,
                     children: [
                       CustomText14(
-                        title: widget.jopFileModel.jopCvFileName,
+                        title: "CV.${widget.cvFileModel.cvFileExcetintion}",
                         titleColor: AppColors.appNeutralColors500,
                       ),
                       const SizedBox(
@@ -67,7 +70,8 @@ class _ChooseFileSectionState extends State<ChooseFileSection> {
                         width: 8,
                       ),
                       CustomText14(
-                        title: widget.jopFileModel.jopPortfolioFileName,
+                        title:
+                            "Portfolio.${widget.cvFileModel.cvFileExcetintion}",
                         titleColor: AppColors.appNeutralColors500,
                       ),
                     ],
