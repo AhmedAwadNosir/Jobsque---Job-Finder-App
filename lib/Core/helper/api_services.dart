@@ -68,10 +68,11 @@ class ApiServices {
     }
   }
 
-  Future<dynamic> put(
-      {required String url,
-      @required dynamic body,
-      @required String? token}) async {
+  Future<dynamic> put({
+    required String endPoint,
+    @required dynamic body,
+    @required String? token,
+  }) async {
     Map<String, String> headers = {};
     if (token != null) {
       headers.addAll({
@@ -79,18 +80,9 @@ class ApiServices {
       });
     }
 
-    http.Response response = await http.post(
-      Uri.parse(url),
-      body: body,
-      headers: headers,
-    );
+    var response = await dio!.put("$_baseUrl$endPoint",
+        options: Options(headers: headers), data: body);
 
-    if (response.statusCode == 200) {
-      Map<String, dynamic> data = jsonDecode(response.body);
-      return data;
-    } else {
-      throw Exception(
-          "there is a problem with status code :${response.statusCode} the problem is : ${jsonDecode(response.body)}");
-    }
+    return response.data;
   }
 }

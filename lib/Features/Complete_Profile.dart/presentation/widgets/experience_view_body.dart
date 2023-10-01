@@ -4,18 +4,22 @@ import 'package:jobsque_jobfinder/Core/Utils/app_colors.dart';
 import 'package:jobsque_jobfinder/Core/Utils/app_fonts_styles.dart';
 import 'package:jobsque_jobfinder/Core/Utils/app_images.dart';
 import 'package:jobsque_jobfinder/Core/Utils/constans.dart';
+import 'package:jobsque_jobfinder/Core/Wedgits/custom_check_box.dart';
+import 'package:jobsque_jobfinder/Core/Wedgits/custom_dorp_down_button_form_field.dart';
+import 'package:jobsque_jobfinder/Core/Wedgits/custom_text14.dart';
 import 'package:jobsque_jobfinder/Core/Wedgits/custom_text_field_section.dart';
-import 'package:jobsque_jobfinder/Features/Complete_Profile.dart/widgets/custom_data_section.dart';
+import 'package:jobsque_jobfinder/Features/Complete_Profile.dart/presentation/widgets/custom_data_section.dart';
 import 'package:jobsque_jobfinder/Features/Onboarding/presentation/Widgets/custom_button.dart';
 
-class EducationViewBody extends StatelessWidget {
-  const EducationViewBody({super.key});
+class ExperienceViewBody extends StatelessWidget {
+  const ExperienceViewBody({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 24),
-      child: SingleChildScrollView(
+    bool isChecked = true;
+    return SingleChildScrollView(
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 24),
         child: Column(
           children: [
             const SizedBox(height: 32),
@@ -30,55 +34,74 @@ class EducationViewBody extends StatelessWidget {
                 child: Column(
                   children: [
                     CustomTextFieldSection(
-                      title: "University *",
+                      title: "Position *",
                       titleColor: AppColors.appNeutralColors400,
                       titleSpace: 6,
                       onSubmited: (value) {},
                       onChanged: (value) {},
-                      content: "Northern Michigan University",
+                      content: "Product Designer",
+                      contentStyle: AppFontsStyles.textstyle16.copyWith(
+                          fontFamily: textFamilyMedium,
+                          color: AppColors.appNeutralColors800),
+                    ),
+                    const SizedBox(height: 16),
+                    CustomDorpDownButtonFormField(
+                      title: "Type of work",
+                      style: AppFontsStyles.textstyle28.copyWith(
+                          fontFamily: textFamilyMedium,
+                          color: AppColors.appNeutralColors800),
+                      itemsList: const ["Full Time", "Part Time", "Remote"],
+                      initialValue: "Full Time",
+                      titleColor: AppColors.appNeutralColors400,
+                    ),
+                    const SizedBox(height: 16),
+                    CustomTextFieldSection(
+                      title: "Company name *",
+                      titleColor: AppColors.appNeutralColors400,
+                      titleSpace: 6,
+                      onSubmited: (value) {},
+                      onChanged: (value) {},
+                      content: "Supafast Studio",
                       contentStyle: AppFontsStyles.textstyle16.copyWith(
                           fontFamily: textFamilyMedium,
                           color: AppColors.appNeutralColors800),
                     ),
                     const SizedBox(height: 16),
                     CustomTextFieldSection(
-                      title: "Title",
+                      title: "Location",
                       titleColor: AppColors.appNeutralColors400,
                       titleSpace: 6,
                       onSubmited: (value) {},
                       onChanged: (value) {},
-                      content: "Bachelor",
+                      content: "Purwokerto, Banyumas",
                       contentStyle: AppFontsStyles.textstyle16.copyWith(
                           fontFamily: textFamilyMedium,
                           color: AppColors.appNeutralColors800),
+                      prefixICon: const Icon(
+                        Iconsax.location,
+                        size: 20,
+                      ),
+                    ),
+                    const SizedBox(height: 6),
+                    Row(
+                      children: [
+                        CustomCheckBox(isChecked: isChecked),
+                        const SizedBox(width: 6),
+                        const CustomText14(
+                            title: "I am currently working in this role")
+                      ],
                     ),
                     const SizedBox(height: 16),
                     CustomTextFieldSection(
-                      title: "Start Year",
+                      title: "Start Year *",
                       titleColor: AppColors.appNeutralColors400,
                       titleSpace: 6,
                       onSubmited: (value) {},
                       onChanged: (value) {},
-                      content: "December 2019",
+                      content: "February 2021",
                       contentStyle: AppFontsStyles.textstyle16.copyWith(
                           fontFamily: textFamilyMedium,
                           color: AppColors.appNeutralColors800),
-                      suffixIcon: Iconsax.calendar_1,
-                      suffixIconOnTap: () {},
-                    ),
-                    const SizedBox(height: 16),
-                    CustomTextFieldSection(
-                      title: "End Year",
-                      titleColor: AppColors.appNeutralColors400,
-                      titleSpace: 6,
-                      onSubmited: (value) {},
-                      onChanged: (value) {},
-                      content: "December 2022",
-                      contentStyle: AppFontsStyles.textstyle16.copyWith(
-                          fontFamily: textFamilyMedium,
-                          color: AppColors.appNeutralColors800),
-                      suffixIcon: Iconsax.calendar_1,
-                      suffixIconOnTap: () {},
                     ),
                     const SizedBox(height: 32),
                     CustomButton(onPressed: () {}, buttonName: "Save")
@@ -88,12 +111,13 @@ class EducationViewBody extends StatelessWidget {
             ),
             const SizedBox(height: 24),
             CustomDataSection(
-              dataImage: AppImages.universityLogo,
-              title: "The University of Arizona",
-              subTitle: "Bachelor of Art and Design",
-              time: "2012 - 2015",
+              dataImage: AppImages.companyLogo,
+              title: "Senior UI/UX Designer",
+              subTitle: "Remote • GrowUp Studio",
+              time: "2019 - 2022",
               onTap: () {},
-            )
+            ),
+            const SizedBox(height: 56),
           ],
         ),
       ),

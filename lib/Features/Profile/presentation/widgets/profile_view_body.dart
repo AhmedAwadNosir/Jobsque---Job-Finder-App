@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:jobsque_jobfinder/Core/Wedgits/custom_seaction_bar.dart';
-import 'package:jobsque_jobfinder/Features/Complete_Profile.dart/views/complete_profile_view.dart';
+import 'package:jobsque_jobfinder/Features/Complete_Profile.dart/presentation/views/complete_profile_view.dart';
 import 'package:jobsque_jobfinder/Features/Profile/presentation/views/edit_profile_view.dart';
 import 'package:jobsque_jobfinder/Features/Profile/presentation/views/help_center_view.dart';
 import 'package:jobsque_jobfinder/Features/Profile/presentation/views/languages_view.dart';

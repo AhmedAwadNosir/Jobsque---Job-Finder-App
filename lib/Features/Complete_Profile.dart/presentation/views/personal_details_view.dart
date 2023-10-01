@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:jobsque_jobfinder/Core/Wedgits/custom_app_barr.dart';
-import 'package:jobsque_jobfinder/Features/Complete_Profile.dart/widgets/personal_details_viewf_body.dart';
+import 'package:jobsque_jobfinder/Features/Complete_Profile.dart/presentation/widgets/personal_details_viewf_body.dart';
 
 class PersonalDetailsView extends StatelessWidget {
   const PersonalDetailsView({super.key});

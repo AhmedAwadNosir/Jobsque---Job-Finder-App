@@ -9,10 +9,10 @@ import 'package:jobsque_jobfinder/Features/Authentication/presentation/Create_Ac
 import 'package:jobsque_jobfinder/Features/Authentication/presentation/Sign_IN/Views/sign_in_view.dart';
 import 'package:jobsque_jobfinder/Features/Authentication/presentation/Create_Account/Views/sucess_account_ilstration.dart';
 import 'package:jobsque_jobfinder/Features/Chat/presentation/views/chat_view.dart';
-import 'package:jobsque_jobfinder/Features/Complete_Profile.dart/views/complete_profile_view.dart';
-import 'package:jobsque_jobfinder/Features/Complete_Profile.dart/views/education_view.dart';
-import 'package:jobsque_jobfinder/Features/Complete_Profile.dart/views/experience_view.dart';
-import 'package:jobsque_jobfinder/Features/Complete_Profile.dart/views/personal_details_view.dart';
+import 'package:jobsque_jobfinder/Features/Complete_Profile.dart/presentation/views/complete_profile_view.dart';
+import 'package:jobsque_jobfinder/Features/Complete_Profile.dart/presentation/views/education_view.dart';
+import 'package:jobsque_jobfinder/Features/Complete_Profile.dart/presentation/views/experience_view.dart';
+import 'package:jobsque_jobfinder/Features/Complete_Profile.dart/presentation/views/personal_details_view.dart';
 import 'package:jobsque_jobfinder/Features/Home/data/repos/home_repo_implmentation.dart';
 import 'package:jobsque_jobfinder/Features/Home/presentation/states_manager/fetch_search_jops/fetch_search_jops_cubit.dart';
 import 'package:jobsque_jobfinder/Features/Home/presentation/views/home_view.dart';

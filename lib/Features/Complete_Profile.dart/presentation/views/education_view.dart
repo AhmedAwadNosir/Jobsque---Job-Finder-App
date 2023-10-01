@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:jobsque_jobfinder/Core/Wedgits/custom_app_barr.dart';
-import 'package:jobsque_jobfinder/Features/Complete_Profile.dart/widgets/education_view_body.dart';
+import 'package:jobsque_jobfinder/Features/Complete_Profile.dart/presentation/widgets/education_view_body.dart';
 
 class EducationView extends StatelessWidget {
   const EducationView({super.key});
