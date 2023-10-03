@@ -5,8 +5,6 @@ sealed class FetchCvFilesState {}
 
 final class FetchCvFilesInitial extends FetchCvFilesState {}
 
-final class FetchCvFilesLoading extends FetchCvFilesState {}
-
 final class FetchCvFilesSuccess extends FetchCvFilesState {
   final List<CvFileModel> cvFiles;
 

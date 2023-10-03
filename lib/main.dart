@@ -9,10 +9,13 @@ import 'package:jobsque_jobfinder/Features/Authentication/presentation/Create_Ac
 import 'package:jobsque_jobfinder/Features/Authentication/presentation/Sign_IN/Views/sign_in_view.dart';
 import 'package:jobsque_jobfinder/Features/Authentication/presentation/Create_Account/Views/sucess_account_ilstration.dart';
 import 'package:jobsque_jobfinder/Features/Chat/presentation/views/chat_view.dart';
+import 'package:jobsque_jobfinder/Features/Complete_Profile.dart/data/repos/complete_profile_repo_impl.dart';
 import 'package:jobsque_jobfinder/Features/Complete_Profile.dart/presentation/views/complete_profile_view.dart';
 import 'package:jobsque_jobfinder/Features/Complete_Profile.dart/presentation/views/education_view.dart';
 import 'package:jobsque_jobfinder/Features/Complete_Profile.dart/presentation/views/experience_view.dart';
 import 'package:jobsque_jobfinder/Features/Complete_Profile.dart/presentation/views/personal_details_view.dart';
+import 'package:jobsque_jobfinder/Features/Complete_Profile.dart/states_manager/edit_profile_data/edit_profile_data_cubit.dart';
+import 'package:jobsque_jobfinder/Features/Complete_Profile.dart/states_manager/fetch_profile_data/fetch_profile_data_cubit.dart';
 import 'package:jobsque_jobfinder/Features/Home/data/repos/home_repo_implmentation.dart';
 import 'package:jobsque_jobfinder/Features/Home/presentation/states_manager/fetch_search_jops/fetch_search_jops_cubit.dart';
 import 'package:jobsque_jobfinder/Features/Home/presentation/views/home_view.dart';
@@ -41,6 +44,7 @@ import 'package:jobsque_jobfinder/Features/Authentication/presentation/forgot%20
 import 'package:jobsque_jobfinder/Features/Authentication/presentation/forgot%20_password/views/forgot_password_view.dart';
 import 'package:jobsque_jobfinder/Features/Authentication/presentation/forgot%20_password/views/password_reset_successfully_view.dart';
 import 'package:jobsque_jobfinder/Features/Authentication/presentation/forgot%20_password/views/reset_password_view.dart';
+import 'package:jobsque_jobfinder/Features/Profile/states_manager/cubit/fetch_cv_files_cubit.dart';
 import 'package:jobsque_jobfinder/firebase_options.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:hive_flutter/hive_flutter.dart';
@@ -73,10 +77,24 @@ class JopFinderApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => FetchSearchJopsCubit(
-        getIt.get<HomeRepoImplmentaion>(),
-      ),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+            create: (context) => FetchSearchJopsCubit(
+                  getIt.get<HomeRepoImplmentaion>(),
+                )),
+        BlocProvider(
+          create: (context) =>
+              FetchProfileDataCubit(getIt.get<CompleteProfileRepoImpl>())
+        ),
+        BlocProvider(
+          create: (context) => FetchCvFilesCubit()
+        ),
+        BlocProvider(
+          create: (context) =>
+              EditProfileDataCubit(getIt.get<CompleteProfileRepoImpl>()),
+        ),
+      ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         theme: ThemeData(

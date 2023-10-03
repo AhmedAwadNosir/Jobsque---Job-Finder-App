@@ -10,8 +10,8 @@ import 'package:jobsque_jobfinder/Features/Home/presentation/widgets/jop_feature
 import 'package:jobsque_jobfinder/Features/Jop_Details/presentation/widgets/custom_steper_widgets/apply_custom_step_label.dart';
 import 'package:jobsque_jobfinder/Features/Jop_Details/presentation/widgets/custom_steper_widgets/custom_step.dart';
 import 'package:jobsque_jobfinder/Features/Jop_Details/presentation/widgets/custom_steper_widgets/custom_step_progress_icon.dart';
+import 'package:jobsque_jobfinder/Features/Jop_Details/presentation/widgets/step2_content_blob_builder.dart';
 import 'package:jobsque_jobfinder/Features/Jop_Details/presentation/widgets/step_1_content.dart';
-import 'package:jobsque_jobfinder/Features/Jop_Details/presentation/widgets/step_2_content.dart';
 import 'package:jobsque_jobfinder/Features/Jop_Details/presentation/widgets/step_3_content.dart';
 
 class AppliedJopUnit extends StatefulWidget {
@@ -151,7 +151,7 @@ class _AppliedJopUnitState extends State<AppliedJopUnit> {
               label: "Type of work",
               isActive: widget.jopModel.currentIndex >= 1,
             ),
-            content: const Step2Content()),
+            content: const Step2ContentBlocBuilder()),
         CustomStep(
             state: widget.jopModel.currentIndex > 2
                 ? CustomStepState.complete

@@ -4,12 +4,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:jobsque_jobfinder/Core/Utils/constans.dart';
-import 'package:jobsque_jobfinder/Core/Utils/sharedpreferancs_util.dart';
+import 'package:jobsque_jobfinder/Core/Utils/custom_error_widget.dart';
+import 'package:jobsque_jobfinder/Features/Complete_Profile.dart/states_manager/fetch_profile_data/fetch_profile_data_cubit.dart';
 import 'package:jobsque_jobfinder/Features/Jop_Details/data/models/apply_jop_model.dart';
 import 'package:jobsque_jobfinder/Features/Jop_Details/presentation/widgets/choose_file_section.dart';
+import 'package:jobsque_jobfinder/Features/Jop_Details/presentation/widgets/complete_data_instraction.dart';
 import 'package:jobsque_jobfinder/Features/Jop_Details/presentation/widgets/custom_steper_widgets/apply_custom_step_label.dart';
+import 'package:jobsque_jobfinder/Features/Jop_Details/presentation/widgets/step2_content_blob_builder.dart';
 import 'package:jobsque_jobfinder/Features/Jop_Details/presentation/widgets/step_1_content.dart';
-import 'package:jobsque_jobfinder/Features/Jop_Details/presentation/widgets/step_2_content.dart';
 import 'package:jobsque_jobfinder/Features/Jop_Details/presentation/widgets/custom_steper_widgets/custom_step.dart';
 import 'package:jobsque_jobfinder/Features/Jop_Details/presentation/widgets/custom_steper_widgets/custom_step_progress_icon.dart';
 import 'package:jobsque_jobfinder/Features/Jop_Details/presentation/widgets/custom_steper_widgets/custom_stepper.dart';
@@ -47,60 +49,83 @@ class _ApplyJopViewBodyState extends State<ApplyJopViewBody> {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 24),
-      child: Column(
-        children: [
-          const SizedBox(
-            height: 34,
-          ),
-          Expanded(
-              child: CustomStepper(
-                  lastStepControl: () async {
-                    var box = Hive.box<CvFileModel>(otherCvsFilebox);
-                    List<CvFileModel> cvfiles = box.values.toList();
+    return BlocBuilder<FetchProfileDataCubit, FetchProfileDataState>(
+      builder: (context, state) {
+        if (state is FetchProfileDataSuccess) {
+          if (state.profileDataModel.mobile == "") {
+            return const CompleteYourDataInstraction(
+              title: "Profile Data Not Completed",
+              subTitle: "Please go to complete your personal data",
+            );
+          } else {
+            return Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 24),
+              child: Column(
+                children: [
+                  const SizedBox(
+                    height: 34,
+                  ),
+                  Expanded(
+                      child: CustomStepper(
+                          lastStepControl: () async {
+                            var box = Hive.box<CvFileModel>(otherCvsFilebox);
+                            List<CvFileModel> cvfiles = box.values.toList();
 
-                    log(userName ?? "");
-                    log(email ?? "");
-                    log(mobile ?? "");
-                    log(cvfiles[0].cvFilePath);
-                    log(ChooseFileSection.choosenFilePath);
-                    log(widget.jopId);
-                    SharedPreferences prefs =
-                        await SharedPreferences.getInstance();
-                    log(prefs.getInt(userId).toString());
-                    BlocProvider.of<ApplyJopCubit>(context).applyJop(
-                        applyModal: ApplyJopModel(
-                            cvFilePath: ChooseFileSection.choosenFilePath,
-                            userName: userName ?? "ahmed",
-                            email: email ?? "ahmedalprens98@gmail.com",
-                            mobile: mobile ?? "01273856912",
-                            workType: "full",
-                            otherFilePath: cvfiles[0].cvFilePath,
-                            jopId: widget.jopId,
-                            userId: prefs.getInt(userId).toString()));
-                  },
-                  currentStep: currentIndex,
-                  customSteps: getsteps(),
-                  onStepTapped: (step) {
-                    setState(() {
-                      currentIndex = step;
-                      if (controler.hasClients) {
-                        controler.jumpToPage(currentIndex);
-                      }
-                    });
-                  },
-                  onStepContinue: () {
-                    setState(() {
-                      currentIndex++;
-                      if (controler.hasClients) {
-                        controler.jumpToPage(currentIndex);
-                      }
-                    });
-                  },
-                  pageController: controler))
-        ],
-      ),
+                            log(userName ?? state.profileDataModel.userName!);
+                            log(email ?? state.profileDataModel.email!);
+                            log(mobile ?? state.profileDataModel.mobile!);
+                            log(cvfiles[0].cvFilePath);
+                            log(ChooseFileSection.choosenFilePath);
+                            log(widget.jopId);
+                            SharedPreferences prefs =
+                                await SharedPreferences.getInstance();
+                            log(prefs.getInt(userId).toString());
+                            BlocProvider.of<ApplyJopCubit>(context).applyJop(
+                                applyModal: ApplyJopModel(
+                                    cvFilePath:
+                                        ChooseFileSection.choosenFilePath,
+                                    userName: userName ??
+                                        state.profileDataModel.userName!,
+                                    email:
+                                        email ?? state.profileDataModel.email!,
+                                    mobile: mobile ??
+                                        state.profileDataModel.mobile!,
+                                    workType: "full",
+                                    otherFilePath: cvfiles[0].cvFilePath,
+                                    jopId: widget.jopId,
+                                    userId: prefs.getInt(userId).toString()));
+                          },
+                          currentStep: currentIndex,
+                          customSteps: getsteps(),
+                          onStepTapped: (step) {
+                            setState(() {
+                              currentIndex = step;
+                              if (controler.hasClients) {
+                                controler.jumpToPage(currentIndex);
+                              }
+                            });
+                          },
+                          onStepContinue: () {
+                            setState(() {
+                              currentIndex++;
+                              if (controler.hasClients) {
+                                controler.jumpToPage(currentIndex);
+                              }
+                            });
+                          },
+                          pageController: controler))
+                ],
+              ),
+            );
+          }
+        } else if (state is FetchProfileDataFailure) {
+          return CustomErrorWidget(errorMessage: state.errorMessage);
+        } else {
+          return const Center(
+            child: CircularProgressIndicator(),
+          );
+        }
+      },
     );
   }
 
@@ -117,17 +142,29 @@ class _ApplyJopViewBodyState extends State<ApplyJopViewBody> {
           content: Step1Content(
             passUserName: (value) {
               setState(() {
-                userName = value;
+                if (value == "") {
+                  userName = null;
+                } else {
+                  userName = value;
+                }
               });
             },
             passemail: (value) {
               setState(() {
-                email = value;
+                if (value == "") {
+                  email = null;
+                } else {
+                  email = value;
+                }
               });
             },
             passmobile: (value) {
               setState(() {
-                mobile = value;
+                if (value == "") {
+                  mobile = null;
+                } else {
+                  mobile = value;
+                }
               });
             },
           ),
@@ -141,7 +178,7 @@ class _ApplyJopViewBodyState extends State<ApplyJopViewBody> {
               label: "Type of work",
               isActive: currentIndex >= 1,
             ),
-            content: const Step2Content()),
+            content: const Step2ContentBlocBuilder()),
         CustomStep(
             state: currentIndex > 2
                 ? CustomStepState.complete

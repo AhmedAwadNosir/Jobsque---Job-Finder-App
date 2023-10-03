@@ -8,16 +8,17 @@ class CustomButton extends StatelessWidget {
   CustomButton({
     super.key,
     required this.onPressed,
-    required this.buttonName,
+     this.buttonName,
     this.islastPage,
     this.buttonColor,
-    this.textButtonColor,
+    this.textButtonColor, this.buttonchild,
   });
   final void Function()? onPressed;
-  final String buttonName;
+  final String? buttonName;
   bool? islastPage = false;
   final Color? buttonColor;
   final Color? textButtonColor;
+  final Widget? buttonchild;
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
@@ -29,8 +30,8 @@ class CustomButton extends StatelessWidget {
         minimumSize: const Size(double.infinity, 48),
         backgroundColor: buttonColor ?? AppColors.appPrimaryColors500,
       ),
-      child: Text(
-        islastPage ?? false ? "Get Started" : buttonName,
+      child:buttonchild?? Text(
+        islastPage ?? false ? "Get Started" : buttonName!,
         style: AppFontsStyles.textstyle16
             .copyWith(color: textButtonColor ?? Colors.white),
       ),

@@ -11,6 +11,5 @@ String getJopCountry(String jopLocation) {
   while (jopLocation[startIndex] != "") {
     startIndex--;
   }
-  print("Start Index = $startIndex,EndIndex = $endindex");
   return jopLocation.substring(startIndex,endindex);
 }

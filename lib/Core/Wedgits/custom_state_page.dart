@@ -13,7 +13,7 @@ class CustomStatepage extends StatelessWidget {
     required this.stateSubtitle,
     this.tilteStyle,
     this.subTitleStyle,
-    this.spacebetweent,
+    this.spacebetweent, this.titleColor,
   });
   final String stateImage;
   final String statetitle;
@@ -21,6 +21,7 @@ class CustomStatepage extends StatelessWidget {
   final TextStyle? tilteStyle;
   final TextStyle? subTitleStyle;
   final double? spacebetweent;
+  final Color? titleColor;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -35,7 +36,7 @@ class CustomStatepage extends StatelessWidget {
           textAlign: TextAlign.center,
           pagegoleStyle: AppFontsStyles.textstyle24.copyWith(
             fontFamily: textFamilyMedium,
-            color: AppColors.appNeutralColors900,
+            color:titleColor?? AppColors.appNeutralColors900,
           ),
           sutptitleStyle: subTitleStyle,
           spacebetween: spacebetweent,

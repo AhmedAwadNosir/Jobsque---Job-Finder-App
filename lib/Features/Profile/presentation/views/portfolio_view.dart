@@ -7,9 +7,21 @@ import 'package:jobsque_jobfinder/Features/Profile/presentation/widgets/portfoli
 import 'package:jobsque_jobfinder/Features/Profile/states_manager/add_cv_file_cubit/add_cv_file_cubit.dart';
 import 'package:jobsque_jobfinder/Features/Profile/states_manager/cubit/fetch_cv_files_cubit.dart';
 
-class PortFolioView extends StatelessWidget {
+class PortFolioView extends StatefulWidget {
   const PortFolioView({super.key});
   static const id = "PortfolioView";
+
+  @override
+  State<PortFolioView> createState() => _PortFolioViewState();
+}
+
+class _PortFolioViewState extends State<PortFolioView> {
+  @override
+  void initState() {
+    BlocProvider.of<FetchCvFilesCubit>(context).fetchCvFiles();
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -19,7 +31,6 @@ class PortFolioView extends StatelessWidget {
       ),
       body: MultiBlocProvider(providers: [
         BlocProvider(create: (context) => AddCvFileCubit()),
-        BlocProvider(create: (context) => FetchCvFilesCubit()..fetchCvFiles()),
         BlocProvider(create: (context) => FetchOtherCvFielsCubit()),
         BlocProvider(create: (context) => AddOtherCvFilesCubit())
       ], child: const PortFolioViewbody()),

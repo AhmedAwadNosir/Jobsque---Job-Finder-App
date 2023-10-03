@@ -10,13 +10,17 @@ class CustomPhoneNumberTextField extends StatefulWidget {
     super.key,
     this.tilteColor,
     this.sympol,
-    this.title, this.onSubmited, this.onChanged,
+    this.title,
+    this.onSubmited,
+    this.onChanged,
+    this.content,
   });
   final Color? tilteColor;
   final String? sympol;
   final String? title;
   final Function(String)? onSubmited;
   final Function(String)? onChanged;
+  final String? content;
   @override
   State<CustomPhoneNumberTextField> createState() =>
       _CustomPhoneNumberTextFieldState();
@@ -25,23 +29,22 @@ class CustomPhoneNumberTextField extends StatefulWidget {
 class _CustomPhoneNumberTextFieldState
     extends State<CustomPhoneNumberTextField> {
   final countryPicker = const FlCountryCodePicker();
-  
+
   CountryCode? egPhoneCode =
       const CountryCode(name: "Egypt", code: "Eg", dialCode: "+20");
   CountryCode? usPhoneCode =
       const CountryCode(name: "United States", code: "US", dialCode: "+1");
-  final TextEditingController textEditingController = TextEditingController(text: "0100-666-7234");
- 
+
   @override
   Widget build(BuildContext context) {
     return CustomTextFieldSection(
-      onSubmited:widget.onSubmited ,
+      onSubmited: widget.onSubmited,
       onChanged: widget.onChanged,
       title: widget.title ?? "No.Handphone",
       sympol: widget.sympol ?? "*",
       titleColor: widget.tilteColor,
       textInputType: TextInputType.number,
-      controller: textEditingController,
+      content: widget.content,
       prefixICon: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
@@ -57,9 +60,7 @@ class _CustomPhoneNumberTextFieldState
                       await countryPicker.showPicker(context: context);
                   setState(() {
                     usPhoneCode = pcode;
-                    showSnackBar(
-                        "${usPhoneCode!.dialCode} ${textEditingController.value.text.trim()}",
-                        context);
+                    showSnackBar("${usPhoneCode!.dialCode} ", context);
                   });
                 } catch (e) {
                   showSnackBar("please choose your country ", context);

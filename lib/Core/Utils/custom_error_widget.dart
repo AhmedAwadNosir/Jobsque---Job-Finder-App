@@ -7,9 +7,14 @@ class CustomErrorWidget extends StatelessWidget {
   final String errorMessage;
   @override
   Widget build(BuildContext context) {
-    return CustomText20Style(
-      title: errorMessage,
-      color: AppColors.appInDangerColors500,
+    return Center(
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 24),
+        child: CustomText20Style(
+          title: errorMessage,
+          color: AppColors.appInDangerColors500,
+        ),
+      ),
     );
   }
 }

@@ -13,8 +13,8 @@ import 'package:jobsque_jobfinder/Features/Jop_Details/presentation/widgets/cust
 import 'package:jobsque_jobfinder/Features/Jop_Details/presentation/widgets/custom_steper_widgets/custom_step.dart';
 import 'package:jobsque_jobfinder/Features/Jop_Details/presentation/widgets/custom_steper_widgets/custom_step_progress_icon.dart';
 import 'package:jobsque_jobfinder/Features/Jop_Details/presentation/widgets/custom_steper_widgets/custom_stepper.dart';
+import 'package:jobsque_jobfinder/Features/Jop_Details/presentation/widgets/step2_content_blob_builder.dart';
 import 'package:jobsque_jobfinder/Features/Jop_Details/presentation/widgets/step_1_content.dart';
-import 'package:jobsque_jobfinder/Features/Jop_Details/presentation/widgets/step_2_content.dart';
 import 'package:jobsque_jobfinder/Features/Jop_Details/presentation/widgets/step_3_content.dart';
 import 'package:jobsque_jobfinder/Features/Jop_Details/states_manager/appLy_jop/apply_jop_cubit.dart';
 import 'package:jobsque_jobfinder/Features/Profile/data/models/cv_file_model.dart';
@@ -147,7 +147,7 @@ class _CompleteAppliedJopsBodyState extends State<CompleteAppliedJopsBody> {
               label: "Type of work",
               isActive: currentIndex >= 1,
             ),
-            content: const Step2Content()),
+            content: const Step2ContentBlocBuilder()),
         CustomStep(
             state: currentIndex > 2
                 ? CustomStepState.complete

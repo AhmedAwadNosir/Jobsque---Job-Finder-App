@@ -32,7 +32,6 @@ class _UploadeFileSectionState extends State<UploadeFileSection> {
         listeners: [
           BlocListener<AddCvFileCubit, AddCvFileState>(
             listener: (context, state) {
-              // TODO: implement listener
               if (state is AddCvFileSuccess) {
                 showSnackBar("file Added Succesfully", context);
                 BlocProvider.of<FetchCvFilesCubit>(context).fetchCvFiles();
@@ -51,7 +50,6 @@ class _UploadeFileSectionState extends State<UploadeFileSection> {
               if (state is AddOtherCvFilesFailure) {
                 showSnackBar(state.errorMessages, context);
               }
-              // TODO: implement listener
             },
           ),
         ],

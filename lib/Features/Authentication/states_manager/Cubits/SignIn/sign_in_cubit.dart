@@ -37,10 +37,20 @@ class SignInCubit extends Cubit<SignInState> {
       prefs.setString(emailAdress, data["user"]["email"]);
       prefs.setInt(userId, data["user"]["id"]);
       prefs.setString(isLogin, "True");
-      log(prefs.getString(loginTokenkey).toString());
-      log(prefs.getString(userName).toString());
-      log(prefs.getString(emailAdress).toString());
-      log(prefs.getInt(userId).toString());
+      await prefs.setString(userBiokey, "");
+      await prefs.setString(userAddresskey, "");
+      await prefs.setString(userMobilekey, "");
+      await prefs.setString(userExperincekey, "");
+      await prefs.setString(userEducationKey, "");
+      log("userToken ${prefs.getString(loginTokenkey)}");
+      log("userName: ${prefs.getString(userName)}");
+      log("email: ${prefs.getString(emailAdress)}");
+      log("userId: ${prefs.getInt(userId)}");
+      log("userBio:${prefs.getString(userBiokey)}");
+      log("userAdress:${prefs.getString(userAddresskey)}");
+      log("userMobile: ${prefs.getString(userMobilekey)}");
+      log("userExperince: ${prefs.getString(userExperincekey)}");
+      log("userEducation: ${prefs.getString(userEducationKey)}");
       log(data.toString());
       emit(SignInSuccess());
     } catch (e) {
