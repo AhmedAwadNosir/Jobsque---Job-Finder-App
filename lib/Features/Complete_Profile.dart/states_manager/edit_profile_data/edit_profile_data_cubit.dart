@@ -14,15 +14,19 @@ class EditProfileDataCubit extends Cubit<EditProfileDataState> {
       : super(EditProfileDataInitial());
   final CompleteProfileRepoImpl completeProfileRepoImpl;
   Future<void> editProfileData(
-      {required ProfileDataModel profileDataModel}) async {
+      {required ProfileDataModel profileDataModel,String? registertokenkey}) async {
     emit(EditProfileDataLoading());
     var reslut = await completeProfileRepoImpl.editProfileData(
-        profileDataModel: profileDataModel);
+        profileDataModel: profileDataModel,
+        registertokenKey: registertokenkey
+        );
     reslut.fold((failure) {
       emit(EditProfileDataFailure(errorMessage: failure.errorMessage));
     }, (data) async {
       SharedPreferences prefs = await SharedPreferences.getInstance();
-      log(data.education ?? "");
+      log(data.interstedWork ?? "");
+      log(data.offlinePlace ?? "");
+      log(data.remotePlace ?? "");
       data.bio != "null" ? await prefs.setString(userBiokey, data.bio!) : null;
       data.address != "null"
           ? await prefs.setString(userAddresskey, data.address!)

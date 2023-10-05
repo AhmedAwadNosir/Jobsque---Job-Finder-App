@@ -5,6 +5,8 @@ import 'package:jobsque_jobfinder/Features/Authentication/presentation/Create_Ac
 
 import 'package:jobsque_jobfinder/Features/Authentication/functions/show_snack_bar.dart';
 import 'package:jobsque_jobfinder/Features/Authentication/states_manager/Cubits/Register/register_cubit.dart';
+import 'package:jobsque_jobfinder/Features/Authentication/states_manager/Cubits/registerApi/register_api_cubit.dart';
+import 'package:jobsque_jobfinder/Features/Complete_Profile.dart/states_manager/edit_profile_data/edit_profile_data_cubit.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 
 // ignore: must_be_immutable
@@ -24,19 +26,19 @@ class WorkLocationViewBodyBlocConsumer extends StatelessWidget {
   String? password;
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<RegisterCubit, RegisterState>(
+    return BlocConsumer<EditProfileDataCubit, EditProfileDataState>(
       listener: (context, state) {
-        if (state is RegisterFailure) {
-          showSnackBar(state.errorMessaage, context);
+        if (state is EditProfileDataFailure) {
+          showSnackBar(state.errorMessage, context);
         }
-        if (state is RegisterSuccess) {
+        if (state is EditProfileDataSuccess) {
           showSnackBar("Registration complete seccessfully", context);
-          Navigator.pushNamed(context, SuccessAcountIlstrationView.id);
+          Navigator.pushReplacementNamed(context, SuccessAcountIlstrationView.id);
         }
       },
       builder: (context, state) {
         return ModalProgressHUD(
-            inAsyncCall: state is RegisterLoading ? true : false,
+            inAsyncCall: state is EditProfileDataLoading ? true : false,
             child: WorkLocatinViewBody(
               userName: userName,
               email: email,

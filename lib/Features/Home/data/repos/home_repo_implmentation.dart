@@ -7,7 +7,6 @@ import 'package:jobsque_jobfinder/Core/helper/api_services.dart';
 import 'package:jobsque_jobfinder/Features/Home/data/models/jop_model.dart';
 import 'package:jobsque_jobfinder/Features/Home/data/repos/home_repo.dart';
 
-
 class HomeRepoImplmentaion implements HomeRepo {
   final ApiServices apiServices;
 
@@ -59,7 +58,7 @@ class HomeRepoImplmentaion implements HomeRepo {
   Future<Either<Failure, List<JopModel>>> fetchSearchJops(
       {required String searchKey}) async {
     try {
-      var data = await apiServices.dPost(
+      var data = await apiServices.post(
         endPoint: "/jobs/search",
         token: await SharedPreferencesUtil.getString(loginTokenkey),
         body: {"name": searchKey},

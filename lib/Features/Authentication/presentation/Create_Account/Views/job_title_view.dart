@@ -4,6 +4,7 @@ import '../Widgets/job_tittle_view_body.dart';
 
 // ignore: must_be_immutable
 class JobTitleView extends StatelessWidget {
+ 
   JobTitleView({
     super.key,
     this.userName,

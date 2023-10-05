@@ -24,9 +24,7 @@ class _JobTitleBoxState extends State<JobTitleBox> {
       onTap: () {
         setState(() {
           isSelected = !isSelected;
-          if (isSelected == true) {
-            JobTitleBox.joptitlepase.add(widget.jobtitle) ;
-          }
+          isSelected==true? JobTitleBox.joptitlepase.add(widget.jobtitle) : JobTitleBox.joptitlepase.remove(widget.jobtitle) ;
         });
       },
       child: Container(

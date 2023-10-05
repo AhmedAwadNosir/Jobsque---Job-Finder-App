@@ -20,6 +20,8 @@ const userAddresskey = "adress";
 const userMobilekey = "mobile";
 const userExperincekey = "Experince";
 const userEducationKey = "userEducation";
+const workFromOffice = "Work From Office";
+const remoteWork = "Remote Work";
 const registerInterNetException =
     "ClientException with SocketException: Failed host lookup: 'project2.amit-learning.com' (OS Error: No address associated with hostname, errno = 7), uri=https://project2.amit-learning.com/api/auth/register";
 const loginInterNetException =

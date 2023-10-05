@@ -1,14 +1,18 @@
 import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:jobsque_jobfinder/Core/Utils/app_colors.dart';
 import 'package:jobsque_jobfinder/Core/Utils/app_fonts_styles.dart';
-import 'package:jobsque_jobfinder/Core/Utils/app_images.dart';
 import 'package:jobsque_jobfinder/Core/Utils/constans.dart';
+import 'package:jobsque_jobfinder/Core/Utils/sharedpreferancs_util.dart';
+import 'package:jobsque_jobfinder/Core/Wedgits/custom_tap_par.dart';
 import 'package:jobsque_jobfinder/Features/Authentication/data/Models/user_data_model.dart';
+import 'package:jobsque_jobfinder/Features/Authentication/functions/show_snack_bar.dart';
+import 'package:jobsque_jobfinder/Features/Authentication/presentation/Create_Account/Widgets/custom_countries_widget.dart';
 import 'package:jobsque_jobfinder/Features/Authentication/presentation/Widgets/page_initail_info.dart';
 import 'package:jobsque_jobfinder/Features/Authentication/states_manager/Cubits/Register/register_cubit.dart';
+import 'package:jobsque_jobfinder/Features/Complete_Profile.dart/data/models/profile_data_model.dart';
+import 'package:jobsque_jobfinder/Features/Complete_Profile.dart/states_manager/edit_profile_data/edit_profile_data_cubit.dart';
 import 'package:jobsque_jobfinder/Features/Onboarding/presentation/Widgets/custom_button.dart';
 import 'job_location_container.dart';
 import 'work_location_toggle_button.dart';
@@ -35,126 +39,138 @@ class WorkLocatinViewBody extends StatefulWidget {
 class _WorkLocatinViewBodyState extends State<WorkLocatinViewBody> {
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 24),
-      child: SingleChildScrollView(
-        child: SizedBox(
-          height: MediaQuery.of(context).size.height * 0.95,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              const SizedBox(
-                height: 20,
-              ),
-              PageInitialinfo(
-                spacebetween: 12,
-                pagegole: "Where are you prefefred Location?",
-                pagegoledefination:
-                    "Let us know, where is the work location you want at this time, so we can adjust it.",
-                pagegoleStyle: AppFontsStyles.textstyle24.copyWith(
-                  fontFamily: textFamilyMedium,
-                  height: 1.4,
-                  color: AppColors.appNeutralColors900,
+    return DefaultTabController(
+      length: 2,
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 24),
+        child: SingleChildScrollView(
+          child: SizedBox(
+            height: MediaQuery.of(context).size.height * 0.95,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const SizedBox(
+                  height: 20,
                 ),
-              ),
-              const SizedBox(
-                height: 32,
-              ),
-              const WorkLocationToggleButton(),
-              const SizedBox(
-                height: 27,
-              ),
-              Text(
-                "Select the country you want for your job",
-                style: AppFontsStyles.textstyle16
-                    .copyWith(color: const Color(0xff737379)),
-              ),
-              const SizedBox(
-                height: 20,
-              ),
-              const Wrap(
-                children: [
-                  JopLocatinContainer(
-                      stateFlag: AppImages.unitedstases,
-                      countryName: "United States"),
-                  JopLocatinContainer(
-                      stateFlag: AppImages.malaysia, countryName: "Malaysia"),
-                  JopLocatinContainer(
-                      stateFlag: AppImages.singafora, countryName: "Singapore"),
-                  JopLocatinContainer(
-                      stateFlag: AppImages.indonesia, countryName: "Indonesia"),
-                  JopLocatinContainer(
-                      stateFlag: AppImages.philiphines,
-                      countryName: "Philipines"),
-                  JopLocatinContainer(
-                      stateFlag: AppImages.polanda, countryName: "Polandia"),
-                  JopLocatinContainer(
-                      stateFlag: AppImages.india, countryName: "india"),
-                  JopLocatinContainer(
-                      stateFlag: AppImages.vietnam, countryName: "Vietnam"),
-                  JopLocatinContainer(
-                      stateFlag: AppImages.china, countryName: "china"),
-                  JopLocatinContainer(
-                      stateFlag: AppImages.canda, countryName: "canda"),
-                  JopLocatinContainer(
-                      stateFlag: AppImages.saudiarabia,
-                      countryName: "Suadi Arabia"),
-                  JopLocatinContainer(
-                      stateFlag: AppImages.argantina, countryName: "Argantina"),
-                  JopLocatinContainer(
-                      stateFlag: AppImages.brazil, countryName: "Brazil"),
-                ],
-              ),
-              const Spacer(),
-              Center(
-                child: CustomButton(
-                    onPressed: () async {
-                      if (widget.registerMethode == emailAndPasswordmethode &&
-                          JopLocatinContainer.workloction.isNotEmpty) {
-                        log(widget.userName!);
-                        log(widget.email!);
-                        log(widget.password!);
-                        BlocProvider.of<RegisterCubit>(context)
-                            .registerWithEmailAndPassword(
-                          userModel: UserModel(
-                              userName: widget.userName!,
-                              userPhoto:
-                                  "lib/Core/Utils/assets/images/profile-pic.png",
-                              email: widget.email!,
-                              wantedJop: widget.jopTitle!,
-                              workLocation: JopLocatinContainer.workloction,
-                              workNature: WorkLocationToggleButton.worknature),
-                          password: widget.password!,
-                        );
-                      } else if (widget.registerMethode == googleMethode) {
-                        BlocProvider.of<RegisterCubit>(context)
-                            .signUpWithGoogle(
-                          userModel: UserModel(
-                              email: widget.email,
-                              wantedJop: widget.jopTitle!,
-                              workLocation: JopLocatinContainer.workloction,
-                              workNature: WorkLocationToggleButton.worknature),
-                        );
-                      } else if (widget.registerMethode == facebookMethode) {
-                        BlocProvider.of<RegisterCubit>(context)
-                            .signUpWithFacebook(
-                          userModel: UserModel(
-                              email: widget.email,
-                              wantedJop: widget.jopTitle!,
-                              workLocation: JopLocatinContainer.workloction,
-                              workNature: WorkLocationToggleButton.worknature),
-                        );
-                      }
-                    },
-                    buttonName: "Next"),
-              ),
-              const SizedBox(
-                height: 9,
-              ),
-            ],
+                PageInitialinfo(
+                  spacebetween: 12,
+                  pagegole: "Where are you prefefred Location?",
+                  pagegoledefination:
+                      "Let us know, where is the work location you want at this time, so we can adjust it.",
+                  pagegoleStyle: AppFontsStyles.textstyle24.copyWith(
+                    fontFamily: textFamilyMedium,
+                    height: 1.4,
+                    color: AppColors.appNeutralColors900,
+                  ),
+                ),
+                const SizedBox(
+                  height: 32,
+                ),
+                const CustomTapPar(tabs: [
+                  Text("Work From Office", style: AppFontsStyles.textstyle14),
+                  Text(
+                    "Remote Work",
+                    style: AppFontsStyles.textstyle14,
+                  )
+                ]),
+                const SizedBox(
+                  height: 27,
+                ),
+                Text(
+                  "Select the country you want for your job",
+                  style: AppFontsStyles.textstyle16
+                      .copyWith(color: const Color(0xff737379)),
+                ),
+                const SizedBox(
+                  height: 20,
+                ),
+                SizedBox(
+                    height: MediaQuery.of(context).size.height * 0.4,
+                    child: const TabBarView(
+                      children: [
+                        CustomCountriesWidget(workLocationtype: workFromOffice),
+                        CustomCountriesWidget(workLocationtype: remoteWork)
+                      ],
+                    )),
+                const Spacer(),
+                Center(
+                  child: CustomButton(
+                      onPressed: () async {
+                        if (JopLocatinContainer.remoteWork.isNotEmpty &&
+                            JopLocatinContainer.workFromOffice.isNotEmpty) {
+                          if (widget.registerMethode ==
+                                  emailAndPasswordmethode ) {
+                            log(widget.userName!);
+                            log(widget.email!);
+                            log(widget.password!);
+                            BlocProvider.of<RegisterCubit>(context)
+                                .registerWithEmailAndPassword(
+                              userModel: UserModel(
+                                  userName: widget.userName!,
+                                  userPhoto:
+                                      "lib/Core/Utils/assets/images/profile-pic.png",
+                                  email: widget.email!,
+                                  wantedJop: widget.jopTitle!,
+                                  workLocation:
+                                      JopLocatinContainer.workFromOffice,
+                                  workNature:
+                                      WorkLocationToggleButton.worknature),
+                              password: widget.password!,
+                            );
+                          } else if (widget.registerMethode == googleMethode) {
+                            BlocProvider.of<RegisterCubit>(context)
+                                .signUpWithGoogle(
+                              userModel: UserModel(
+                                  email: widget.email,
+                                  wantedJop: widget.jopTitle!,
+                                  workLocation:
+                                      JopLocatinContainer.workFromOffice,
+                                  workNature:
+                                      WorkLocationToggleButton.worknature),
+                            );
+                          } else if (widget.registerMethode ==
+                              facebookMethode) {
+                            BlocProvider.of<RegisterCubit>(context)
+                                .signUpWithFacebook(
+                              userModel: UserModel(
+                                  email: widget.email,
+                                  wantedJop: widget.jopTitle!,
+                                  workLocation:
+                                      JopLocatinContainer.workFromOffice,
+                                  workNature:
+                                      WorkLocationToggleButton.worknature),
+                            );
+                          } else {
+                            BlocProvider.of<EditProfileDataCubit>(context)
+                                .editProfileData(
+                                    registertokenkey:
+                                        await SharedPreferencesUtil.getString(
+                                            registerTokenkey),
+                                    profileDataModel: ProfileDataModel(
+                                      interstedWork: widget.jopTitle?[0],
+                                      offlinePlace:
+                                          JopLocatinContainer.workFromOffice[0],
+                                      remotePlace:
+                                          JopLocatinContainer.remoteWork[0],
+                                    ));
+                          }
+                        } else {
+                          showSnackBar(
+                              "please choose your offline Place and your remote Place ",
+                              context);
+                        }
+                      },
+                      buttonName: "Next"),
+                ),
+                const SizedBox(
+                  height: 9,
+                ),
+              ],
+            ),
           ),
         ),
       ),
     );
   }
 }
+

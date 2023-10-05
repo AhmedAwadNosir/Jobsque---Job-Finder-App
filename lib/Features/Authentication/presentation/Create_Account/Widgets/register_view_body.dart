@@ -5,6 +5,7 @@ import 'package:jobsque_jobfinder/Core/Utils/app_colors.dart';
 import 'package:jobsque_jobfinder/Core/Utils/app_fonts_styles.dart';
 import 'package:jobsque_jobfinder/Core/Utils/constans.dart';
 import 'package:jobsque_jobfinder/Features/Authentication/presentation/Create_Account/Views/job_title_view.dart';
+import 'package:jobsque_jobfinder/Features/Authentication/presentation/Sign_IN/Views/sign_in_view.dart';
 import 'package:jobsque_jobfinder/Features/Authentication/presentation/Widgets/custom_authentication_options.dart';
 import 'package:jobsque_jobfinder/Features/Authentication/presentation/Widgets/page_initail_info.dart';
 import 'package:jobsque_jobfinder/Features/Authentication/presentation/Widgets/user_auth_options.dart';
@@ -140,7 +141,7 @@ class _RegisterViewBodyState extends State<RegisterViewBody> {
               UserInstractions(
                 userDestenation: "Login",
                 onTap: () {
-                  Navigator.pop(context);
+                  Navigator.pushReplacementNamed(context, SignInView.id);
                 },
                 userQution: "Already have an account?",
               ),
@@ -195,7 +196,7 @@ class _RegisterViewBodyState extends State<RegisterViewBody> {
               ),
               CustomAuthinticationOptions(site1OnTap: () {
                 if (emialData.isNotEmpty) {
-                  Navigator.push(
+                  Navigator.pushReplacement(
                     context,
                     MaterialPageRoute(
                       builder: (context) => JobTitleView(
@@ -209,7 +210,7 @@ class _RegisterViewBodyState extends State<RegisterViewBody> {
                 }
               }, site2OnTap: () {
                 if (emialData.isNotEmpty) {
-                  Navigator.push(
+                  Navigator.pushReplacement(
                     context,
                     MaterialPageRoute(
                       builder: (context) => JobTitleView(

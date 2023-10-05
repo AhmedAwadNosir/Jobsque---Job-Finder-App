@@ -29,7 +29,7 @@ class SuccessAccountIlsrationViewBody extends StatelessWidget {
           const Spacer(),
           CustomButton(
               onPressed: () {
-                Navigator.pushNamed(context, SignInView.id);
+                Navigator.pushReplacementNamed(context, SignInView.id);
               },
               buttonName: "Get Started"),
           const SizedBox(

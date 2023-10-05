@@ -1,16 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:jobsque_jobfinder/Core/Utils/app_colors.dart';
 import 'package:jobsque_jobfinder/Core/Utils/app_fonts_styles.dart';
+import 'package:jobsque_jobfinder/Core/Utils/constans.dart';
 
 class JopLocatinContainer extends StatefulWidget {
   const JopLocatinContainer({
     super.key,
     required this.stateFlag,
     required this.countryName,
+    required this.locationTypeWork,
   });
   final String stateFlag;
   final String countryName;
-  static List<String> workloction = [];
+  final String locationTypeWork;
+  static List<String> workFromOffice = [];
+  static List<String> remoteWork = [];
   @override
   State<JopLocatinContainer> createState() => _JopLocatinContainerState();
 }
@@ -27,7 +31,17 @@ class _JopLocatinContainerState extends State<JopLocatinContainer> {
           setState(() {
             isSelected = !isSelected;
             if (isSelected == true) {
-              JopLocatinContainer.workloction.add(widget.countryName);
+              if (widget.locationTypeWork == workFromOffice) {
+                JopLocatinContainer.workFromOffice.add(widget.countryName);
+              } else {
+                JopLocatinContainer.remoteWork.add(widget.countryName);
+              }
+            }else{
+               if (widget.locationTypeWork == workFromOffice) {
+                JopLocatinContainer.workFromOffice.remove(widget.countryName);
+              } else {
+                JopLocatinContainer.remoteWork.remove(widget.countryName);
+              }
             }
           });
         },

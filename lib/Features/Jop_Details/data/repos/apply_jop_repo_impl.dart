@@ -31,7 +31,7 @@ class ApplyJopRepoImpl implements AppLyJopRepo {
       });
       var tokenkey = await SharedPreferencesUtil.getString(loginTokenkey);
       log(tokenkey.toString());
-      var response = await apiServices.dPost(
+      var response = await apiServices.post(
           endPoint: "/apply",
           body: formData,
           token: await SharedPreferencesUtil.getString(loginTokenkey));

@@ -2,9 +2,11 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:jobsque_jobfinder/Core/Utils/app_routs.dart';
 import 'package:jobsque_jobfinder/Core/Utils/constans.dart';
 import 'package:jobsque_jobfinder/Core/Utils/service_locator.dart';
 import 'package:jobsque_jobfinder/Features/AplliedJop/presentation/views/applied_jop_view.dart';
+import 'package:jobsque_jobfinder/Features/Authentication/presentation/Create_Account/Views/job_title_view.dart';
 import 'package:jobsque_jobfinder/Features/Authentication/presentation/Create_Account/Views/register_view.dart';
 import 'package:jobsque_jobfinder/Features/Authentication/presentation/Sign_IN/Views/sign_in_view.dart';
 import 'package:jobsque_jobfinder/Features/Authentication/presentation/Create_Account/Views/sucess_account_ilstration.dart';
@@ -100,48 +102,7 @@ class JopFinderApp extends StatelessWidget {
         theme: ThemeData(
           scaffoldBackgroundColor: Colors.white,
         ),
-        routes: {
-          SplashView.id: (context) => const SplashView(),
-          OnboardingView.id: (context) => const OnboardingView(),
-          SignInView.id: (context) => const SignInView(),
-          RegisterView.id: (context) => const RegisterView(),
-          SuccessAcountIlstrationView.id: (context) =>
-              const SuccessAcountIlstrationView(),
-          ForgotPasswordView.id: (context) => const ForgotPasswordView(),
-          CheckEmialView.id: (context) => const CheckEmialView(),
-          ResetPasswordView.id: (context) => const ResetPasswordView(),
-          PasswordResetSuccessfullyView.id: (context) =>
-              const PasswordResetSuccessfullyView(),
-          HomeView.id: (context) => const HomeView(),
-          SearchView.id: (context) => const SearchView(),
-          JopAppliedSuccesfuly.id: (context) => const JopAppliedSuccesfuly(),
-          NoteficationView.id: (context) => NoteficationView(),
-          ChatView.id: (context) => const ChatView(),
-          EditProfileView.id: (context) => const EditProfileView(),
-          PortFolioView.id: (context) => const PortFolioView(),
-          LanguagesView.id: (context) => const LanguagesView(),
-          NoteficationSetingView.id: (context) =>
-              const NoteficationSetingView(),
-          LoginAndSecurityView.id: (context) => const LoginAndSecurityView(),
-          EmailAdressView.id: (context) => const EmailAdressView(),
-          PhoneNumberView.id: (context) => const PhoneNumberView(),
-          ChangePasswordView.id: (context) => const ChangePasswordView(),
-          TwoStepVerificationView.id: (context) =>
-              const TwoStepVerificationView(),
-          TwoStepVerificationMethodeView.id: (context) =>
-              const TwoStepVerificationMethodeView(),
-          TwoStepVerificationSendCodeView.id: (context) =>
-              const TwoStepVerificationSendCodeView(),
-          VerifyCodeView.id: (context) => const VerifyCodeView(),
-          HelpCenterView.id: (context) => const HelpCenterView(),
-          TermsConditionsView.id: (context) => const TermsConditionsView(),
-          PrivacyPolicyView.id: (context) => const PrivacyPolicyView(),
-          AppliedJopView.id: (context) => const AppliedJopView(),
-          CompleteProfileView.id: (context) => const CompleteProfileView(),
-          PersonalDetailsView.id: (context) => const PersonalDetailsView(),
-          EducationView.id: (context) => const EducationView(),
-          ExperienceView.id: (context) => const ExperienceView(),
-        },
+        routes:AppRoutes.routes,
         initialRoute: SplashView.id,
       ),
     );

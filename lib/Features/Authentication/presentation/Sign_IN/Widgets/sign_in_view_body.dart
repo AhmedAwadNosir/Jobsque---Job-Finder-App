@@ -24,8 +24,8 @@ class _SignInViewBodyState extends State<SignInViewBody> {
   AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
   late String email;
   late String password;
-  String? emailData = '';
-  String? passwordData = '';
+  String emailData = '';
+  String passwordData = '';
 
   @override
   Widget build(BuildContext context) {
@@ -53,7 +53,7 @@ class _SignInViewBodyState extends State<SignInViewBody> {
                   autovalidateMode: autovalidateMode,
                   onChanged: (value) {
                     setState(() {
-                      emailData = value;
+                      emailData = value!;
                     });
                   },
                   onSaved: (value) {
@@ -79,7 +79,7 @@ class _SignInViewBodyState extends State<SignInViewBody> {
                   autovalidateMode: autovalidateMode,
                   onChanged: (value) {
                     setState(() {
-                      passwordData = value;
+                      passwordData = value!;
                     });
                   },
                   onSaved: (value) {
@@ -104,7 +104,7 @@ class _SignInViewBodyState extends State<SignInViewBody> {
                 UserInstractions(
                   userDestenation: "Register",
                   onTap: () {
-                    Navigator.pushNamed(context, RegisterView.id);
+                    Navigator.pushReplacementNamed(context, RegisterView.id);
                   },
                   userQution: "Dont’t have an account?",
                 ),
@@ -116,7 +116,7 @@ class _SignInViewBodyState extends State<SignInViewBody> {
                     if (formkey.currentState!.validate()) {
                       formkey.currentState!.save();
                       await BlocProvider.of<SignInCubit>(context)
-                          .signInApi(email: email, password: password);
+                          .signInApi(email: emailData, password: passwordData);
                       //  await BlocProvider.of<SignInCubit>(context)
                       //       .singInWithEmailAndPassword(
                       //           username: userName, password: password);
@@ -127,12 +127,11 @@ class _SignInViewBodyState extends State<SignInViewBody> {
                     }
                   },
                   buttonName: "Login",
-                  buttonColor:
-                      (emailData!.isNotEmpty && passwordData!.isNotEmpty)
-                          ? AppColors.appPrimaryColors500
-                          : AppColors.appNeutralColors300,
+                  buttonColor: (emailData.isNotEmpty && passwordData.isNotEmpty)
+                      ? AppColors.appPrimaryColors500
+                      : AppColors.appNeutralColors300,
                   textButtonColor:
-                      (emailData!.isNotEmpty && passwordData!.isNotEmpty)
+                      (emailData.isNotEmpty && passwordData.isNotEmpty)
                           ? Colors.white
                           : AppColors.appNeutralColors500,
                 ),

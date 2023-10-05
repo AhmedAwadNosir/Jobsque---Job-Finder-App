@@ -13,13 +13,13 @@ class CompleteProfileRepoImpl implements CompleteProfileRepo {
   CompleteProfileRepoImpl({required this.apiServices});
   @override
   Future<Either<Failure, ProfileDataModel>> editProfileData(
-      {required ProfileDataModel profileDataModel}) async {
+      {required ProfileDataModel profileDataModel,String? registertokenKey}) async {
     try {
       String tokenKey = await SharedPreferencesUtil.getString(loginTokenkey);
       var response = await apiServices.put(
           endPoint:
               "/user/profile/edit?bio=${profileDataModel.bio}&address=${profileDataModel.address}&mobile=${profileDataModel.mobile}&language=${profileDataModel.language}&interested_work=${profileDataModel.interstedWork}&offline_place=${profileDataModel.offlinePlace}&remote_place=${profileDataModel.remotePlace}&experience=${profileDataModel.exceprience}&personal_detailed=${profileDataModel.personalDetail}&education=${profileDataModel.education}",
-          token: tokenKey);
+          token:registertokenKey?? tokenKey);
       return right(ProfileDataModel.fromJson(response["data"]));
     } catch (e) {
       if (e is DioException) {

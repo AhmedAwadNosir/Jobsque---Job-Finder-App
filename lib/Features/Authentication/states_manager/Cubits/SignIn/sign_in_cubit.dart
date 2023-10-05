@@ -4,6 +4,7 @@ import 'package:bloc/bloc.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:jobsque_jobfinder/Core/Utils/constans.dart';
 import 'package:jobsque_jobfinder/Core/helper/api_services.dart';
+import 'package:jobsque_jobfinder/Features/Authentication/data/Models/repos/auth_repo.dart';
 import 'package:jobsque_jobfinder/Features/Authentication/functions/fetch_user_data.dart';
 import 'package:jobsque_jobfinder/Features/Authentication/functions/get_email.dart';
 import 'package:jobsque_jobfinder/Features/Authentication/functions/sign_in_with_facebook.dart';
@@ -15,51 +16,19 @@ import 'package:shared_preferences/shared_preferences.dart';
 part 'sign_in_state.dart';
 
 class SignInCubit extends Cubit<SignInState> {
-  SignInCubit() : super(SignInInitial());
-
-  Future signInApi({
+  SignInCubit(this.authRepo) : super(SignInInitial());
+  final AuthRepo authRepo;
+  Future <void>signInApi({
     required String email,
     required String password,
   }) async {
     emit(SignInLoading());
-    try {
-      // ignore: missing_required_param
-      Map<String, dynamic> data = await ApiServices().post(
-        url: "$baseUrl/auth/login",
-        body: {
-          "email": email,
-          "password": password,
-        },
-      );
-      SharedPreferences prefs = await SharedPreferences.getInstance();
-      prefs.setString(loginTokenkey, data["token"]);
-      prefs.setString(userName, data["user"]["name"]);
-      prefs.setString(emailAdress, data["user"]["email"]);
-      prefs.setInt(userId, data["user"]["id"]);
-      prefs.setString(isLogin, "True");
-      await prefs.setString(userBiokey, "");
-      await prefs.setString(userAddresskey, "");
-      await prefs.setString(userMobilekey, "");
-      await prefs.setString(userExperincekey, "");
-      await prefs.setString(userEducationKey, "");
-      log("userToken ${prefs.getString(loginTokenkey)}");
-      log("userName: ${prefs.getString(userName)}");
-      log("email: ${prefs.getString(emailAdress)}");
-      log("userId: ${prefs.getInt(userId)}");
-      log("userBio:${prefs.getString(userBiokey)}");
-      log("userAdress:${prefs.getString(userAddresskey)}");
-      log("userMobile: ${prefs.getString(userMobilekey)}");
-      log("userExperince: ${prefs.getString(userExperincekey)}");
-      log("userEducation: ${prefs.getString(userEducationKey)}");
-      log(data.toString());
-      emit(SignInSuccess());
-    } catch (e) {
-      if (e.toString() == loginInterNetException) {
-        emit(SignInFailure("Please Chek Internet Conection You Are Offline"));
-      } else {
-        emit(SignInFailure(e.toString()));
-      }
-    }
+    var result = await authRepo.signIn(email: email, password: password);
+    result.fold((failure) {
+      emit(SignInFailure(failure.errorMessage));
+    }, (data) {
+      emit(SignInSuccess(data: data));
+    });
   }
 
   Future singInWithEmailAndPassword(
