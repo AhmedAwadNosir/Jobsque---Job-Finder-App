@@ -6,6 +6,7 @@ import 'package:jobsque_jobfinder/Core/Utils/my_flutter_app_icons.dart';
 import 'package:jobsque_jobfinder/Core/Wedgits/jop_data_unite.dart';
 import 'package:jobsque_jobfinder/Features/AplliedJop/data/models/applied_jop_model.dart';
 import 'package:jobsque_jobfinder/Features/AplliedJop/presentation/widgets/custom_steper_ui.dart';
+import 'package:jobsque_jobfinder/Features/Home/data/models/jop_model.dart';
 import 'package:jobsque_jobfinder/Features/Home/presentation/widgets/jop_features.dart';
 import 'package:jobsque_jobfinder/Features/Jop_Details/presentation/widgets/custom_steper_widgets/apply_custom_step_label.dart';
 import 'package:jobsque_jobfinder/Features/Jop_Details/presentation/widgets/custom_steper_widgets/custom_step.dart';
@@ -14,10 +15,16 @@ import 'package:jobsque_jobfinder/Features/Jop_Details/presentation/widgets/step
 import 'package:jobsque_jobfinder/Features/Jop_Details/presentation/widgets/step_1_content.dart';
 import 'package:jobsque_jobfinder/Features/Jop_Details/presentation/widgets/step_3_content.dart';
 
+// ignore: must_be_immutable
 class AppliedJopUnit extends StatefulWidget {
-  const AppliedJopUnit({super.key, required this.jopModel});
-  final AppliedJopModel jopModel;
-
+  AppliedJopUnit(
+      {super.key,
+      required this.jopModel,
+      required this.isArcieved,
+      required this.currentindex});
+  final JopModel jopModel;
+  bool isArcieved;
+  int currentindex;
   @override
   State<AppliedJopUnit> createState() => _AppliedJopUnitState();
 }
@@ -25,7 +32,7 @@ class AppliedJopUnit extends StatefulWidget {
 class _AppliedJopUnitState extends State<AppliedJopUnit> {
   get currentIndex => null;
   late PageController controller;
-   late String userName;
+  late String userName;
   late String email;
   late String mobile;
   @override
@@ -42,22 +49,26 @@ class _AppliedJopUnitState extends State<AppliedJopUnit> {
 
   @override
   Widget build(BuildContext context) {
+    int joplength = widget.jopModel.jopLocation.length - 1;
+    int joplength1 = widget.jopModel.jopLocation.length;
+    String jopLocation = widget.jopModel.jopLocation;
     return Column(
       children: [
         JopDataUnite(
-          companyImage: widget.jopModel.comunicationToolIcon,
-          jopTitle: widget.jopModel.jopTitle,
-          optionICon: widget.jopModel.isArchived == true
+          companyImage: widget.jopModel.jopImage,
+          jopTitle: widget.jopModel.jopName,
+          optionICon: widget.isArcieved == true
               ? CustomFlutterIcons.archiveMinus
               : Iconsax.archive_minus,
-          iconSize: widget.jopModel.isArchived == true ? 28 : 24,
-          jopComunicationName: widget.jopModel.comunicationtoolname,
-          iconColor: widget.jopModel.isArchived == true
+          iconSize: widget.isArcieved == true ? 28 : 24,
+          jopComunicationName:
+              "${widget.jopModel.companyName} • ${widget.jopModel.jopLocation.substring(joplength - 5, jopLocation[joplength] == "." ? joplength : joplength1)}",
+          iconColor: widget.isArcieved == true
               ? AppColors.appPrimaryColors500
               : AppColors.appNeutralColors900,
           onTap: () {
             setState(() {
-              widget.jopModel.isArchived = !widget.jopModel.isArchived;
+              widget.isArcieved = !widget.isArcieved;
             });
           },
         ),
@@ -70,12 +81,12 @@ class _AppliedJopUnitState extends State<AppliedJopUnit> {
             SizedBox(
               width: MediaQuery.of(context).size.width * 0.6,
               child: JopFeatures(
-                workType: widget.jopModel.workType,
-                workNature: widget.jopModel.workNature,
+                workType: widget.jopModel.jopTimeType,
+                workNature: widget.jopModel.jopType,
               ),
             ),
             Text(
-              widget.jopModel.postTime,
+              "Posted 2 days ago",
               style: AppFontsStyles.textstyle12
                   .copyWith(color: AppColors.appNeutralColors700),
             )
@@ -88,21 +99,21 @@ class _AppliedJopUnitState extends State<AppliedJopUnit> {
               border: Border.all(color: AppColors.appNeutralColors300),
               borderRadius: BorderRadius.circular(8)),
           child: CustomStepperUi(
-              currentStep: widget.jopModel.currentIndex,
+              currentStep: widget.currentindex,
               customSteps: getsteps(),
               onStepTapped: (step) {
                 setState(() {
-                  widget.jopModel.currentIndex = step;
+                  widget.currentindex = step;
                   if (controller.hasClients) {
-                    controller.jumpToPage(currentIndex);
+                    controller.jumpToPage(widget.currentindex);
                   }
                 });
               },
               onStepContinue: () {
                 setState(() {
-                  widget.jopModel.currentIndex++;
+                  widget.currentindex++;
                   if (controller.hasClients) {
-                    controller.jumpToPage(currentIndex);
+                    controller.jumpToPage(widget.currentindex);
                   }
                 });
               },
@@ -118,14 +129,14 @@ class _AppliedJopUnitState extends State<AppliedJopUnit> {
         CustomStep(
           label: ApplyCustomStepsLabel(
             label: "Biodata",
-            isActive: widget.jopModel.currentIndex >= 0,
+            isActive: widget.currentindex >= 0,
           ),
-          isActive: widget.jopModel.currentIndex >= 0,
-          state: widget.jopModel.currentIndex > 0
+          isActive: widget.currentindex >= 0,
+          state: widget.currentindex > 0
               ? CustomStepState.complete
               : CustomStepState.indexed,
-          content:  Step1Content(
-             passUserName: (value) {
+          content: Step1Content(
+            passUserName: (value) {
               setState(() {
                 userName = value;
               });
@@ -143,23 +154,23 @@ class _AppliedJopUnitState extends State<AppliedJopUnit> {
           ),
         ),
         CustomStep(
-            state: widget.jopModel.currentIndex > 1
+            state: widget.currentindex > 1
                 ? CustomStepState.complete
                 : CustomStepState.indexed,
-            isActive: widget.jopModel.currentIndex >= 1,
+            isActive: widget.currentindex >= 1,
             label: ApplyCustomStepsLabel(
               label: "Type of work",
-              isActive: widget.jopModel.currentIndex >= 1,
+              isActive: widget.currentindex >= 1,
             ),
             content: const Step2ContentBlocBuilder()),
         CustomStep(
-            state: widget.jopModel.currentIndex > 2
+            state: widget.currentindex > 2
                 ? CustomStepState.complete
                 : CustomStepState.indexed,
-            isActive: widget.jopModel.currentIndex >= 2,
+            isActive: widget.currentindex >= 2,
             label: ApplyCustomStepsLabel(
               label: "Uplode portfolio",
-              isActive: widget.jopModel.currentIndex == 2,
+              isActive: widget.currentindex == 2,
             ),
             content: const Step3Content()),
       ];

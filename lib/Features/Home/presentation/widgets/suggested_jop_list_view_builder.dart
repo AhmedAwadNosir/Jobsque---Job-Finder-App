@@ -5,6 +5,7 @@ import 'package:jobsque_jobfinder/Core/Utils/custom_error_widget.dart';
 import 'package:jobsque_jobfinder/Features/Home/data/models/jop_model.dart';
 import 'package:jobsque_jobfinder/Features/Home/presentation/states_manager/fetch_suggested_jops/fetch_suggested_jops_cubit.dart';
 import 'package:jobsque_jobfinder/Features/Home/presentation/widgets/suggested_Jop_unite.dart';
+import 'package:jobsque_jobfinder/Features/Jop_Details/presentation/views/apply_jop_view.dart';
 import 'package:jobsque_jobfinder/Features/Jop_Details/presentation/views/jop_details_view.dart';
 
 // ignore: must_be_immutable
@@ -68,7 +69,15 @@ class SuggestedJopListViewBuilder extends StatelessWidget {
                     },
                     child: SuggestedJopUnit(
                       jopModel: state.jops[index],
-                      onPressed: () {},
+                      onPressed: () {
+                        var currentJop = state.jops[index];
+                        Navigator.push(context, MaterialPageRoute(
+                          builder: (context) {
+                            return ApplyJopView(
+                                jopid: currentJop.jopId.toString());
+                          },
+                        ));
+                      },
                     ),
                   ),
                 );

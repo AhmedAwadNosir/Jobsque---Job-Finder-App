@@ -8,12 +8,24 @@ import 'package:jobsque_jobfinder/Features/Jop_Details/states_manager/fetch_othe
 import 'package:jobsque_jobfinder/Features/Profile/states_manager/add_cv_file_cubit/add_cv_file_cubit.dart';
 import 'package:jobsque_jobfinder/Features/Profile/states_manager/cubit/fetch_cv_files_cubit.dart';
 
-class CompleteAppliedJops extends StatelessWidget {
+class CompleteAppliedJops extends StatefulWidget {
   const CompleteAppliedJops({
     super.key,
     required this.jopdata,
   });
   final AppliedJopModel jopdata;
+
+  @override
+  State<CompleteAppliedJops> createState() => _CompleteAppliedJopsState();
+}
+
+class _CompleteAppliedJopsState extends State<CompleteAppliedJops> {
+  @override
+  void initState() {
+    BlocProvider.of<FetchCvFilesCubit>(context).fetchCvFiles();
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -26,15 +38,12 @@ class CompleteAppliedJops extends StatelessWidget {
             create: (context) => AddOtherCvFilesCubit(),
           ),
           BlocProvider(
-            create: (context) => FetchCvFilesCubit()..fetchCvFiles(),
-          ),
-          BlocProvider(
             create: (context) => FetchOtherCvFielsCubit()..fetchOtherCvFiles(),
           ),
           BlocProvider(create: (context) => AddCvFileCubit()),
         ],
         child: CompleteAppliedJopsBody(
-          jopData: jopdata,
+          jopData: widget.jopdata,
         ),
       ),
     );
