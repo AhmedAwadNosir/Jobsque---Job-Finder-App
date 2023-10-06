@@ -25,12 +25,14 @@ class UserProfileStakeStyle extends StatelessWidget {
                   children: [
                     const SizedBox(height: 16),
                     CustomBar(
+                      onTap:   (){},
                       centerPart: "Profile",
                       rightPart: SizedBox(
                         child: IconButton(
                             constraints:
                                 BoxConstraints.tight(const Size(37, 39)),
-                            onPressed: () {},
+                            onPressed: () {
+                            },
                             icon: const Icon(
                               Iconsax.logout_1,
                               color: AppColors.appInDangerColors500,

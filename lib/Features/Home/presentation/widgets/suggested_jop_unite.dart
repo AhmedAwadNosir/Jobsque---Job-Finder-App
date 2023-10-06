@@ -1,6 +1,7 @@
 // ignore_for_file: file_names
 
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:jobsque_jobfinder/Core/Utils/app_colors.dart';
 import 'package:jobsque_jobfinder/Core/Utils/app_fonts_styles.dart';
@@ -10,6 +11,9 @@ import 'package:jobsque_jobfinder/Core/Wedgits/jop_data_unite.dart';
 import 'package:jobsque_jobfinder/Features/Home/data/models/jop_model.dart';
 import 'package:jobsque_jobfinder/Features/Home/functions/get_expirence_level.dart';
 import 'package:jobsque_jobfinder/Features/Home/presentation/widgets/jop_features.dart';
+import 'package:jobsque_jobfinder/Features/Saved_Jop/data/models/saved_jop_model.dart';
+import 'package:jobsque_jobfinder/Features/Saved_Jop/presentation/states_manager/fetch_saved_jop/fetch_saved_jop_cubit.dart';
+import 'package:jobsque_jobfinder/Features/Saved_Jop/presentation/states_manager/saved_jop_cubit/save_jop_cubit.dart';
 
 class SuggestedJopUnit extends StatefulWidget {
   const SuggestedJopUnit({
@@ -26,7 +30,7 @@ class SuggestedJopUnit extends StatefulWidget {
 
 class _SuggestedJopUnitState extends State<SuggestedJopUnit> {
   bool isArchived = false;
-
+  int counter = 0;
   @override
   Widget build(BuildContext context) {
     int joplength = widget.jopModel.jopLocation.length - 1;
@@ -46,7 +50,7 @@ class _SuggestedJopUnitState extends State<SuggestedJopUnit> {
         child: Column(
           children: [
             JopDataUnite(
-              jopTitleWidth: MediaQuery.of(context).size.width * 0.47,
+              jopTitleWidth: MediaQuery.of(context).size.width * 0.46,
               companyImage: widget.jopModel.jopImage,
               jopTitle: widget.jopModel.jopName,
               optionICon: isArchived == true
@@ -68,7 +72,26 @@ class _SuggestedJopUnitState extends State<SuggestedJopUnit> {
                       : Colors.white),
               onTap: () {
                 setState(() {
-                  isArchived = !isArchived;
+                  if (isArchived == false) {
+                    counter = 1;
+                    isArchived = true;
+                    BlocProvider.of<SaveJopCubit>(context).saveJop(
+                        savedJopModel: SavedJopModel(
+                            jopName: widget.jopModel.jopName,
+                            jopImage: widget.jopModel.jopImage,
+                            companyName: widget.jopModel.companyName,
+                            jopLocation: widget.jopModel.jopLocation));
+                  } else {
+                    isArchived = false;
+                    // SavedJopModel(
+                    //         jopName: widget.jopModel.jopName,
+                    //         jopImage: widget.jopModel.jopImage,
+                    //         companyName: widget.jopModel.companyName,
+                    //         jopLocation: widget.jopModel.jopLocation)
+                    //     .delete();
+                    // BlocProvider.of<FetchSavedJopCubit>(context)
+                    //     .fetchSavedJops();
+                  }
                 });
               },
             ),

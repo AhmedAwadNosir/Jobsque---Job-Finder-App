@@ -10,8 +10,9 @@ class MessagesView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const CustomAppBar(
+      appBar:  CustomAppBar(
         title: "Messsages",
+        customOnPressed: (){},
       ),
       body: SafeArea(
           child: isEmpty

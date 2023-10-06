@@ -56,6 +56,7 @@ class _DropDownTextState extends State<DropDownText> {
                     children: [
                       const SizedBox(height: 16),
                       CustomText14(
+                        
                         title: widget.content,
                         titleColor: AppColors.appNeutralColors500,
                         fontFamily: textFamilyRegular,

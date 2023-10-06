@@ -15,6 +15,9 @@ import 'package:jobsque_jobfinder/Features/Jop_Details/states_manager/appLy_jop/
 import 'package:jobsque_jobfinder/Features/Profile/data/models/cv_file_model.dart';
 import 'package:jobsque_jobfinder/Features/Onboarding/presentation/Views/splash_view.dart';
 import 'package:jobsque_jobfinder/Features/Profile/states_manager/cubit/fetch_cv_files_cubit.dart';
+import 'package:jobsque_jobfinder/Features/Saved_Jop/data/models/saved_jop_model.dart';
+import 'package:jobsque_jobfinder/Features/Saved_Jop/presentation/states_manager/fetch_saved_jop/fetch_saved_jop_cubit.dart';
+import 'package:jobsque_jobfinder/Features/Saved_Jop/presentation/states_manager/saved_jop_cubit/save_jop_cubit.dart';
 import 'package:jobsque_jobfinder/firebase_options.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:hive_flutter/hive_flutter.dart';
@@ -37,8 +40,11 @@ void main() async {
   setupServicLocator();
   await Hive.initFlutter();
   Hive.registerAdapter(CvFileModelAdapter());
+  Hive.registerAdapter(SavedJopModelAdapter());
   await Hive.openBox<CvFileModel>(cvFilebox);
   await Hive.openBox<CvFileModel>(otherCvsFilebox);
+  await Hive.openBox<SavedJopModel>(savedJopBox);
+
   runApp(const JopFinderApp());
 }
 
@@ -64,7 +70,12 @@ class JopFinderApp extends StatelessWidget {
         BlocProvider(
           create: (context) => ApplyJopCubit(getIt.get<ApplyJopRepoImpl>()),
         ),
-       
+        BlocProvider(
+          create: (context) => SaveJopCubit(),
+        ),
+        BlocProvider(
+          create: (context) => FetchSavedJopCubit(),
+        ),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,

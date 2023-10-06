@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:jobsque_jobfinder/Core/Utils/app_images.dart';
 import 'package:jobsque_jobfinder/Core/Wedgits/custom_state_page.dart';
 
-class SavedJopListEmptyPge extends StatelessWidget {
-  const SavedJopListEmptyPge({super.key});
+class NoSavedJopsView extends StatelessWidget {
+  const NoSavedJopsView({super.key});
 
   @override
   Widget build(BuildContext context) {

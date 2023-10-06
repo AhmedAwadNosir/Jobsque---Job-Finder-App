@@ -12,9 +12,10 @@ class AppliedJopView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const CustomAppBar(
+      appBar:  CustomAppBar(
         title: "Applied Job",
         paddingTop: 16,
+        customOnPressed: (){},
       ),
       body: BlocProvider(
         create: (context) =>

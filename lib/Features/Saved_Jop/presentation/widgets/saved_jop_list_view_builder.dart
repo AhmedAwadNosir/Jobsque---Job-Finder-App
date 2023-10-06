@@ -5,54 +5,19 @@ import 'package:jobsque_jobfinder/Features/Saved_Jop/presentation/widgets/saved_
 
 // ignore: must_be_immutable
 class SavedJopListViewBuilderr extends StatelessWidget {
-  SavedJopListViewBuilderr({super.key});
-  List<SavedJopModel> jopesData = [
-    SavedJopModel(
-      jopTitle: "Senior UI Designer",
-      comunicationtoolname: "Twitter • Jakarta, Indonesia",
-      comunicationToolIcon: AppImages.twitterIcon,
-      savedDate: "Posted 2 days ago",
-      savedtimestate: "Be an early applicant",
-    ),
-    SavedJopModel(
-      jopTitle: "Senior UI Designer",
-      comunicationtoolname: "Twitter • Jakarta, Indonesia",
-      comunicationToolIcon: AppImages.vKLogo,
-      savedDate: "Posted 2 days ago",
-      savedtimestate: "Be an early applicant",
-    ),
-    SavedJopModel(
-      jopTitle: "Senior UI Designer",
-      comunicationtoolname: "Twitter • Jakarta, Indonesia",
-      comunicationToolIcon: AppImages.spectrumIcon,
-      savedDate: "Posted 2 days ago",
-      savedtimestate: "Be an early applicant",
-    ),
-    SavedJopModel(
-      jopTitle: "Senior UI Designer",
-      comunicationtoolname: "Twitter • Jakarta, Indonesia",
-      comunicationToolIcon: AppImages.discordIcon,
-      savedDate: "Posted 2 days ago",
-      savedtimestate: "Be an early applicant",
-    ),
-    SavedJopModel(
-      jopTitle: "Senior UI Designer",
-      comunicationtoolname: "Twitter • Jakarta, Indonesia",
-      comunicationToolIcon: AppImages.invisionIcon,
-      savedDate: "Posted 2 days ago",
-      savedtimestate: "Be an early applicant",
-    ),
-  ];
+  SavedJopListViewBuilderr({super.key, required this.savedJops});
+
+  final List<SavedJopModel> savedJops;
   @override
   Widget build(BuildContext context) {
     return Expanded(
       child: ListView.builder(
-        itemCount: jopesData.length,
+        itemCount: savedJops.length,
         itemBuilder: (context, index) {
           return Padding(
             padding: const EdgeInsets.only(left: 24, right: 24, bottom: 20),
             child: SavedJopUnit(
-              jopModel: jopesData[index],
+              jopModel: savedJops[index],
             ),
           );
         },

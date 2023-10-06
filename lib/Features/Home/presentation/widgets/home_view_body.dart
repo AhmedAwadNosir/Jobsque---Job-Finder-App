@@ -22,7 +22,9 @@ class HomeViewBody extends StatelessWidget {
             ),
           ),
           const SliverToBoxAdapter(
-            child: WelcomingNewUser(),
+            child: WelcomingNewUser(
+              overflow: TextOverflow.ellipsis,
+            ),
           ),
           const SliverToBoxAdapter(
             child: SizedBox(

@@ -9,15 +9,16 @@ class CustomText14 extends StatelessWidget {
     required this.title,
     this.titleColor,
     this.fontFamily,
+    this.overflow,
   });
   final String title;
   final Color? titleColor;
   final String? fontFamily;
+  final TextOverflow? overflow;
   @override
   Widget build(BuildContext context) {
     return Text(
       title,
-      overflow: TextOverflow.ellipsis,
       style: AppFontsStyles.textstyle14.copyWith(
         fontFamily: fontFamily ?? textFamilyMedium,
         color: titleColor ?? AppColors.appNeutralColors900,

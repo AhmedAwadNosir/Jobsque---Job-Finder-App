@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:jobsque_jobfinder/Core/Utils/app_colors.dart';
 import 'package:jobsque_jobfinder/Core/Utils/app_fonts_styles.dart';
@@ -8,6 +9,9 @@ import 'package:jobsque_jobfinder/Core/Wedgits/jop_data_unite.dart';
 import 'package:jobsque_jobfinder/Features/Home/data/models/jop_model.dart';
 import 'package:jobsque_jobfinder/Features/Home/functions/get_expirence_level.dart';
 import 'package:jobsque_jobfinder/Features/Home/presentation/widgets/jop_features.dart';
+import 'package:jobsque_jobfinder/Features/Saved_Jop/data/models/saved_jop_model.dart';
+import 'package:jobsque_jobfinder/Features/Saved_Jop/presentation/states_manager/fetch_saved_jop/fetch_saved_jop_cubit.dart';
+import 'package:jobsque_jobfinder/Features/Saved_Jop/presentation/states_manager/saved_jop_cubit/save_jop_cubit.dart';
 
 class RecentJopUnit extends StatefulWidget {
   const RecentJopUnit({
@@ -49,7 +53,24 @@ class _RecentJopUnitState extends State<RecentJopUnit> {
                 : AppColors.appNeutralColors900,
             onTap: () {
               setState(() {
-                isarrchived = !isarrchived;
+                if (isarrchived == false) {
+                  isarrchived = true;
+                  BlocProvider.of<SaveJopCubit>(context).saveJop(
+                      savedJopModel: SavedJopModel(
+                          jopName: widget.jopModel.jopName,
+                          jopImage: widget.jopModel.jopImage,
+                          companyName: widget.jopModel.companyName,
+                          jopLocation: widget.jopModel.jopLocation));
+                } else {
+                  isarrchived = false;
+                  // SavedJopModel(
+                  //         jopName: widget.jopModel.jopName,
+                  //         jopImage: widget.jopModel.jopImage,
+                  //         companyName: widget.jopModel.companyName,
+                  //         jopLocation: widget.jopModel.jopLocation)
+                  //     .delete();
+                  // BlocProvider.of<FetchSavedJopCubit>(context).fetchSavedJops();
+                }
               });
             },
           ),

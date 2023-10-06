@@ -59,7 +59,6 @@ abstract class AppRoutes{
   LanguagesView.id: (context) => const LanguagesView(),
   NoteficationSetingView.id: (context) => const NoteficationSetingView(),
   LoginAndSecurityView.id: (context) => const LoginAndSecurityView(),
-  EmailAdressView.id: (context) => const EmailAdressView(),
   PhoneNumberView.id: (context) => const PhoneNumberView(),
   ChangePasswordView.id: (context) => const ChangePasswordView(),
   TwoStepVerificationView.id: (context) => const TwoStepVerificationView(),

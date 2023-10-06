@@ -1,41 +1,41 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'cv_file_model.dart';
+part of 'saved_jop_model.dart';
 
 // **************************************************************************
 // TypeAdapterGenerator
 // **************************************************************************
 
-class CvFileModelAdapter extends TypeAdapter<CvFileModel> {
+class SavedJopModelAdapter extends TypeAdapter<SavedJopModel> {
   @override
-  final int typeId = 0;
+  final int typeId = 1;
 
   @override
-  CvFileModel read(BinaryReader reader) {
+  SavedJopModel read(BinaryReader reader) {
     final numOfFields = reader.readByte();
     final fields = <int, dynamic>{
       for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
     };
-    return CvFileModel(
-      cvFileName: fields[0] as String,
-      cvFileExcetintion: fields[1] as String,
-      fileSize: fields[2] as int,
-      cvFilePath: fields[3] as String,
+    return SavedJopModel(
+      jopName: fields[0] as String,
+      jopImage: fields[1] as String,
+      companyName: fields[2] as String,
+      jopLocation: fields[3] as String
     );
   }
 
   @override
-  void write(BinaryWriter writer, CvFileModel obj) {
+  void write(BinaryWriter writer, SavedJopModel obj) {
     writer
-      ..writeByte(4)
-      ..writeByte(0)
-      ..write(obj.cvFileName)
-      ..writeByte(1)
-      ..write(obj.cvFileExcetintion)
-      ..writeByte(2)
-      ..write(obj.fileSize)
       ..writeByte(3)
-      ..write(obj.cvFilePath);
+      ..writeByte(0)
+      ..write(obj.jopName)
+      ..writeByte(1)
+      ..write(obj.jopImage)
+      ..writeByte(2)
+      ..write(obj.companyName)
+      ..writeByte(3)
+      ..write(obj.jopLocation);
   }
 
   @override
@@ -44,7 +44,7 @@ class CvFileModelAdapter extends TypeAdapter<CvFileModel> {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is CvFileModelAdapter &&
+      other is SavedJopModelAdapter &&
           runtimeType == other.runtimeType &&
           typeId == other.typeId;
 }

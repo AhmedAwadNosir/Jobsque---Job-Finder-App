@@ -1,15 +1,21 @@
-class SavedJopModel {
-  final String jopTitle;
-  final String comunicationtoolname;
-  final String comunicationToolIcon;
-  final String savedDate;
-  final String savedtimestate;
+import 'package:hive_flutter/hive_flutter.dart';
+part 'saved_jop_model.g.dart';
+
+@HiveType(typeId: 1)
+class SavedJopModel extends HiveObject {
+  @HiveField(0)
+  final String jopName;
+  @HiveField(1)
+  final String jopImage;
+  @HiveField(2)
+  final String companyName;
+  @HiveField(3)
+  final String jopLocation;
 
   SavedJopModel({
-    required this.jopTitle,
-    required this.comunicationtoolname,
-    required this.comunicationToolIcon,
-    required this.savedDate,
-    required this.savedtimestate,
+    required this.jopName,
+    required this.jopImage,
+    required this.companyName,
+    required this.jopLocation,
   });
 }

@@ -9,8 +9,9 @@ import 'package:jobsque_jobfinder/Features/Notefication/presentation/views/notef
 class WelcomingNewUser extends StatelessWidget {
   const WelcomingNewUser({
     super.key,
+    this.overflow,
   });
-
+  final TextOverflow? overflow;
   @override
   Widget build(BuildContext context) {
     return FutureBuilder(
@@ -31,7 +32,7 @@ class WelcomingNewUser extends StatelessWidget {
                         Expanded(
                           child: Text(
                             "Hi, ${snapshot.data}",
-                            overflow: TextOverflow.ellipsis,
+                            overflow: overflow,
                             style: AppFontsStyles.textstyle24.copyWith(
                                 fontFamily: textFamilyMedium,
                                 color: AppColors.appNeutralColors900),

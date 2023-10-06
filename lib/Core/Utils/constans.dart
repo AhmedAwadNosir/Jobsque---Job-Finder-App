@@ -15,6 +15,7 @@ const userId = "userId";
 const isLogin = "isLogin";
 const cvFilebox = "CvFileBox";
 const otherCvsFilebox = "OtherCvFileBox";
+const savedJopBox = "savedJopBox";
 const userBiokey = "bio";
 const userAddresskey = "adress";
 const userMobilekey = "mobile";

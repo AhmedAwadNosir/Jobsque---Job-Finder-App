@@ -15,20 +15,24 @@ class SavedJopUnit extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+     int joplength = jopModel.jopLocation.length - 1;
+    int joplength1 = jopModel.jopLocation.length;
+    String jopLocation = jopModel.jopLocation;
     return Column(
       children: [
         JopDataUnite(
-          companyImage: jopModel.comunicationToolIcon,
-          jopTitle: jopModel.jopTitle,
+          companyImage: jopModel.jopImage,
+          jopTitle: jopModel.jopName,
           optionICon: Iconsax.more,
-          jopComunicationName: jopModel.comunicationtoolname,
+          jopComunicationName:
+              "${jopModel.companyName} • ${jopModel.jopLocation.substring(joplength - 5, jopLocation[joplength] == "." ? joplength : joplength1)}",
           onTap: () {
             showModalBottomSheet(
               context: context,
               isScrollControlled: true,
               builder: (context) {
-                return const SingleChildScrollView(
-                    child: SavedJopBottomSheet());
+                return SingleChildScrollView(
+                    child: SavedJopBottomSheet(jopModel: jopModel));
               },
             );
           },
