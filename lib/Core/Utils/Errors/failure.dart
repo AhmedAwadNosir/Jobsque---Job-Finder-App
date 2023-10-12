@@ -20,8 +20,8 @@ class ServerFailure extends Failure {
         return ServerFailure(
             "An error occurred while establishing a secure connection Please try Later!.");
       case DioExceptionType.badResponse:
-        return ServerFailure(dioError.response
-            .toString()); //ServerFailure.fromBadResponse(dioError.response!.statusCode!);
+        return ServerFailure.fromBadResponse(dioError.response!
+            .statusCode!); //ServerFailure.fromBadResponse(dioError.response!.statusCode!);
       case DioExceptionType.cancel:
         return ServerFailure("Requst with api service is canceld");
       case DioExceptionType.connectionError:
