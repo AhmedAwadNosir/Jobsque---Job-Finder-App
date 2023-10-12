@@ -4,8 +4,6 @@ import 'package:jobsque_jobfinder/Features/Authentication/presentation/Create_Ac
 import 'package:jobsque_jobfinder/Features/Authentication/presentation/Create_Account/Widgets/work_location_view_body.dart';
 
 import 'package:jobsque_jobfinder/Features/Authentication/functions/show_snack_bar.dart';
-import 'package:jobsque_jobfinder/Features/Authentication/states_manager/Cubits/Register/register_cubit.dart';
-import 'package:jobsque_jobfinder/Features/Authentication/states_manager/Cubits/registerApi/register_api_cubit.dart';
 import 'package:jobsque_jobfinder/Features/Complete_Profile.dart/states_manager/edit_profile_data/edit_profile_data_cubit.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 

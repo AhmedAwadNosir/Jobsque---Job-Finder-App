@@ -3,7 +3,6 @@ import 'dart:developer';
 import 'package:bloc/bloc.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:jobsque_jobfinder/Core/Utils/constans.dart';
-import 'package:jobsque_jobfinder/Core/helper/api_services.dart';
 import 'package:jobsque_jobfinder/Features/Authentication/data/Models/repos/auth_repo.dart';
 import 'package:jobsque_jobfinder/Features/Authentication/functions/fetch_user_data.dart';
 import 'package:jobsque_jobfinder/Features/Authentication/functions/get_email.dart';

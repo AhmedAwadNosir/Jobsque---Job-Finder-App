@@ -13,7 +13,7 @@ class UploadedFilesListViewBuilder extends StatelessWidget {
       builder: (context, state) {
         if (state is FetchCvFilesSuccess) {
           return SizedBox(
-            height: MediaQuery.of(context).size.height * 0.48,
+            height: MediaQuery.of(context).size.height * 0.47,
             child: ListView.builder(
               itemCount: state.cvFiles.length,
               itemBuilder: (context, index) {

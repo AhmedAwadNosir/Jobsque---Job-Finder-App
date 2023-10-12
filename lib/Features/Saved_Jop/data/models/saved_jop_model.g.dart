@@ -27,7 +27,7 @@ class SavedJopModelAdapter extends TypeAdapter<SavedJopModel> {
   @override
   void write(BinaryWriter writer, SavedJopModel obj) {
     writer
-      ..writeByte(3)
+      ..writeByte(4)
       ..writeByte(0)
       ..write(obj.jopName)
       ..writeByte(1)

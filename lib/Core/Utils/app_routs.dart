@@ -26,7 +26,6 @@ import 'package:jobsque_jobfinder/Features/LoginAndSecurity/views/verify_code_vi
 import 'package:jobsque_jobfinder/Features/Notefication/presentation/views/notefication_view.dart';
 import 'package:jobsque_jobfinder/Features/Onboarding/presentation/Views/onboarding_view.dart';
 import 'package:jobsque_jobfinder/Features/Onboarding/presentation/Views/splash_view.dart';
-import 'package:jobsque_jobfinder/Features/Profile/presentation/views/edit_profile_view.dart';
 import 'package:jobsque_jobfinder/Features/Profile/presentation/views/help_center_view.dart';
 import 'package:jobsque_jobfinder/Features/Profile/presentation/views/languages_view.dart';
 import 'package:jobsque_jobfinder/Features/Profile/presentation/views/login_and_security_view.dart';
@@ -54,7 +53,6 @@ abstract class AppRoutes{
   JopAppliedSuccesfuly.id: (context) => const JopAppliedSuccesfuly(),
   NoteficationView.id: (context) => NoteficationView(),
   ChatView.id: (context) => const ChatView(),
-  EditProfileView.id: (context) => const EditProfileView(),
   PortFolioView.id: (context) => const PortFolioView(),
   LanguagesView.id: (context) => const LanguagesView(),
   NoteficationSetingView.id: (context) => const NoteficationSetingView(),

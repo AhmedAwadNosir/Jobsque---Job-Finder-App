@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:jobsque_jobfinder/Core/Utils/app_images.dart';
 import 'package:jobsque_jobfinder/Features/Saved_Jop/data/models/saved_jop_model.dart';
 import 'package:jobsque_jobfinder/Features/Saved_Jop/presentation/widgets/saved_jop_unit.dart';
 

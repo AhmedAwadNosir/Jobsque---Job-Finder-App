@@ -102,4 +102,8 @@ abstract class AppImages {
       "lib/Core/Utils/assets/images/universityLogo.png";
   static const String companyLogo =
       "lib/Core/Utils/assets/images/companyLogo.png";
+  static const String appMainIcon1 =
+      "lib/Core/Utils/assets/images/appIcon1.png";
+  static const String appMainIcon2 =
+      "lib/Core/Utils/assets/images/appIcon2.png";
 }

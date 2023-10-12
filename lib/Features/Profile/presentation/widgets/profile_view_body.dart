@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:jobsque_jobfinder/Core/Wedgits/custom_seaction_bar.dart';
 import 'package:jobsque_jobfinder/Features/Complete_Profile.dart/presentation/views/complete_profile_view.dart';
-import 'package:jobsque_jobfinder/Features/Profile/presentation/views/edit_profile_view.dart';
+import 'package:jobsque_jobfinder/Features/Complete_Profile.dart/presentation/views/personal_details_view.dart';
 import 'package:jobsque_jobfinder/Features/Profile/presentation/views/help_center_view.dart';
 import 'package:jobsque_jobfinder/Features/Profile/presentation/views/languages_view.dart';
 import 'package:jobsque_jobfinder/Features/Profile/presentation/views/login_and_security_view.dart';
@@ -55,7 +55,12 @@ class ProfileViewBody extends StatelessWidget {
               title: "Edit Profile",
               icon: Iconsax.user_square,
               onTap: () {
-                Navigator.pushNamed(context, EditProfileView.id);
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) =>
+                          PersonalDetailsView(appBarTitle: "Edit Profile"),
+                    ));
               },
             ),
           ),

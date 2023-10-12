@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:jobsque_jobfinder/Core/Utils/app_colors.dart';
@@ -23,6 +22,7 @@ class _PersonalDetailsViewBodyState extends State<PersonalDetailsViewBody> {
   String? bio;
   String? address;
   String? mobile;
+  String? name;
   @override
   Widget build(BuildContext context) {
     return FutureBuilder(
@@ -44,8 +44,16 @@ class _PersonalDetailsViewBodyState extends State<PersonalDetailsViewBody> {
                       ),
                       const SizedBox(height: 25),
                       CustomTextFieldSection(
-                        onChanged: (value) {},
-                        onSubmited: (value) {},
+                        onChanged: (value) {
+                          setState(() {
+                            name = value;
+                          });
+                        },
+                        onSubmited: (value) {
+                          setState(() {
+                            name = value;
+                          });
+                        },
                         titleSpace: 2,
                         title: "Name",
                         titleColor: AppColors.appNeutralColors400,
@@ -141,7 +149,11 @@ class _PersonalDetailsViewBodyState extends State<PersonalDetailsViewBody> {
                       Container(
                           constraints: const BoxConstraints(minHeight: 110)),
                       PersonalDetailButtonBlocConsumer(
-                          bio: bio, address: address, mobile: mobile)
+                        bio: bio,
+                        address: address,
+                        mobile: mobile,
+                        name: name,
+                      )
                     ],
                   ),
                 ),
@@ -155,4 +167,3 @@ class _PersonalDetailsViewBodyState extends State<PersonalDetailsViewBody> {
     );
   }
 }
-

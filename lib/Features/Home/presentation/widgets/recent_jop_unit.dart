@@ -10,7 +10,6 @@ import 'package:jobsque_jobfinder/Features/Home/data/models/jop_model.dart';
 import 'package:jobsque_jobfinder/Features/Home/functions/get_expirence_level.dart';
 import 'package:jobsque_jobfinder/Features/Home/presentation/widgets/jop_features.dart';
 import 'package:jobsque_jobfinder/Features/Saved_Jop/data/models/saved_jop_model.dart';
-import 'package:jobsque_jobfinder/Features/Saved_Jop/presentation/states_manager/fetch_saved_jop/fetch_saved_jop_cubit.dart';
 import 'package:jobsque_jobfinder/Features/Saved_Jop/presentation/states_manager/saved_jop_cubit/save_jop_cubit.dart';
 
 class RecentJopUnit extends StatefulWidget {

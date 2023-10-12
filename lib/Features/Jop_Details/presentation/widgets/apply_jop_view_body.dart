@@ -5,6 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:jobsque_jobfinder/Core/Utils/constans.dart';
 import 'package:jobsque_jobfinder/Core/Utils/custom_error_widget.dart';
+import 'package:jobsque_jobfinder/Features/Authentication/functions/show_snack_bar.dart';
 import 'package:jobsque_jobfinder/Features/Complete_Profile.dart/states_manager/fetch_profile_data/fetch_profile_data_cubit.dart';
 import 'package:jobsque_jobfinder/Features/Jop_Details/data/models/apply_jop_model.dart';
 import 'package:jobsque_jobfinder/Features/Jop_Details/presentation/widgets/choose_file_section.dart';
@@ -80,20 +81,28 @@ class _ApplyJopViewBodyState extends State<ApplyJopViewBody> {
                             SharedPreferences prefs =
                                 await SharedPreferences.getInstance();
                             log(prefs.getInt(userId).toString());
-                            BlocProvider.of<ApplyJopCubit>(context).applyJop(
-                                applyModal: ApplyJopModel(
-                                    cvFilePath:
-                                        ChooseFileSection.choosenFilePath,
-                                    userName: userName ??
-                                        state.profileDataModel.userName!,
-                                    email:
-                                        email ?? state.profileDataModel.email!,
-                                    mobile: mobile ??
-                                        state.profileDataModel.mobile!,
-                                    workType: "full",
-                                    otherFilePath: cvfiles[0].cvFilePath,
-                                    jopId: widget.jopId,
-                                    userId: prefs.getInt(userId).toString()));
+                            if (ChooseFileSection.choosenFilePath == '') {
+                              showSnackBar(
+                                  "please Go Back and choose cv File", context);
+                            } else if (cvfiles.isEmpty) {
+                              showSnackBar(
+                                  "please upload another file", context);
+                            } else {
+                              BlocProvider.of<ApplyJopCubit>(context).applyJop(
+                                  applyModal: ApplyJopModel(
+                                      cvFilePath:
+                                          ChooseFileSection.choosenFilePath,
+                                      userName: userName ??
+                                          state.profileDataModel.userName!,
+                                      email: email ??
+                                          state.profileDataModel.email!,
+                                      mobile: mobile ??
+                                          state.profileDataModel.mobile!,
+                                      workType: "full",
+                                      otherFilePath: cvfiles[0].cvFilePath,
+                                      jopId: widget.jopId,
+                                      userId: prefs.getInt(userId).toString()));
+                            }
                           },
                           currentStep: currentIndex,
                           customSteps: getsteps(),

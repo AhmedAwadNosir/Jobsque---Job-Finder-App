@@ -50,7 +50,7 @@ class _SuggestedJopUnitState extends State<SuggestedJopUnit> {
         child: Column(
           children: [
             JopDataUnite(
-              jopTitleWidth: MediaQuery.of(context).size.width * 0.46,
+              jopTitleWidth: MediaQuery.of(context).size.width * 0.44,
               companyImage: widget.jopModel.jopImage,
               jopTitle: widget.jopModel.jopName,
               optionICon: isArchived == true

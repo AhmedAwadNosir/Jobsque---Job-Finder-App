@@ -2,18 +2,21 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:jobsque_jobfinder/Core/Utils/constans.dart';
 import 'package:jobsque_jobfinder/Features/Authentication/functions/show_snack_bar.dart';
 import 'package:jobsque_jobfinder/Features/Complete_Profile.dart/data/models/profile_data_model.dart';
 import 'package:jobsque_jobfinder/Features/Complete_Profile.dart/states_manager/edit_profile_data/edit_profile_data_cubit.dart';
 import 'package:jobsque_jobfinder/Features/Complete_Profile.dart/states_manager/fetch_profile_data/fetch_profile_data_cubit.dart';
 import 'package:jobsque_jobfinder/Features/Onboarding/presentation/Widgets/custom_button.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class PersonalDetailButtonBlocConsumer extends StatelessWidget {
   const PersonalDetailButtonBlocConsumer(
-      {super.key, this.bio, this.address, this.mobile});
+      {super.key, this.bio, this.address, this.mobile, this.name});
   final String? bio;
   final String? address;
   final String? mobile;
+  final String? name;
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<EditProfileDataCubit, EditProfileDataState>(
@@ -31,6 +34,9 @@ class PersonalDetailButtonBlocConsumer extends StatelessWidget {
         return CustomButton(
             onPressed: () async {
               log(bio.toString());
+              SharedPreferences prefs = await SharedPreferences.getInstance();
+              String userdefultName = prefs.getString(userName) ?? "";
+              prefs.setString(userName, name ?? userdefultName);
               await BlocProvider.of<EditProfileDataCubit>(context)
                   .editProfileData(
                       profileDataModel: ProfileDataModel(

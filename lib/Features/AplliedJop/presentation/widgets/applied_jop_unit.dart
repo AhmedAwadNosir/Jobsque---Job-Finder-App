@@ -4,7 +4,6 @@ import 'package:jobsque_jobfinder/Core/Utils/app_colors.dart';
 import 'package:jobsque_jobfinder/Core/Utils/app_fonts_styles.dart';
 import 'package:jobsque_jobfinder/Core/Utils/my_flutter_app_icons.dart';
 import 'package:jobsque_jobfinder/Core/Wedgits/jop_data_unite.dart';
-import 'package:jobsque_jobfinder/Features/AplliedJop/data/models/applied_jop_model.dart';
 import 'package:jobsque_jobfinder/Features/AplliedJop/presentation/widgets/custom_steper_ui.dart';
 import 'package:jobsque_jobfinder/Features/Home/data/models/jop_model.dart';
 import 'package:jobsque_jobfinder/Features/Home/presentation/widgets/jop_features.dart';

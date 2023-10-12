@@ -62,7 +62,7 @@ class JopFinderApp extends StatelessWidget {
         BlocProvider(
             create: (context) =>
                 FetchProfileDataCubit(getIt.get<CompleteProfileRepoImpl>())),
-        BlocProvider(create: (context) => FetchCvFilesCubit()),
+        BlocProvider(create: (context) => FetchCvFilesCubit()..fetchCvFiles()),
         BlocProvider(
           create: (context) =>
               EditProfileDataCubit(getIt.get<CompleteProfileRepoImpl>()),

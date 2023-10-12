@@ -6,6 +6,7 @@ import 'package:jobsque_jobfinder/Features/Jop_Details/presentation/widgets/appl
 import 'package:jobsque_jobfinder/Features/Jop_Details/states_manager/add_other_cv_files/add_other_cv_files_cubit.dart';
 import 'package:jobsque_jobfinder/Features/Jop_Details/states_manager/fetch_other_cv_files/fetch_other_cv_fiels_cubit.dart';
 import 'package:jobsque_jobfinder/Features/Profile/states_manager/add_cv_file_cubit/add_cv_file_cubit.dart';
+import 'package:jobsque_jobfinder/Features/Profile/states_manager/cubit/fetch_cv_files_cubit.dart';
 
 class ApplyJopView extends StatefulWidget {
   const ApplyJopView({super.key, required this.jopid});
@@ -42,6 +43,7 @@ class _ApplyJopViewState extends State<ApplyJopView> {
             BlocProvider(
               create: (context) => AddCvFileCubit(),
             ),
+           
           ],
               child: ApplyJopViewBody(
                 jopId: widget.jopid,
