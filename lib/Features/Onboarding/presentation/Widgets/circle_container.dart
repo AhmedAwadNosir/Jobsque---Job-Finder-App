@@ -25,7 +25,7 @@ class CircleContainer extends StatelessWidget {
           decoration: BoxDecoration(color: Color(color)),
           child: image != null
               ? Center(
-                  child: Image.asset(image ?? ''),
+                  child: Image.asset(image!),
                 )
               : const Center(),
         ),

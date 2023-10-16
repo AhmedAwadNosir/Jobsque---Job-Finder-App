@@ -3,8 +3,8 @@ import 'package:jobsque_jobfinder/Core/Utils/app_images.dart';
 import 'package:jobsque_jobfinder/Features/Onboarding/presentation/Widgets/custome_onbarding_page.dart';
 import 'package:jobsque_jobfinder/Features/Onboarding/data/models/onboarding_model.dart';
 
-class OnbardingPageView extends StatelessWidget {
-  const OnbardingPageView({super.key, required this.pageController});
+class OnbardingPageViewBuilder extends StatelessWidget {
+  const OnbardingPageViewBuilder({super.key, required this.pageController});
   final PageController pageController;
   static List<OnboardingModel> onbardingPagesdata = [
     OnboardingModel(

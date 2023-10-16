@@ -35,14 +35,13 @@ class _OnboardingViewBodyState extends State<OnboardingViewBody> {
     return SafeArea(
       child: Column(
         children: [
-          
           Expanded(
-              child: OnbardingPageView(
+              child: OnbardingPageViewBuilder(
             pageController: _pageController,
           )),
           SmoothPageIndicator(
             controller: _pageController,
-            count: OnbardingPageView.onbardingPagesdata.length,
+            count: OnbardingPageViewBuilder.onbardingPagesdata.length,
             effect: const WormEffect(
               activeDotColor: AppColors.appPrimaryColors500,
               dotColor: AppColors.appPrimaryColors200,
@@ -70,7 +69,7 @@ class _OnboardingViewBodyState extends State<OnboardingViewBody> {
     setState(() {
       currentPage = _pageController.page!.round();
       isLastPage =
-          currentPage == OnbardingPageView.onbardingPagesdata.length - 1;
+          currentPage == OnbardingPageViewBuilder.onbardingPagesdata.length - 1;
     });
   }
 }
