@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:jobsque_jobfinder/Features/Authentication/functions/show_snack_bar.dart';
-import 'package:jobsque_jobfinder/Features/Authentication/presentation/Create_Account/Views/job_title_view.dart';
+import 'package:jobsque_jobfinder/Features/Authentication/presentation/Create_Account/Views/interested_job_view.dart';
 import 'package:jobsque_jobfinder/Features/Authentication/presentation/Create_Account/Widgets/register_view_body.dart';
 import 'package:jobsque_jobfinder/Features/Authentication/states_manager/Cubits/registerApi/register_api_cubit.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
@@ -20,7 +20,7 @@ class RegisterViewBodyBlocConsumer extends StatelessWidget {
         }
         if (state is RegisterApiSuccess) {
           showSnackBar("Registraion Completed Successfuly", context);
-          Navigator.pushReplacementNamed(context, JobTitleView.id);
+          Navigator.pushReplacementNamed(context, InterstedJobView.id);
         }
       },
       builder: (context, state) {

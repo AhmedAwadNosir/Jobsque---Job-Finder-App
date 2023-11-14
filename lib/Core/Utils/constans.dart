@@ -1,3 +1,5 @@
+import 'package:flutter/material.dart';
+
 const textFamilyRegular = "SFPRODISPLAYREGULAR";
 const textFamilyMedium = "SFPRODISPLAYMEDIUM";
 const textFamilyBold = "SFPRODISPLAYBOLD";
@@ -27,3 +29,20 @@ const registerInterNetException =
     "ClientException with SocketException: Failed host lookup: 'project2.amit-learning.com' (OS Error: No address associated with hostname, errno = 7), uri=https://project2.amit-learning.com/api/auth/register";
 const loginInterNetException =
     "ClientException with SocketException: Failed host lookup: 'project2.amit-learning.com' (OS Error: No address associated with hostname, errno = 7), uri=https://project2.amit-learning.com/api/auth/login";
+
+// navigator extentions 
+//----------------------
+
+extension navigators on BuildContext {
+  pushex(Widget destenation) {
+    Navigator.push(this, MaterialPageRoute(builder: (context) {
+      return destenation;
+    }));
+  }
+
+  pushreplacmentex(Widget destenation) {
+    Navigator.pushReplacement(this, MaterialPageRoute(builder: (context) {
+      return destenation;
+    }));
+  }
+}

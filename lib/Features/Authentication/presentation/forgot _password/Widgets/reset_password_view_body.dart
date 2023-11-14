@@ -44,7 +44,7 @@ class _ResetPasswordViewBodyState extends State<ResetPasswordViewBody> {
                   const SizedBox(
                     height: 44,
                   ),
-                  CustomTextField(
+                  CustomTextFormField(
                     hintText: "Password",
                     prefixicon: const Icon(Iconsax.lock),
                     suffixicon: const Icon(Iconsax.eye_slash),
@@ -76,7 +76,7 @@ class _ResetPasswordViewBodyState extends State<ResetPasswordViewBody> {
                   const SizedBox(
                     height: 24,
                   ),
-                  CustomTextField(
+                  CustomTextFormField(
                     hintText: "Password",
                     prefixicon: const Icon(Iconsax.lock),
                     suffixicon: const Icon(Iconsax.eye_slash),

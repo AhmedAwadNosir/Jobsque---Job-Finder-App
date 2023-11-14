@@ -4,7 +4,7 @@ import 'package:iconsax/iconsax.dart';
 import 'package:jobsque_jobfinder/Core/Utils/app_colors.dart';
 import 'package:jobsque_jobfinder/Core/Utils/app_fonts_styles.dart';
 import 'package:jobsque_jobfinder/Core/Utils/constans.dart';
-import 'package:jobsque_jobfinder/Features/Authentication/presentation/Create_Account/Views/job_title_view.dart';
+import 'package:jobsque_jobfinder/Features/Authentication/presentation/Create_Account/Views/interested_job_view.dart';
 import 'package:jobsque_jobfinder/Features/Authentication/presentation/Sign_IN/Views/sign_in_view.dart';
 import 'package:jobsque_jobfinder/Features/Authentication/presentation/Widgets/custom_authentication_options.dart';
 import 'package:jobsque_jobfinder/Features/Authentication/presentation/Widgets/page_initail_info.dart';
@@ -23,9 +23,6 @@ class RegisterViewBody extends StatefulWidget {
 }
 
 class _RegisterViewBodyState extends State<RegisterViewBody> {
-  late String userName;
-  late String password;
-  late String email;
   late String userNameData = '';
   late String passwordData = '';
   late String emialData = '';
@@ -41,18 +38,14 @@ class _RegisterViewBodyState extends State<RegisterViewBody> {
           key: formkey,
           child: Column(
             children: [
-              const SizedBox(
-                height: 39,
-              ),
+              const SizedBox(height: 39),
               const PageInitialinfo(
                 pagegole: "Cereate Account",
                 pagegoledefination:
                     "Please create an account to find your dream job",
               ),
-              const SizedBox(
-                height: 44,
-              ),
-              CustomTextField(
+              const SizedBox(height: 44),
+              CustomTextFormField(
                 hintText: 'Username',
                 autovalidateMode: autovalidateMode,
                 prefixicon: const Icon(
@@ -66,7 +59,7 @@ class _RegisterViewBodyState extends State<RegisterViewBody> {
                 },
                 onSaved: (value) {
                   setState(() {
-                    userName = value!;
+                    userNameData = value!;
                   });
                 },
                 validator: (value) {
@@ -76,10 +69,8 @@ class _RegisterViewBodyState extends State<RegisterViewBody> {
                   return null;
                 },
               ),
-              const SizedBox(
-                height: 16,
-              ),
-              CustomTextField(
+              const SizedBox(height: 16),
+              CustomTextFormField(
                 hintText: 'Email',
                 autovalidateMode: autovalidateMode,
                 prefixicon: const Icon(
@@ -99,14 +90,12 @@ class _RegisterViewBodyState extends State<RegisterViewBody> {
                 },
                 onSaved: (value) {
                   setState(() {
-                    email = value!;
+                    emialData = value!;
                   });
                 },
               ),
-              const SizedBox(
-                height: 16,
-              ),
-              CustomTextField(
+              const SizedBox(height: 16),
+              CustomTextFormField(
                 hintText: "Password",
                 prefixicon: const Icon(Iconsax.lock),
                 suffixicon: const Icon(Iconsax.eye_slash),
@@ -124,7 +113,7 @@ class _RegisterViewBodyState extends State<RegisterViewBody> {
                 },
                 onSaved: (value) {
                   setState(() {
-                    password = value!;
+                    passwordData = value!;
                   });
                 },
                 validator: (value) {
@@ -145,9 +134,7 @@ class _RegisterViewBodyState extends State<RegisterViewBody> {
                 },
                 userQution: "Already have an account?",
               ),
-              const SizedBox(
-                height: 24,
-              ),
+              const SizedBox(height: 24),
               CustomButton(
                 onPressed: () async {
                   if (formkey.currentState!.validate()) {
@@ -157,16 +144,6 @@ class _RegisterViewBodyState extends State<RegisterViewBody> {
                             userName: userNameData,
                             email: emialData,
                             password: passwordData);
-                    // Navigator.push(
-                    //     context,
-                    //     MaterialPageRoute(
-                    //       builder: (context) => JobTitleView(
-                    //         userName: userName,
-                    //         email: email,
-                    //         registerMethode: emailAndPasswordmethode,
-                    //         password: password,
-                    //       ),
-                    //     ));
                   } else {
                     setState(() {
                       autovalidateMode = AutovalidateMode.always;
@@ -185,40 +162,22 @@ class _RegisterViewBodyState extends State<RegisterViewBody> {
                     ? Colors.white
                     : AppColors.appNeutralColors400,
               ),
-              const SizedBox(
-                height: 20,
-              ),
+              const SizedBox(height: 20),
               const UserAuthOptions(
                 operationOption: "Or Sign up With Account",
               ),
-              const SizedBox(
-                height: 24,
-              ),
+              const SizedBox(height: 24),
               CustomAuthinticationOptions(site1OnTap: () {
                 if (emialData.isNotEmpty) {
-                  Navigator.pushReplacement(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => JobTitleView(
-                        registerMethode: googleMethode,
-                        email: emialData,
-                      ),
-                    ),
-                  );
+                  context.pushreplacmentex(InterstedJobView(
+                      registerMethode: googleMethode, email: emialData));
                 } else {
                   showSnackBar("email is required", context);
                 }
               }, site2OnTap: () {
                 if (emialData.isNotEmpty) {
-                  Navigator.pushReplacement(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => JobTitleView(
-                        registerMethode: facebookMethode,
-                        email: emialData,
-                      ),
-                    ),
-                  );
+                  context.pushreplacmentex(InterstedJobView(
+                      registerMethode: facebookMethode, email: emialData));
                 } else {
                   showSnackBar("email is required", context);
                 }
@@ -230,3 +189,4 @@ class _RegisterViewBodyState extends State<RegisterViewBody> {
     );
   }
 }
+

@@ -28,7 +28,6 @@ class _ForgotPasswordViewBodyState extends State<ForgotPasswordViewBody> {
         padding: const EdgeInsets.symmetric(horizontal: 24),
         child: Column(
           children: [
-           
             const SizedBox(
               height: 44,
             ),
@@ -41,7 +40,7 @@ class _ForgotPasswordViewBodyState extends State<ForgotPasswordViewBody> {
             const SizedBox(
               height: 40,
             ),
-            CustomTextField(
+            CustomTextFormField(
               hintText: 'Enter your email',
               autovalidateMode: autovalidateMode,
               prefixicon: const Icon(

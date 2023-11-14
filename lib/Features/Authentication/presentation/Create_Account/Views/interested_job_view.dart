@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 
-import '../Widgets/job_tittle_view_body.dart';
+import '../Widgets/interested_job_view_body.dart';
 
 // ignore: must_be_immutable
-class JobTitleView extends StatelessWidget {
- 
-  JobTitleView({
+class InterstedJobView extends StatelessWidget {
+  InterstedJobView({
     super.key,
     this.userName,
     this.email,
@@ -21,7 +20,7 @@ class JobTitleView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-          child: JobTittleViewBody(
+          child: IntestedJobViewBody(
         userName: userName,
         email: email,
         password: password,

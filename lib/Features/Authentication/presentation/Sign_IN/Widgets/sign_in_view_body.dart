@@ -22,8 +22,7 @@ class SignInViewBody extends StatefulWidget {
 class _SignInViewBodyState extends State<SignInViewBody> {
   GlobalKey<FormState> formkey = GlobalKey();
   AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
-  late String email;
-  late String password;
+  
   String emailData = '';
   String passwordData = '';
 
@@ -44,7 +43,7 @@ class _SignInViewBodyState extends State<SignInViewBody> {
                     pagegoledefination: "Please login to find your dream job",
                   ),
                 ),
-                CustomTextField(
+                CustomTextFormField(
                   hintText: 'emailAdrress',
                   prefixicon: const Icon(
                     Iconsax.user_square,
@@ -58,7 +57,7 @@ class _SignInViewBodyState extends State<SignInViewBody> {
                   },
                   onSaved: (value) {
                     setState(() {
-                      email = value!;
+                      emailData = value!;
                     });
                   },
                   validator: (value) {
@@ -71,7 +70,7 @@ class _SignInViewBodyState extends State<SignInViewBody> {
                 const SizedBox(
                   height: 16,
                 ),
-                CustomTextField(
+                CustomTextFormField(
                   hintText: "Password",
                   prefixicon: const Icon(Iconsax.lock),
                   suffixicon: const Icon(Iconsax.eye_slash),
@@ -84,7 +83,7 @@ class _SignInViewBodyState extends State<SignInViewBody> {
                   },
                   onSaved: (value) {
                     setState(() {
-                      password = value!;
+                      passwordData = value!;
                     });
                   },
                   validator: (value) {
@@ -94,9 +93,7 @@ class _SignInViewBodyState extends State<SignInViewBody> {
                     return null;
                   },
                 ),
-                const SizedBox(
-                  height: 20,
-                ),
+                const SizedBox(height: 20),
                 const CustomAuthBasicOperation(),
                 Container(
                   constraints: const BoxConstraints(minHeight: 180),
@@ -108,9 +105,7 @@ class _SignInViewBodyState extends State<SignInViewBody> {
                   },
                   userQution: "Dont’t have an account?",
                 ),
-                const SizedBox(
-                  height: 24,
-                ),
+                const SizedBox(height: 24),
                 CustomButton(
                   onPressed: () async {
                     if (formkey.currentState!.validate()) {
@@ -138,12 +133,8 @@ class _SignInViewBodyState extends State<SignInViewBody> {
                 const SizedBox(
                   height: 20,
                 ),
-                const UserAuthOptions(
-                  operationOption: "Or Login With Account",
-                ),
-                const SizedBox(
-                  height: 24,
-                ),
+                const UserAuthOptions(operationOption: "Or Login With Account"),
+                const SizedBox(height: 24),
                 CustomAuthinticationOptions(
                   site1OnTap: () async {
                     await BlocProvider.of<SignInCubit>(context).signInGoogle();

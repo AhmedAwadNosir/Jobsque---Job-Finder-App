@@ -11,8 +11,8 @@ import 'package:jobsque_jobfinder/Features/Authentication/presentation/Widgets/p
 import 'package:jobsque_jobfinder/Features/Onboarding/presentation/Widgets/custom_button.dart';
 
 // ignore: must_be_immutable
-class JobTittleViewBody extends StatelessWidget {
-  JobTittleViewBody({
+class IntestedJobViewBody extends StatelessWidget {
+  IntestedJobViewBody({
     super.key,
     this.userName,
     this.email,
@@ -90,17 +90,15 @@ class JobTittleViewBody extends StatelessWidget {
               CustomButton(
                   onPressed: () {
                     if (JobTitleBox.joptitlepase.isNotEmpty) {
-                      Navigator.pushReplacement(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => WorkLocationView(
-                              userName: userName,
-                              email: email,
-                              registerMethode: registerMethode,
-                              jopTitle: JobTitleBox.joptitlepase,
-                              password: password,
-                            ),
-                          ));
+                      context.pushreplacmentex(
+                        WorkLocationView(
+                          userName: userName,
+                          email: email,
+                          registerMethode: registerMethode,
+                          jopTitle: JobTitleBox.joptitlepase,
+                          password: password,
+                        ),
+                      );
                     } else {
                       log(JobTitleBox.joptitlepase.toString());
                       showSnackBar(

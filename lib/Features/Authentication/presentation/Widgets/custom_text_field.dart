@@ -6,8 +6,8 @@ import '../../../../Core/Utils/constans.dart';
 import '../../functions/text_field_border_decoration.dart';
 
 // ignore: must_be_immutable
-class CustomTextField extends StatefulWidget {
-  CustomTextField({
+class CustomTextFormField extends StatefulWidget {
+  CustomTextFormField({
     super.key,
     required this.hintText,
     this.prefixicon,
@@ -34,10 +34,10 @@ class CustomTextField extends StatefulWidget {
   final TextStyle? helperStyle;
 
   @override
-  State<CustomTextField> createState() => _CustomTextFieldState();
+  State<CustomTextFormField> createState() => _CustomTextFormFieldState();
 }
 
-class _CustomTextFieldState extends State<CustomTextField> {
+class _CustomTextFormFieldState extends State<CustomTextFormField> {
   FocusNode focusNode = FocusNode();
   @override
   Widget build(BuildContext context) {
