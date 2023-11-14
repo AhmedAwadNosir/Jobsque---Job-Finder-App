@@ -27,7 +27,7 @@ class CheckEmialViewBody extends StatelessWidget {
           const Spacer(),
           CustomButton(
               onPressed: () async {
-                await openGmail();
+                // await openGmail();
                 Navigator.pushNamed(context, ResetPasswordView.id);
               },
               buttonName: "Open email app"),

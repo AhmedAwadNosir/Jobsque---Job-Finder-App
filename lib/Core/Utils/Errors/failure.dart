@@ -40,7 +40,7 @@ class ServerFailure extends Failure {
   factory ServerFailure.fromBadResponse(int statusCode) {
     if (statusCode == 400 || statusCode == 401 || statusCode == 403) {
       return ServerFailure(
-          "Opps there is an error with Api request. please try later!");
+          "Opps Wrong username or password or there is an error with Api request or . please try later!");
     } else if (statusCode == 404) {
       return ServerFailure("Your request not found. please try later!");
     } else if (statusCode == 500) {

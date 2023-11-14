@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:jobsque_jobfinder/Core/Utils/app_colors.dart';
@@ -39,6 +41,8 @@ class UserProfileStakeStyle extends StatelessWidget {
                               SharedPreferences prefs =
                                   await SharedPreferences.getInstance();
                               prefs.remove(isLogin);
+                              var loginkey = prefs.getString(loginTokenkey);
+                              log(loginkey ?? '');
                               Navigator.pushReplacementNamed(
                                   context, SignInView.id);
                             },

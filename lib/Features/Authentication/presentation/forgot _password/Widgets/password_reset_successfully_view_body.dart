@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:jobsque_jobfinder/Core/Utils/app_images.dart';
 import 'package:jobsque_jobfinder/Core/Wedgits/custom_state_page.dart';
+import 'package:jobsque_jobfinder/Features/Authentication/presentation/Sign_IN/Views/sign_in_view.dart';
 import 'package:jobsque_jobfinder/Features/Onboarding/presentation/Widgets/custom_button.dart';
 
 class PasswordResetSuccessfullyViewBody extends StatelessWidget {
@@ -23,7 +24,11 @@ class PasswordResetSuccessfullyViewBody extends StatelessWidget {
             spacebetweent: 12,
           ),
           const Spacer(),
-          CustomButton(onPressed: () {}, buttonName: "Open email app"),
+          CustomButton(
+              onPressed: () {
+                Navigator.pushNamed(context, SignInView.id);
+              },
+              buttonName: "Open email app"),
           const SizedBox(
             height: 9,
           ),

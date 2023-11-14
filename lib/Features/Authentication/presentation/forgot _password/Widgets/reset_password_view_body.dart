@@ -1,11 +1,17 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:jobsque_jobfinder/Core/Utils/app_colors.dart';
 import 'package:jobsque_jobfinder/Core/Utils/app_fonts_styles.dart';
+import 'package:jobsque_jobfinder/Features/Authentication/functions/show_snack_bar.dart';
 import 'package:jobsque_jobfinder/Features/Authentication/presentation/Widgets/custom_text_field.dart';
 import 'package:jobsque_jobfinder/Features/Authentication/presentation/Widgets/page_initail_info.dart';
+import 'package:jobsque_jobfinder/Features/Authentication/states_manager/Cubits/reset_password/reset_password_cubit.dart';
 import 'package:jobsque_jobfinder/Features/Onboarding/presentation/Widgets/custom_button.dart';
 import 'package:jobsque_jobfinder/Features/Authentication/presentation/forgot%20_password/views/password_reset_successfully_view.dart';
+import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 
 class ResetPasswordViewBody extends StatefulWidget {
   const ResetPasswordViewBody({super.key});
@@ -113,20 +119,43 @@ class _ResetPasswordViewBodyState extends State<ResetPasswordViewBody> {
                     },
                   ),
                   const Spacer(),
-                  CustomButton(
-                      onPressed: () {
-                        if (formkey.currentState!.validate()) {
-                          formkey.currentState!.save();
-                          Navigator.pushNamed(
-                              context, PasswordResetSuccessfullyView.id);
-                        } else {
-                          setState(() {
-                            autovalidateMode = AutovalidateMode.always;
-                          });
-                        }
-                      },
-                      buttonName: "Reset Password",
-                      buttonColor: AppColors.appPrimaryColors500),
+                  BlocConsumer<ResetPasswordCubit, ResetPasswordState>(
+                    listener: (context, state) {
+                      if (state is ResetPasswordSuccess) {
+                        log(state.result.toString());
+                        showSnackBar(
+                            "password has restored successfully", context);
+                        Navigator.pushNamed(
+                            context, PasswordResetSuccessfullyView.id);
+                      }
+                      if (state is ResetPasswordFailure) {
+                        showSnackBar(state.errorMessage, context);
+                      }
+                    },
+                    builder: (BuildContext context, ResetPasswordState state) {
+                      return SizedBox(
+                        height: 50,
+                        child: ModalProgressHUD(
+                          inAsyncCall:
+                              state is ResetPasswordLoading ? true : false,
+                          child: CustomButton(
+                              onPressed: () {
+                                if (formkey.currentState!.validate()) {
+                                  formkey.currentState!.save();
+                                  BlocProvider.of<ResetPasswordCubit>(context)
+                                      .resetPassword(password: password1);
+                                } else {
+                                  setState(() {
+                                    autovalidateMode = AutovalidateMode.always;
+                                  });
+                                }
+                              },
+                              buttonName: "Reset Password",
+                              buttonColor: AppColors.appPrimaryColors500),
+                        ),
+                      );
+                    },
+                  ),
                   const SizedBox(
                     height: 9,
                   )
